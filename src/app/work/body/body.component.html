@@ -1,0 +1,321 @@
+<!-- Section presentation -->
+<div class="wrapper">
+<!--  <app-nav-main></app-nav-main>-->
+  <div class="wrap-presentation">
+    <div class="section-1">
+      <div class="email animate__animated animate__bounce">
+        <i class="uil uil-at"></i>
+        <span>yfhl.contact@gmail.com</span>
+      </div>
+      <div class="section-info">
+        <div class="title">
+          <div class="span">
+            <div class="tw"></div>
+            <div class="txt-bolt tw2"></div>
+          </div>
+        </div>
+        <div class="description animate__animated animate__fadeInDown">
+          <p>
+            [ Egresado de la carrera de Ingeniería de Sistemas ] , de la UNJFSC - Huacho. <span class="desp-bolt"> Interesado en el desarrollo web. </span>
+          </p>
+        </div>
+      </div>
+      <div class="cv animate__animated animate__jackInTheBox">
+        <a href="#">
+          <span> DESCARGAR C.V &nbsp; <i class="uil uil-cloud-download"></i></span>
+        </a>
+      </div>
+    </div>
+    <div class="section-2 animate__animated  animate__jackInTheBox">
+      <img src="https://res.cloudinary.com/yfr/image/upload/v1614625116/portafolio/static/img1_tunczy.svg" alt="img-1">
+    </div>
+  </div>
+  <div class="red-social animate__animated animate__slideInUp" >
+    <a href="#"><i class="uil uil-facebook"></i></a>
+    <a href="#"><i class="uil uil-github"></i></a>
+    <a href="#"><i class="uil uil-gitlab"></i></a>
+    <a href="#"><i class="uil uil-linkedin"></i></a>
+    <a href="#"><i class="uil uil-youtube"></i></a>
+
+  </div>
+</div>
+<!-- end presentation-->
+
+<!-- Section About-->
+<div class="wrapper-about" id="about">
+
+  <div class="wrap-about">
+    <div class="section-1">
+      <img src="https://res.cloudinary.com/yfr/image/upload/v1614286980/portafolio/static/foto-portada_nr8vvz.jpg" alt="foto-peril">
+    </div>
+    <div class="section-2">
+      <div class="title">
+        SOBRE MI...
+      </div>
+      <div class="description">
+        <p>
+          Mi objetivo profesional es convertirme en un Full Stack Web Developer de alto nivel, actualmente manejo, Git, Html5 & Css, Angular Cli, Spring Boot, Sql y otras herramientas tecnologías, a nivel básico e intermedio. Puedo realizar diseño visual de interfaces (UI) de aplicativos móviles y sitios web con herramientas como Figma, Lunacy o Adobe XD.
+        </p>
+      </div>
+      <div class="items">
+        <ul>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; 23 años</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp; Lima, Perú</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> &nbsp; Spring Boot, Angular, Mysql</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; Música, Películas, Series, Videojuegos</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; Autodidacta, disciplinado, honesto, persistente,  proactivo</li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!--end About-->
+
+<!--my abilities-->
+<div class="wrap-abilities">
+  <div class="title-abilities">
+    <div class="m-h">
+      [ Mis habilidades ]
+    </div>
+  </div>
+  <div class="wrapper-abilities">
+    <div class="space">
+      <div class="solo-boxs">
+        <div class="section-1" *ngFor="let ite of [1,1,1]">
+          <div class="box" *ngFor=" let item of  [1,1,1]" >
+            <div class="logo-name">
+              <div class="logo"><img src="./assets/angular.svg" alt="logo"> </div>
+              <div class="name">Angular Cli</div>
+            </div>
+            <div class="progress">
+              <div class="progress-content"></div>
+            </div>
+            <div class="description">
+              <div class="percentage"> 35% </div>
+              <div class="detail">{{detail}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-2 ">
+        <div class="box" *ngFor="let item of [1,1,1,1,1,1,1]">
+          <div class="icon-title">
+            <div class="icon"> <i class="uil uil-coffee"></i> </div>
+            <div class="title"> Lenguaje de programación </div>
+          </div>
+          <div>
+            <div class="name-percentage">
+              <div class="name">Java</div>
+              <div class="percentage">40%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="info">
+    <span><i class="uil uil-rocket"></i></span> &nbsp;
+    <span>Aprendiendo nuevas tecnologías...</span>
+  </div>
+</div>
+<!--end abilities-->
+
+<!--my projects-->
+<div class="wrapper-projects">
+
+  <div class="title" style="margin-top: 48px;"> [ Proyectos ] </div>
+  <div class="heading">
+    <div class="label">Filtar</div>
+    <div class="section">
+      <span *ngFor="let item of [1,1,1,1,1]">Nuevo <span>05</span> </span>
+    </div>
+    <div class="btn">
+      <label>
+        <select name="select">
+          <option value="value1">Value 1</option>
+          <option value="value2" selected> Todo </option>
+          <option value="value3">Value 3</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <hr>
+  <div class="content-project">
+    <div class="section">
+      <div class="row">
+        <div class="row-item col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let i of [1,1,1,1,1,1]">
+          <div class="item-p">
+            <div class="img">
+              <div class="recurs">
+                <ul *ngFor="let icon of [1,2,3]">
+                  <li><img src="./assets/Icon-figma.svg" alt=""></li>
+                </ul>
+              </div>
+              <img src="https://res.cloudinary.com/yfr/image/upload/v1614535654/portafolio/static/covit-cover_1_fjdkmg.png" alt="">
+            </div>
+            <div class="section-info">
+              <div class="item-info">
+                <div class="title">Prototipo App, covit - 19 </div>
+                <div class="description"> Domingo, 21 de febrero 2021 </div>
+              </div>
+              <div class="icons">
+                <a href="#">
+                  <span><i class="uil uil-github"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<!--end projects-->
+
+<div class="section__background">
+  <!-- section service-->
+  <div class="service">
+    <span class="title__section">[ Mis servicios ]</span>
+    <div class="service__item">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+          <div class="service__item__box">
+            <div class="service__item__title">
+              <span class="icon"><i class="uil uil-pathfinder"></i></span> &nbsp; <span class="name">Prototipado</span>
+            </div>
+            <div class="service__item__description">
+              Modelo de Apps, interactivas y agradable.
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+          <div class="service__item__box">
+          <div class="service__item__title">
+          <span class="icon">
+            <i class="uil uil-arrow"></i>
+          </span> &nbsp;
+            <span class="name">Desarrollo Frontend</span>
+          </div>
+          <div class="service__item__description">
+            Maquetación de paginas responsivas.
+          </div>
+        </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+          <div class="service__item__box">
+          <div class="service__item__title">
+            <span class="icon"><i class="uil uil-server-connection"></i></span> &nbsp; <span class="name">Desarrollo Backend</span>
+          </div>
+          <div class="service__item__description">
+            API REST con Node JS, y Spring Boot.
+          </div>
+        </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+          <div class="service__item__box">
+          <div class="service__item__title">
+            <span class="icon"><i class="uil uil-laptop"></i></span> &nbsp; <span class="name">Soporte de Proyectos</span>
+          </div>
+          <div class="service__item__description">
+            Optimizacion y Soluciones de Codigo.
+          </div>
+        </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <!-- end service  -->
+
+  <div class="certificate">
+    <div class="certificate_background">
+      <div class="title__section">
+        [ Certificados ]
+      </div>
+      <div class="certificate__item">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let item of [1,1,1,1,1]">
+            <a href="#" class="crf__item__box">
+              <div class="crf__logo__emp">
+                <img src="https://res.cloudinary.com/yfr/image/upload/v1614558552/portafolio/static/cspRecurso_1_efeohi.svg" alt="">
+              </div>
+              <div class="emp_info">
+                <div class="name__emp"> Contructora Supiza Perú</div>
+                <span class="crf_description">Bases de Datos con SQL Server de Cero a Profesional, Udemy.</span>
+                <div class="cerficate_fecha">
+                  Diciembre 2020 - presente
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4 ver" style="margin: auto;">
+            <a class="ver__todo" href="#"> <span><i class="uil uil-arrow-right"></i></span> Ver todo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="background_footer">
+    <footer>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+          <div class="info_principal">
+            <div class="footer_logo">
+              <img src="./assets/icon-logo-web_dark.svg" alt="logo">
+            </div>
+            <div class="footer_description">
+              <p> Egresado de la carrera de Ingeniería de Sistemas, desarrollador <b>Full-Stack Developers</b></p>
+            </div>
+            <div class="footer-red-social" >
+              <a href="#"><i class="uil uil-facebook"></i></a>
+              <a href="#"><i class="uil uil-github"></i></a>
+              <a href="#"><i class="uil uil-gitlab"></i></a>
+              <a href="#"><i class="uil uil-linkedin"></i></a>
+              <a href="#"><i class="uil uil-youtube"></i></a>
+            </div>
+            <div class="copy">
+              ©2021Yefer<b>HL</b>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 col-sm-12 col-md-6 col-lg-8">
+         <div class="links d-flex">
+           <ul>
+             <li><a href="#">Resume</a></li>
+             <li><a href="#">Contact</a></li>
+             <li><a href="#">Blog</a></li>
+           </ul>
+           <ul>
+             <li><a href="#">Projects</a></li>
+             <li><a href="#">Services</a></li>
+             <li><a href="#">Certificates</a></li>
+           </ul>
+           <ul>
+             <li><a href="#">Home</a></li>
+             <li><a href="#">About</a></li>
+             <li><a href="#">My abilities</a></li>
+           </ul>
+         </div>
+       </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- wsp -->
+<section>
+  <jjva-ngx-whatsapp-button
+    [ngx_whatsapp_phone]="phone" [ngx_whatsapp_text]="msm">
+  </jjva-ngx-whatsapp-button>
+</section>

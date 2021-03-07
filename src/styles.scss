@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+$color-bt-1:#F53838;
+
+$color-tx-1:#0B132A;
+$color-tx-2:#283238;
+$color-tx-3:#4F5665;
+$color-tx-4:#808080;
+$color-tx-4:#B8B8B8;
+
+
+$color-bac-1:#FBFBFB;
+$color-bac-2:#F8F8F8;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+$font: 'Roboto', sans-serif;
+
+$color-primary: #17212D;
+
+html, body{
+  font-family: $font;
+  margin: 0;
+  padding: 0;
+  background: $color-primary;
+}

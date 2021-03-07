@@ -1,0 +1,156 @@
+$color-bt-1:#1EA1F3;
+
+$color-tx-1:#fff;
+$color-tx-2:#283238;
+$color-tx-3:#fff;
+$color-tx-4:#808080;
+$color-tx-4:#B8B8B8;
+
+
+$color-bac-1:#FBFBFB;
+$color-bac-2:#F8F8F8;
+
+
+
+:root {
+  --animate-delay: 2s;
+}
+
+nav {
+  width: 100%;
+  padding: 35px 20px 60px;
+  //display: flex;
+  align-items: center;
+  max-width: 1140px;
+  margin: auto;
+  .section-1 {
+    .logo {
+
+      img {
+        outline: none;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  .space {
+    flex: 1;
+  }
+
+  .menu {
+    width: 35px ;
+    height: 35px;
+    font-size: 18px;
+    color: $color-tx-1;
+    display: none;
+    background: transparent;
+    padding:5px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+
+    .check {
+      display: flex;
+      margin: auto;
+      i {
+        vertical-align: middle;
+      }
+    }
+    &:hover {
+      background: rgba(11, 19, 42, 0.4);
+    }
+    &:active {
+      //background: rgba(11, 19, 42, 0.2);
+      background: #2DA9DD;
+    }
+
+  }
+
+  .section-2 {
+    display: flex;
+    float: right;
+    align-items: center;
+    .items{
+      display: flex;
+      margin-right: 25px;
+      .activo {
+        color: $color-bt-1;
+      }
+      a {
+        margin: 5px 10px;
+        text-decoration: none;
+        color: $color-tx-3;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+        &:hover{
+          color: $color-bt-1;
+          font-weight: 400;
+        }
+      }
+    }
+
+  }
+
+
+  #check:checked ~ .section-2 {
+    left: 0;
+  }
+}
+
+// mobile iPad
+@media (max-width:768px) {
+
+  nav {
+    padding: 15px 20px 15px;
+    .menu {
+      display: inline;
+      transition: 0.3s margin ease-in-out;
+    }
+    .section-2 {
+      transition: all .4s ease-out;
+      background: rgba(255, 255, 255, 0.03);
+      flex-direction: row;
+      margin-top: 15px;
+      width: 100%;
+      display: none;
+
+      .items{
+        flex-direction: column;
+
+        a {
+          margin-top: 9px;
+          margin-bottom: 9px;
+        }
+      }
+    }
+
+    .noactive {
+      display: inline;
+
+    }
+    .active {
+      display: none;
+    }
+  }
+
+}
+
+//mobile Moto G4
+@media (max-width: 360px) {
+
+  nav {
+    .section-2 {
+      flex-direction: column;
+      .wsp {
+        margin-top: 20px;
+        justify-content: center;
+      }
+    }
+  }
+
+}
+
+//animations
