@@ -10,21 +10,27 @@ import { WorkModule } from './work/work.module';
 // External
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {NavBarModule} from './nav-bar/nav-bar.module';
+import { ContactModule } from './contact/contact.module';
+import { PagesModule } from './resume/pages.module';
+import {FooterModule} from './footer/footer.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    WorkModule,
-    NgxSpinnerModule,
-    NavBarModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        WorkModule,
+        ContactModule,
+        PagesModule,
+        FooterModule,
+        NgxSpinnerModule,
+        NavBarModule,
+    ],
+    providers: [],
+    exports: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

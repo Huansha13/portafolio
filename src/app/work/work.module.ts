@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BodyComponent } from './body/body.component';
 import {NavBarModule} from '../nav-bar/nav-bar.module';
 import {NgxWhastappButtonModule} from 'ngx-whatsapp-button';
+import {FooterModule} from '../footer/footer.module';
 
 
 
@@ -15,6 +16,7 @@ import {NgxWhastappButtonModule} from 'ngx-whatsapp-button';
     CommonModule,
     NavBarModule,
     NgxWhastappButtonModule,
+    FooterModule,
   ]
 })
 export class WorkModule { }

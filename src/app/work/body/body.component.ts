@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 //external
 import Typewriter from 't-writer.js';
+import {$} from 'protractor';
 
 @Component({
   selector: 'app-body',
@@ -25,6 +26,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
   ngAfterViewInit() {
 
   }
+
 
 
   writerName():void {

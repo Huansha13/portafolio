@@ -2,13 +2,32 @@
   color: #fff;
 }
 
-$color-fecha: #515151;
+$color-fecha: #909090;
 $color-white: #fff;
-.wrapper {
+
+/*General*/
+
+.name {
+  color: $color-white;
+  font-weight: 400;
+  font-size: 16px;
+}
+.fecha {
+  color: $color-fecha;
+  font-weight: 300;
+  font-size: 14px;
+}
+.description {
+  color: #6B6F77;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+/*SECTION EDUCATIONS*/
+.wrapper-education {
   display: flex;
   justify-content: space-between;
 }
-
 .g-title {
   text-transform: uppercase;
   font-weight: 500;
@@ -25,43 +44,200 @@ $color-white: #fff;
   font-size: 15px;
   text-transform: uppercase;
 }
+.edu {
+  margin-bottom: 15px;
+}
 .box {
   display: flex;
   align-items: center;
-}
-.bar-circle {
-  display: flex;
-  align-items: center;
-  position: relative;
-  .bar {
-    height: 70px;
-    border-left: 3px solid $color-white;
-    margin-left: 5px;
-    padding-left: 5px;
-  }
-  .circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: $color-white;
-    position: absolute;
-    left: -4px;
-  }
+  border-left: 1px solid $color-white;
+  margin-left: 5px;
+  padding-left: 5px;
+  position:relative;
 }
 .cont-item {
   margin-left: 15px;
-  p {
-    font-weight: 500;
-  }
+  margin-top: 20px;
   .fecha-item {
     text-transform: uppercase;
     color: $color-fecha ;
   }
 }
-
+.circle-p {
+  display: flex;
+  align-items: center;
+  .circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $color-white;
+    position: absolute;
+    left: -8px;
+  }
+  .n-e {
+    margin-bottom: 10px;
+  }
+}
 .section-2 {
-  background: #F53838;
   img {
     width: 80%;
+  }
+}
+/*END SECTION EDUCATIONS*/
+
+/*SECTION PP*/
+.wrapper-pp {
+margin-top: 100px;
+}
+.pp {
+  text-align: center;
+}
+
+.wrap-app {
+  margin-top: 30px;
+}
+.box-pp {
+  display: flex;
+  justify-content: center;
+}
+.section-1-pp {
+  padding: 15px 25px 15px;
+  display: flex;
+  align-items: center;
+}
+.sec-circle {
+  position: relative;
+  align-items: center;
+  display: flex;
+}
+.circle-pp {
+  width: 16px;
+  height: 16px;
+  background: $color-white;
+  border-radius: 50%;
+  position: absolute;
+  left: 18px;
+}
+
+.section-2-pp {
+  border-left: 1px solid $color-white;
+  padding: 15px 25px 15px;
+  max-width: 360px;
+}
+.n-pp {
+  max-width: 352px;
+  text-align: end;
+}
+.d-pp {
+  margin-top: 10px;
+}
+/*END PP*/
+
+/*SECTION EXP*/
+.c-exp {
+  position: relative;
+}
+.s-exp {
+  text-align: right;
+  margin-bottom: 20px;
+}
+.background-exp {
+  width: 100%;
+  background: #252E39;
+  padding: 30px;
+  margin-top: 40px;
+  position: absolute;
+}
+.wrap-exp {
+  display: flex;
+  justify-content: space-between;
+}
+.section-1-exp {
+  img {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+.description-exp {
+  font-weight: 300;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.box-exp {
+  margin-top: 50px;
+  text-align: right;
+  border-right: 1px solid $color-white;
+  max-width: 340px;
+  padding-right: 15px;
+  .box-n-c {
+    display: flex;
+    align-items: center;
+    .n-exp {
+      //max-width: 330px;
+    }
+  }
+  p {
+    margin-right: 25px;
+  }
+}
+.c-c {
+  position: relative;
+  display: flex;
+}
+.circle-exp {
+  width: 16px;
+  height: 16px;
+  background: $color-white;
+  border-radius: 50%;
+  position: absolute;
+  left: 8px;
+}
+
+.item-box-exp {
+  margin-bottom: 15px;
+}
+
+.f {
+  padding-top: 250px;
+}
+.f-exp {
+  margin-top: 10px;
+}
+.d-exp {
+  margin-top: 10px;
+}
+
+/*END EXP*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------*/
+//mobile iPad
+@media (max-width: 768px) {
+  .section-2 {
+    display: none;
+  }
+  .f {
+    padding-top: 800px;
+  }
+}
+//mobile pixel 2
+@media (max-width: 411px) {
+  .wrap-exp {
+    display: block;
   }
 }

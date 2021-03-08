@@ -1,22 +1,19 @@
 <div class="container">
-
-  <div class="wrapper">
+  <!-- /*SECTION EDUCATIONS*/ -->
+  <div class="wrapper-education">
     <div class="section-1">
       <div class="g-title">
         Aquí mi <br/> <b>resumen...</b>
       </div>
       <div class="cont-education">
-        <div class="sub-title">
-          [ Educación ]
-        </div>
-        <div class="box" *ngFor=" let item of  [1,1,1]" >
-          <div class="bar-circle">
-            <div class="bar"></div>
-            <div class="circle"></div>
-          </div>
+        <div class="sub-title edu">[ Educación ]</div>
+        <div class="box" *ngFor=" let i of  [1,1,1,1]" >
           <div class="cont-item">
-            <p>[ primaria ]: Colegio María Auxiliadora, Carhuaz.</p>
-            <div class="fecha-item">
+            <div class="circle-p">
+              <div class="circle"></div>
+              <span class="name n-e">[ primaria ]: Colegio María Auxiliadora, Carhuaz.</span>
+            </div>
+            <div class="fecha-item fecha">
               Septiembre 2004 - Diciembre 2009
             </div>
           </div>
@@ -27,5 +24,69 @@
       <img src="https://res.cloudinary.com/yfr/image/upload/v1614959922/portafolio/static/img-2_qulz8c.svg" alt="img">
     </div>
   </div>
+  <!-- /* END EDUCATIONS*/ -->
 
+  <!-- SECTION PP-->
+  <div class="wrapper-pp">
+    <div class="sub-title pp">[ Prácticas pre profesionales ]</div>
+    <div class="wrap-app">
+      <div class="box-pp" *ngFor="let pp of [1,1]">
+        <div class="section-1-pp">
+          <span class="name n-pp">Universidad Nacional José Faustino Sánchez Carrión, Huacho.</span>
+          <div class="sec-circle">
+            <div class="circle-pp"></div>
+          </div>
+        </div>
+        <div class="section-2-pp">
+          <div class="fecha">Septiembre 2019 - Diciembre 2019</div>
+          <div class="description d-pp">
+            Documentación de software y procesos de calificación en el área de admisión.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END PP -->
+
+  <!-- SECTION EXP -->
+  <div class="c-exp">
+    <div class="background-exp">
+      <div class="sub-title s-exp">[ Experiencia de Desarrollo ]</div>
+      <div class="wrap-exp">
+        <div class="section-1-exp">
+          <img src="https://res.cloudinary.com/yfr/image/upload/v1615140743/portafolio/static/exp_zyfquj.svg" alt="img-exp  ">
+          <div class="info-v-exp">
+            <br>
+            <p class="sub-title">[ Competencias ]</p>
+            <span class="description-exp">
+          Autodidacta, disciplinado, honesto, persistente,  proactivo
+        </span>
+          </div>
+        </div>
+        <div class="section-2-exp">
+          <div class="box-exp">
+            <div class="item-box-exp" *ngFor="let exp of [1,1]">
+              <div class="box-n-c">
+                <div class="name n-exp">CONSTRUCTORA SUIZA PERU S.A.C, Ventanilla - Lima</div>
+                <div class="c-c">
+                  <div class="circle-exp"></div>
+                </div>
+              </div>
+              <div class="info-exp">
+                <div class="fecha f-exp">ENERO 2019 - MARZO 2019</div>
+                <div class="description d-exp">
+                  Tareas realizadas: Apoyo en la implementación y mantenimiento de Sistemas de Inventario, en la área de informática
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END EXP -->
 </div>
+<div class="f">
+  <app-footer></app-footer>
+</div>
+

@@ -1,27 +1,31 @@
-<nav class=" d-flex flex-wrap animate__animated animate__slideInDown ">
-  <div class="section-1 ">
-    <div class="logo">
-      <img routerLink="" src="assets/icon-logo-web_dark.svg" alt="logo">
+
+<div class="border">
+  <nav class=" d-flex flex-wrap animate__animated animate__slideInDown ">
+    <div class="section-1 ">
+      <div class="logo">
+        <img routerLink="" src="assets/icon-logo-web_dark.svg" alt="logo">
+      </div>
     </div>
-  </div>
-  <div class="space"></div>
-  <div class="menu">
-   <div class="d-flex">
-     <input type="checkbox" id="check" style="display: none" (click)="mostarOcultar()">
-     <label for="check" class="check">
-       <i class="uil uil-align-center-alt"></i>
-     </label>
-   </div>
-  </div>
-  <div class="section-2"
-       [ngClass]="{noactive:!active, active:active}" >
-    <div class="items">
-      <a href="#about">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Services</a>
-      <a routerLink="/resume" routerLinkActive="activo">Resume</a>
-      <a routerLink="/contact">Contact</a>
-      <a href="#">Blog</a>
+    <div class="space"></div>
+    <div class="menu">
+      <div class="d-flex">
+        <input type="checkbox" id="check" style="display: none" (click)="mostarOcultar()">
+        <label for="check" class="check">
+          <i class="uil uil-align-center-alt"></i>
+        </label>
+      </div>
     </div>
-  </div>
-</nav>
+    <div class="section-2"
+         [ngClass]="{noactive:!active, active:active}" >
+      <div class="items">
+        <a href="" routerLinkActive="activo">Home</a>
+        <a href="#about" routerLinkActive="activo">About</a>
+        <a href="#projects" routerLinkActive="activo">Projects</a>
+        <a href="#services" routerLinkActive="activo">Services</a>
+        <a routerLink="/resume" routerLinkActive="activo">Resume</a>
+        <a routerLink="/contact" routerLinkActive="activo">Contact</a>
+        <!--      <a routerLink="/blog" routerLinkActive="activo">Blog</a>-->
+      </div>
+    </div>
+  </nav>
+</div>
