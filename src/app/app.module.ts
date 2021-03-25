@@ -14,20 +14,27 @@ import { ContactModule } from './contact/contact.module';
 import { PagesModule } from './resume/pages.module';
 import {FooterModule} from './footer/footer.module';
 
+//module external
+import { AngularFireModule } from '@angular/fire'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
+import {environment} from '../environments/environment';
+
 @NgModule({
     declarations: [
         AppComponent,
     ],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        WorkModule,
-        ContactModule,
-        PagesModule,
-        FooterModule,
-        NgxSpinnerModule,
-        NavBarModule,
+      BrowserModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      WorkModule,
+      ContactModule,
+      PagesModule,
+      FooterModule,
+      NgxSpinnerModule,
+      NavBarModule,
+      AngularFireModule.initializeApp(environment.firebase),
+      AngularFirestoreModule
     ],
     providers: [],
     exports: [],

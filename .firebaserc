@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "portafolio-ca0f8": {
+      "hosting": {
+        "portfolio": [
+          "portafolio-ca0f8"
+        ]
+      }
+    }
+  }
+}

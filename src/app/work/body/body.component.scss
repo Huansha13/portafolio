@@ -185,6 +185,9 @@ $colo-blaco-bajo: #B8B8B8;
 // end presentation
 
 /*------------------------------------------*/
+.sec-tec {
+  margin-bottom: 15px;
+}
 
 // section about
 .mailto {
@@ -277,6 +280,7 @@ $colo-blaco-bajo: #B8B8B8;
         .section-1 {
           display: flex;
           width: 740px;
+          flex-wrap: wrap;
           margin-bottom: 25px;
           .box {
             width: 230px;
@@ -284,7 +288,8 @@ $colo-blaco-bajo: #B8B8B8;
             box-shadow: 0 0 2px rgba(222, 222, 222, 0.24);
             border-radius: 5px;
             padding: 15px;
-            margin-right: 25px;
+            margin-right: 15px;
+            margin-bottom: 15px;
             //&:last-child {
             //  margin-right: 0;
             //}
@@ -350,6 +355,7 @@ $colo-blaco-bajo: #B8B8B8;
         .box .icon-title {
           display: flex;
           align-items: center;
+          margin-bottom: 5px;
           .icon {
             font-size: 22px;
             font-weight: 500;
@@ -488,6 +494,7 @@ $colo-blaco-bajo: #B8B8B8;
                 display: flex;
                 position: absolute;
                 filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+                margin-left: 10px;
                 ul {
                   margin: 0;
                   padding: 0;
@@ -495,14 +502,14 @@ $colo-blaco-bajo: #B8B8B8;
                     list-style: none;
                     z-index: 100;
                     position: relative;
-                    margin-right: -20px;
+                    margin-right: -10px;
                   }
 
                   &:last-child {
                     margin-right: 0;
                   }
                   img {
-                    width: 40px;
+                    width: 27px;
                     height: 40px;
                   }
                 }
@@ -634,6 +641,7 @@ $colo-blaco-bajo: #B8B8B8;
   text-decoration: none;
   margin-right: 10px;
   margin-bottom: 10px;
+  height: 111px;
 
   .crf__logo__emp {
     margin-right: 15px;

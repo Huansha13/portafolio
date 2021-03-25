@@ -7,14 +7,14 @@
       </div>
       <div class="cont-education">
         <div class="sub-title edu">[ Educación ]</div>
-        <div class="box" *ngFor=" let i of  [1,1,1,1]" >
+        <div class="box" *ngFor=" let i of  educacion" >
           <div class="cont-item">
             <div class="circle-p">
               <div class="circle"></div>
-              <span class="name n-e">[ primaria ]: Colegio María Auxiliadora, Carhuaz.</span>
+              <span class="name n-e">{{i.titulo}}.</span>
             </div>
             <div class="fecha-item fecha">
-              Septiembre 2004 - Diciembre 2009
+              {{i.fecha}}
             </div>
           </div>
         </div>
@@ -30,17 +30,17 @@
   <div class="wrapper-pp">
     <div class="sub-title pp">[ Prácticas pre profesionales ]</div>
     <div class="wrap-app">
-      <div class="box-pp" *ngFor="let pp of [1,1]">
+      <div class="box-pp" *ngFor="let pp of pp">
         <div class="section-1-pp">
-          <span class="name n-pp">Universidad Nacional José Faustino Sánchez Carrión, Huacho.</span>
+          <span class="name n-pp">{{pp.titulo}}</span>
           <div class="sec-circle">
             <div class="circle-pp"></div>
           </div>
         </div>
         <div class="section-2-pp">
-          <div class="fecha">Septiembre 2019 - Diciembre 2019</div>
+          <div class="fecha" style="text-transform: uppercase">{{pp.fecha}}</div>
           <div class="description d-pp">
-            Documentación de software y procesos de calificación en el área de admisión.
+           {{pp.descripcion}}
           </div>
         </div>
       </div>
@@ -65,17 +65,17 @@
         </div>
         <div class="section-2-exp">
           <div class="box-exp">
-            <div class="item-box-exp" *ngFor="let exp of [1,1]">
+            <div class="item-box-exp" *ngFor="let exp of experiencia">
               <div class="box-n-c">
-                <div class="name n-exp">CONSTRUCTORA SUIZA PERU S.A.C, Ventanilla - Lima</div>
+                <div class="name n-exp">{{exp.titulo}}</div>
                 <div class="c-c">
                   <div class="circle-exp"></div>
                 </div>
               </div>
               <div class="info-exp">
-                <div class="fecha f-exp">ENERO 2019 - MARZO 2019</div>
+                <div class="fecha f-exp">{{exp.fecha}}</div>
                 <div class="description d-exp">
-                  Tareas realizadas: Apoyo en la implementación y mantenimiento de Sistemas de Inventario, en la área de informática
+                  {{exp.descripcion}}
                 </div>
               </div>
             </div>

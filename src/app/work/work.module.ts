@@ -18,5 +18,6 @@ import {FooterModule} from '../footer/footer.module';
     NgxWhastappButtonModule,
     FooterModule,
   ]
+
 })
 export class WorkModule { }

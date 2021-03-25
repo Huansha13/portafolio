@@ -3,9 +3,9 @@
 <!--  <app-nav-main></app-nav-main>-->
   <div class="wrap-presentation">
     <div class="section-1">
-      <div class="email animate__animated animate__bounce">
+      <div class="email animate__animated animate__bounce" *ngFor="let home of homes">
         <i class="uil uil-at"></i>
-        <span><a class="mailto" href="mailto:yfhl.contact@gmail.com">yfhl.contact@gmail.com</a></span>
+        <span><a class="mailto" href="mailto:{{home.correo}}">{{home.correo}}</a></span>
       </div>
       <div class="section-info">
         <div class="title">
@@ -14,14 +14,12 @@
             <div class="txt-bolt tw2"></div>
           </div>
         </div>
-        <div class="description animate__animated animate__fadeInDown">
-          <p>
-            [ Egresado de la carrera de Ingeniería de Sistemas ] , de la UNJFSC - Huacho. <span class="desp-bolt"> Interesado en el desarrollo web. </span>
-          </p>
+        <div class="description animate__animated animate__fadeInDown" *ngFor="let home of homes">
+          <p> {{home.descripcion}} </p>
         </div>
       </div>
-      <div class="cv animate__animated animate__jackInTheBox">
-        <a href="#">
+      <div class="cv animate__animated animate__jackInTheBox" *ngFor="let home of homes">
+        <a href="{{home.linkCv}}" target="_blank">
           <span> DESCARGAR C.V &nbsp; <i class="uil uil-cloud-download"></i></span>
         </a>
       </div>
@@ -31,11 +29,11 @@
     </div>
   </div>
   <div class="red-social animate__animated animate__slideInUp" >
-    <a href="#"><i class="uil uil-facebook"></i></a>
-    <a href="#"><i class="uil uil-github"></i></a>
-    <a href="#"><i class="uil uil-gitlab"></i></a>
-    <a href="#"><i class="uil uil-linkedin"></i></a>
-    <a href="#"><i class="uil uil-youtube"></i></a>
+    <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
+    <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
+    <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
+    <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i class="uil uil-linkedin"></i></a>
+    <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i class="uil uil-youtube"></i></a>
 
   </div>
 </div>
@@ -44,26 +42,24 @@
 <!-- Section About-->
 <div class="wrapper-about" id="about">
 
-  <div class="wrap-about">
+  <div class="wrap-about" *ngFor="let ab of about" >
     <div class="section-1">
-      <img src="https://res.cloudinary.com/yfr/image/upload/v1614286980/portafolio/static/foto-portada_nr8vvz.jpg" alt="foto-peril">
+      <img src="{{ab.fotoPerfil}}" alt="foto-peril">
     </div>
     <div class="section-2">
       <div class="title">
         SOBRE MI...
       </div>
       <div class="description">
-        <p>
-          Mi objetivo profesional es convertirme en un Full Stack Web Developer de alto nivel, actualmente manejo, Git, Html5 & Css, Angular Cli, Spring Boot, Sql y otras herramientas tecnologías, a nivel básico e intermedio. Puedo realizar diseño visual de interfaces (UI) de aplicativos móviles y sitios web con herramientas como Figma, Lunacy o Adobe XD.
-        </p>
+        <p>{{ab.descripcion}}</p>
       </div>
       <div class="items">
         <ul>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; 23 años</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp; Lima, Perú</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> &nbsp; Spring Boot, Angular, Mysql</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; Música, Películas, Series, Videojuegos</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; Autodidacta, disciplinado, honesto, persistente,  proactivo</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{ab.edad}}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp; {{ab.ubicacion}}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> {{ab.stack}}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; {{ab.interes}}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; {{ab.competencia}}</li>
 
         </ul>
       </div>
@@ -83,35 +79,35 @@
   <div class="wrapper-abilities">
     <div class="space">
       <div class="solo-boxs">
-        <div class="section-1" *ngFor="let ite of [1,1,1]">
-          <div class="box" *ngFor=" let item of  [1,1,1]" >
+        <div class="section-1">
+          <div class="box" *ngFor=" let abi of  abilities" >
             <div class="logo-name">
-              <div class="logo"><img src="./assets/angular.svg" alt="logo"> </div>
-              <div class="name">Angular Cli</div>
+              <div class="logo"><img src="{{abi.icono}}" alt="logo"> </div>
+              <div class="name">{{abi.nombre}}</div>
             </div>
-            <div class="progress">
-              <div class="progress-content"></div>
+            <div class="progress" >
+              <div class="progress-content" [ngStyle]="{'background': abi.color, 'width':2 * abi.porcentaje + 'px'}"></div>
             </div>
             <div class="description">
-              <div class="percentage"> 35% </div>
+              <div class="percentage"> {{abi.porcentaje}}% </div>
               <div class="detail">{{detail}}</div>
             </div>
           </div>
         </div>
       </div>
       <div class="section-2 ">
-        <div class="box" *ngFor="let item of [1,1,1,1,1,1,1]">
+        <div class="box" *ngFor="let item of abiliSec">
           <div class="icon-title">
-            <div class="icon"> <i class="uil uil-coffee"></i> </div>
-            <div class="title"> Lenguaje de programación </div>
+            <div class="icon"> <span [innerHTML]="item.icono"></span> </div>
+            <div class="title"> {{item.nombre}} </div>
           </div>
-          <div>
+          <div *ngFor="let item of item.tec" class="sec-tec">
             <div class="name-percentage">
-              <div class="name">Java</div>
-              <div class="percentage">40%</div>
+              <div class="name">{{item.nombre}}</div>
+              <div class="percentage">{{item.porcentaje}}%</div>
             </div>
             <div class="progress">
-              <div class="progress-content"></div>
+              <div class="progress-content" [ngStyle]="{'background': item.color, 'width':3.4 * item.porcentaje + 'px'}" ></div>
             </div>
           </div>
         </div>
@@ -148,24 +144,24 @@
   <div class="content-project">
     <div class="section">
       <div class="row">
-        <div class="row-item col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let i of [1,1,1,1,1,1]">
+        <div class="row-item col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let i of project">
           <div class="item-p">
             <div class="img">
               <div class="recurs">
-                <ul *ngFor="let icon of [1,2,3]">
-                  <li><img src="./assets/Icon-figma.svg" alt=""></li>
+                <ul *ngFor="let i of i.recurso">
+                  <li><img [src]="i.logo" alt=""></li>
                 </ul>
               </div>
-              <img src="https://res.cloudinary.com/yfr/image/upload/v1614535654/portafolio/static/covit-cover_1_fjdkmg.png" alt="">
+              <img [src]="i.portada" alt="">
             </div>
             <div class="section-info">
               <div class="item-info">
-                <div class="title">Prototipo App, covit - 19 </div>
-                <div class="description"> Domingo, 21 de febrero 2021 </div>
+                <div class="title">{{i.titulo}}</div>
+                <div class="description"> {{i.fecha}} </div>
               </div>
               <div class="icons">
-                <a href="#">
-                  <span><i class="uil uil-github"></i></span>
+                <a [href]="i.url" target="_blank" *ngFor="let i of i.link">
+                  <span [innerHTML]="i.icono"></span>
                 </a>
               </div>
             </div>
@@ -244,23 +240,23 @@
       </div>
       <div class="certificate__item">
         <div class="row">
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let item of [1,1,1,1,1]">
-            <a href="#" class="crf__item__box">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let item of cerfificado">
+            <a [href]="item.url" target="_blank" class="crf__item__box">
               <div class="crf__logo__emp">
-                <img src="https://res.cloudinary.com/yfr/image/upload/v1614558552/portafolio/static/cspRecurso_1_efeohi.svg" alt="">
+                <img [src]="item.logo" alt="">
               </div>
               <div class="emp_info">
-                <div class="name__emp"> Contructora Supiza Perú</div>
-                <span class="crf_description">Bases de Datos con SQL Server de Cero a Profesional, Udemy.</span>
+                <div class="name__emp"> {{item.titulo}}</div>
+                <span class="crf_description">{{item.descripcion}}</span>
                 <div class="cerficate_fecha">
-                  Diciembre 2020 - presente
+                  {{item.fecha}}
                 </div>
               </div>
             </a>
           </div>
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 ver" style="margin: auto;">
-            <a class="ver__todo" href="#"> <span><i class="uil uil-arrow-right"></i></span> Ver todo</a>
-          </div>
+<!--          <div class="col-12 col-sm-12 col-md-6 col-lg-4 ver" style="margin: auto;">-->
+<!--            <a class="ver__todo" href="#"> <span><i class="uil uil-arrow-right"></i></span> Ver todo</a>-->
+<!--          </div>-->
         </div>
       </div>
     </div>
@@ -268,7 +264,6 @@
 
   <app-footer></app-footer>
 </div>
-
 
 <!-- wsp -->
 <section>
