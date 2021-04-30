@@ -5,21 +5,21 @@
         <div class="title"> Contact <b>ME...</b></div>
         <p>For any enquiries, or just to say hello, get in touch </p>
       </div>
-      <div class="wrap-info">
+      <div class="wrap-info" *ngFor="let contact of contacts$ | async">
         <div class="wrap-info-1">
           <div class="phone">
             <span><i class="uil uil-mobile-vibrate"></i> Phone</span>
-            <p>+51 944 519 328</p>
+            <p>+51 {{contact.phone}}</p>
           </div>
           <div class="address">
             <span><i class="uil uil-location-point"></i> Address</span>
-            <p>Lima - Huacho, Perú</p>
+            <p>{{contact.address}}</p>
           </div>
         </div>
         <div class="wrap-info-2">
           <div class="Enquiries">
             <span><i class="uil uil-message"></i> Enquiries</span>
-            <p><a href="mailto:yfhl.contact@gmail.com">yfhl.contact@gmail.com</a></p>
+            <p><a href="mailto:yfhl.contact@gmail.com">{{contact.email}}</a></p>
           </div>
           <div class="Follow-us">
             <span><i class="uil uil-mouse-alt"></i> Follow us</span>

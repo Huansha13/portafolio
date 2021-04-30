@@ -14,7 +14,7 @@ import { ContactModule } from './contact/contact.module';
 import { PagesModule } from './resume/pages.module';
 import {FooterModule} from './footer/footer.module';
 
-//module external
+//model external
 import { AngularFireModule } from '@angular/fire'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import {environment} from '../environments/environment';

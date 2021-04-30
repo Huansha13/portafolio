@@ -4,6 +4,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import Typewriter from 't-writer.js';
 import {WorkService} from '../../services/work.service';
 import {element} from 'protractor';
+import {HomeService} from '../service/home.service';
 
 @Component({
   selector: 'app-body',
@@ -11,6 +12,8 @@ import {element} from 'protractor';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent implements OnInit, AfterViewInit{
+
+  homes$ = this._homeSv.homes;
 
   homes: any[] = [];
   about:any[] = [];
@@ -192,7 +195,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
   public msm = "Hola! Quieres contactarte conmigo!";
 
 
-  constructor( private _workService: WorkService) { }
+  constructor( private _workService: WorkService, private _homeSv: HomeService) { }
 
   ngOnInit(): void {
     this.getHomes();

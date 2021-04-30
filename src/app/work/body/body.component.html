@@ -3,7 +3,7 @@
 <!--  <app-nav-main></app-nav-main>-->
   <div class="wrap-presentation">
     <div class="section-1">
-      <div class="email animate__animated animate__bounce" *ngFor="let home of homes">
+      <div class="email animate__animated animate__bounce" *ngFor="let home of homes$ | async">
         <i class="uil uil-at"></i>
         <span><a class="mailto" href="mailto:{{home.correo}}">{{home.correo}}</a></span>
       </div>
@@ -14,11 +14,11 @@
             <div class="txt-bolt tw2"></div>
           </div>
         </div>
-        <div class="description animate__animated animate__fadeInDown" *ngFor="let home of homes">
+        <div class="description animate__animated animate__fadeInDown" *ngFor="let home of homes$ | async">
           <p> {{home.descripcion}} </p>
         </div>
       </div>
-      <div class="cv animate__animated animate__jackInTheBox" *ngFor="let home of homes">
+      <div class="cv animate__animated animate__jackInTheBox" *ngFor="let home of homes$ | async">
         <a href="{{home.linkCv}}" target="_blank">
           <span> DESCARGAR C.V &nbsp; <i class="uil uil-cloud-download"></i></span>
         </a>
