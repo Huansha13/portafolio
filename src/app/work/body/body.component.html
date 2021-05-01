@@ -42,9 +42,9 @@
 <!-- Section About-->
 <div class="wrapper-about" id="about">
 
-  <div class="wrap-about" *ngFor="let ab of about" >
+  <div class="wrap-about" *ngFor="let ab of abouts$ | async" >
     <div class="section-1">
-      <img src="{{ab.fotoPerfil}}" alt="foto-peril">
+      <img src="{{ab.foto}}" alt="foto-peril">
     </div>
     <div class="section-2">
       <div class="title">
@@ -56,7 +56,10 @@
       <div class="items">
         <ul>
           <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{ab.edad}}</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp; {{ab.ubicacion}}</li>
+          <li *ngFor="let ubi of locations$ | async">
+            <i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp;
+            <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z" target="_blank">{{ubi.address}}</a>
+          </li>
           <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> {{ab.stack}}</li>
           <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; {{ab.interes}}</li>
           <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; {{ab.competencia}}</li>

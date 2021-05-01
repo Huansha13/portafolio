@@ -4,7 +4,8 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import Typewriter from 't-writer.js';
 import {WorkService} from '../../services/work.service';
 import {element} from 'protractor';
-import {HomeService} from '../service/home.service';
+import {ServiceBodyService} from '../service/serviceBody.service';
+import {ContactService} from '../../contact/service/contact.service';
 
 @Component({
   selector: 'app-body',
@@ -13,10 +14,10 @@ import {HomeService} from '../service/home.service';
 })
 export class BodyComponent implements OnInit, AfterViewInit{
 
-  homes$ = this._homeSv.homes;
+  homes$ = this._service.homes;
+  abouts$ = this._service.about;
+  locations$ = this._contactService.contacto;
 
-  homes: any[] = [];
-  about:any[] = [];
   abilities:any[] = [];
   abiliSec = [
     {
@@ -195,11 +196,12 @@ export class BodyComponent implements OnInit, AfterViewInit{
   public msm = "Hola! Quieres contactarte conmigo!";
 
 
-  constructor( private _workService: WorkService, private _homeSv: HomeService) { }
+  constructor( private _workService: WorkService,
+               private _service: ServiceBodyService,
+               private _contactService: ContactService
+               ) { }
 
   ngOnInit(): void {
-    this.getHomes();
-    this.getAbout();
     this.getAbilities();
     this.getCerficado();
   }
@@ -242,27 +244,6 @@ export class BodyComponent implements OnInit, AfterViewInit{
       .then(writer1.start.bind(writer1));
   }
 
-  getHomes() {
-    this._workService.gethome().subscribe( data => {
-      data.forEach((element:any) => {
-        // console.log(element.payload.doc.data())
-        this.homes.push({
-          id:element.payload.doc.id,
-          ...element.payload.doc.data()
-        })
-      });
-    });
-  }
-  getAbout() {
-    this._workService.getAbout().subscribe( data => {
-      data.forEach((element:any) => {
-        this.about.push({
-          id:element.payload.doc.id,
-          ...element.payload.doc.data()
-        })
-      });
-    });
-  }
   getAbilities() {
     this._workService.getAbility().subscribe(data => {
       data.forEach((element:any) => {

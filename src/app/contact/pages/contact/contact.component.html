@@ -5,8 +5,8 @@
         <div class="title"> Contact <b>ME...</b></div>
         <p>For any enquiries, or just to say hello, get in touch </p>
       </div>
-      <div class="wrap-info" *ngFor="let contact of contacts$ | async">
-        <div class="wrap-info-1">
+      <div class="wrap-info">
+        <div class="wrap-info-1" *ngFor="let contact of contacts$ | async">
           <div class="phone">
             <span><i class="uil uil-mobile-vibrate"></i> Phone</span>
             <p>+51 {{contact.phone}}</p>
@@ -17,9 +17,9 @@
           </div>
         </div>
         <div class="wrap-info-2">
-          <div class="Enquiries">
+          <div class="Enquiries" *ngFor="let email of home$ | async">
             <span><i class="uil uil-message"></i> Enquiries</span>
-            <p><a href="mailto:yfhl.contact@gmail.com">{{contact.email}}</a></p>
+            <p><a href="mailto:yfhl.contact@gmail.com">{{email.correo}}</a></p>
           </div>
           <div class="Follow-us">
             <span><i class="uil uil-mouse-alt"></i> Follow us</span>
