@@ -16,9 +16,10 @@ export class BodyComponent implements OnInit, AfterViewInit{
 
   homes$ = this._service.homes;
   abouts$ = this._service.about;
+  abilities$ = this._service.abilities;
   locations$ = this._contactService.contacto;
+  cerfificado$ = this._service.certificate;
 
-  abilities:any[] = [];
   abiliSec = [
     {
       nombre: 'Lenguaje de programación',
@@ -195,21 +196,16 @@ export class BodyComponent implements OnInit, AfterViewInit{
   public phone = '[ +51944519328 ]'
   public msm = "Hola! Quieres contactarte conmigo!";
 
-
   constructor( private _workService: WorkService,
                private _service: ServiceBodyService,
                private _contactService: ContactService
                ) { }
 
   ngOnInit(): void {
-    this.getAbilities();
-    this.getCerficado();
   }
   ngAfterViewInit() {
     this.writerName();
   }
-
-
 
   writerName():void {
     const target = document.querySelector('.tw');
@@ -242,27 +238,6 @@ export class BodyComponent implements OnInit, AfterViewInit{
       .clear()
       .removeCursor()
       .then(writer1.start.bind(writer1));
-  }
-
-  getAbilities() {
-    this._workService.getAbility().subscribe(data => {
-      data.forEach((element:any) => {
-        this.abilities.push({
-          id:element.payload.doc.id,
-          ...element.payload.doc.data()
-        });
-      });
-    });
-  }
-  getCerficado() {
-    this._workService.getCertificado().subscribe(data => {
-      data.forEach((element:any) => {
-        this.cerfificado.push( {
-          id:element.payload.doc.id,
-          ...element.payload.doc.data()
-        })
-      })
-    })
   }
 
 }

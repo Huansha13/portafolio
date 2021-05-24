@@ -1,4 +1,4 @@
-interface Home {
+export interface Home {
   id?:string;
   correo: string;
   descripcion: string;

@@ -83,7 +83,7 @@
     <div class="space">
       <div class="solo-boxs">
         <div class="section-1">
-          <div class="box" *ngFor=" let abi of  abilities" >
+          <div class="box" *ngFor=" let abi of  abilities$ | async" >
             <div class="logo-name">
               <div class="logo"><img src="{{abi.icono}}" alt="logo"> </div>
               <div class="name">{{abi.nombre}}</div>
@@ -243,7 +243,7 @@
       </div>
       <div class="certificate__item">
         <div class="row">
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let item of cerfificado">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let item of cerfificado$ | async">
             <a [href]="item.url" target="_blank" class="crf__item__box">
               <div class="crf__logo__emp">
                 <img [src]="item.logo" alt="">
