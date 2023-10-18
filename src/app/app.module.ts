@@ -8,16 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { WorkModule } from './work/work.module';
 
 // External
-import { NgxSpinnerModule } from 'ngx-spinner';
 import {NavBarModule} from './nav-bar/nav-bar.module';
 import { ContactModule } from './contact/contact.module';
 import { PagesModule } from './resume/pages.module';
 import {FooterModule} from './footer/footer.module';
 
 //model external
-import { AngularFireModule } from '@angular/fire'
-import { AngularFirestoreModule } from '@angular/fire/firestore'
+
 import {environment} from '../environments/environment';
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 @NgModule({
     declarations: [
@@ -31,7 +31,6 @@ import {environment} from '../environments/environment';
       ContactModule,
       PagesModule,
       FooterModule,
-      NgxSpinnerModule,
       NavBarModule,
       AngularFireModule.initializeApp(environment.firebase),
       AngularFirestoreModule

@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 
 // @ts-ignore
 import {Contact} from '../../contact/model/contact.interface'
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
 import {map} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'

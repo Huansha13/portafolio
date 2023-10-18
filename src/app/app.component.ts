@@ -1,7 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-
-import { NgxSpinnerService } from 'ngx-spinner';
-
+import {Component, OnInit} from '@angular/core';
 
 
 @Component({
@@ -12,21 +9,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class AppComponent implements OnInit{
   title = 'portfolio';
 
-  constructor( private spinnerServices: NgxSpinnerService) { }
+  constructor() { }
 
   ngOnInit(): void {
 
-    this.spinner();
-
   }
-
-
-  spinner():void {
-    this.spinnerServices.show();
-    setTimeout(() => {
-      this.spinnerServices.hide()
-    }, 3500 )
-
-  }
-
 }

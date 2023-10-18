@@ -6,15 +6,14 @@ import {BodyComponent} from './work/body/body.component';
 import {ContactComponent} from './contact/pages/contact/contact.component';
 import {BlogComponent} from './blog/pages/blog/blog.component';
 
-// @ts-ignore
 const routes: Routes = [
   {
-    path:'', component:BodyComponent, pathMatch:'full', redirectTo:''
+    path: '', component: BodyComponent
   },
-  { path: 'resume', component: ResumeComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'blog', component: BlogComponent }
- ];
+  {path: 'resume', component: ResumeComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'blog', component: BlogComponent}
+];
 
 
 // @ts-ignore

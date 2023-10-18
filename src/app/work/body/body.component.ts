@@ -3,7 +3,6 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 //external
 import Typewriter from 't-writer.js';
 import {WorkService} from '../../services/work.service';
-import {element} from 'protractor';
 import {ServiceBodyService} from '../service/serviceBody.service';
 import {ContactService} from '../../contact/service/contact.service';
 
@@ -202,6 +201,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
                ) { }
 
   ngOnInit(): void {
+    console.log("=>(body.component.ts:205) Hola mundo");
   }
   ngAfterViewInit() {
     this.writerName();
@@ -209,6 +209,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
 
   writerName():void {
     const target = document.querySelector('.tw');
+    console.log("=>(body.component.ts:211) target", target);
     const target2 = document.querySelector('.tw2');
 
     const writer1 = new Typewriter(target, {

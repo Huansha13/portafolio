@@ -1,42 +1,51 @@
 <!-- Section presentation -->
 <div class="wrapper">
-<!--  <app-nav-main></app-nav-main>-->
-  <div class="wrap-presentation">
-    <div class="section-1">
-      <div class="email animate__animated animate__bounce" *ngFor="let home of homes$ | async">
-        <i class="uil uil-at"></i>
+  <div class="grid">
+    <div class="col-12">
+      <div class="email animate__animated animate__bounce text-center" *ngFor="let home of homes$ | async">
+        <i class="uil uil-at" style="color: white"></i>
         <span><a class="mailto" href="mailto:{{home.correo}}">{{home.correo}}</a></span>
       </div>
-      <div class="section-info">
-        <div class="title">
-          <div class="span">
-            <div class="tw"></div>
-            <div class="txt-bolt tw2"></div>
-          </div>
+    </div>
+    <div class="col-12">
+      <div class="flex justify-content-center">
+        <div class="text-center">
+          <div class="tw text-7xl font-bold"></div>
+          <div class="txt-bolt tw2 text-8xl font-bold"></div>
         </div>
-        <div class="description animate__animated animate__fadeInDown" *ngFor="let home of homes$ | async">
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="flex justify-content-center">
+        <div class="w-30rem description text-center animate__animated animate__fadeInDown" *ngFor="let home of homes$ | async">
           <p> {{home.descripcion}} </p>
         </div>
       </div>
-      <div class="cv animate__animated animate__jackInTheBox" *ngFor="let home of homes$ | async">
-        <a href="{{home.linkCv}}" target="_blank">
-          <span> DESCARGAR C.V &nbsp; <i class="uil uil-cloud-download"></i></span>
-        </a>
+    </div>
+
+    <div class="col-12">
+      <div class="d-flex justify-content-center">
+        <div class="cv animate__animated animate__jackInTheBox" *ngFor="let home of homes$ | async">
+          <a href="{{home.linkCv}}" target="_blank">
+            <span> DESCARGAR C.V &nbsp; <i class="uil uil-cloud-download"></i></span>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="section-2 animate__animated  animate__jackInTheBox">
-      <img src="https://res.cloudinary.com/yfr/image/upload/v1614625116/portafolio/static/img1_tunczy.svg" alt="img-1">
+
+    <div class="col-12">
+      <div class="red-social animate__animated animate__slideInUp" >
+        <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
+        <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
+        <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
+        <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i class="uil uil-linkedin"></i></a>
+        <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i class="uil uil-youtube"></i></a>
+      </div>
     </div>
   </div>
-  <div class="red-social animate__animated animate__slideInUp" >
-    <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
-    <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
-    <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
-    <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i class="uil uil-linkedin"></i></a>
-    <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i class="uil uil-youtube"></i></a>
-
-  </div>
 </div>
+
 <!-- end presentation-->
 
 <!-- Section About-->
@@ -63,7 +72,6 @@
           <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> {{ab.stack}}</li>
           <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; {{ab.interes}}</li>
           <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; {{ab.competencia}}</li>
-
         </ul>
       </div>
     </div>
@@ -269,8 +277,10 @@
 </div>
 
 <!-- wsp -->
+<!--
 <section>
   <jjva-ngx-whatsapp-button
     [ngx_whatsapp_phone]="phone" [ngx_whatsapp_text]="msm">
   </jjva-ngx-whatsapp-button>
 </section>
+-->

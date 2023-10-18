@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
+import {map} from "rxjs/operators";
 
 import {Home} from './../model/home.interface';
 import {About} from './../model/about.interface';
 import {Abilities} from './../model/abilities.interface';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
-import {map} from 'rxjs/operators';
 import {Certificate} from '../model/certificates.interface';
+import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +36,7 @@ export class ServiceBodyService {
 
   private getHomes(): void {
     this.homes = this.homeCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data() as Home))
+      map((actions) => actions.map(a => a.payload.doc.data() as Home))
     );
   }
   private getAbout(): void {

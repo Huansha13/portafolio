@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ResumeService} from '../../service/resume.service';
-import {element} from 'protractor';
 
 @Component({
   selector: 'app-resume',
