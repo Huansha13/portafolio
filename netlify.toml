@@ -1,0 +1,3 @@
+[build]
+  command = "nvm install v14.20.0 && nvm use v14.20.0 && ng build"
+  publish = "dist/portafolio"
