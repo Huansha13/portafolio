@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-nav-main',
@@ -8,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavMainComponent implements OnInit {
 
   active: boolean = true;
+  idioma: string = 'es';
 
-  constructor() { }
+  constructor(private translate: TranslateService) {
+  }
 
   ngOnInit(): void {
 
@@ -17,5 +20,10 @@ export class NavMainComponent implements OnInit {
 
   mostarOcultar() {
     this.active = !this.active;
+  }
+
+  seleccionIdioma() {
+    this.translate.use(this.idioma);
+    console.log(this.idioma);
   }
 }

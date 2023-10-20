@@ -80,6 +80,7 @@ nav {
     align-items: center;
     .items{
       display: flex;
+      align-items: center;
       margin-right: 25px;
       .activo {
         color: $color-bt-1;
@@ -160,3 +161,27 @@ nav {
 }
 
 //animations
+
+#state {
+  width: 100%;
+  font-size: 1rem;
+  color: #333; // Cambia esto al color de texto deseado
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc; // Cambia esto al color del borde deseado
+  border-radius: 0.25rem !important;
+  outline: none;
+  appearance: none;
+  background-color: white; // Cambia esto al color de fondo deseado
+
+  &:hover,
+  &:focus {
+    border-color: #007bff; // Cambia esto al color de borde al enfocar/hover deseado
+  }
+
+  // Estilo para las opciones
+  option {
+    font-size: 1rem;
+    color: #333; // Cambia esto al color de texto de las opciones deseado
+  }
+}
+

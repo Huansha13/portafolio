@@ -1,5 +1,4 @@
-
-<div class="border">
+<div class="border" style="width: 100%;position: fixed;z-index: 1; top: 0;">
   <nav class=" d-flex flex-wrap animate__animated animate__slideInDown ">
     <div class="section-1 ">
       <div class="logo">
@@ -18,13 +17,20 @@
     <div class="section-2"
          [ngClass]="{noactive:!active, active:active}" >
       <div class="items">
-        <a href="" routerLinkActive="activo">Home</a>
-        <a href="#about" routerLinkActive="activo">About</a>
-        <a href="#projects" routerLinkActive="activo">Projects</a>
-        <a href="#services" routerLinkActive="activo">Services</a>
-        <a routerLink="/resume" routerLinkActive="activo">Resume</a>
-        <a routerLink="/contact" routerLinkActive="activo">Contact</a>
-        <!--      <a routerLink="/blog" routerLinkActive="activo">Blog</a>-->
+        <a href="" routerLinkActive="activo">{{ 'menu.home' | translate }}</a>
+        <a href="#about" routerLinkActive="activo">{{ 'menu.about' | translate }}</a>
+        <a href="#projects" routerLinkActive="activo">{{ 'menu.projects' | translate }}</a>
+        <a href="#services" routerLinkActive="activo">{{ 'menu.services' | translate }}</a>
+        <a routerLink="/resume" routerLinkActive="activo">{{ 'menu.resume' | translate }}</a>
+        <a routerLink="/contact" routerLinkActive="activo">{{ 'menu.contact' | translate }}</a>
+        <a>
+          <select [(ngModel)]="idioma" (change)="seleccionIdioma()" id="state"
+                  class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
+                  style="appearance: auto">
+            <option value="es">Español</option>
+            <option value="en">Ingles</option>
+          </select>
+        </a>
       </div>
     </div>
   </nav>

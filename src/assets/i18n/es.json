@@ -1,0 +1,10 @@
+{
+  "menu": {
+    "home": "Menu Principal",
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "resume": "Resumen",
+    "contact": "Contacto"
+  }
+}

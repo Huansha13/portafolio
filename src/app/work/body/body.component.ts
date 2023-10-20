@@ -220,8 +220,8 @@ export class BodyComponent implements OnInit, AfterViewInit{
 
     const writer2 = new Typewriter(target2, {
       typeSpeed: 60,
-      typeColor: '#fff',
-      cursorColor: '#fff'
+      typeColor: '#2DA9DD',
+      cursorColor: '#2DA9DD'
     });
 
     writer1

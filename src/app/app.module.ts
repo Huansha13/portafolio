@@ -18,6 +18,14 @@ import {FooterModule} from './footer/footer.module';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+
+// Para @angular/localize
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs);
 
 @NgModule({
     declarations: [
@@ -33,10 +41,23 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
       FooterModule,
       NavBarModule,
       AngularFireModule.initializeApp(environment.firebase),
-      AngularFirestoreModule
+      AngularFirestoreModule,
+      HttpClientModule,
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+      }),
     ],
     providers: [],
     exports: [],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// Para ngx-translate/core
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
