@@ -7,11 +7,14 @@ import {About} from './../model/about.interface';
 import {Abilities} from './../model/abilities.interface';
 import {Certificate} from '../model/certificates.interface';
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceBodyService {
+
+  private apiGitHub: string = "https://api.github.com/users/Huansha13"
 
   homes: Observable<Home[]>;
   about: Observable<About[]>;
@@ -23,7 +26,8 @@ export class ServiceBodyService {
   private abilitiesCollection: AngularFirestoreCollection<Abilities>;
   private certificateCollection: AngularFirestoreCollection<Certificate>;
 
-  constructor( private readonly asf: AngularFirestore) {
+  constructor( private readonly asf: AngularFirestore,
+               private http: HttpClient) {
     this.homeCollection = asf.collection<Home>('home');
     this.aboutCollection = asf.collection<About>('about');
     this.abilitiesCollection = asf.collection<Abilities>('abilities');
@@ -53,6 +57,15 @@ export class ServiceBodyService {
     this.certificate = this.certificateCollection.snapshotChanges().pipe(
       map(ac => ac.map(a => a.payload.doc.data() as Certificate))
     );
+  }
+
+
+  detalleGitHub(): Observable<any>{
+    return this.http.get(this.apiGitHub);
+  }
+
+  obtenerMoreInfoGitHubByUrl(url: string): Observable<any> {
+    return this.http.get(url);
   }
 
 }

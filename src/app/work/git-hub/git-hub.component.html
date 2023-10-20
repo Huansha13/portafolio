@@ -1,0 +1,23 @@
+<!-- section service-->
+<div class="service" id="services">
+  <div class="title__section mb-4">[ Mi Repositorio ]</div>
+  <div class="grid">
+    <a class="col-12 col-sm-12 col-md-6 col-lg-4"
+       [href]="repo.html_url" target="_blank"
+       style=" text-decoration: none; color: inherit;"
+       *ngFor="let repo of listaRepositorio">
+      <div class="service__item__box hover:bg-black-alpha-50">
+        <div class="service__item__title">
+          <span class="icon"><i class="uil uil-code-branch"></i></span> &nbsp; <span class="name">{{repo.name}}</span>
+        </div>
+        <div class="service__item__description">
+          {{repo.description}}
+        </div>
+        <!--<div>
+          <small *ngFor="let repo of repo?.lenguales"></small>
+        </div>-->
+      </div>
+    </a>
+  </div>
+</div>
+<!-- end service  -->
