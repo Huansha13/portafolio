@@ -5,6 +5,7 @@ import {ResumeComponent} from './resume/pages/resume/resume.component';
 import {BodyComponent} from './work/body/body.component';
 import {ContactComponent} from './contact/pages/contact/contact.component';
 import {BlogComponent} from './blog/pages/blog/blog.component';
+import {GitHubComponent} from "./work/git-hub/git-hub.component";
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
   },
   {path: 'resume', component: ResumeComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'blog', component: BlogComponent}
+  {path: 'blog', component: BlogComponent},
+  {path: 'git-hub', component: GitHubComponent},
 ];
 
 
