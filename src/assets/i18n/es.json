@@ -6,7 +6,8 @@
     "services": "Servicios",
     "resume": "Resumen",
     "contact": "Contacto",
-    "repository": "Git Hub"
+    "repository": "Git Hub",
+    "downloadCode": "Descargar Código"
   },
   "gitHub": {
     "repository": "Repositorios",

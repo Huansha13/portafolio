@@ -127,13 +127,13 @@ $colo-blaco-bajo: #B8B8B8;
     }
   }
 }
-.cv {
+
+.btn-portafolio {
   margin-top: 3rem;
   align-items: center;
 
   a {
     max-width: 250px;
-    background: #252f3a;
     text-decoration: none;
     color: #ffffff;
     font-size: 13px;
@@ -902,7 +902,7 @@ $colo-blaco-bajo: #B8B8B8;
 //mobile pixel 2
 @media (max-width: 411px) {
 
-  .wrapper .wrap-presentation .section-1 .cv {
+  .wrapper .wrap-presentation .section-1 .btn-portafolio {
     justify-content: center;
     display: flex;
   }
@@ -964,7 +964,7 @@ $colo-blaco-bajo: #B8B8B8;
 // mobile Galaxy Fold
 @media (max-width: 280px) {
   //section presentation
-  .cv {
+  .btn-portafolio {
     width: 100%;
 
     a {

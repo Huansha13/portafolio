@@ -7,7 +7,7 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./nav-main.component.scss']
 })
 export class NavMainComponent implements OnInit {
-
+  version: string = '1.0.1';
   active: boolean = true;
   idioma: string = 'es';
 
