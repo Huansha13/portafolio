@@ -6,6 +6,7 @@ import {FooterModule} from '../footer/footer.module';
 import { GitHubComponent } from './git-hub/git-hub.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterLink} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 
@@ -19,7 +20,8 @@ import {RouterLink} from "@angular/router";
     NavBarModule,
     FooterModule,
     HttpClientModule,
-    RouterLink
+    RouterLink,
+    TranslateModule
   ]
 
 })

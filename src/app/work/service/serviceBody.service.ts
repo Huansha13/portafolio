@@ -14,6 +14,8 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ServiceBodyService {
 
+  private apiGitHubUrl = 'https://api.github.com';
+  private username: string = 'Huansha13';
   private apiGitHub: string = "https://api.github.com/users/Huansha13"
 
   homes: Observable<Home[]>;
@@ -60,11 +62,13 @@ export class ServiceBodyService {
   }
 
 
-  detalleGitHub(): Observable<any>{
+  getPerfil(): Observable<any>{
+    const url = `${this.apiGitHubUrl}/users/${this.username}`;
     return this.http.get(this.apiGitHub);
   }
 
-  obtenerMoreInfoGitHubByUrl(url: string): Observable<any> {
+  getRepos(): Observable<any> {
+    const url = `${this.apiGitHubUrl}/users/${this.username}/repos`;
     return this.http.get(url);
   }
 

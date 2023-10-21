@@ -1,27 +1,36 @@
-# Portfolio
+# Portafolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+Este proyecto, desarrollado con [Angular CLI](https://github.com/angular/angular-cli) en su versión 16.1.4, destaca por su uso de diversas bibliotecas y recursos que enriquecen su funcionalidad y diseño.
 
-## Development server
+## Librerías Instaladas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- **Firebase** (`^9.23.0`): Integración de Firebase para potenciar funcionalidades en la nube.
+- **PrimeFlex** (`^3.3.1`): Utilización de PrimeFlex para un diseño flexible y receptivo.
+- **RxJS** (`~7.8.0`): Gestión reactiva de eventos y datos.
+- **t-writer.js** (`^1.0.4`): Añade efectos de escritura para mejorar la presentación.
+- **@ngx-translate/core** (`^15.0.0`): Facilita la internacionalización del proyecto.
+- **@ngx-translate/http-loader** (`^8.0.0`): Permite cargar traducciones a través de HTTP.
 
-## Code scaffolding
+## Recursos Adicionales
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Unicons**: Incorporación de íconos de [Unicons](https://campus.sfpaula.com/lite/modules/icons/unicons.html) para enriquecer la experiencia visual.
+- **PrimeFlex CSS**: Utilización de [PrimeFlex CSS](https://primeflex.org/) para un diseño ágil y estilizado.
+- **GitHub API**: Se utiliza la API de GitHub para leer información del repositorio y del perfil.
 
-## Build
+## Configuración Inicial
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Antes de levantar el proyecto por primera vez, asegúrate de instalar las dependencias utilizando el siguiente comando:
 
-## Running unit tests
+```bash
+npm install
+````
+## Levantar o Compilar el Proyecto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para iniciar el servidor de desarrollo, utiliza el siguiente comando:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng serve
+````
+```bash
+ng build
+````

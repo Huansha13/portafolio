@@ -7,5 +7,10 @@
     "resume": "Resume",
     "contact": "Contact",
     "repository": "Git Hub"
+  },
+  "gitHub": {
+    "repository": "Repositories",
+    "follower": "followers",
+    "statusWork": "Working from home"
   }
 }

@@ -8,22 +8,23 @@ import {ServiceBodyService} from "../service/serviceBody.service";
 })
 export class GitHubComponent implements OnInit {
   listaRepositorio: any[] = [];
+  perfil: any;
 
-  constructor(private detalleGitHub: ServiceBodyService) {
-  }
+  code = `function myFunction() {
+  document.getElementById("demo1").innerHTML = "Test 1!";
+  document.getElementById("demo2").innerHTML = "Test 2!";
+}`;
+
+  constructor(private serviceBody: ServiceBodyService) {}
 
   ngOnInit() {
-    this.detalleGitHub.detalleGitHub()
-      .subscribe(value => this.detalleGitHub.obtenerMoreInfoGitHubByUrl(value.repos_url)
-        .subscribe(repo => this.listaRepositorio = repo)
-      )
+    this.serviceBody.getPerfil().subscribe({
+      next: value => this.perfil = value
+    })
+
+    this.serviceBody.getRepos().subscribe({
+      next: value => this.listaRepositorio = value
+    });
   }
 
-  loadLenguajes(resp: any) {
-    this.detalleGitHub.obtenerMoreInfoGitHubByUrl(resp.languages_url).subscribe({
-      next: lenguajes => {
-        resp.lenguales = lenguajes;
-      }
-    })
-  }
 }
