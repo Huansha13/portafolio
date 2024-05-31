@@ -5,6 +5,7 @@ import { NavMainComponent } from './page/nav-main/nav-main.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
+import {PrimeNgModule} from "../prime-ng/prime-ng.module";
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {TranslateModule} from "@ngx-translate/core";
   imports: [
     CommonModule,
     RouterModule,
+    PrimeNgModule,
     FormsModule,
     TranslateModule
   ]

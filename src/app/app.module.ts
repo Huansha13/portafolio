@@ -25,6 +25,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 // Para @angular/localize
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import {PrimeNgModule} from "./prime-ng/prime-ng.module";
 registerLocaleData(localeEs);
 
 @NgModule({
@@ -35,6 +36,7 @@ registerLocaleData(localeEs);
       BrowserModule,
       AppRoutingModule,
       BrowserAnimationsModule,
+      PrimeNgModule,
       WorkModule,
       ContactModule,
       PagesModule,

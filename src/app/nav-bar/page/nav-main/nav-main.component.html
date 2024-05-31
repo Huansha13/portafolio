@@ -1,8 +1,9 @@
-<div class="border" style="width: 100%;position: fixed;z-index: 1; top: 0;">
-  <nav class="d-flex flex-wrap animate__animated animate__slideInDown ">
+<div class="border">
+  <nav class="flex align-items-center flex-wrap animate__animated animate__slideInDown container">
     <div class="section-1 ">
       <div class="logo">
-        <img routerLink="" src="assets/icon-logo-web_dark.svg" alt="logo">
+        <!--<img routerLink="" src="assets/icon-logo-web_dark.svg" alt="logo">-->
+        <b class="text-primary">yefer<span class="text-900">Frank();</span></b>
       </div>
     </div>
     <div class="space"></div>
@@ -17,24 +18,29 @@
     <div class="section-2"
          [ngClass]="{noactive:!active, active:active}" >
       <div class="items">
+        <!--
         <a href="" routerLinkActive="activo">{{ 'menu.home' | translate }}</a>
         <a href="#about" routerLinkActive="activo">{{ 'menu.about' | translate }}</a>
+        -->
         <a href="#projects" routerLinkActive="activo">{{ 'menu.projects' | translate }}</a>
         <a href="#services" routerLinkActive="activo">{{ 'menu.services' | translate }}</a>
         <a routerLink="/resume" routerLinkActive="activo">{{ 'menu.resume' | translate }}</a>
         <a routerLink="/contact" routerLinkActive="activo">{{ 'menu.contact' | translate }}</a>
         <a routerLink="/git-hub" routerLinkActive="activo">{{ 'menu.repository' | translate }}</a>
         <a>
-          <select [(ngModel)]="idioma" (change)="seleccionIdioma()" id="state"
-                  class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
-                  style="appearance: auto">
-            <option value="es">Español</option>
-            <option value="en">Ingles</option>
-          </select>
+          <p-dropdown [options]="optionesIdioma"
+                      [(ngModel)]="idioma"
+                      optionValue="code" (onChange)="seleccionIdioma()"
+                      class="p-inputtext-sm"
+                      optionLabel="name">
+          </p-dropdown>
         </a>
-        <a title="{{ 'menu.downloadCode' | translate }}" href="https://github.com/Huansha13/portafolio.git"
-           target="_blank" class="text-white-alpha-50 hover:text-purple-500"><i class="uil uil-code-branch"></i>
-          V. {{version}}
+        <a>
+          <p-button (onClick)="checkedTheme = !checkedTheme; onThemeChange()"
+                    [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [text]="true"/>
+        </a>
+        <a title="{{ 'menu.downloadCode' | translate }}" href="https://github.com/Huansha13/portafolio.git" target="_blank">
+          <i class="uil uil-code-branch"></i> V. {{version}}
         </a>
       </div>
     </div>

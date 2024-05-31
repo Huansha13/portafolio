@@ -1,34 +1,36 @@
-$color-bt-1:#1EA1F3;
+/*$color-bt-1: #28B463;
 
-$color-tx-1:#fff;
-$color-tx-2:#283238;
-$color-tx-3:#fff;
-$color-tx-4:#808080;
-$color-tx-4:#B8B8B8;
+$color-tx-1: #fff;
+$color-tx-2: #283238;
+$color-tx-3: #fff;
+$color-tx-4: #808080;
+$color-tx-4: #B8B8B8;
 
 
-$color-bac-1:#FBFBFB;
-$color-bac-2:#F8F8F8;
-
+$color-bac-1: #FBFBFB;
+$color-bac-2: #F8F8F8;*/
 
 
 :root {
   --animate-delay: 2s;
 }
-.border {
-  background: #010409;
-  //box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.24);
-  margin-bottom: 30px;
 
+.border {
+  margin-bottom: 30px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
 }
 
 nav {
   width: 100%;
-  padding: 20px 20px 20px;
+  padding: 10px 0;
   //display: flex;
   align-items: center;
   //max-width: 1140px;
   margin: auto;
+
   .section-1 {
     .logo {
 
@@ -45,13 +47,13 @@ nav {
   }
 
   .menu {
-    width: 35px ;
+    width: 35px;
     height: 35px;
     font-size: 18px;
-    color: $color-tx-1;
+    //color: $color-tx-1;
     display: none;
     background: transparent;
-    padding:5px;
+    padding: 5px;
     border-radius: 50%;
     text-align: center;
     align-items: center;
@@ -60,16 +62,19 @@ nav {
     .check {
       display: flex;
       margin: auto;
+
       i {
         vertical-align: middle;
       }
     }
+
     &:hover {
       background: rgba(11, 19, 42, 0.4);
     }
+
     &:active {
       //background: rgba(11, 19, 42, 0.2);
-      background: #2DA9DD;
+      background: var(--primary-color);
     }
 
   }
@@ -78,22 +83,26 @@ nav {
     display: flex;
     float: right;
     align-items: center;
-    .items{
+
+    .items {
       display: flex;
       align-items: center;
       margin-right: 25px;
+
       .activo {
-        color: $color-bt-1;
+        color: var(--primary-color);
       }
+
       a {
         margin: 5px 10px;
         text-decoration: none;
-        color: $color-tx-3;
         font-size: 14px;
         font-weight: 400;
         cursor: pointer;
-        &:hover{
-          color: $color-bt-1;
+        color: var(--gray-800);
+
+        &:hover {
+          color: var(--primary-color);
           font-weight: 400;
         }
       }
@@ -108,14 +117,16 @@ nav {
 }
 
 // mobile iPad
-@media (max-width:768px) {
+@media (max-width: 768px) {
 
   nav {
     padding: 15px 20px 15px;
+
     .menu {
       display: inline;
       transition: 0.3s margin ease-in-out;
     }
+
     .section-2 {
       transition: all .4s ease-out;
       background: rgba(255, 255, 255, 0.03);
@@ -124,7 +135,7 @@ nav {
       width: 100%;
       display: none;
 
-      .items{
+      .items {
         flex-direction: column;
 
         a {
@@ -138,6 +149,7 @@ nav {
       display: inline;
 
     }
+
     .active {
       display: none;
     }
@@ -151,6 +163,7 @@ nav {
   nav {
     .section-2 {
       flex-direction: column;
+
       .wsp {
         margin-top: 20px;
         justify-content: center;
