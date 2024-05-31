@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "../../../services/theme.service";
-import {Theme} from "../../../core/utils/enum";
+import {Idioma, keysStorage, Theme} from "../../../core/utils/enum";
 
 @Component({
   selector: 'app-nav-main',
@@ -11,34 +11,47 @@ import {Theme} from "../../../core/utils/enum";
 export class NavMainComponent implements OnInit {
   version: string = '2.0.1';
   active: boolean = true;
-  idioma: string = 'es';
-  optionesIdioma = [
-    {name: 'Español', code: 'es'},
-    {name: 'English', code: 'en'}
+  idioma: string = Idioma.ES;
+  optIdioma = [
+    {name: 'Español', code: Idioma.ES},
+    {name: 'English', code: Idioma.EN}
   ]
-  checkedTheme: boolean = false;
-  selectedTheme: string = Theme.LIGHT;
+
+  private _selectedTheme: Theme;
+  checkedTheme: boolean;
   constructor(private translate: TranslateService,
               public themeService: ThemeService) {
   }
 
   ngOnInit(): void {
-    this.selectedTheme = localStorage.getItem('theme') || Theme.LIGHT;
-    this.themeService.setTheme(this.selectedTheme);
+    const idioma = localStorage.getItem(keysStorage.IDIOMA);
+    if (idioma) {
+      this.idioma = idioma;
+      this.selectIdioma();
+    }
+
+    this._selectedTheme = (localStorage.getItem(keysStorage.THEME) as Theme) || Theme.LIGHT;
+    this.checkedTheme = this._selectedTheme === Theme.LIGHT;
+    this.themeService.setTheme(this._selectedTheme);
   }
 
   mostarOcultar() {
     this.active = !this.active;
   }
 
-  seleccionIdioma() {
+  selectIdioma() {
     this.translate.use(this.idioma);
-    console.log(this.idioma);
+    localStorage.setItem(keysStorage.IDIOMA, this.idioma);
   }
 
-  onThemeChange() {
-    this.selectedTheme = this.checkedTheme ? Theme.DARK : Theme.LIGHT;
-    this.themeService.setTheme(this.selectedTheme);
-    localStorage.setItem('theme', this.selectedTheme);
+  set selectedTheme(theme: Theme) {
+    this._selectedTheme = theme;
+    this.themeService.setTheme(theme);
+    localStorage.setItem(keysStorage.THEME, theme);
+  }
+
+  onThemeChange(): void {
+    this.checkedTheme = !this.checkedTheme;
+    this.selectedTheme = this.checkedTheme ? Theme.LIGHT : Theme.DARK;
   }
 }

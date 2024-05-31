@@ -201,7 +201,6 @@ export class BodyComponent implements OnInit, AfterViewInit{
                ) { }
 
   ngOnInit(): void {
-    console.log("=>(body.component.ts:205) Hola mundo");
   }
   ngAfterViewInit() {
     this.writerName();
@@ -209,13 +208,12 @@ export class BodyComponent implements OnInit, AfterViewInit{
 
   writerName():void {
     const target = document.querySelector('.tw');
-    console.log("=>(body.component.ts:211) target", target);
     const target2 = document.querySelector('.tw2');
 
     const writer1 = new Typewriter(target, {
       typeSpeed: 60,
-      typeColor: '#fff',
-      cursorColor: '#fff'
+      typeColor: 'var(--text-color)',
+      cursorColor: 'var(--text-color)'
     });
 
     const writer2 = new Typewriter(target2, {

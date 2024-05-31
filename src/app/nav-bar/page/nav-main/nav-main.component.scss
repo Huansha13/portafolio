@@ -16,6 +16,8 @@ $color-bac-2: #F8F8F8;*/
 }
 
 .border {
+  // opacity: 0;
+  background: var(--primary-color-text);
   margin-bottom: 30px;
   width: 100%;
   position: fixed;
@@ -87,7 +89,6 @@ nav {
     .items {
       display: flex;
       align-items: center;
-      margin-right: 25px;
 
       .activo {
         color: var(--primary-color);
@@ -99,7 +100,7 @@ nav {
         font-size: 14px;
         font-weight: 400;
         cursor: pointer;
-        color: var(--gray-800);
+        color: var(--text-color);
 
         &:hover {
           color: var(--primary-color);

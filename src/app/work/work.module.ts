@@ -7,6 +7,7 @@ import { GitHubComponent } from './git-hub/git-hub.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterLink} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
+import {PrimeNgModule} from "../prime-ng/prime-ng.module";
 
 
 
@@ -21,7 +22,8 @@ import {TranslateModule} from "@ngx-translate/core";
     FooterModule,
     HttpClientModule,
     RouterLink,
-    TranslateModule
+    TranslateModule,
+    PrimeNgModule
   ]
 
 })

@@ -3,7 +3,7 @@
   <div class="grid">
     <div class="col-12">
       <div class="email animate__animated animate__bounce text-center" *ngFor="let home of homes$ | async">
-        <i class="uil uil-at" style="color: white"></i>
+        <i class="uil uil-at text-color"></i>
         <span><a class="mailto" href="mailto:{{home.correo}}">{{home.correo}}</a></span>
       </div>
     </div>
@@ -18,7 +18,7 @@
 
     <div class="col-12">
       <div class="flex justify-content-center">
-        <div class="w-30rem description text-center animate__animated animate__fadeInDown" *ngFor="let home of homes$ | async">
+        <div class="w-30rem text-color text-center animate__animated animate__fadeInDown" *ngFor="let home of homes$ | async">
           <p class="text-xl lg:text-2xl"> {{home.descripcion}} </p>
         </div>
       </div>
@@ -26,10 +26,13 @@
 
 
     <div class="col-12">
-      <div class="d-flex justify-content-center">
+      <div class="flex justify-content-center">
         <div class="btn-portafolio animate__animated animate__jackInTheBox" *ngFor="let home of homes$ | async">
-          <a href="{{home.linkCv}}" target="_blank" class="border-1 border-white-alpha-10 bg-btn-descargar">
-            <span> DESCARGAR C.V &nbsp; <i class="uil uil-cloud-download"></i></span>
+<!--
+          <p-button label="Descargar C.V" [outlined]="true" icon="pi pi-download" routerLink="{{home.linkCv}}" target="_blank"/>
+-->
+          <a href="{{home.linkCv}}" target="_blank" class="bg-btn-descargar">
+            <span> Descargar c.v <i class="pi pi-download ml-3"></i></span>
           </a>
         </div>
       </div>

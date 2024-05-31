@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
+import {Idioma} from "./core/utils/enum";
 
 
 @Component({
@@ -14,9 +15,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     // Configura el idioma inicial
-    this.translate.setDefaultLang('es');
+    this.translate.setDefaultLang(Idioma.ES);
+
     // Carga las traducciones
-    this.translate.use('es');
+    this.translate.use(Idioma.ES);
   }
 
   cambiarIdioma(idioma: string) {

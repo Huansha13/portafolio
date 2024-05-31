@@ -1,5 +1,5 @@
-<div class="border">
-  <nav class="flex align-items-center flex-wrap animate__animated animate__slideInDown container">
+<div class="border shadow-3">
+  <nav class="container flex align-items-center flex-wrap animate__animated animate__slideInDown">
     <div class="section-1 ">
       <div class="logo">
         <!--<img routerLink="" src="assets/icon-logo-web_dark.svg" alt="logo">-->
@@ -28,16 +28,17 @@
         <a routerLink="/contact" routerLinkActive="activo">{{ 'menu.contact' | translate }}</a>
         <a routerLink="/git-hub" routerLinkActive="activo">{{ 'menu.repository' | translate }}</a>
         <a>
-          <p-dropdown [options]="optionesIdioma"
+          <p-dropdown [options]="optIdioma"
                       [(ngModel)]="idioma"
-                      optionValue="code" (onChange)="seleccionIdioma()"
+                      optionValue="code" (onChange)="selectIdioma()"
                       class="p-inputtext-sm"
                       optionLabel="name">
           </p-dropdown>
         </a>
         <a>
-          <p-button (onClick)="checkedTheme = !checkedTheme; onThemeChange()"
-                    [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [text]="true"/>
+         <!-- <p-button (onClick)="checkedTheme = !checkedTheme; onThemeChange()"
+                    [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [text]="true"/>-->
+          <p-button (click)="onThemeChange()" [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [text]="true"></p-button>
         </a>
         <a title="{{ 'menu.downloadCode' | translate }}" href="https://github.com/Huansha13/portafolio.git" target="_blank">
           <i class="uil uil-code-branch"></i> V. {{version}}

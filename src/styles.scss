@@ -2,15 +2,12 @@
 @import "primeicons/primeicons.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-$color-primary: #0F0F11;
-
 html, body{
   margin: 0;
   padding: 0;
   background: var(--surface-0);
 }
 
-.bg-btn-descargar {
-  background: #252f3a;
+.container {
+  max-width: 1179px;
 }
-
