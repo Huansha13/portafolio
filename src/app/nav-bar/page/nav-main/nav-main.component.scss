@@ -49,8 +49,6 @@ nav {
   }
 
   .menu {
-    width: 35px;
-    height: 35px;
     font-size: 18px;
     //color: $color-tx-1;
     display: none;
@@ -69,16 +67,6 @@ nav {
         vertical-align: middle;
       }
     }
-
-    &:hover {
-      background: rgba(11, 19, 42, 0.4);
-    }
-
-    &:active {
-      //background: rgba(11, 19, 42, 0.2);
-      background: var(--primary-color);
-    }
-
   }
 
   .section-2 {
@@ -124,7 +112,7 @@ nav {
     padding: 15px 20px 15px;
 
     .menu {
-      display: inline;
+      display: block;
       transition: 0.3s margin ease-in-out;
     }
 

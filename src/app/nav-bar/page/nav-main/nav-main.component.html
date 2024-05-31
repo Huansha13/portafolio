@@ -8,12 +8,7 @@
     </div>
     <div class="space"></div>
     <div class="menu">
-      <div class="d-flex">
-        <input type="checkbox" id="check" style="display: none" (click)="mostarOcultar()">
-        <label for="check" class="check">
-          <i class="uil uil-align-center-alt"></i>
-        </label>
-      </div>
+        <p-button (click)="mostarOcultar()" [icon]="'pi pi-align-center'" [rounded]="true" [text]="true"></p-button>
     </div>
     <div class="section-2"
          [ngClass]="{noactive:!active, active:active}" >
