@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "../../../services/theme.service";
 import {Idioma, keysStorage, Theme} from "../../../core/utils/enum";
+import { PrimeIcons } from 'primeng/api';
 
 @Component({
   selector: 'app-nav-main',
@@ -19,6 +20,13 @@ export class NavMainComponent implements OnInit {
 
   private _selectedTheme: Theme;
   checkedTheme: boolean;
+  stateOptionsTheme = [
+  {value: Theme.LIGHT, icon: PrimeIcons.SUN},
+  {value: Theme.DARK, icon: PrimeIcons.MOON}
+];
+
+  value: string =Theme.DARK;
+
   constructor(private translate: TranslateService,
               public themeService: ThemeService) {
   }

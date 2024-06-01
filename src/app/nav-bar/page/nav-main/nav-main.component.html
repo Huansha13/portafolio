@@ -34,8 +34,16 @@
           <i class="uil uil-code-branch"></i> V. {{version}}
         </a>
         <a>
+          <p-selectButton [options]="stateOptionsTheme" styleClass="m-0 p-0"
+            [(ngModel)]="value" optionValue="value">
+            <ng-template let-option pTemplate="item">
+              <i [class]="option.icon"></i>
+            </ng-template>
+          </p-selectButton>
+
+          <!--
           <p-button (click)="onThemeChange()" [rounded]="true" [severity]="checkedTheme ? 'warning' : ''" styleClass="button-rounded-sm-2"
-                    [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [outlined]="true" [text]="!checkedTheme"></p-button>
+                    [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [text]="true"></p-button> -->
         </a>
       </div>
     </div>
