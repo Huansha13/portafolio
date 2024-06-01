@@ -4,11 +4,11 @@
     <div class="col-12">
       <div class="email animate__animated animate__bounce text-center" *ngFor="let home of homes$ | async">
         <i class="uil uil-at text-color"></i>
-        <span><a class="mailto" href="mailto:{{home.correo}}">{{home.correo}}</a></span>
+        <span><a class="mailto" href="mailto:{{data?.home.correo}}">{{data?.home.correo}}</a></span>
       </div>
     </div>
     <div class="col-12">
-      <div class="flex justify-content-center">
+      <div class="flex justify-content-center" style=" min-height: 195px; ">
         <div class="text-center">
           <div class="tw sm:text-6xl text-6xl lg:text-7xl font-bold"></div>
           <div class="txt-bolt tw2 text-7xl lg:text-8xl font-bold"></div>
@@ -18,7 +18,7 @@
 
     <div class="col-12">
       <div class="flex justify-content-center">
-        <div class="w-30rem text-color text-center animate__animated animate__fadeInDown" *ngFor="let home of homes$ | async">
+        <div class="w-30rem text-color text-center" *ngFor="let home of homes$ | async">
           <p class="text-xl lg:text-2xl"> {{home.descripcion}} </p>
         </div>
       </div>

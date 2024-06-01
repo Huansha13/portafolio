@@ -30,13 +30,12 @@
                       optionLabel="name">
           </p-dropdown>
         </a>
-        <a>
-         <!-- <p-button (onClick)="checkedTheme = !checkedTheme; onThemeChange()"
-                    [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [text]="true"/>-->
-          <p-button (click)="onThemeChange()" [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [text]="true"></p-button>
-        </a>
         <a title="{{ 'menu.downloadCode' | translate }}" href="https://github.com/Huansha13/portafolio.git" target="_blank">
           <i class="uil uil-code-branch"></i> V. {{version}}
+        </a>
+        <a>
+          <p-button (click)="onThemeChange()" [rounded]="true" [severity]="checkedTheme ? 'warning' : ''" styleClass="button-rounded-sm-2"
+                    [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [outlined]="true" [text]="!checkedTheme"></p-button>
         </a>
       </div>
     </div>

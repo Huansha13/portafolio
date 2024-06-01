@@ -30,8 +30,8 @@ export class NavMainComponent implements OnInit {
       this.selectIdioma();
     }
 
-    this._selectedTheme = (localStorage.getItem(keysStorage.THEME) as Theme) || Theme.LIGHT;
-    this.checkedTheme = this._selectedTheme === Theme.LIGHT;
+    this._selectedTheme = (localStorage.getItem(keysStorage.THEME) as Theme) || Theme.DARK;
+    this.checkedTheme = this._selectedTheme === Theme.DARK;
     this.themeService.setTheme(this._selectedTheme);
   }
 
@@ -52,6 +52,6 @@ export class NavMainComponent implements OnInit {
 
   onThemeChange(): void {
     this.checkedTheme = !this.checkedTheme;
-    this.selectedTheme = this.checkedTheme ? Theme.LIGHT : Theme.DARK;
+    this.selectedTheme = this.checkedTheme ? Theme.DARK : Theme.LIGHT;
   }
 }

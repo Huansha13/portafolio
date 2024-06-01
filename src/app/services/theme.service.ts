@@ -5,7 +5,7 @@ import {Theme} from "../core/utils/enum";
   providedIn: 'root'
 })
 export class ThemeService {
-  activeTheme: string = Theme.LIGHT;
+  activeTheme: string = Theme.DARK;
 
   getTheme(): string {
     return this.activeTheme;

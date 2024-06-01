@@ -5,14 +5,17 @@ import Typewriter from 't-writer.js';
 import {WorkService} from '../../services/work.service';
 import {ServiceBodyService} from '../service/serviceBody.service';
 import {ContactService} from '../../contact/service/contact.service';
+import {Home} from "../model/home.interface";
+import {About} from "../model/about.interface";
+import {Abilities} from "../model/abilities.interface";
+import {Certificate} from "../model/certificates.interface";
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.scss']
 })
-export class BodyComponent implements OnInit, AfterViewInit{
-
+export class BodyComponent implements OnInit, AfterViewInit {
   homes$ = this._service.homes;
   abouts$ = this._service.about;
   abilities$ = this._service.abilities;
@@ -39,7 +42,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
     {
       nombre: 'Base de datos',
       icono: '<i class="uil uil-database"></i>',
-      tec:[
+      tec: [
         {
           nombre: 'Firebase',
           color: '#FFCA28',
@@ -55,7 +58,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
     {
       nombre: 'Sistemas operativos',
       icono: '<i class="uil uil-desktop"></i>',
-      tec:[
+      tec: [
         {
           nombre: 'Windows 10',
           color: '#008AF7',
@@ -71,7 +74,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
     {
       nombre: 'Herramientas de maquetación',
       icono: '<i class="uil uil-icons"></i>',
-      tec:[
+      tec: [
         {
           nombre: 'Figma',
           color: '#0ACF83',
@@ -87,7 +90,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
     {
       nombre: 'Otros',
       icono: '<i class="uil uil-wrench"></i>',
-      tec:[
+      tec: [
         {
           nombre: 'Microsoft Office (.xls .ppt .doc)',
           color: '#FF8F6B',
@@ -98,7 +101,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
     {
       nombre: 'Idiomas',
       icono: '<i class="uil uil-graduation-cap"></i>',
-      tec:[
+      tec: [
         {
           nombre: 'Español, Quechua',
           color: '#F44242',
@@ -112,19 +115,19 @@ export class BodyComponent implements OnInit, AfterViewInit{
       ]
     }
   ];
-  project= [
+  project = [
     {
       portada: 'https://res.cloudinary.com/yfr/image/upload/v1616689668/portafolio/proyectos/File_Cover_-_1_q6fuwj.jpg',
       titulo: 'Prototipo App, covit - 19 ',
       fecha: 'Domingo, 21 de febrero 2021',
-      recurso:[
+      recurso: [
         {
-          logo:'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/figma_wgndz4.svg'
+          logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/figma_wgndz4.svg'
         }
       ],
-      link:[
+      link: [
         {
-          icono:'<i class="uil uil-illustration"></i>',
+          icono: '<i class="uil uil-illustration"></i>',
           url: 'https://www.figma.com/file/ezEp9mQEzMsPkQEqFDq6t6/Miniaturas?node-id=191%3A362'
         }
       ]
@@ -138,8 +141,8 @@ export class BodyComponent implements OnInit, AfterViewInit{
       }],
       link: [
         {
-        icono: '<i class="uil uil-illustration"></i>',
-        url: ''
+          icono: '<i class="uil uil-illustration"></i>',
+          url: ''
         },
         {
           icono: '<i class="uil uil-github"></i>  ',
@@ -170,7 +173,7 @@ export class BodyComponent implements OnInit, AfterViewInit{
           logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/js_l9h19a.svg'
         },
         {
-         logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/html_vll1uw.svg'
+          logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/html_vll1uw.svg'
         },
         {
           logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/css_frcktu.svg'
@@ -188,25 +191,32 @@ export class BodyComponent implements OnInit, AfterViewInit{
       ]
     }
   ];
-  cerfificado:any[]=[];
+  cerfificado: any[] = [];
 
   detail: string = "Implementación en proyectos";
 
   public phone = '[ +51944519328 ]'
   public msm = "Hola! Quieres contactarte conmigo!";
+  data: { home: Home; about: About[]; abilities: Abilities[]; certificates: Certificate[] };
 
-  constructor( private _workService: WorkService,
-               private _service: ServiceBodyService,
-               private _contactService: ContactService
-               ) { }
+  constructor(private _workService: WorkService,
+              private _service: ServiceBodyService,
+              private _contactService: ContactService
+  ) {
+  }
 
   ngOnInit(): void {
+    this._service.getData().subscribe(data => {
+      console.log("=>(body.component.ts:205) data", data);
+      this.data = data;
+    })
   }
+
   ngAfterViewInit() {
     this.writerName();
   }
 
-  writerName():void {
+  writerName(): void {
     const target = document.querySelector('.tw');
     const target2 = document.querySelector('.tw2');
 
