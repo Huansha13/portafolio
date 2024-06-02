@@ -22,9 +22,8 @@ export class NavMainComponent implements OnInit {
   ]
   stateOptionsTheme = this.getStateOptionsTheme();
   private themeStorage: Theme;
-  constructor(private translate: TranslateService,
-              public themeService: ThemeService,
-              public settings: SettingsService) {
+  constructor(public themeService: ThemeService,
+              private translate: TranslateService) {
   }
 
   ngOnInit(): void {

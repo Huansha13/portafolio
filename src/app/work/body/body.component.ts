@@ -205,11 +205,11 @@ export class BodyComponent implements OnInit, AfterViewInit {
               private _contactService: ContactService,
               private settings: SettingsService
   ) {
+    this.settings.isLoading = true;
   }
 
   ngOnInit(): void {
     Promise.resolve().then(() => {
-      this.settings.isLoading = true;
       this._service.getData()
         .subscribe(data => {
           console.log("=>(body.component.ts:205) data", data);
