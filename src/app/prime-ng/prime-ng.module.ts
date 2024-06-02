@@ -6,6 +6,8 @@ import {ButtonModule} from "primeng/button";
 import { SelectButtonModule } from 'primeng/selectbutton';
 import {SkeletonModule} from "primeng/skeleton";
 import {TooltipModule} from "primeng/tooltip";
+import {DividerModule} from "primeng/divider";
+import {TerminalModule} from "primeng/terminal";
 
 const myModulo = [
   DropdownModule,
@@ -13,7 +15,9 @@ const myModulo = [
   ButtonModule,
   SelectButtonModule,
   SkeletonModule,
-  TooltipModule
+  TooltipModule,
+  DividerModule,
+  TerminalModule
 ];
 
 @NgModule({

@@ -1,16 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { WorkModule } from './work/work.module';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {WorkModule} from './work/work.module';
 
 // External
 import {NavBarModule} from './nav-bar/nav-bar.module';
-import { ContactModule } from './contact/contact.module';
-import { PagesModule } from './resume/pages.module';
+import {ContactModule} from './contact/contact.module';
+import {PagesModule} from './resume/pages.module';
 import {FooterModule} from './footer/footer.module';
 
 //model external
@@ -57,7 +57,8 @@ registerLocaleData(localeEs);
     exports: [],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
 // Para ngx-translate/core
 export function HttpLoaderFactory(http: HttpClient) {

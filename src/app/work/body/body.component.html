@@ -1,77 +1,68 @@
 <!-- Section presentation -->
+<img *ngIf="!settings.view.lg" src="../../../assets/img/mi-foto.webp" class="w-full" alt="yo" style="transform: scaleX(-1);">
 <div class="wrapper">
-  <div class="grid">
-    <div class="col-12 md:col-6 lg:col-9">
-      <div class="tw sm:text-6xl text-6xl lg:text-7xl font-normal">Hola soy,</div>
-      <div class="txt-bolt tw2 text-7xl lg:text-8xl font-bold text-primary">Frank Huansha</div>
-      <div class="flex gap-1 align-items-center opacity-50" pTooltip="Enviame un correo" tooltipPosition="bottom">
-        <i class="uil uil-at text-color"></i>
-        <a class="text-color no-underline"
-           href="mailto:{{data?.home.correo}}">{{ data?.home.correo }}</a>
+  <section>
+    <div class="grid">
+      <div class="col-12">
+        <div class="flex justify-content-center">
+          <ng-container *ngIf="settings.view.lg" [ngTemplateOutlet]="miAvatar"></ng-container>
+        </div>
       </div>
-    </div>
 
-    <div class="col-12 md:col-6 lg:col-3">
-   <!--   <div>
-        <img  src="../../../assets/img/yo.webp" class="w-full border-circle border-2" alt="yo" style="transform: scaleX(-1);">
+      <div class="col-12">
+        <p-divider align="center" styleClass="m-0 p-0">
+          <p class="red-social p-0 m-0">
+            <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
+            <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
+            <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
+            <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i
+              class="uil uil-linkedin"></i></a>
+            <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i
+              class="uil uil-youtube"></i></a>
+          </p>
+        </p-divider>
       </div>
--->
-      <div class="flex justify-content-right">
-        <div class="bg-gradient-primary border-circle">
-          <div class="origin-left rotate-45">
-            <img src="../../../assets/img/mi-foto.webp" class="w-full border-round-3xl" alt="yo" style="transform: scaleX(-1);">
+
+      <div class="col-12">
+        <div [ngClass]="{'editor-code-dark': settings.isThemeDark, 'editor-code-light': !settings.isThemeDark}" style="min-height: 140px">
+          <div class="flex align-items-center gap-3" >
+            <div *ngIf="!settings.view.sm">
+              <ul class="list-none p-0 m-0 line-height-3 pl-2">
+                <li class="font-bold font-fira-code"> 1 </li>
+                <li class="font-bold font-fira-code"> 2 </li>
+                <li class="font-bold font-fira-code"> 3 </li>
+                <li class="font-bold font-fira-code"> 4 </li>
+                <li class="font-bold font-fira-code"> 5 </li>
+              </ul>
+            </div>
+            <div class="line-height-3 font-bold font-fira-code">
+              <div class="tw-saludo1"></div>
+              <div class="border-left-1 border-green-400">
+                <div class="ml-4 tw-saludo2"></div>
+                <div class="ml-4 border-left-1 border-blue-400">
+                  <div class="ml-5 tw-saludo3"></div>
+                </div>
+                <div class="ml-4 tw-saludo4"></div>
+              </div>
+              <div class="tw-saludo5"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--    <div class="col-12">
-          <div class="email animate__animated animate__bounce text-center" *ngFor="let home of homes$ | async">
-            <i class="uil uil-at text-color"></i>
-            <span><a class="mailto" href="mailto:{{data?.home.correo}}">{{data?.home.correo}}</a></span>
-          </div>
-        </div>-->
-    <!--<div class="col-12">
-      <div class="flex justify-content-center" style=" min-height: 195px; ">
-        <div class="                                                          text-center">
-          <div class="tw sm:text-6xl text-6xl lg:text-7xl font-bold">Hola soy,</div>
-          <div class="txt-bolt tw2 text-7xl lg:text-8xl font-bold">Frank Huansha</div>
-        </div>
-      </div>
-    </div>-->
-
-    <div class="col-12">
-      <div class="flex justify-content-center">
-        <div class="w-30rem text-color text-center" *ngFor="let home of homes$ | async">
-          <p class="text-xl lg:text-2xl"> {{ home.descripcion }} </p>
-        </div>
+      <div class="col-12">
+        <span *ngIf="ejecutarPrompt" class="flex align-items-center gap-3 font-normal text-sm text-color-secondary p-2 text-center font-source-code-pro">
+          <i class="pi pi-spin pi-spinner"></i> Ejecutando
+        </span>
+        <app-terminal *ngIf="prompt_terminal" [estadoEjecucion]="prompt_terminal"></app-terminal>
       </div>
     </div>
+  </section>
 
-
-    <div class="col-12">
-      <div class="flex justify-content-center">
-        <div class="btn-portafolio animate__animated animate__fadeInDown" *ngFor="let home of homes$ | async">
-          <!--
-                    <p-button label="Descargar C.V" [outlined]="true" icon="pi pi-download" routerLink="{{home.linkCv}}" target="_blank"/>
-          -->
-          <a href="{{home.linkCv}}" target="_blank">
-            <span> Descargar c.v <i class="pi pi-download ml-3"></i></span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div class="red-social animate__animated animate__slideInUp">
-        <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
-        <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
-        <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
-        <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i
-          class="uil uil-linkedin"></i></a>
-        <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i
-          class="uil uil-youtube"></i></a>
-      </div>
+  <div [class.position-bottom]="settings.view.lg">
+    <div class="flex justify-content-center gap-2">
+      <a pButton href="mailto:{{data?.home.correo}}" label="Contáctate conmigo" class="w-13rem btn-contactame p-button-rounded no-underline font-semibold"></a>
+      <a pButton href="{{data?.home.linkCv}}" target="_blank" label="Descargar C.V." class="w-13rem btn-descargar-cv p-button-rounded no-underline font-semibold"></a>
     </div>
   </div>
 </div>
@@ -316,3 +307,22 @@
   </jjva-ngx-whatsapp-button>
 </section>
 -->
+
+
+<ng-template #miFoto>
+  <div class="col-12 md:col-6 lg:col-3">
+    <div class="flex justify-content-right">
+      <div class="bg-gradient-primary border-round-3xl">
+        <div class="origin-left rotate-45">
+          <img src="../../../assets/img/mi-foto.webp" class="w-full mi-foto" alt="yo" style="transform: scaleX(-1);">
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #miAvatar>
+  <div class=" border-circle w-3 lg:w-2" [ngClass]="{'mi-avatar-dark': settings.isThemeDark, 'mi-avatar-light': !settings.isThemeDark}" >
+    <img src="../../../assets/img/avatar.png" alt="yo" class="wave">
+  </div>
+</ng-template>

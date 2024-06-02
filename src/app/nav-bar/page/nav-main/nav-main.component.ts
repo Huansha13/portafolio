@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import {ThemeService} from "../../../services/theme.service";
+import {ThemeService} from "../../../core/utils/theme.service";
 import {Idioma, keysStorage, Theme} from "../../../core/utils/enum";
 import {PrimeIcons} from 'primeng/api';
 import {SelectButtonOptionClickEvent} from "primeng/selectbutton";

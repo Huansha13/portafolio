@@ -1,8 +1,9 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import {Idioma} from "./core/utils/enum";
+import {Idioma, Tamanos} from "./core/utils/enum";
 import {SettingsService} from "./core/utils/settings.service";
 import Typewriter from 't-writer.js';
+import {Responsive} from "./core/model/resoponsive";
 
 
 @Component({
@@ -16,7 +17,9 @@ export class AppComponent implements OnInit, AfterViewInit {
                         }`;
 
   constructor(private translate: TranslateService,
-              public settings: SettingsService) { }
+              public settings: SettingsService) {
+    this.onResize();
+  }
 
   ngOnInit(): void {
     // Configura el idioma inicial
@@ -66,6 +69,23 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     writer3
       .type(';')
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    // DETECTAR RESPONSIVE
+    const anchoVentana = window.innerWidth;
+    const responsiveInstance = new Responsive();
+    responsiveInstance.sm = anchoVentana < Tamanos.MD;
+    responsiveInstance.md = anchoVentana >= Tamanos.MD && anchoVentana < Tamanos.LG;
+    responsiveInstance.lg = anchoVentana >= Tamanos.LG
+    this.settings.view = responsiveInstance;
+  }
+
+  private detectarPantallaMovil(): boolean {
+    const anchoVentana = window.innerWidth;
+    const altoVentana = window.innerHeight;
+    return anchoVentana <= 991 || (anchoVentana > altoVentana && altoVentana <= 500);
   }
 
 }

@@ -53,12 +53,12 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "node_modules/primeng/resources/themes/mdc-dark-deeppurple/theme.css",
+                "input": "node_modules/primeng/resources/themes/soho-dark/theme.css",
                 "bundleName": "dark",
                 "inject": false
               },
               {
-                "input": "node_modules/primeng/resources/themes/mdc-light-deeppurple/theme.css",
+                "input": "node_modules/primeng/resources/themes/soho-light/theme.css",
                 "bundleName": "light",
                 "inject": false
               }
@@ -133,12 +133,12 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "node_modules/primeng/resources/themes/mdc-dark-deeppurple/theme.css",
+                "input": "node_modules/primeng/resources/themes/soho-dark/theme.css",
                 "bundleName": "dark",
                 "inject": false
               },
               {
-                "input": "node_modules/primeng/resources/themes/mdc-light-deeppurple/theme.css",
+                "input": "node_modules/primeng/resources/themes/soho-light/theme.css",
                 "bundleName": "light",
                 "inject": false
               }

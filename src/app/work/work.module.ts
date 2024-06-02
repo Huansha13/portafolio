@@ -8,13 +8,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterLink} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
 import {PrimeNgModule} from "../prime-ng/prime-ng.module";
-
+import {TerminalComponent} from "../core/components/terminal/terminal.component";
 
 
 @NgModule({
-  declarations: [BodyComponent, GitHubComponent],
+  declarations: [BodyComponent, GitHubComponent, TerminalComponent],
   exports: [
-    BodyComponent
+    BodyComponent,
+    TerminalComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +25,8 @@ import {PrimeNgModule} from "../prime-ng/prime-ng.module";
     RouterLink,
     TranslateModule,
     PrimeNgModule
-  ]
+  ],
+
 
 })
 export class WorkModule { }

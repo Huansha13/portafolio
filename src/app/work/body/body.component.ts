@@ -10,6 +10,7 @@ import {About} from "../model/about.interface";
 import {Abilities} from "../model/abilities.interface";
 import {Certificate} from "../model/certificates.interface";
 import {SettingsService} from "../../core/utils/settings.service";
+import {COLORS_WRITER} from "../../core/utils/constantes";
 
 @Component({
   selector: 'app-body',
@@ -192,18 +193,16 @@ export class BodyComponent implements OnInit, AfterViewInit {
       ]
     }
   ];
-  cerfificado: any[] = [];
 
   detail: string = "Implementación en proyectos";
-
-  public phone = '[ +51944519328 ]'
-  public msm = "Hola! Quieres contactarte conmigo!";
   data: { home: Home; about: About[]; abilities: Abilities[]; certificates: Certificate[] };
+  prompt_terminal: boolean = false;
+  ejecutarPrompt: boolean = false;
 
   constructor(private _workService: WorkService,
               private _service: ServiceBodyService,
               private _contactService: ContactService,
-              private settings: SettingsService
+              public settings: SettingsService
   ) {
     this.settings.isLoading = true;
   }
@@ -217,45 +216,49 @@ export class BodyComponent implements OnInit, AfterViewInit {
           this.settings.dataPortafolio = data;
           this.settings.isLoading = false
           console.log("=>(body.component.ts:219) this.settings.isLoading", this.settings.isLoading);
+          this.writerName();
         })
     });
   }
 
   ngAfterViewInit() {
-    //this.writerName();
+
   }
 
   writerName(): void {
-    const target = document.querySelector('.tw');
-    const target2 = document.querySelector('.tw2');
+    const target = document.querySelector('.tw-saludo1');
+    const target2 = document.querySelector('.tw-saludo2');
+    const target3 = document.querySelector('.tw-saludo3');
+    const target4 = document.querySelector('.tw-saludo4');
+    const target5 = document.querySelector('.tw-saludo5');
 
-    const writer1 = new Typewriter(target, {
-      typeSpeed: 60,
-      typeColor: 'var(--text-color)',
-      cursorColor: 'var(--text-color)'
+    const writer1 = new Typewriter(target, COLORS_WRITER.primary);
+    const writer1b = new Typewriter(target, COLORS_WRITER.orange);
+    const writer1c = new Typewriter(target, COLORS_WRITER.green600);
+    const writer2 = new Typewriter(target2, COLORS_WRITER.primary);
+    const writer2b = new Typewriter(target2, COLORS_WRITER.blue600);
+    const writer3 = new Typewriter(target3, COLORS_WRITER.text);
+    const writer3b = new Typewriter(target3, COLORS_WRITER.green400);
+    const writer3c = new Typewriter(target3, COLORS_WRITER.text);
+    const writer4 = new Typewriter(target4, COLORS_WRITER.blue600);
+    const writer5 = new Typewriter(target5, COLORS_WRITER.green600);
+
+    writer1.type('public class ').removeCursor().then(writer1b.start.bind(writer1b)).start();
+    writer1b.type('HolaMundo ').removeCursor().then(writer1c.start.bind(writer1c));
+    writer1c.type('{ ').removeCursor().then(writer2.start.bind(writer2));
+    writer2.type('public static void ').removeCursor().then(writer2b.start.bind(writer2b));
+    writer2b.type('main(String[] args) { ').removeCursor().then(writer3.start.bind(writer3));
+    writer3.type('Quien.').removeCursor().then(writer3b.start.bind(writer3b));
+    writer3b.type('Soy()').removeCursor().then(writer3c.start.bind(writer3c));
+    writer3c.type('; ').removeCursor().then(writer4.start.bind(writer4));
+    writer4.type('} ').removeCursor().then(writer5.start.bind(writer5));
+    writer5.type('} ').then(() => {
+      this.ejecutarPrompt = true;
+      setTimeout(() => {
+        this.prompt_terminal = true;
+        this.ejecutarPrompt = false;
+      }, 1000)
     });
-
-    const writer2 = new Typewriter(target2, {
-      typeSpeed: 60,
-      typeColor: 'var(--primary-color)',
-      cursorColor: 'var(--primary-color)'
-    });
-
-    writer1
-      .type('Hola soy,')
-      .removeCursor()
-      .then(writer2.start.bind(writer2))
-      .start();
-
-    writer2
-      .type('Yefer')
-      .rest(900)
-      .clear()
-      .type('Frank Huansha')
-      .rest(50000)
-      .clear()
-      .removeCursor()
-      .then(writer1.start.bind(writer1));
   }
 
 }
