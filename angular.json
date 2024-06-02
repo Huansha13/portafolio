@@ -61,8 +61,7 @@
                 "input": "node_modules/primeng/resources/themes/mdc-light-deeppurple/theme.css",
                 "bundleName": "light",
                 "inject": false
-              },
-              "node_modules/primeng/resources/primeng.min.css"
+              }
             ],
             "scripts": [],
             "vendorChunk": true,
@@ -142,8 +141,7 @@
                 "input": "node_modules/primeng/resources/themes/mdc-light-deeppurple/theme.css",
                 "bundleName": "light",
                 "inject": false
-              },
-              "node_modules/primeng/resources/primeng.min.css"
+              }
             ],
             "scripts": []
           }
