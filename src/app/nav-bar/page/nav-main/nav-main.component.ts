@@ -4,7 +4,6 @@ import {ThemeService} from "../../../services/theme.service";
 import {Idioma, keysStorage, Theme} from "../../../core/utils/enum";
 import {PrimeIcons} from 'primeng/api';
 import {SelectButtonOptionClickEvent} from "primeng/selectbutton";
-import {SettingsService} from "../../../core/utils/settings.service";
 
 @Component({
   selector: 'app-nav-main',
@@ -21,20 +20,16 @@ export class NavMainComponent implements OnInit {
     {name: 'English', code: Idioma.EN}
   ]
   stateOptionsTheme = this.getStateOptionsTheme();
-  private themeStorage: Theme;
   constructor(public themeService: ThemeService,
               private translate: TranslateService) {
   }
 
   ngOnInit(): void {
-    this.themeStorage = (localStorage.getItem(keysStorage.THEME) as Theme) || Theme.DARK;
     const idioma = localStorage.getItem(keysStorage.IDIOMA);
     if (idioma) {
       this.idioma = idioma;
       this.selectIdioma();
     }
-
-    this.selectedTheme = this.themeStorage;
   }
 
   mostarOcultar() {
@@ -49,7 +44,6 @@ export class NavMainComponent implements OnInit {
   set selectedTheme(theme: Theme) {
     this._selectedTheme = theme;
     this.themeService.setTheme(theme);
-    localStorage.setItem(keysStorage.THEME, theme);
     this.stateOptionsTheme = this.getStateOptionsTheme();
   }
 
