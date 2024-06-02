@@ -1,0 +1,37 @@
+<div>
+  <div [ngClass]="{'terminal-dark': settings.isThemeDark, 'terminal-light': !settings.isThemeDark}">
+    <div class="terminal-header">
+      <div class="flex align-items-center justify-content-between gap-2 font-bold">
+        <div class="flex align-items-center gap-2">
+          <img src="../../../../assets/img/terminal.png" alt="terminal" class="w-2rem">
+          run:
+        </div>
+        <div class="text-color-secondary flex align-items-center gap-4">
+          <i class="pi pi-minus"></i>
+          <i class="pi pi-expand"></i>
+          <i class="pi pi-times"></i>
+        </div>
+      </div>
+    </div>
+    <div class="terminal-body" *ngIf="estadoEjecucion">
+      <div class="terminal-body-content">
+        <div class="font-normal text-sm text-color-secondary line-height-3 font-source-code-pro">
+          <p class="fade-in">Soy, Yefer Frank Huansha</p>
+          <p class="fade-in">Ingeniero de Sistemas</p>
+          <p class="fade-in">
+            Con tres años de experiencia en TI, me especializo como Full Stack Developer.
+            <br>
+            Destaco en Back-End con <span class="text-blue-400 font-bold font-fira-code">Java</span> y en Front-End con
+            <span class="text-red-400 font-bold font-fira-code">Angular</span>,
+            creando interfaces atractivas y personalizadas.
+            <br>
+            Además, tengo experiencia en desarrollo móvil con <span class="text-green-400 font-bold font-fira-code">Android Studio</span>
+            y <span class="text-yellow-400 font-bold font-fira-code">Capacitor</span>,
+            así como en la integración de <span class="text-purple-400 font-bold font-fira-code">Redis</span> para
+            mejorar el rendimiento en bases de datos. 🚀
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

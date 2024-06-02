@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Theme} from "../core/utils/enum";
+import {Theme} from "./enum";
+import {SettingsService} from "./settings.service";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import {Theme} from "../core/utils/enum";
 export class ThemeService {
   activeTheme: string = Theme.DARK;
 
-  constructor() {
+  constructor(private settings: SettingsService) {
     this.setTheme(this.activeTheme);
   }
 
@@ -18,5 +19,6 @@ export class ThemeService {
     }
 
     this.activeTheme = theme;
+    this.settings.isThemeDark = this.activeTheme === Theme.DARK;
   }
 }

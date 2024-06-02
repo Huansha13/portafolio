@@ -1,0 +1,51 @@
+@mixin terminal {
+  border-radius: 10px;
+  overflow: auto;
+  padding: 1.25rem;
+}
+
+.terminal-dark {
+  background: #282936;
+  color: rgba(255, 255, 255, 0.87);
+  border: 1px solid #3e4053;
+  @include terminal;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.terminal-light {
+  background: #ffffff;
+  color: #043d75;
+  border: 1px solid #dfe7ef;
+  padding: 1.25rem;
+  @include terminal;
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* Comienza completamente transparente */
+  }
+  100% {
+    opacity: 1; /* Termina completamente visible */
+  }
+}
+
+/* Aplica la animación a los elementos con la clase "fade-in" */
+.fade-in {
+  animation: fadeIn 1s ease-in-out; /* Duración de 1 segundo con aceleración y desaceleración */
+  animation-fill-mode: both; /* Mantiene el estado final de la animación */
+}
+
+/* Aplica un retraso diferente a cada elemento */
+.fade-in:nth-child(1) {
+  animation-delay: 0s; /* Sin retraso para el primer elemento */
+}
+
+.fade-in:nth-child(2) {
+  animation-delay: 1s; /* 1 segundo de retraso para el segundo elemento */
+}
+
+.fade-in:nth-child(3) {
+  animation-delay: 2s; /* 1 segundo de retraso para el segundo elemento */
+}

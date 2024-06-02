@@ -3,11 +3,14 @@ import {Home} from "../../work/model/home.interface";
 import {About} from "../../work/model/about.interface";
 import {Abilities} from "../../work/model/abilities.interface";
 import {Certificate} from "../../work/model/certificates.interface";
+import {Responsive} from "../model/resoponsive";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
+  isThemeDark: boolean = true;
+  view: Responsive = new Responsive();
   isLoading: boolean = false;
   dataPortafolio: { home: Home; about: About[]; abilities: Abilities[]; certificates: Certificate[] };
   constructor() {

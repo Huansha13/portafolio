@@ -12,3 +12,9 @@ export enum Idioma {
   ES = 'es',
   EN = 'en'
 }
+
+export enum Tamanos {
+  //SM = 576,
+  MD = 768,
+  LG = 992,
+}
