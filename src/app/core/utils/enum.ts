@@ -5,7 +5,7 @@ export enum Theme {
 
 export enum keysStorage {
   IDIOMA = 'idioma',
-  THEME = 'theme'
+  THEME = 'portafolio-theme'
 }
 
 export enum Idioma {

@@ -11,7 +11,7 @@ export class ThemeService {
     return this.activeTheme;
   }
 
-  setTheme(theme: string): void {
+  setTheme(theme: string) {
    let themeLink = document.getElementById('app-theme') as HTMLLinkElement;
    if(themeLink){
      themeLink.href = theme + '.css';

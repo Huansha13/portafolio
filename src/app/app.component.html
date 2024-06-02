@@ -6,7 +6,12 @@
   <h1>{{ 'WELCOME_MESSAGE' | translate }}</h1>
   <button>{{ 'ABOUT' | translate }}</button>
 -->
-
+  <div [hidden]="!settings.isLoading">
+    <div class="container-loader">
+      <div class="text-loader2 ml-3 font-bold"></div>
+      <i class="pi pi-spin pi-spinner opacity-10" style="font-size: 1rem;"></i>
+    </div>
+  </div>
   <router-outlet></router-outlet>
 </div>
 

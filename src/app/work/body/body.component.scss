@@ -134,25 +134,22 @@ $colo-blaco-bajo: #B8B8B8;
 }
 
 .btn-portafolio {
-  margin-top: 3rem;
   align-items: center;
 
   a {
-    border: 1px solid var(--primary-500);
     max-width: 250px;
     text-decoration: none;
-    color: var(--primary-500);
-    border-radius: 3px;
+    border-radius: 150px;
     padding: 1rem 3rem;
-    font-size: 14px;
     font-weight: 500;
-    /*filter: drop-shadow(0px 5px 18px rgba(0, 0, 0, 0.2));*/
+    background: var(--primary-100);
+    color: var(--primary-900);
 
     &:hover {
       transition: .5s;
-      background: var(--primary-color);
-      color: var(--primary-900);
-      /*filter: drop-shadow(0px 5px 18px rgba(0, 0, 0, 0.2));*/
+      border: 1px solid var(--primary-500);
+      color: var(--primary-500);
+      background: transparent;
     }
 
     &:active {

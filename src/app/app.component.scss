@@ -1,0 +1,21 @@
+.container-loader {
+  background: var(--primary-color-text);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  height: 100%;
+  z-index: 1102;
+}
+
+.text-loader1, .text-loader2, .text-loader3 {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 25px;
+}

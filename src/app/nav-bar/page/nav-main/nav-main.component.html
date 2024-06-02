@@ -1,9 +1,17 @@
 <div class="border shadow-3">
   <nav class="container flex align-items-center flex-wrap animate__animated animate__slideInDown">
     <div class="section-1 ">
-      <div class="logo">
-        <!--<img routerLink="" src="assets/icon-logo-web_dark.svg" alt="logo">-->
-        <b class="text-primary">yefer<span class="text-900">Frank();</span></b>
+      <div class="logo flex flex-column gap-1">
+        <b routerLink="" class="text-primary text-logo">yefer<span class="text-900">Frank();</span></b>
+        <!--<ng-template [ngIf]="settings.dataPortafolio?.home?.correo" [ngIfElse]="loadingCorreo">
+          <div class="flex gap-1 align-items-center opacity-50 text-xs" pTooltip="Enviame un correo" tooltipPosition="bottom">
+            <i class="uil uil-at text-color"></i>
+            <a class="text-color no-underline" href="mailto:{{settings.dataPortafolio?.home.correo}}">{{settings.dataPortafolio?.home.correo}}</a>
+          </div>
+        </ng-template>
+        <ng-template #loadingCorreo>
+          <p-skeleton height="16px" width="200px"></p-skeleton>
+        </ng-template>-->
       </div>
     </div>
     <div class="space"></div>
@@ -34,8 +42,10 @@
           <i class="uil uil-code-branch"></i> V. {{version}}
         </a>
         <a>
-          <p-selectButton [options]="stateOptionsTheme" styleClass="m-0 p-0"
-            [(ngModel)]="value" optionValue="value">
+          <p-selectButton [options]="stateOptionsTheme" (onOptionClick)="onThemeChange($event)"
+                          optionDisabled="constant"
+                          styleClass="select-button-icon select-button-rounded select-button-sm"
+                          [(ngModel)]="_selectedTheme" optionValue="value">
             <ng-template let-option pTemplate="item">
               <i [class]="option.icon"></i>
             </ng-template>

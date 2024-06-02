@@ -1,25 +1,49 @@
 <!-- Section presentation -->
 <div class="wrapper">
   <div class="grid">
-    <div class="col-12">
-      <div class="email animate__animated animate__bounce text-center" *ngFor="let home of homes$ | async">
+    <div class="col-12 md:col-6 lg:col-9">
+      <div class="tw sm:text-6xl text-6xl lg:text-7xl font-normal">Hola soy,</div>
+      <div class="txt-bolt tw2 text-7xl lg:text-8xl font-bold text-primary">Frank Huansha</div>
+      <div class="flex gap-1 align-items-center opacity-50" pTooltip="Enviame un correo" tooltipPosition="bottom">
         <i class="uil uil-at text-color"></i>
-        <span><a class="mailto" href="mailto:{{data?.home.correo}}">{{data?.home.correo}}</a></span>
+        <a class="text-color no-underline"
+           href="mailto:{{data?.home.correo}}">{{ data?.home.correo }}</a>
       </div>
     </div>
-    <div class="col-12">
-      <div class="flex justify-content-center" style=" min-height: 195px; ">
-        <div class="text-center">
-          <div class="tw sm:text-6xl text-6xl lg:text-7xl font-bold"></div>
-          <div class="txt-bolt tw2 text-7xl lg:text-8xl font-bold"></div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+   <!--   <div>
+        <img  src="../../../assets/img/yo.webp" class="w-full border-circle border-2" alt="yo" style="transform: scaleX(-1);">
+      </div>
+-->
+      <div class="flex justify-content-right">
+        <div class="bg-gradient-primary border-circle">
+          <div class="origin-bottom-left rotate-45 ">
+            <img src="../../../assets/img/foto-perfil.webp" class="w-full border-round" alt="yo" style="transform: scaleX(-1);">
+          </div>
         </div>
       </div>
     </div>
+
+    <!--    <div class="col-12">
+          <div class="email animate__animated animate__bounce text-center" *ngFor="let home of homes$ | async">
+            <i class="uil uil-at text-color"></i>
+            <span><a class="mailto" href="mailto:{{data?.home.correo}}">{{data?.home.correo}}</a></span>
+          </div>
+        </div>-->
+    <!--<div class="col-12">
+      <div class="flex justify-content-center" style=" min-height: 195px; ">
+        <div class="                                                          text-center">
+          <div class="tw sm:text-6xl text-6xl lg:text-7xl font-bold">Hola soy,</div>
+          <div class="txt-bolt tw2 text-7xl lg:text-8xl font-bold">Frank Huansha</div>
+        </div>
+      </div>
+    </div>-->
 
     <div class="col-12">
       <div class="flex justify-content-center">
         <div class="w-30rem text-color text-center" *ngFor="let home of homes$ | async">
-          <p class="text-xl lg:text-2xl"> {{home.descripcion}} </p>
+          <p class="text-xl lg:text-2xl"> {{ home.descripcion }} </p>
         </div>
       </div>
     </div>
@@ -27,11 +51,11 @@
 
     <div class="col-12">
       <div class="flex justify-content-center">
-        <div class="btn-portafolio animate__animated animate__jackInTheBox" *ngFor="let home of homes$ | async">
-<!--
-          <p-button label="Descargar C.V" [outlined]="true" icon="pi pi-download" routerLink="{{home.linkCv}}" target="_blank"/>
--->
-          <a href="{{home.linkCv}}" target="_blank" class="bg-btn-descargar">
+        <div class="btn-portafolio animate__animated animate__fadeInDown" *ngFor="let home of homes$ | async">
+          <!--
+                    <p-button label="Descargar C.V" [outlined]="true" icon="pi pi-download" routerLink="{{home.linkCv}}" target="_blank"/>
+          -->
+          <a href="{{home.linkCv}}" target="_blank">
             <span> Descargar c.v <i class="pi pi-download ml-3"></i></span>
           </a>
         </div>
@@ -39,12 +63,14 @@
     </div>
 
     <div class="col-12">
-      <div class="red-social animate__animated animate__slideInUp" >
+      <div class="red-social animate__animated animate__slideInUp">
         <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
         <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
         <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
-        <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i class="uil uil-linkedin"></i></a>
-        <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i class="uil uil-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i
+          class="uil uil-linkedin"></i></a>
+        <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i
+          class="uil uil-youtube"></i></a>
       </div>
     </div>
   </div>
@@ -55,27 +81,28 @@
 <!-- Section About-->
 <div class="wrapper-about" id="about">
 
-  <div class="wrap-about" *ngFor="let ab of abouts$ | async" >
+  <div class="wrap-about" *ngFor="let ab of abouts$ | async">
     <div class="section-1">
-      <img src="{{ab.foto}}" alt="foto-peril" style="border-radius: 10px">
+      <img src="{{ab.foto}}" alt="foto-peril" style="border-radius: 10px; transform: scaleX(-1);">
     </div>
     <div class="section-2">
       <div class="title">
         SOBRE MI...
       </div>
       <div class="description">
-        <p>{{ab.descripcion}}</p>
+        <p>{{ ab.descripcion }}</p>
       </div>
       <div class="items">
         <ul>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{ab.edad}}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{ ab.edad }}</li>
           <li *ngFor="let ubi of locations$ | async">
             <i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp;
-            <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z" target="_blank">{{ubi.address}}</a>
+            <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z"
+               target="_blank">{{ ubi.address }}</a>
           </li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> {{ab.stack}}</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; {{ab.interes}}</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; {{ab.competencia}}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> {{ ab.stack }}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; {{ ab.interes }}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; {{ ab.competencia }}</li>
         </ul>
       </div>
     </div>
@@ -95,17 +122,18 @@
     <div class="space">
       <div class="solo-boxs">
         <div class="section-1">
-          <div class="box" *ngFor=" let abi of  abilities$ | async" >
+          <div class="box" *ngFor=" let abi of  abilities$ | async">
             <div class="logo-name">
-              <div class="logo"><img src="{{abi.icono}}" alt="logo"> </div>
-              <div class="name">{{abi.nombre}}</div>
+              <div class="logo"><img src="{{abi.icono}}" alt="logo"></div>
+              <div class="name">{{ abi.nombre }}</div>
             </div>
-            <div class="progress" >
-              <div class="progress-content" [ngStyle]="{'background': abi.color, 'width':2 * abi.porcentaje + 'px'}"></div>
+            <div class="progress">
+              <div class="progress-content"
+                   [ngStyle]="{'background': abi.color, 'width':2 * abi.porcentaje + 'px'}"></div>
             </div>
             <div class="description">
-              <div class="percentage"> {{abi.porcentaje}}% </div>
-              <div class="detail">{{detail}}</div>
+              <div class="percentage"> {{ abi.porcentaje }}%</div>
+              <div class="detail">{{ detail }}</div>
             </div>
           </div>
         </div>
@@ -113,16 +141,17 @@
       <div class="section-2 ">
         <div class="box" *ngFor="let item of abiliSec">
           <div class="icon-title">
-            <div class="icon"> <span [innerHTML]="item.icono"></span> </div>
-            <div class="title"> {{item.nombre}} </div>
+            <div class="icon"><span [innerHTML]="item.icono"></span></div>
+            <div class="title"> {{ item.nombre }}</div>
           </div>
           <div *ngFor="let item of item.tec" class="sec-tec">
             <div class="name-percentage">
-              <div class="name">{{item.nombre}}</div>
-              <div class="percentage">{{item.porcentaje}}%</div>
+              <div class="name">{{ item.nombre }}</div>
+              <div class="percentage">{{ item.porcentaje }}%</div>
             </div>
             <div class="progress">
-              <div class="progress-content" [ngStyle]="{'background': item.color, 'width':3.4 * item.porcentaje + 'px'}" ></div>
+              <div class="progress-content"
+                   [ngStyle]="{'background': item.color, 'width':3.4 * item.porcentaje + 'px'}"></div>
             </div>
           </div>
         </div>
@@ -139,22 +168,22 @@
 <!--my projects-->
 <div class="wrapper-projects" id="projects">
 
-  <div class="title" style="margin-top: 48px;"> [ Proyectos ] </div>
-<!--  <div class="heading">-->
-<!--    <div class="label">Filtar</div>-->
-<!--    <div class="section">-->
-<!--      <span *ngFor="let item of [1,1,1,1,1]">Nuevo <span>05</span> </span>-->
-<!--    </div>-->
-<!--    <div class="btn">-->
-<!--      <label>-->
-<!--        <select name="select">-->
-<!--          <option value="value1">Value 1</option>-->
-<!--          <option value="value2" selected> Todo </option>-->
-<!--          <option value="value3">Value 3</option>-->
-<!--        </select>-->
-<!--      </label>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="title" style="margin-top: 48px;"> [ Proyectos ]</div>
+  <!--  <div class="heading">-->
+  <!--    <div class="label">Filtar</div>-->
+  <!--    <div class="section">-->
+  <!--      <span *ngFor="let item of [1,1,1,1,1]">Nuevo <span>05</span> </span>-->
+  <!--    </div>-->
+  <!--    <div class="btn">-->
+  <!--      <label>-->
+  <!--        <select name="select">-->
+  <!--          <option value="value1">Value 1</option>-->
+  <!--          <option value="value2" selected> Todo </option>-->
+  <!--          <option value="value3">Value 3</option>-->
+  <!--        </select>-->
+  <!--      </label>-->
+  <!--    </div>-->
+  <!--  </div>-->
   <hr>
   <div class="content-project">
     <div class="section">
@@ -171,8 +200,8 @@
             </div>
             <div class="section-info">
               <div class="item-info">
-                <div class="title">{{i.titulo}}</div>
-                <div class="description"> {{i.fecha}} </div>
+                <div class="title">{{ i.titulo }}</div>
+                <div class="description"> {{ i.fecha }}</div>
               </div>
               <div class="icons">
                 <a [href]="i.url" target="_blank" *ngFor="let i of i.link">
@@ -208,39 +237,38 @@
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-3">
           <div class="service__item__box">
-          <div class="service__item__title">
+            <div class="service__item__title">
           <span class="icon">
             <i class="uil uil-arrow"></i>
           </span> &nbsp;
-            <span class="name">Desarrollo Frontend</span>
+              <span class="name">Desarrollo Frontend</span>
+            </div>
+            <div class="service__item__description">
+              Maquetación de paginas responsivas.
+            </div>
           </div>
-          <div class="service__item__description">
-            Maquetación de paginas responsivas.
-          </div>
-        </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-3">
           <div class="service__item__box">
-          <div class="service__item__title">
-            <span class="icon"><i class="uil uil-server-connection"></i></span> &nbsp; <span class="name">Desarrollo Backend</span>
+            <div class="service__item__title">
+              <span class="icon"><i class="uil uil-server-connection"></i></span> &nbsp; <span class="name">Desarrollo Backend</span>
+            </div>
+            <div class="service__item__description">
+              API REST con Node JS, y Spring Boot.
+            </div>
           </div>
-          <div class="service__item__description">
-            API REST con Node JS, y Spring Boot.
-          </div>
-        </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-3">
           <div class="service__item__box">
-          <div class="service__item__title">
-            <span class="icon"><i class="uil uil-laptop"></i></span> &nbsp; <span class="name">Soporte de Proyectos</span>
-          </div>
-          <div class="service__item__description">
-            Optimizacion y Soluciones de Codigo.
+            <div class="service__item__title">
+              <span class="icon"><i class="uil uil-laptop"></i></span> &nbsp; <span
+              class="name">Soporte de Proyectos</span>
+            </div>
+            <div class="service__item__description">
+              Optimizacion y Soluciones de Codigo.
+            </div>
           </div>
         </div>
-        </div>
-
-
 
 
       </div>
@@ -261,17 +289,17 @@
                 <img [src]="item.logo" alt="">
               </div>
               <div class="emp_info">
-                <div class="name__emp"> {{item.titulo}}</div>
-                <span class="crf_description">{{item.descripcion}}</span>
+                <div class="name__emp"> {{ item.titulo }}</div>
+                <span class="crf_description">{{ item.descripcion }}</span>
                 <div class="cerficate_fecha">
-                  {{item.fecha}}
+                  {{ item.fecha }}
                 </div>
               </div>
             </a>
           </div>
-<!--          <div class="col-12 col-sm-12 col-md-6 col-lg-4 ver" style="margin: auto;">-->
-<!--            <a class="ver__todo" href="#"> <span><i class="uil uil-arrow-right"></i></span> Ver todo</a>-->
-<!--          </div>-->
+          <!--          <div class="col-12 col-sm-12 col-md-6 col-lg-4 ver" style="margin: auto;">-->
+          <!--            <a class="ver__todo" href="#"> <span><i class="uil uil-arrow-right"></i></span> Ver todo</a>-->
+          <!--          </div>-->
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import {Home} from "../model/home.interface";
 import {About} from "../model/about.interface";
 import {Abilities} from "../model/abilities.interface";
 import {Certificate} from "../model/certificates.interface";
+import {SettingsService} from "../../core/utils/settings.service";
 
 @Component({
   selector: 'app-body',
@@ -201,19 +202,27 @@ export class BodyComponent implements OnInit, AfterViewInit {
 
   constructor(private _workService: WorkService,
               private _service: ServiceBodyService,
-              private _contactService: ContactService
+              private _contactService: ContactService,
+              private settings: SettingsService
   ) {
   }
 
   ngOnInit(): void {
-    this._service.getData().subscribe(data => {
-      console.log("=>(body.component.ts:205) data", data);
-      this.data = data;
-    })
+    Promise.resolve().then(() => {
+      this.settings.isLoading = true;
+      this._service.getData()
+        .subscribe(data => {
+          console.log("=>(body.component.ts:205) data", data);
+          this.data = data;
+          this.settings.dataPortafolio = data;
+          this.settings.isLoading = false
+          console.log("=>(body.component.ts:219) this.settings.isLoading", this.settings.isLoading);
+        })
+    });
   }
 
   ngAfterViewInit() {
-    this.writerName();
+    //this.writerName();
   }
 
   writerName(): void {

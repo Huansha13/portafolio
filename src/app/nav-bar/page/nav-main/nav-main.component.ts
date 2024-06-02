@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "../../../services/theme.service";
 import {Idioma, keysStorage, Theme} from "../../../core/utils/enum";
-import { PrimeIcons } from 'primeng/api';
+import {PrimeIcons} from 'primeng/api';
+import {SelectButtonOptionClickEvent} from "primeng/selectbutton";
+import {SettingsService} from "../../../core/utils/settings.service";
 
 @Component({
   selector: 'app-nav-main',
@@ -11,36 +13,29 @@ import { PrimeIcons } from 'primeng/api';
 })
 export class NavMainComponent implements OnInit {
   version: string = '2.0.1';
+  _selectedTheme: Theme = Theme.DARK;
   active: boolean = true;
   idioma: string = Idioma.ES;
   optIdioma = [
     {name: 'Español', code: Idioma.ES},
     {name: 'English', code: Idioma.EN}
   ]
-
-  private _selectedTheme: Theme;
-  checkedTheme: boolean;
-  stateOptionsTheme = [
-  {value: Theme.LIGHT, icon: PrimeIcons.SUN},
-  {value: Theme.DARK, icon: PrimeIcons.MOON}
-];
-
-  value: string =Theme.DARK;
-
+  stateOptionsTheme = this.getStateOptionsTheme();
+  private themeStorage: Theme;
   constructor(private translate: TranslateService,
-              public themeService: ThemeService) {
+              public themeService: ThemeService,
+              public settings: SettingsService) {
   }
 
   ngOnInit(): void {
+    this.themeStorage = (localStorage.getItem(keysStorage.THEME) as Theme) || Theme.DARK;
     const idioma = localStorage.getItem(keysStorage.IDIOMA);
     if (idioma) {
       this.idioma = idioma;
       this.selectIdioma();
     }
 
-    this._selectedTheme = (localStorage.getItem(keysStorage.THEME) as Theme) || Theme.DARK;
-    this.checkedTheme = this._selectedTheme === Theme.DARK;
-    this.themeService.setTheme(this._selectedTheme);
+    this.selectedTheme = this.themeStorage;
   }
 
   mostarOcultar() {
@@ -56,10 +51,17 @@ export class NavMainComponent implements OnInit {
     this._selectedTheme = theme;
     this.themeService.setTheme(theme);
     localStorage.setItem(keysStorage.THEME, theme);
+    this.stateOptionsTheme = this.getStateOptionsTheme();
   }
 
-  onThemeChange(): void {
-    this.checkedTheme = !this.checkedTheme;
-    this.selectedTheme = this.checkedTheme ? Theme.DARK : Theme.LIGHT;
+  onThemeChange(event: SelectButtonOptionClickEvent): void {
+    this.selectedTheme = event.option.value as Theme;
+  }
+
+  private getStateOptionsTheme() {
+    return [
+      {value: Theme.LIGHT, icon: PrimeIcons.SUN, constant: this._selectedTheme == Theme.LIGHT},
+      {value: Theme.DARK, icon: PrimeIcons.MOON, constant: this._selectedTheme == Theme.DARK}
+    ];
   }
 }
