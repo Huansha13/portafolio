@@ -11,6 +11,7 @@ import {Abilities} from "../model/abilities.interface";
 import {Certificate} from "../model/certificates.interface";
 import {SettingsService} from "../../core/utils/settings.service";
 import {COLORS_WRITER} from "../../core/utils/constantes";
+import {MenuItem, PrimeIcons} from "primeng/api";
 
 @Component({
   selector: 'app-body',
@@ -198,6 +199,7 @@ export class BodyComponent implements OnInit, AfterViewInit {
   data: { home: Home; about: About[]; abilities: Abilities[]; certificates: Certificate[] };
   prompt_terminal: boolean = false;
   ejecutarPrompt: boolean = false;
+  items: MenuItem[] | undefined;
 
   constructor(private _workService: WorkService,
               private _service: ServiceBodyService,
@@ -208,17 +210,64 @@ export class BodyComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+
+    /*this.items = [
+      {
+        icon: 'pi pi-pencil',
+        command: () => {
+          //this.messageService.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
+        }
+      },
+      {
+        icon: 'pi pi-refresh',
+        command: () => {
+          //this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
+        }
+      },
+      {
+        icon: 'pi pi-trash',
+        command: () => {
+          //this.messageService.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
+        }
+      },
+      {
+        icon: 'pi pi-upload',
+        routerLink: ['/fileupload']
+      },
+      {
+        icon: 'pi pi-external-link',
+        target: '_blank',
+        url: 'http://angular.io'
+      }
+    ];*/
+
     Promise.resolve().then(() => {
       this._service.getData()
         .subscribe(data => {
           console.log("=>(body.component.ts:205) data", data);
           this.data = data;
           this.settings.dataPortafolio = data;
-          this.settings.isLoading = false
-          console.log("=>(body.component.ts:219) this.settings.isLoading", this.settings.isLoading);
-          this.writerName();
+          this.settings.isLoading = false;
+          this.loadItemsOption();
+
+          if (!this.prompt_terminal) {
+            this.writerName();
+          }
         })
     });
+  }
+
+  loadItemsOption(): void {
+    this.items = [
+      {
+        label: 'Descargar C.V.',
+        url: this.data.home.linkCv
+      },
+      {
+        label: 'Contáctate Conmigo',
+        url: `mailto:${this.data.home.correo}`
+      }
+    ];
   }
 
   ngAfterViewInit() {
@@ -252,7 +301,7 @@ export class BodyComponent implements OnInit, AfterViewInit {
     writer3b.type('Soy()').removeCursor().then(writer3c.start.bind(writer3c));
     writer3c.type('; ').removeCursor().then(writer4.start.bind(writer4));
     writer4.type('} ').removeCursor().then(writer5.start.bind(writer5));
-    writer5.type('} ').then(() => {
+    writer5.type('}').then(() => {
       this.ejecutarPrompt = true;
       setTimeout(() => {
         this.prompt_terminal = true;

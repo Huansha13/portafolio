@@ -15,47 +15,73 @@
       </div>
     </div>
     <div class="space"></div>
-    <div class="menu">
-        <p-button (click)="mostarOcultar()" [icon]="'pi pi-align-center'" [rounded]="true" [text]="true"></p-button>
+    <div *ngIf="!settings.view.lg" class="flex align-items-center gap-2">
+      <ng-container [ngTemplateOutlet]="btnTheme"></ng-container>
+      <p-button (click)="sidebarVisible = true;" [icon]="'pi pi-bars'" [rounded]="true" [text]="true"></p-button>
     </div>
-    <div class="section-2"
-         [ngClass]="{noactive:!active, active:active}" >
-      <div class="items">
-        <!--
-        <a href="" routerLinkActive="activo">{{ 'menu.home' | translate }}</a>
-        <a href="#about" routerLinkActive="activo">{{ 'menu.about' | translate }}</a>
-        -->
-        <a href="#projects" routerLinkActive="activo">{{ 'menu.projects' | translate }}</a>
-        <a href="#services" routerLinkActive="activo">{{ 'menu.services' | translate }}</a>
-        <a routerLink="/resume" routerLinkActive="activo">{{ 'menu.resume' | translate }}</a>
-        <a routerLink="/contact" routerLinkActive="activo">{{ 'menu.contact' | translate }}</a>
-        <a routerLink="/git-hub" routerLinkActive="activo">{{ 'menu.repository' | translate }}</a>
-        <a>
-          <p-dropdown [options]="optIdioma"
-                      [(ngModel)]="idioma"
-                      optionValue="code" (onChange)="selectIdioma()"
-                      class="p-inputtext-sm"
-                      optionLabel="name">
-          </p-dropdown>
-        </a>
-        <a title="{{ 'menu.downloadCode' | translate }}" href="https://github.com/Huansha13/portafolio.git" target="_blank">
-          <i class="uil uil-code-branch"></i> V. {{version}}
-        </a>
-        <a>
-          <p-selectButton [options]="stateOptionsTheme" (onOptionClick)="onThemeChange($event)"
-                          optionDisabled="constant"
-                          styleClass="select-button-icon select-button-rounded select-button-sm"
-                          [(ngModel)]="_selectedTheme" optionValue="value">
-            <ng-template let-option pTemplate="item">
-              <i [class]="option.icon"></i>
-            </ng-template>
-          </p-selectButton>
-
-          <!--
-          <p-button (click)="onThemeChange()" [rounded]="true" [severity]="checkedTheme ? 'warning' : ''" styleClass="button-rounded-sm-2"
-                    [icon]="checkedTheme ? 'pi pi-sun' : 'pi pi-moon'" [text]="true"></p-button> -->
-        </a>
-      </div>
+    <div class="section-2">
+      <ng-container [ngTemplateOutlet]="itemsMenu"></ng-container>
     </div>
   </nav>
 </div>
+
+<p-sidebar [(visible)]="sidebarVisible">
+  <ng-template pTemplate="header">
+    <b routerLink="" class="text-primary font-fira-code">yefer<span class="text-900">Frank();</span></b>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <div class="items-menu-sidebar">
+      <ng-container *ngTemplateOutlet="itemsMenu"></ng-container>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="flex align-items-center justify-content-between text-center opacity-50">
+      <a class="no-underline text-color w-full" title="{{ 'menu.downloadCode' | translate }}"
+         href="https://github.com/Huansha13/portafolio.git" target="_blank">
+        <i class="uil uil-code-branch"></i> V. {{ version }}
+      </a>
+    </div>
+  </ng-template>
+</p-sidebar>
+
+<ng-template #itemsMenu>
+  <div class="items">
+    <!--
+    <a href="" routerLinkActive="activo">{{ 'menu.home' | translate }}</a>
+    <a href="#about" routerLinkActive="activo">{{ 'menu.about' | translate }}</a>
+    -->
+    <a (blur)="sidebarVisible = false"  class="no-underline" href="#projects" routerLinkActive="activo">{{ 'menu.projects' | translate }}</a>
+    <a (blur)="sidebarVisible = false" class="no-underline" href="#services" routerLinkActive="activo">{{ 'menu.services' | translate }}</a>
+    <a (click)="sidebarVisible = false" class="no-underline" routerLink="/resume" routerLinkActive="activo">{{ 'menu.resume' | translate }}</a>
+    <a (click)="sidebarVisible = false" class="no-underline" routerLink="/contact" routerLinkActive="activo">{{ 'menu.contact' | translate }}</a>
+    <a (click)="sidebarVisible = false" class="no-underline" routerLink="/git-hub" routerLinkActive="activo">{{ 'menu.repository' | translate }}</a>
+    <a class="no-underline">
+      <p-dropdown [options]="optIdioma"
+                  [(ngModel)]="idioma"
+                  optionValue="code" (onChange)="selectIdioma()"
+                  class="p-inputtext-sm"
+                  styleClass="w-full"
+                  optionLabel="name">
+      </p-dropdown>
+    </a>
+    <a *ngIf="settings.view.lg" class="no-underline" title="{{ 'menu.downloadCode' | translate }}"
+       href="https://github.com/Huansha13/portafolio.git" target="_blank">
+      <i class="uil uil-code-branch"></i> V. {{ version }}
+    </a>
+    <a class="no-underline" *ngIf="settings.view.lg">
+      <ng-container *ngTemplateOutlet="btnTheme"></ng-container>
+    </a>
+  </div>
+</ng-template>
+
+<ng-template #btnTheme>
+  <p-selectButton [options]="stateOptionsTheme" (onOptionClick)="onThemeChange($event)"
+                  optionDisabled="constant"
+                  styleClass="select-button-icon select-button-rounded select-button-sm"
+                  [(ngModel)]="_selectedTheme" optionValue="value">
+    <ng-template let-option pTemplate="item">
+      <i [class]="option.icon"></i>
+    </ng-template>
+  </p-selectButton>
+
+</ng-template>

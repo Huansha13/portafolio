@@ -58,7 +58,8 @@ html, body {
 }
 
 .container {
-  max-width: 1179px;
+  max-width: 1179px !important;
+  margin: auto !important;
 }
 
 * {
@@ -121,11 +122,11 @@ html, body {
 }
 
 .mi-foto {
-  border: 10px solid;
-  border-color: var(--surface-0);
+  //brder: 10px solid;
+  //border-color: var(--surface-0);
   display: inline-block;
-  padding: 5px;
-  border-radius: 75px;
+  //padding: 5px;
+  //border-radius: 50%;
 }
 
 .btn-contactame,
@@ -259,11 +260,18 @@ html, body {
   transition: all 0.2s ease-in-out;
 }
 
+.btn-speed-dial {
+  .p-speeddial-button.p-button.p-button-icon-only {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+}
+
 // responsive styles md
 @media screen and (max-width: 960px) {
   .select-button-sm {
     .p-button {
-      padding: 10px !important;
+      //padding: 10px !important;
     }
   }
 }

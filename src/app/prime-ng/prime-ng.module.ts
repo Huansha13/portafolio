@@ -8,6 +8,9 @@ import {SkeletonModule} from "primeng/skeleton";
 import {TooltipModule} from "primeng/tooltip";
 import {DividerModule} from "primeng/divider";
 import {TerminalModule} from "primeng/terminal";
+import {SpeedDialModule} from "primeng/speeddial";
+import {MenuModule} from "primeng/menu";
+import {SidebarModule} from "primeng/sidebar";
 
 const myModulo = [
   DropdownModule,
@@ -17,7 +20,10 @@ const myModulo = [
   SkeletonModule,
   TooltipModule,
   DividerModule,
-  TerminalModule
+  TerminalModule,
+  SpeedDialModule,
+  MenuModule,
+  SidebarModule
 ];
 
 @NgModule({

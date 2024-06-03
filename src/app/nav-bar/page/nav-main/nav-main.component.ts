@@ -4,6 +4,7 @@ import {ThemeService} from "../../../core/utils/theme.service";
 import {Idioma, keysStorage, Theme} from "../../../core/utils/enum";
 import {PrimeIcons} from 'primeng/api';
 import {SelectButtonOptionClickEvent} from "primeng/selectbutton";
+import {SettingsService} from "../../../core/utils/settings.service";
 
 @Component({
   selector: 'app-nav-main',
@@ -20,7 +21,9 @@ export class NavMainComponent implements OnInit {
     {name: 'English', code: Idioma.EN}
   ]
   stateOptionsTheme = this.getStateOptionsTheme();
+  sidebarVisible: boolean = false;
   constructor(public themeService: ThemeService,
+              public settings: SettingsService,
               private translate: TranslateService) {
   }
 
@@ -39,6 +42,7 @@ export class NavMainComponent implements OnInit {
   selectIdioma() {
     this.translate.use(this.idioma);
     localStorage.setItem(keysStorage.IDIOMA, this.idioma);
+    this.sidebarVisible = false;
   }
 
   set selectedTheme(theme: Theme) {
