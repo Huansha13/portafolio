@@ -306,8 +306,15 @@ export class BodyComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         this.prompt_terminal = true;
         this.ejecutarPrompt = false;
-      }, 1000)
+      }, 300)
     });
   }
 
+  descargarCv() {
+    window.open(this.data.home.linkCv, '_blank');
+  }
+
+  contactame() {
+    window.open(`mailto:${this.data.home.correo}`, '_blank');
+  }
 }

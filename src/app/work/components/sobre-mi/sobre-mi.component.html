@@ -1,69 +1,40 @@
-<!--<p-divider align="center" [style]="{zIndex: '0'}">
-  <p class="m-0 p-2 flex gap-2 align-items-center font-source-code-pro text-color font-semibold">
-    <i class="pi pi-verified text-primary"></i> {{ '{Sobre Mi}' }}
-  </p>
-</p-divider>-->
-
+<!--
+<h3 class="sub-title-degradate flex gap-2 align-items-center"><i class="pi pi-info-circle"></i> Sobre mi </h3>
+-->
 <div class="wrapper">
   <div class="grid">
-    <div class="col-12 md:col-9 lg:col-6">
-      <p-fieldset legend="Sobre Mi">
-        <p class="m-0 p-0 text-sm line-height-4">{{ data?.descripcion }}</p>
-      </p-fieldset>
+    <div class="col-12 md:col-6 lg:col-7">
+      <h1 class="landing-title font-bold m-0 mt-5 text-7xl lg:text-8xl">Sobre Mi</h1>
+      <p class="m-0 p-0 line-height-4">{{ data?.descripcion }}</p>
     </div>
-    <div class="col-12 md:col-3 lg:col-6">
-      <p-card>
-        <ng-template pTemplate="header">
-          <img alt="Card" src="../../../assets/img/mi-foto.webp" />
-        </ng-template>
-        <div class="items-about-me mt-2">
-          <ul>
-            <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{ data?.edad }}</li>
-            <li>
-              <i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp;
-              <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z"
-                 target="_blank">{{ data?.ubicacion }}</a>
-            </li>
-            <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> {{ data?.stack }}</li>
-            <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; {{ data?.interes }}</li>
-            <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; {{ data?.competencia }}</li>
-          </ul>
-        </div>
-      </p-card>
-    </div>
-    <!--<div class="col-12 md:col-9 lg:col-8">
-      <p class="m-0 p-0 text-sm line-height-4">{{ data?.descripcion }}</p>
-      <div class="items-about-me mt-2">
-        <ul>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{ data?.edad }}</li>
-          <li>
-            <i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp;
-            <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z"
-               target="_blank">{{ data?.ubicacion }}</a>
-          </li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> {{ data?.stack }}</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; {{ data?.interes }}</li>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; {{ data?.competencia }}</li>
-        </ul>
-      </div>
+    <!--<div class="col-12 md:col-6 lg:col-4">
     </div>-->
-<!--
-    <ng-container *ngTemplateOutlet="miFoto"></ng-container>
--->
+    <div class="col-12 md:col-6 lg:col-5">
+      <div class="flex flex-column h-full relative">
+        <img alt="mi-foto" src="../../../assets/img/mi-foto.webp" class="w-full img-mi-foto border-round-2xl"/>
+        <article class="absolute p-3 bottom-0 w-full  border-round-2xl border-noround-top info-text-img text-white">
+          <div class="items-about-me mt-2">
+            <ul>
+              <li class="text-sm flex align-items-center gap-2">
+                <i class="uil uil-check-circle"></i> <b>Edad Actual: </b> {{ data?.edad }}
+              </li>
+              <li class="text-sm flex align-items-center gap-2">
+                <i class="uil uil-check-circle"></i> <b>Ubicación: </b>
+                <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z" target="_blank">{{ data?.ubicacion }}</a>
+              </li>
+              <li class="text-sm flex align-items-center gap-2">
+                <i class="uil uil-check-circle"></i> <b>Stack Preferido: </b> {{ data?.stack }}
+              </li>
+              <li class="text-sm flex align-items-center gap-2">
+                <i class="uil uil-check-circle"></i> <b>Intereses: </b> {{ data?.interes }}
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="col-12">
+
+    </div>
   </div>
 </div>
-
-<ng-template #miFoto>
-  <div class="col-12 md:col-3 lg:col-4">
-    <picture class="picture-mi-foto">
-      <img src="../../../assets/img/mi-foto.webp" class="w-full img-mi-foto " alt="yo"
-           style="transform: scaleX(1);">
-    </picture>
-  </div>
-  <!--<div class="col-12 md:col-3 lg:col-4">
-    <div class="bg-gradient-primary border-round flex justify-content-center align-items-center">
-      <img src="../../../assets/img/mi-foto.webp" class="w-full p-1 img-mi-foto border-round" alt="yo"
-           style="transform: scaleX(-1);">
-    </div>
-  </div>-->
-</ng-template>

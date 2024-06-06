@@ -1,21 +1,13 @@
-
-<section *ngIf="settings.isThemeDark" style="position: relative; overflow: hidden;">
+<section *ngIf="settings.isThemeDark && settings.view.lg" style="position: relative; overflow: hidden;">
   <img src="../../../assets/img/bg-fondo.svg"
-       style="position: fixed; top: 50%;left: 50%;width: 200%;transform: translate(-50%, -50%);">
+       style="position: fixed; top: 50%;left: 50%;width: 200%;transform: translate(-50%, -50%); z-index: 0; pointer-events: none;
+}">
 </section>
 
 <!-- Section presentation -->
-<div class="container px-3 lg:px-0 flex-1 h-full flex align-items-center">
+<div class="container px-3 lg:px-0 flex-1 h-auto lg:h-full flex align-items-center">
   <section class="w-full">
     <div class="grid">
-      <!--@if (!settings.view.lg) {
-        <div class="col-12 lg:col-4 z-5">
-          <div class="relative flex align-items-center gap-4 justify-content-center flex-column lg:flex-row">
-            <ng-container [ngTemplateOutlet]="miAvatar"></ng-container>
-          </div>
-        </div>
-      }-->
-
       @if (!settings.view.lg && data) {
         <div class="col-12 lg:col-8 z-5">
           <app-ws-code></app-ws-code>
@@ -44,8 +36,8 @@
           </div>
           <div class="col-12 md:col-4 lg:col-12">
             <div class="flex flex-column h-full justify-content-center gap-2">
-              <p-button styleClass="w-full" label="Contáctate conmigo" icon="pi pi-envelope" severity="contrast" [rounded]="true" size="small"/>
-              <p-button styleClass="w-full" label="Descargar C.V." icon="pi pi-download" [outlined]="true" [rounded]="true" severity="contrast" size="small"/>
+              <p-button (onClick)="contactame()" styleClass="w-full" label="Contáctate conmigo" icon="pi pi-envelope" severity="contrast" [rounded]="true" size="small"/>
+              <p-button (onClick)="descargarCv()" styleClass="w-full" label="Descargar C.V." icon="pi pi-download" [outlined]="true" [rounded]="true" severity="contrast" size="small"/>
             </div>
           </div>
           @if (!settings.view.lg) {
@@ -62,104 +54,24 @@
       }
     </div>
   </section>
-  <section>
-    <div class="grid">
-      <!--<div class="col-12">
-        <div class="flex gap-1 align-items-center opacity-50 justify-content-center" pTooltip="Enviame un correo" tooltipPosition="bottom">
-          <i class="uil uil-at text-color"></i>
-          <span>
-            <a class="mailto" href="mailto:{{data?.home.correo}}">{{data?.home.correo}}</a>
-          </span>
-        </div>
-      </div>-->
-
-      <!--<div class="col-12">
-        <div class="relative flex align-items-center gap-4 justify-content-center flex-column lg:flex-row">
-          <a *ngIf="settings.view.lg" pButton href="mailto:{{data?.home.correo}}" label="Contáctate conmigo" class="w-13rem btn-contactame p-button-rounded no-underline font-semibold"></a>
-          <ng-container [ngTemplateOutlet]="miAvatar"></ng-container>
-          <a *ngIf="settings.view.lg" pButton href="{{data?.home.linkCv}}" target="_blank" label="Descargar C.V." class="w-13rem btn-descargar-cv p-button-rounded no-underline font-semibold"></a>
-        </div>
-      </div>-->
-
-      <!--<div class="col-12">
-        <p-divider align="center" styleClass="m-0 p-0" [style]="{zIndex: '0'}">
-          <p class="red-social p-0 m-0">
-            <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
-            <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
-            <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
-            <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i
-              class="uil uil-linkedin"></i></a>
-            <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i
-              class="uil uil-youtube"></i></a>
-          </p>
-        </p-divider>
-      </div>-->
-
-      <!--<div class="col-12">
-        <div [ngClass]="{'editor-code-dark': settings.isThemeDark, 'editor-code-light': !settings.isThemeDark}" style="min-height: 140px">
-          <div class="flex gap-3" >
-            <div *ngIf="!settings.view.sm">
-              <ul class="list-none p-0 m-0 line-height-3 pl-2">
-                <li class="font-bold font-fira-code"> 1 </li>
-                <li class="font-bold font-fira-code"> 2 </li>
-                <li class="font-bold font-fira-code"> 3 </li>
-                <li class="font-bold font-fira-code"> 4 </li>
-                <li class="font-bold font-fira-code"> 5 </li>
-              </ul>
-            </div>
-            <div class="line-height-3 font-semibold text-sm lg:text-base font-fira-code">
-              <div class="tw-saludo1"></div>
-              <div class="border-left-1 border-green-400">
-                <div class="ml-4 tw-saludo2"></div>
-                <div class="ml-4 border-left-1 border-blue-400">
-                  <div class="ml-5 tw-saludo3"></div>
-                </div>
-                <div class="ml-4 tw-saludo4"></div>
-              </div>
-              <div class="tw-saludo5"></div>
-            </div>
-          </div>
-        </div>
-      </div>-->
-
-      <div class="col-12">
-        <span *ngIf="ejecutarPrompt"
-              class="flex align-items-center gap-3 font-normal text-sm text-color-secondary p-2 text-center font-source-code-pro">
-          <i class="pi pi-spin pi-spinner"></i> Ejecutando
-        </span>
-        <app-terminal *ngIf="prompt_terminal" [estadoEjecucion]="prompt_terminal"></app-terminal>
-      </div>
-    </div>
-  </section>
-
-  <div class="fade-in" *ngIf="prompt_terminal && settings.view.lg">
-    <div class="flex justify-content-center gap-2 mt-5 animation-delay-100">
-      <p-button [text]="true" [plain]="true" [raised]="true" [rounded]="true" icon="pi pi-arrow-down"></p-button>
-      <!--<a pButton href="mailto:{{data?.home.correo}}" icon="pi pi-envelope" class="w-13rem btn-contactame p-button-rounded no-underline font-semibold"></a>-->
-      <!--<a pButton href="{{data?.home.linkCv}}" target="_blank" label="Descargar C.V." class="w-13rem btn-descargar-cv p-button-rounded no-underline font-semibold"></a>-->
-    </div>
-  </div>
 </div>
 
-<!--sobremi-->
+<!-- Animate-Background -->
+<app-animated-background></app-animated-background>
 
-<!--
+<!--sobremi-->
 <section class="mt-5">
-  <div class="container px-3 lg:px-0">
+  <div class="container px-3 lg:px-0 z-5">
     <app-sobre-mi [data]="data?.about"></app-sobre-mi>
   </div>
 </section>
 
-&lt;!&ndash;Proyectos&ndash;&gt;
-<div class="container px-3 lg:px-0">
+<!--Proyectos-->
+<div class="container px-3 lg:px-0 z-5">
   <app-proyectos></app-proyectos>
 </div>
--->
 
 <!-- end presentation-->
-<ng-container *ngIf="true">
-
-</ng-container>
 
 <!-- Section About--><!--
 <div class="wrapper-about" id="about">

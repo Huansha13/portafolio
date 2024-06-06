@@ -12,6 +12,7 @@ import {TerminalComponent} from "../core/components/terminal/terminal.component"
 import {WsCodeComponent} from "../core/components/ws-code/ws-code.component";
 import {ProyectosComponent} from "./components/proyectos/proyectos.component";
 import {SobreMiComponent} from "./components/sobre-mi/sobre-mi.component";
+import {AnimatedBackgroundComponent} from "./components/animated-background/animated-background.component";
 
 
 @NgModule({
@@ -21,14 +22,16 @@ import {SobreMiComponent} from "./components/sobre-mi/sobre-mi.component";
     TerminalComponent,
     WsCodeComponent,
     ProyectosComponent,
-    SobreMiComponent
+    SobreMiComponent,
+    AnimatedBackgroundComponent
   ],
   exports: [
     BodyComponent,
     TerminalComponent,
     WsCodeComponent,
     ProyectosComponent,
-    SobreMiComponent
+    SobreMiComponent,
+    AnimatedBackgroundComponent
   ],
   imports: [
     CommonModule,
