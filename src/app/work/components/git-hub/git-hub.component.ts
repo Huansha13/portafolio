@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ServiceBodyService} from "../service/serviceBody.service";
+import {ServiceBodyService} from "../../service/serviceBody.service";
 
 @Component({
   selector: 'app-git-hub',

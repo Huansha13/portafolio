@@ -1,18 +1,15 @@
-<app-nav-main></app-nav-main>
-<!--<div [style.margin-top]="settings.view.lg ? '7rem' : '5rem'">-->
-<div [style.margin-top]="settings.view.lg ? '7rem' : '6rem'">
-<!--
-  <button (click)="cambiarIdioma('es')">Español</button>
-  <button (click)="cambiarIdioma('en')">English</button>
-  <h1>{{ 'WELCOME_MESSAGE' | translate }}</h1>
-  <button>{{ 'ABOUT' | translate }}</button>
--->
-  <div [hidden]="!settings.isLoading">
-    <div class="container-loader">
-      <div class="text-loader2 ml-3 font-bold"></div>
-      <i class="pi pi-spin pi-spinner opacity-10" style="font-size: 1rem;"></i>
-    </div>
+<!-- Loader -->
+<div [hidden]="!settings.isLoading">
+  <div class="container-loader">
+    <div class="text-loader2 ml-3 font-bold"></div>
+    <i class="pi pi-spin pi-spinner text-300" style="font-size: 1rem;"></i>
   </div>
-  <router-outlet></router-outlet>
 </div>
 
+<!-- Main -->
+<div class="flex flex-col h-full lg:h-screen">
+  <app-nav-main></app-nav-main>
+  <div class="mt-8 flex-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

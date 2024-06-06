@@ -196,7 +196,7 @@ export class BodyComponent implements OnInit, AfterViewInit {
   ];
 
   detail: string = "Implementación en proyectos";
-  data: { home: Home; about: About[]; abilities: Abilities[]; certificates: Certificate[] };
+  data: { home: Home; about: About; abilities: Abilities[]; certificates: Certificate[] };
   prompt_terminal: boolean = false;
   ejecutarPrompt: boolean = false;
   items: MenuItem[] | undefined;
@@ -251,7 +251,7 @@ export class BodyComponent implements OnInit, AfterViewInit {
           this.loadItemsOption();
 
           if (!this.prompt_terminal) {
-            this.writerName();
+            //this.writerName();
           }
         })
     });

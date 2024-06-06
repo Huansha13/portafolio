@@ -243,35 +243,6 @@ $colo-blaco-bajo: #B8B8B8;
           line-height: 30px;
         }
       }
-
-      .items {
-        ul {
-          margin: 0;
-          padding: 0;
-
-          li {
-            color: $color-tx-1;
-            font-weight: 400;
-            font-size: 0.875rem;
-            line-height: 30px;
-            list-style: none;
-            flex: 1;
-            display: list-item;
-            margin-bottom: 10px;
-
-            i {
-              font-size: 20px;
-              color: #2FAB73;
-              vertical-align: middle;
-            }
-
-            b {
-              color: $color-tx-1;
-              font-weight: 700;
-            }
-          }
-        }
-      }
     }
   }
 }
@@ -808,7 +779,7 @@ $colo-blaco-bajo: #B8B8B8;
     margin: 1.25rem;
     //min-height: 100%;
 
-    .wrap-presentation {
+    /*.wrap-presentation {
       margin-right: 0;
       margin-left: 0;
 
@@ -829,7 +800,7 @@ $colo-blaco-bajo: #B8B8B8;
 
     .swipe-down {
       display: none;
-    }
+    }*/
   }
   //end section presentation
 

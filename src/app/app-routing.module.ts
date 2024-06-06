@@ -5,7 +5,7 @@ import {ResumeComponent} from './resume/pages/resume/resume.component';
 import {BodyComponent} from './work/body/body.component';
 import {ContactComponent} from './contact/pages/contact/contact.component';
 import {BlogComponent} from './blog/pages/blog/blog.component';
-import {GitHubComponent} from "./work/git-hub/git-hub.component";
+import {GitHubComponent} from "./work/components/git-hub/git-hub.component";
 
 const routes: Routes = [
   {

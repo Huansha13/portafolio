@@ -1,28 +1,87 @@
+
+<section *ngIf="settings.isThemeDark" style="position: relative; overflow: hidden;">
+  <img src="../../../assets/img/bg-fondo.svg"
+       style="position: fixed; top: 50%;left: 50%;width: 200%;transform: translate(-50%, -50%);">
+</section>
+
 <!-- Section presentation -->
-<!--
-<img *ngIf="!settings.view.lg" src="../../../assets/img/mi-foto.webp" class="w-full" alt="yo" style="transform: scaleX(-1);">
--->
-<div class="wrapper">
+<div class="container px-3 lg:px-0 flex-1 h-full flex align-items-center">
+  <section class="w-full">
+    <div class="grid">
+      <!--@if (!settings.view.lg) {
+        <div class="col-12 lg:col-4 z-5">
+          <div class="relative flex align-items-center gap-4 justify-content-center flex-column lg:flex-row">
+            <ng-container [ngTemplateOutlet]="miAvatar"></ng-container>
+          </div>
+        </div>
+      }-->
+
+      @if (!settings.view.lg && data) {
+        <div class="col-12 lg:col-8 z-5">
+          <app-ws-code></app-ws-code>
+        </div>
+      }
+
+      <div class="col-12 lg:col-4 z-5">
+        <div class="grid">
+            @if (settings.view.lg) {
+              <div class="col-12 md:col-6 lg:col-12">
+                <img src="../../../assets/img/avatar/avatar_1.png" class="w-full imagen-flotante" alt="yo" style="transform: scaleX(-1);">
+              </div>
+            }
+          <div class="col-12">
+            <p-divider align="center" styleClass="m-0 p-0" [style]="{zIndex: '0'}">
+              <p class="red-social p-0 m-0">
+                <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
+                <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
+                <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
+                <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i
+                  class="uil uil-linkedin"></i></a>
+                <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i
+                  class="uil uil-youtube"></i></a>
+              </p>
+            </p-divider>
+          </div>
+          <div class="col-12 md:col-4 lg:col-12">
+            <div class="flex flex-column h-full justify-content-center gap-2">
+              <p-button styleClass="w-full" label="Contáctate conmigo" icon="pi pi-envelope" severity="contrast" [rounded]="true" size="small"/>
+              <p-button styleClass="w-full" label="Descargar C.V." icon="pi pi-download" [outlined]="true" [rounded]="true" severity="contrast" size="small"/>
+            </div>
+          </div>
+          @if (!settings.view.lg) {
+            <div class="col-12 md:col-8 lg:col-12">
+              <img src="../../../assets/img/avatar/saludo2.png" class="w-full img-shadow imagen-flotante" alt="yo" style="transform: scaleX(-1);">
+            </div>
+          }
+        </div>
+      </div>
+      @if (settings.view.lg && data) {
+        <div class="col-12 lg:col-8 z-5">
+          <app-ws-code></app-ws-code>
+        </div>
+      }
+    </div>
+  </section>
   <section>
     <div class="grid">
-      <div class="col-12">
+      <!--<div class="col-12">
         <div class="flex gap-1 align-items-center opacity-50 justify-content-center" pTooltip="Enviame un correo" tooltipPosition="bottom">
           <i class="uil uil-at text-color"></i>
           <span>
             <a class="mailto" href="mailto:{{data?.home.correo}}">{{data?.home.correo}}</a>
           </span>
         </div>
-      </div>
+      </div>-->
 
-      <div class="col-12">
+      <!--<div class="col-12">
         <div class="relative flex align-items-center gap-4 justify-content-center flex-column lg:flex-row">
           <a *ngIf="settings.view.lg" pButton href="mailto:{{data?.home.correo}}" label="Contáctate conmigo" class="w-13rem btn-contactame p-button-rounded no-underline font-semibold"></a>
           <ng-container [ngTemplateOutlet]="miAvatar"></ng-container>
           <a *ngIf="settings.view.lg" pButton href="{{data?.home.linkCv}}" target="_blank" label="Descargar C.V." class="w-13rem btn-descargar-cv p-button-rounded no-underline font-semibold"></a>
         </div>
-      </div>
+      </div>-->
 
-      <div class="col-12">
+      <!--<div class="col-12">
         <p-divider align="center" styleClass="m-0 p-0" [style]="{zIndex: '0'}">
           <p class="red-social p-0 m-0">
             <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
@@ -34,9 +93,9 @@
               class="uil uil-youtube"></i></a>
           </p>
         </p-divider>
-      </div>
+      </div>-->
 
-      <div class="col-12">
+      <!--<div class="col-12">
         <div [ngClass]="{'editor-code-dark': settings.isThemeDark, 'editor-code-light': !settings.isThemeDark}" style="min-height: 140px">
           <div class="flex gap-3" >
             <div *ngIf="!settings.view.sm">
@@ -61,10 +120,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
 
       <div class="col-12">
-        <span *ngIf="ejecutarPrompt" class="flex align-items-center gap-3 font-normal text-sm text-color-secondary p-2 text-center font-source-code-pro">
+        <span *ngIf="ejecutarPrompt"
+              class="flex align-items-center gap-3 font-normal text-sm text-color-secondary p-2 text-center font-source-code-pro">
           <i class="pi pi-spin pi-spinner"></i> Ejecutando
         </span>
         <app-terminal *ngIf="prompt_terminal" [estadoEjecucion]="prompt_terminal"></app-terminal>
@@ -81,37 +141,25 @@
   </div>
 </div>
 
-<!-- end presentation-->
+<!--sobremi-->
 
-<p-divider align="center" [style]="{zIndex: '0'}">
-  <p class="m-0 p-2 flex gap-2 align-items-center font-source-code-pro text-color font-semibold">
-    <i class="pi pi-verified text-blue-500"></i> {{'{Sobre Mi}'}}
-  </p>
-</p-divider>
-
-<div class="container">
-  <div class="grid">
-    <ng-container *ngTemplateOutlet="miFoto"></ng-container>
-    <div class="col-12 md:col-9 lg:col-8">
-      <ng-container *ngFor="let ab of abouts$ | async">
-        <p class="m-0 p-0 text-color line-height-4">{{ ab.descripcion }}</p>
-        <div class="items">
-          <ul>
-            <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{ ab.edad }}</li>
-            <li *ngFor="let ubi of locations$ | async">
-              <i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp;
-              <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z"
-                 target="_blank">{{ ubi.address }}</a>
-            </li>
-            <li><i class="uil uil-check-circle"></i> &nbsp; <b>Stack Preferido: </b> {{ ab.stack }}</li>
-            <li><i class="uil uil-check-circle"></i> &nbsp; <b>Intereses: </b> &nbsp; {{ ab.interes }}</li>
-            <li><i class="uil uil-check-circle"></i> &nbsp; <b>Competencias: </b> &nbsp; {{ ab.competencia }}</li>
-          </ul>
-        </div>
-      </ng-container>
-    </div>
+<!--
+<section class="mt-5">
+  <div class="container px-3 lg:px-0">
+    <app-sobre-mi [data]="data?.about"></app-sobre-mi>
   </div>
+</section>
+
+&lt;!&ndash;Proyectos&ndash;&gt;
+<div class="container px-3 lg:px-0">
+  <app-proyectos></app-proyectos>
 </div>
+-->
+
+<!-- end presentation-->
+<ng-container *ngIf="true">
+
+</ng-container>
 
 <!-- Section About--><!--
 <div class="wrapper-about" id="about">
@@ -129,7 +177,7 @@
 </div>-->
 <!--end About-->
 
-<!--my abilities-->
+<!--my abilities--><!--
 <div class="wrap-abilities" id="abilities">
   <div class="title-abilities">
     <div class="m-h">
@@ -180,28 +228,28 @@
     <span><i class="uil uil-rocket"></i></span> &nbsp;
     <span>Aprendiendo nuevas tecnologías...</span>
   </div>
-</div>
+</div>-->
 <!--end abilities-->
 
 <!--my projects-->
-<div class="wrapper-projects" id="projects">
+<!--<div class="wrapper-projects" id="projects">
 
   <div class="title" style="margin-top: 48px;"> [ Proyectos ]</div>
-  <!--  <div class="heading">-->
-  <!--    <div class="label">Filtar</div>-->
-  <!--    <div class="section">-->
-  <!--      <span *ngFor="let item of [1,1,1,1,1]">Nuevo <span>05</span> </span>-->
-  <!--    </div>-->
-  <!--    <div class="btn">-->
-  <!--      <label>-->
-  <!--        <select name="select">-->
-  <!--          <option value="value1">Value 1</option>-->
-  <!--          <option value="value2" selected> Todo </option>-->
-  <!--          <option value="value3">Value 3</option>-->
-  <!--        </select>-->
-  <!--      </label>-->
-  <!--    </div>-->
-  <!--  </div>-->
+  &lt;!&ndash;  <div class="heading">&ndash;&gt;
+  &lt;!&ndash;    <div class="label">Filtar</div>&ndash;&gt;
+  &lt;!&ndash;    <div class="section">&ndash;&gt;
+  &lt;!&ndash;      <span *ngFor="let item of [1,1,1,1,1]">Nuevo <span>05</span> </span>&ndash;&gt;
+  &lt;!&ndash;    </div>&ndash;&gt;
+  &lt;!&ndash;    <div class="btn">&ndash;&gt;
+  &lt;!&ndash;      <label>&ndash;&gt;
+  &lt;!&ndash;        <select name="select">&ndash;&gt;
+  &lt;!&ndash;          <option value="value1">Value 1</option>&ndash;&gt;
+  &lt;!&ndash;          <option value="value2" selected> Todo </option>&ndash;&gt;
+  &lt;!&ndash;          <option value="value3">Value 3</option>&ndash;&gt;
+  &lt;!&ndash;        </select>&ndash;&gt;
+  &lt;!&ndash;      </label>&ndash;&gt;
+  &lt;!&ndash;    </div>&ndash;&gt;
+  &lt;!&ndash;  </div>&ndash;&gt;
   <hr>
   <div class="content-project">
     <div class="section">
@@ -234,11 +282,11 @@
     </div>
   </div>
 
-</div>
+</div>-->
 <!--end projects-->
-
+<!--
 <div class="section__background">
-  <!-- section service-->
+  &lt;!&ndash; section service&ndash;&gt;
   <div class="service" id="services">
     <span class="title__section">[ Mis servicios ]</span>
     <div class="service__item">
@@ -292,7 +340,7 @@
       </div>
     </div>
   </div>
-  <!-- end service  -->
+  &lt;!&ndash; end service  &ndash;&gt;
 
   <div class="certificate" id="certificates">
     <div class="certificate_background">
@@ -315,16 +363,16 @@
               </div>
             </a>
           </div>
-          <!--          <div class="col-12 col-sm-12 col-md-6 col-lg-4 ver" style="margin: auto;">-->
-          <!--            <a class="ver__todo" href="#"> <span><i class="uil uil-arrow-right"></i></span> Ver todo</a>-->
-          <!--          </div>-->
+          &lt;!&ndash;          <div class="col-12 col-sm-12 col-md-6 col-lg-4 ver" style="margin: auto;">&ndash;&gt;
+          &lt;!&ndash;            <a class="ver__todo" href="#"> <span><i class="uil uil-arrow-right"></i></span> Ver todo</a>&ndash;&gt;
+          &lt;!&ndash;          </div>&ndash;&gt;
         </div>
       </div>
     </div>
   </div>
 
   <app-footer></app-footer>
-</div>
+</div>-->
 
 <!-- wsp -->
 <!--
@@ -336,19 +384,14 @@
 -->
 
 
-<ng-template #miFoto>
-  <div class="col-12 md:col-3 lg:col-4">
-    <div class="bg-gradient-primary border-circle flex justify-content-center align-items-center">
-        <img src="../../../assets/img/mi-foto.webp" class="w-full p-2 border-circle" alt="yo" style="transform: scaleX(1);">
-    </div>
-  </div>
-</ng-template>
+
 
 <ng-template #miAvatar>
-  <div class="relative border-circle w-3 lg:w-2 shadow-4 mb-3 lg:mb-0" [ngClass]="{'mi-avatar-dark': settings.isThemeDark, 'mi-avatar-light': !settings.isThemeDark}" >
-    <img src="../../../assets/img/avatar.png" alt="yo" class="wave">
+  <div class="relative border-circle w-3 lg:w-2 shadow-4 mb-3 lg:mb-0"
+       [ngClass]="{'mi-avatar-dark': settings.isThemeDark, 'mi-avatar-light': !settings.isThemeDark}">
+    <img src="../../../assets/img/avatar.png" alt="yo">
 
-    <ng-template  [ngIf]="!settings.view.lg">
+    <ng-template [ngIf]="!settings.view.lg">
       <div class="absolute bottom-0 right-0">
         <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-plus"
                 class="p-button-rounded p-button-raised p-button-secondary button-rounded-sm-2">
@@ -359,4 +402,3 @@
 </ng-template>
 
 <p-menu #menu [model]="items" [popup]="true" appendTo="body"></p-menu>
-

@@ -12,7 +12,7 @@ export class SettingsService {
   isThemeDark: boolean = true;
   view: Responsive = new Responsive();
   isLoading: boolean = false;
-  dataPortafolio: { home: Home; about: About[]; abilities: Abilities[]; certificates: Certificate[] };
+  dataPortafolio: { home: Home; about: About; abilities: Abilities[]; certificates: Certificate[] };
   constructor() {
   }
 

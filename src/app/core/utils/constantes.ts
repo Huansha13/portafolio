@@ -20,24 +20,30 @@ export const COLORS_WRITER = {
   green400: {
     typeSpeed: 60,
     typeColor: 'var(--green-400)',
-    cursorColor: 'var(--green-400)'
+    cursorColor: 'var(--text-color)'
   },
 
   blue600: {
     typeSpeed: 60,
     typeColor: 'var(--blue-600)',
-    cursorColor: 'var(--blue-600)'
+    cursorColor: 'var(--text-color)'
   },
 
   blue400: {
     typeSpeed: 60,
     typeColor: 'var(--blue-400)',
-    cursorColor: 'var(--blue-400)'
+    cursorColor: 'var(--text-color)'
   },
 
   text: {
     typeSpeed: 60,
     typeColor: 'var(--text-color)',
+    cursorColor: 'var(--text-color)'
+  },
+
+  textDefault: {
+    typeSpeed: 60,
+    typeColor: 'var(--text-400)',
     cursorColor: 'var(--text-color)'
   }
 };

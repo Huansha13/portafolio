@@ -12,7 +12,7 @@ import {SettingsService} from "../../../core/utils/settings.service";
   styleUrls: ['./nav-main.component.scss']
 })
 export class NavMainComponent implements OnInit {
-  version: string = '2.0.1';
+  version: string = '3.0.1';
   _selectedTheme: Theme = Theme.DARK;
   active: boolean = true;
   idioma: string = Idioma.ES;

@@ -11,6 +11,11 @@ import {TerminalModule} from "primeng/terminal";
 import {SpeedDialModule} from "primeng/speeddial";
 import {MenuModule} from "primeng/menu";
 import {SidebarModule} from "primeng/sidebar";
+import {ChipModule} from "primeng/chip";
+import {FieldsetModule} from "primeng/fieldset";
+import {AvatarModule} from "primeng/avatar";
+import {AvatarGroupModule} from "primeng/avatargroup";
+import {CardModule} from "primeng/card";
 
 const myModulo = [
   DropdownModule,
@@ -23,7 +28,12 @@ const myModulo = [
   TerminalModule,
   SpeedDialModule,
   MenuModule,
-  SidebarModule
+  SidebarModule,
+  ChipModule,
+  FieldsetModule,
+  AvatarModule,
+  AvatarGroupModule,
+  CardModule
 ];
 
 @NgModule({

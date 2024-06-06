@@ -106,7 +106,7 @@ export class ServiceBodyService {
   ///home/EA6uhRDihhah3p8UDpwJ
   getData(): Observable<{
     home: Home,
-    about: About[],
+    about: About,
     abilities: Abilities[],
     certificates: Certificate[]
   }> {
@@ -115,9 +115,13 @@ export class ServiceBodyService {
       map(actions => actions.payload.data() as Home)
     );
 
-    const about$ = this.aboutCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data() as About))
+    /**
+     * /about/MJcFpB9Oowl99EHaLirX
+     */
+    const about$ = this.aboutCollection.doc('MJcFpB9Oowl99EHaLirX').snapshotChanges().pipe(
+      map(actions => actions.payload.data() as About)
     );
+
     const abilities$ = this.abilitiesCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => a.payload.doc.data() as Abilities))
     );

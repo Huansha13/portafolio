@@ -5,4 +5,5 @@ export interface About {
   stack: string;
   edad: string;
   competencia: string;
+  ubicacion: string;
 }

@@ -53,12 +53,12 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "node_modules/primeng/resources/themes/soho-dark/theme.css",
+                "input": "node_modules/primeng/resources/themes/aura-dark-purple/theme.css",
                 "bundleName": "dark",
                 "inject": false
               },
               {
-                "input": "node_modules/primeng/resources/themes/soho-light/theme.css",
+                "input": "node_modules/primeng/resources/themes/aura-light-purple/theme.css",
                 "bundleName": "light",
                 "inject": false
               }
@@ -133,12 +133,12 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "node_modules/primeng/resources/themes/soho-dark/theme.css",
+                "input": "node_modules/primeng/resources/themes/aura-dark-purple/theme.css",
                 "bundleName": "dark",
                 "inject": false
               },
               {
-                "input": "node_modules/primeng/resources/themes/soho-light/theme.css",
+                "input": "node_modules/primeng/resources/themes/aura-light-purple/theme.css",
                 "bundleName": "light",
                 "inject": false
               }

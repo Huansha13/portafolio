@@ -267,11 +267,138 @@ html, body {
   }
 }
 
-// responsive styles md
-@media screen and (max-width: 960px) {
-  .select-button-sm {
-    .p-button {
-      //padding: 10px !important;
+// fondo de imagen https://github.githubassets.com/assets/hero-glow-f6eed469bca2.svg
+.bg-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  //'src/assets/img/bg-fondo.svg'
+  background-image: url('/assets/img/bg-fondo.svg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+
+  //position: fixed;
+  //top: 50%;
+  //left: 50%;
+  width: 200%;
+  //transform: translate(-50%, -50%);
+  //z-index: 1;
+}
+
+@keyframes animacion {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+.imagen-flotante {
+  animation: animacion 2s ease-in-out infinite;
+}
+
+.img-shadow {
+  filter: drop-shadow(0 0 2rem #B3442A);
+  transition: all 0.3s;
+}
+
+.text-xxs {
+  font-size: 0.5rem !important;
+}
+
+.items-about-me {
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      color: var(--text-color);
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 30px;
+      list-style: none;
+      flex: 1;
+      display: list-item;
+      gap: 5px;
+
+      i {
+        font-size: 20px;
+        color: #2FAB73;
+        vertical-align: middle;
+      }
+
+      b {
+        color: var(--text-color);
+        font-weight: 700;
+      }
     }
   }
+}
+
+.img-rounded-circle {
+  border: 1px solid var(--surface-200);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  border-radius: 33px;
+}
+.img-mi-foto {
+  width: 100% !important;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  filter: grayscale(100%);
+  border-radius: 8px;
+}
+
+.picture-mi-foto {
+  margin-top: 15px;
+  display: inline-block;
+  background: var(--surface-100);
+  min-height: 100%;
+  border-radius: 10px;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* Comienza completamente transparente */
+  }
+  100% {
+    opacity: 1; /* Termina completamente visible */
+  }
+}
+
+/* Aplica la animación a los elementos con la clase "fade-in" */
+.fade-in {
+  animation: fadeIn .1s ease-in-out; /* Duración de 1 segundo con aceleración y desaceleración */
+  animation-fill-mode: both; /* Mantiene el estado final de la animación */
+}
+
+/* Aplica un retraso diferente a cada elemento */
+.fade-in:nth-child(1) {
+  animation-delay: 0s; /* Sin retraso para el primer elemento */
+}
+
+.fade-in:nth-child(2) {
+  animation-delay: 1s; /* 1 segundo de retraso para el segundo elemento */
+}
+
+.fade-in:nth-child(3) {
+  animation-delay: 2s; /* 1 segundo de retraso para el segundo elemento */
+}
+
+
+@keyframes animacion-escale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+// responsive styles md
+@media screen and (max-width: 960px) {
+
 }
