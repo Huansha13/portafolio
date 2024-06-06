@@ -118,82 +118,6 @@ export class BodyComponent implements OnInit, AfterViewInit {
       ]
     }
   ];
-  project = [
-    {
-      portada: 'https://res.cloudinary.com/yfr/image/upload/v1616689668/portafolio/proyectos/File_Cover_-_1_q6fuwj.jpg',
-      titulo: 'Prototipo App, covit - 19 ',
-      fecha: 'Domingo, 21 de febrero 2021',
-      recurso: [
-        {
-          logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/figma_wgndz4.svg'
-        }
-      ],
-      link: [
-        {
-          icono: '<i class="uil uil-illustration"></i>',
-          url: 'https://www.figma.com/file/ezEp9mQEzMsPkQEqFDq6t6/Miniaturas?node-id=191%3A362'
-        }
-      ]
-    },
-    {
-      portada: 'https://res.cloudinary.com/yfr/image/upload/v1616689496/portafolio/proyectos/cove-sistema_inventario_jixjx7.jpg',
-      titulo: 'Sistema web, control de inventario',
-      fecha: 'Sábado, 20 de febrero 2021',
-      recurso: [{
-        logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/figma_wgndz4.svg'
-      }],
-      link: [
-        {
-          icono: '<i class="uil uil-illustration"></i>',
-          url: ''
-        },
-        {
-          icono: '<i class="uil uil-github"></i>  ',
-          url: ''
-        }
-      ]
-    },
-    {
-      portada: 'https://res.cloudinary.com/yfr/image/upload/v1616689588/portafolio/proyectos/book_i44mn8.jpg',
-      titulo: 'Prototipo, Web Book',
-      fecha: 'Viernes, 19 de febrero 2021',
-      recurso: [{
-        logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/figma_wgndz4.svg'
-      }],
-      link: [
-        {
-          icono: '<i class="uil uil-illustration"></i>',
-          url: 'https://www.figma.com/file/ezEp9mQEzMsPkQEqFDq6t6/Miniaturas?node-id=144%3A0'
-        }
-      ]
-    },
-    {
-      portada: 'https://res.cloudinary.com/yfr/image/upload/v1616704938/portafolio/proyectos/radio_nlqscd.jpg',
-      titulo: 'Pagina web, RADIO 101.3 FM',
-      fecha: 'Sábado, 20 de febrero 2021',
-      recurso: [
-        {
-          logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/js_l9h19a.svg'
-        },
-        {
-          logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/html_vll1uw.svg'
-        },
-        {
-          logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/css_frcktu.svg'
-        },
-        {
-          logo: 'https://res.cloudinary.com/yfr/image/upload/v1616704122/portafolio/logos/bt_d69kbc.svg'
-        }
-
-      ],
-      link: [
-        {
-          icono: '<i class="uil uil-gitlab"></i>',
-          url: 'https://gitlab.com/Yefer13/radio'
-        }
-      ]
-    }
-  ];
 
   detail: string = "Implementación en proyectos";
   data: { home: Home; about: About; abilities: Abilities[]; certificates: Certificate[] };
@@ -310,11 +234,4 @@ export class BodyComponent implements OnInit, AfterViewInit {
     });
   }
 
-  descargarCv() {
-    window.open(this.data.home.linkCv, '_blank');
-  }
-
-  contactame() {
-    window.open(`mailto:${this.data.home.correo}`, '_blank');
-  }
 }

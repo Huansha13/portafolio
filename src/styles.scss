@@ -267,25 +267,14 @@ html, body {
   }
 }
 
-// fondo de imagen https://github.githubassets.com/assets/hero-glow-f6eed469bca2.svg
 .bg-img {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  //'src/assets/img/bg-fondo.svg'
-  background-image: url('/assets/img/bg-fondo.svg');
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-
-  //position: fixed;
-  //top: 50%;
-  //left: 50%;
+  top: 50%;
+  left: 50%;
   width: 200%;
-  //transform: translate(-50%, -50%);
-  //z-index: 1;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 @keyframes animacion {
@@ -359,6 +348,10 @@ html, body {
   object-fit: cover;
 }
 
+.bg-blur {
+  backdrop-filter: blur(10px);
+}
+
 .bg-mi-foto {
   // ../../../assets/img/mi-foto.webp
   background-image: url('/assets/img/mi-foto.webp');
@@ -367,12 +360,12 @@ html, body {
   background-position: center;
 
   article {
-    backdrop-filter: blur(10px);
+    @extend .bg-blur;
   }
 }
 
 .info-text-img {
-  backdrop-filter: blur(10px);
+  @extend .bg-blur;
   // gradiente el bg color
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -421,7 +414,7 @@ html, body {
   position: relative;
 
   // agregar un before
-  &:before {
+ /* &:before {
     content: "|";
     display: block;
     position: absolute;
@@ -429,13 +422,92 @@ html, body {
     z-index: -1;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 
-  }
+  }*/
 }
 
 @keyframes animacion-escale {
   0% { transform: scale(1); }
   50% { transform: scale(1.5); }
   100% { transform: scale(1); }
+}
+
+
+.red-social {
+  display: flex;
+  //margin-top: 30px;
+  justify-content: center;
+  gap: 5px;
+
+  a {
+    width: 40px;
+    height: 40px;
+    color: var(--primary-100);
+    text-decoration: none;
+    border-radius: 100%;
+    text-align: center;
+    //border: 1px solid var(--text-color);
+
+    i {
+      color: var(--text-color);
+      font-size: 18px;
+      display: grid;
+      align-content: center;
+      height: 100%;
+    }
+
+    &:hover {
+      transition: .5s;
+      //background: var(--primary-600);
+
+      i {
+        color: var(--primary-600);
+      }
+    }
+
+    &:active {
+      transition: .5s;
+      background: var(--primary-700);
+
+      i {
+        color: var(--primary-color-text);
+      }
+    }
+  }
+}
+
+.galeria-proyectos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 5 320px;
+  column-gap: 0.5rem;
+
+  img {
+    max-width: 100%;
+    margin-bottom: 0.5em;
+    display: block;
+    border-radius: 1rem !important;
+  }
+}
+
+.sub-item-galeria {
+  .content-btn-demo {
+    display: none;
+  }
+
+  &:hover {
+    /*img {
+      outline: 2px solid white;
+      outline-offset: -10px;
+    }*/
+    .bg-blur {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .content-btn-demo {
+      display: block;
+    }
+  }
 }
 
 // responsive styles md

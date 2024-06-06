@@ -13,6 +13,7 @@ import {WsCodeComponent} from "../core/components/ws-code/ws-code.component";
 import {ProyectosComponent} from "./components/proyectos/proyectos.component";
 import {SobreMiComponent} from "./components/sobre-mi/sobre-mi.component";
 import {AnimatedBackgroundComponent} from "./components/animated-background/animated-background.component";
+import {PresentacionComponent} from "./components/presentacion/presentacion.component";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {AnimatedBackgroundComponent} from "./components/animated-background/anim
     WsCodeComponent,
     ProyectosComponent,
     SobreMiComponent,
-    AnimatedBackgroundComponent
+    AnimatedBackgroundComponent,
+    PresentacionComponent
   ],
   exports: [
     BodyComponent,

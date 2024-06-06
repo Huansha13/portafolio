@@ -1,14 +1,14 @@
-<!--
-<h3 class="sub-title-degradate flex gap-2 align-items-center"><i class="pi pi-info-circle"></i> Sobre mi </h3>
--->
 <div class="wrapper">
   <div class="grid">
     <div class="col-12 md:col-6 lg:col-7">
-      <h1 class="landing-title font-bold m-0 mt-5 text-7xl lg:text-8xl">Sobre Mi</h1>
-      <p class="m-0 p-0 line-height-4">{{ data?.descripcion }}</p>
+      <div class="h-full flex flex-column justify-content-center">
+        <div>
+          <h2 class="font-bold m-0  text-5xl md:text-6xl">Un poco</h2>
+          <h2 class="landing-title flex flex-1 align-items-center font-bold m-0 text-7xl lg:text-8xl">Sobre Mi</h2>
+        </div>
+        <p class="m-0 p-0 line-height-3">{{ data?.descripcion }}</p>
+      </div>
     </div>
-    <!--<div class="col-12 md:col-6 lg:col-4">
-    </div>-->
     <div class="col-12 md:col-6 lg:col-5">
       <div class="flex flex-column h-full relative">
         <img alt="mi-foto" src="../../../assets/img/mi-foto.webp" class="w-full img-mi-foto border-round-2xl"/>
@@ -20,7 +20,8 @@
               </li>
               <li class="text-sm flex align-items-center gap-2">
                 <i class="uil uil-check-circle"></i> <b>Ubicación: </b>
-                <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z" target="_blank">{{ data?.ubicacion }}</a>
+                <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z"
+                   target="_blank">{{ data?.ubicacion }}</a>
               </li>
               <li class="text-sm flex align-items-center gap-2">
                 <i class="uil uil-check-circle"></i> <b>Stack Preferido: </b> {{ data?.stack }}
@@ -32,9 +33,6 @@
           </div>
         </article>
       </div>
-    </div>
-    <div class="col-12">
-
     </div>
   </div>
 </div>

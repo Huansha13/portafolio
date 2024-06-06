@@ -16,6 +16,7 @@ import {FieldsetModule} from "primeng/fieldset";
 import {AvatarModule} from "primeng/avatar";
 import {AvatarGroupModule} from "primeng/avatargroup";
 import {CardModule} from "primeng/card";
+import {PanelModule} from "primeng/panel";
 
 const myModulo = [
   DropdownModule,
@@ -33,7 +34,8 @@ const myModulo = [
   FieldsetModule,
   AvatarModule,
   AvatarGroupModule,
-  CardModule
+  CardModule,
+  PanelModule
 ];
 
 @NgModule({

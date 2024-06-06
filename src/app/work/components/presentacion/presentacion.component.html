@@ -1,0 +1,48 @@
+<section class="w-full">
+  <div class="grid">
+    @if (!settings.view.lg && data) {
+      <div class="col-12 lg:col-8 z-5">
+        <app-ws-code></app-ws-code>
+      </div>
+    }
+
+    <div class="col-12 lg:col-4 z-5">
+      <div class="grid">
+        @if (settings.view.lg) {
+          <div class="col-12 md:col-6 lg:col-12">
+            <img src="../../../assets/img/avatar/avatar_1.png" class="w-full imagen-flotante" alt="yo" style="transform: scaleX(-1);">
+          </div>
+        }
+        <div class="col-12">
+          <p-divider align="center" styleClass="m-0 p-0" [style]="{zIndex: '0'}">
+            <p class="red-social p-0 m-0">
+              <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
+              <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
+              <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
+              <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i
+                class="uil uil-linkedin"></i></a>
+              <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i
+                class="uil uil-youtube"></i></a>
+            </p>
+          </p-divider>
+        </div>
+        <div class="col-12 md:col-4 lg:col-12">
+          <div class="flex flex-column h-full justify-content-center gap-2">
+            <p-button (onClick)="contactame()" styleClass="w-full" label="Contáctate conmigo" icon="pi pi-envelope" severity="contrast" [rounded]="true" size="small"/>
+            <p-button (onClick)="descargarCv()" styleClass="w-full" label="Descargar C.V." icon="pi pi-download" [outlined]="true" [rounded]="true" severity="contrast" size="small"/>
+          </div>
+        </div>
+        @if (!settings.view.lg) {
+          <div class="col-12 md:col-8 lg:col-12">
+            <img src="../../../assets/img/avatar/saludo2.png" class="w-full img-shadow imagen-flotante" alt="yo" style="transform: scaleX(-1);">
+          </div>
+        }
+      </div>
+    </div>
+    @if (settings.view.lg && data) {
+      <div class="col-12 lg:col-8 z-5">
+        <app-ws-code></app-ws-code>
+      </div>
+    }
+  </div>
+</section>
