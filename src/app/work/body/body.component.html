@@ -1,6 +1,8 @@
-<section *ngIf="settings.isThemeDark && settings.view.lg" style="position: relative; overflow: hidden;">
-  <img src="../../../assets/img/bg-fondo.svg" class="bg-img">
-</section>
+@if (settings.isThemeDark && settings.view.lg) {
+  <section style="position: relative; overflow: hidden;">
+    <img src="../../../assets/img/bg-fondo.svg" class="bg-img">
+  </section>
+}
 
 <!-- Section presentation -->
 <div class="container px-3 lg:px-0 flex-1 h-auto lg:h-full flex align-items-center">
@@ -8,24 +10,35 @@
 </div>
 
 <!-- Animate-Background -->
-<app-animated-background></app-animated-background>
-
-<!--Proyectos-->
-<div class="container px-3 lg:px-0 z-5">
-  <app-proyectos></app-proyectos>
-</div>
-
-<p-divider> </p-divider>
-
-<!--sobremi-->
+@if (settings.view.lg) {
+  <app-animated-background></app-animated-background>
+}
+<!--Sobre Mi-->
 <section class="mt-5">
   <div class="container px-3 lg:px-0 z-5">
     <app-sobre-mi [data]="data?.about"></app-sobre-mi>
   </div>
 </section>
 
+<p-divider></p-divider>
 
+<!--Proyectos-->
+<section>
+  <div class="container px-3 lg:px-0 z-5">
+    <app-proyectos></app-proyectos>
+  </div>
+</section>
 
+<p-divider> </p-divider>
+
+<!--Mis habilidades-->
+<section>
+  <div class="container px-3 lg:px-0 z-5">
+    <app-habilidades></app-habilidades>
+  </div>
+</section>
+
+<p-divider> </p-divider>
 
 <!--my abilities--><!--
 <div class="wrap-abilities" id="abilities">

@@ -83,7 +83,7 @@
         </div>-->
         <div class="p-1 text-sm font-source-code-pro flex flex-column gap-2">
           <span class="text-blue-400 mb-2 flex-1"><span class="text-primary-400">package</span> holamundo;</span>
-          <span class="text-400">// {{'@author ingyf'}}</span>
+          <span class="text-400">// {{'@author YeferFrank'}}</span>
           <span class="text-primary-400">{{'public class '}} <span class="text-yellow-400">HolaMundo</span> <span class="text-color">{{' {'}}</span></span>
           <span class="ml-3 flex flex-column gap-2">
             <div class="d-flex">
@@ -110,26 +110,35 @@
           <i class="pi pi-times text-xxs"></i>
         </div>
         <div class="terminal-body-content">
+          <p class="flex align-items-center gap-2 font-source-code-pro text-sm">
+            <span class="text-green-400">{{'yefer@terminal'}}</span>
+            <span class="text-gray-400">~</span>
+            <span class="text-blue-400">$</span>
+            <!--<span class="text-gray-400">run start</span>-->
+          </p>
+
           @if (ejecutandoMetodo) {
-            <span class="flex align-items-center gap-2 font-normal text-xs text-color-secondary py-3 text-center">
-              <i class="pi pi-spin pi-spinner text-xs"></i> Ejecutando
+            <span class="flex flex-column gap-1 py-3">
+              <!--<i class="pi pi-spin pi-spinner text-xs"></i> Ejecutando-->
+              <p-skeleton width="10rem"/>
+              <p-skeleton/>
             </span>
           }
 
-          @if (resultadoEjecucion) {
-            <div class="font-normal text-xs text-color-secondary line-height-2 font-source-code-pro">
-              <p class="fade-in">Soy, Yefer Frank Huansha.</p>
-              <p class="fade-in">
-                Con tres años de experiencia en TI, me especializo como Full Stack Developer.
-                <br>
+          @if (settings.isTeminalRunning) {
+            <div class="flex flex-column font-normal text-sm text-color-secondary line-height-2 font-monospace text-balancer">
+              <span class="fade-in">Soy, Yefer Frank Huansha.</span>
+              <span class="fade-in">
+                Con tres años de experiencia en TI 🚀, me especializo como Full Stack Developer.
+                <!--<br>
                 Destaco en Back-End con <span class="text-blue-400 font-bold font-fira-code">Java</span> y en Front-End con
                 <span class="text-red-400 font-bold font-fira-code">Angular</span>,
                 creando interfaces atractivas y personalizadas.
                 Además, tengo experiencia en desarrollo móvil con <span class="text-green-400 font-bold font-fira-code">Android Studio</span>
                 y <span class="text-yellow-400 font-bold font-fira-code">Capacitor</span>,
                 así como en la integración de <span class="text-purple-400 font-bold font-fira-code">Redis</span> para
-                mejorar el rendimiento en bases de datos. 🚀
-              </p>
+                mejorar el rendimiento en bases de datos. 🚀-->
+              </span>
             </div>
           }
         </div>

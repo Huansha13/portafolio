@@ -4,7 +4,7 @@ import {map} from "rxjs/operators";
 
 import {Home} from './../model/home.interface';
 import {About} from './../model/about.interface';
-import {Abilities} from './../model/abilities.interface';
+import {Abilities} from '../model/habilities.interface';
 import {Certificate} from '../model/certificates.interface';
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
 import {HttpClient} from "@angular/common/http";

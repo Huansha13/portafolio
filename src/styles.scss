@@ -3,6 +3,7 @@
 @import "primeng/resources/primeng.css";
 @import 'primeflex/primeflex.scss';
 @import "primeicons/primeicons.css";
+@import "assets/icons/icons-pick/style.css";
 
 
 :root {
@@ -55,6 +56,10 @@ html, body {
 
 .font-source-code-pro {
   font-family: "Source Code Pro", monospace;
+}
+
+.font-monospace {
+  font-family: monospace;
 }
 
 .container {
@@ -391,12 +396,14 @@ html, body {
 }
 
 .fade-in:nth-child(2) {
-  animation-delay: 1s; /* 1 segundo de retraso para el segundo elemento */
+  animation-delay: 300ms; /* 1 segundo de retraso para el segundo elemento */
 }
+/*
 
 .fade-in:nth-child(3) {
-  animation-delay: 2s; /* 1 segundo de retraso para el segundo elemento */
+  animation-delay: 2s; !* 1 segundo de retraso para el segundo elemento *!
 }
+*/
 
 .landing-hero-section .landing-hero-container .landing-hero-content .landing-title {
   max-width: 60rem;
@@ -490,6 +497,21 @@ html, body {
   }
 }
 
+.sec-columns {
+  columns: 4 285px;
+  column-gap: 0.5rem;
+  //column-span: all;
+  .item-column {
+    margin-bottom: 0.5em;
+    display: block;
+    border-radius: 1rem !important;
+  }
+}
+
+.sec-columns > * {
+  break-inside: avoid;
+}
+
 .sub-item-galeria {
   .content-btn-demo {
     display: none;
@@ -508,6 +530,14 @@ html, body {
       display: block;
     }
   }
+}
+
+.text-balancer {
+  text-wrap: balance !important;
+}
+
+.terminal-body-content {
+  //min-height: 66px;
 }
 
 // responsive styles md

@@ -14,6 +14,7 @@ import {ProyectosComponent} from "./components/proyectos/proyectos.component";
 import {SobreMiComponent} from "./components/sobre-mi/sobre-mi.component";
 import {AnimatedBackgroundComponent} from "./components/animated-background/animated-background.component";
 import {PresentacionComponent} from "./components/presentacion/presentacion.component";
+import {HabilidadesComponent} from "./components/habilidades/habilidades.component";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {PresentacionComponent} from "./components/presentacion/presentacion.comp
     ProyectosComponent,
     SobreMiComponent,
     AnimatedBackgroundComponent,
-    PresentacionComponent
+    PresentacionComponent,
+    HabilidadesComponent
   ],
   exports: [
     BodyComponent,
@@ -33,7 +35,8 @@ import {PresentacionComponent} from "./components/presentacion/presentacion.comp
     WsCodeComponent,
     ProyectosComponent,
     SobreMiComponent,
-    AnimatedBackgroundComponent
+    AnimatedBackgroundComponent,
+    HabilidadesComponent
   ],
   imports: [
     CommonModule,

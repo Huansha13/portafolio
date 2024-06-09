@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Home} from "../../work/model/home.interface";
 import {About} from "../../work/model/about.interface";
-import {Abilities} from "../../work/model/abilities.interface";
+import {Abilities} from "../../work/model/habilities.interface";
 import {Certificate} from "../../work/model/certificates.interface";
 import {Responsive} from "../model/resoponsive";
 
@@ -13,6 +13,7 @@ export class SettingsService {
   view: Responsive = new Responsive();
   isLoading: boolean = false;
   dataPortafolio: { home: Home; about: About; abilities: Abilities[]; certificates: Certificate[] };
+  isTeminalRunning: boolean = false;
   constructor() {
   }
 

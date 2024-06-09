@@ -4,3 +4,9 @@ export interface Home {
   descripcion: string;
   linkCv: string;
 }
+
+export interface Experiencia {
+  icon: string;
+  label: string;
+  description: string;
+}

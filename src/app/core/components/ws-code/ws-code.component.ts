@@ -13,7 +13,6 @@ import Typewriter from 't-writer.js';
 export class WsCodeComponent implements OnInit, AfterViewInit {
   editor: WsCode;
   ejecutandoMetodo: boolean;
-  resultadoEjecucion: boolean;
   constructor(public settings: SettingsService) {
   }
 
@@ -52,8 +51,8 @@ export class WsCodeComponent implements OnInit, AfterViewInit {
       this.ejecutandoMetodo = true;
       setTimeout(() => {
         this.ejecutandoMetodo = false;
-        this.resultadoEjecucion = true;
-      }, 1000)
+        this.settings.isTeminalRunning = true;
+      }, 500)
     });
   }
 }

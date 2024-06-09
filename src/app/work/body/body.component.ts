@@ -7,7 +7,7 @@ import {ServiceBodyService} from '../service/serviceBody.service';
 import {ContactService} from '../../contact/service/contact.service';
 import {Home} from "../model/home.interface";
 import {About} from "../model/about.interface";
-import {Abilities} from "../model/abilities.interface";
+import {Abilities} from "../model/habilities.interface";
 import {Certificate} from "../model/certificates.interface";
 import {SettingsService} from "../../core/utils/settings.service";
 import {COLORS_WRITER} from "../../core/utils/constantes";

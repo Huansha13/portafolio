@@ -1,7 +1,8 @@
-<p-menu #menu [model]="itemsOptions" [popup]="true" appendTo="body"></p-menu>
+<!--<h2 class="text-center font-bold m-0 text-5xl md:text-6xl">Mi Portafolio</h2>-->
+<!--<p class="text-center">Trabajos y proyectos</p>-->
 
-<h2 class="text-center font-bold m-0 text-5xl md:text-6xl">Mi Portafolio</h2>
-<p class="text-center">Trabajos y proyectos</p>
+<p class="m-0 p-0">Mis Trabajos</p>
+<h2 class="font-bold pt-0 mt-0 text-5xl md:text-6xl">Y Proyectos</h2>
 
 <div>
   <ul class="galeria-proyectos">
@@ -15,8 +16,8 @@
              <span class="text-xs">Domingo, 21 de febrero 2021</span>
            </div>
            <div class="flex justify-content-center align-items-center">
-             <p-button  icon="pi pi-palette" [rounded]="true" [text]="true" size="small" severity="contrast" styleClass="text-white"></p-button>
-             <p-button  icon="pi pi-github" [rounded]="true" [text]="true" size="small" severity="contrast" styleClass="text-white"></p-button>
+             <p-button  icon="pi pi-palette" [rounded]="true" [text]="true" severity="contrast" styleClass="text-white"></p-button>
+             <p-button  icon="pi pi-github" [rounded]="true" [text]="true" severity="contrast" styleClass="text-white"></p-button>
            </div>
          </div>
         </div>
@@ -28,34 +29,3 @@
   </ul>
 </div>
 
-<!--
-<div class="wrapper">
-  <div class="grid">
-    @for(i of project; track i.fecha) {
-      <div class="col-12 md:col-6 lg:col-4">
-        <div class="item-p">
-          <div class="img">
-            <div class="recurs">
-              <ul *ngFor="let i of i.recurso">
-                <li><img [src]="i.logo" alt="" class="w-full"></li>
-              </ul>
-            </div>
-            <img [src]="i.portada" alt="" class="w-full">
-          </div>
-          <div class="section-info">
-            <div class="item-info">
-              <div class="title">{{ i.titulo }}</div>
-              <div class="description"> {{ i.fecha }}</div>
-            </div>
-            <div class="icons">
-              <a [href]="i.url" target="_blank" *ngFor="let i of i.link">
-                <span [innerHTML]="i.icono"></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    }
-  </div>
-</div>
--->
