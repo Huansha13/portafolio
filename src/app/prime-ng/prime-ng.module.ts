@@ -17,6 +17,7 @@ import {AvatarModule} from "primeng/avatar";
 import {AvatarGroupModule} from "primeng/avatargroup";
 import {CardModule} from "primeng/card";
 import {PanelModule} from "primeng/panel";
+import {TableModule} from "primeng/table";
 
 const myModulo = [
   DropdownModule,
@@ -35,7 +36,8 @@ const myModulo = [
   AvatarModule,
   AvatarGroupModule,
   CardModule,
-  PanelModule
+  PanelModule,
+  TableModule
 ];
 
 @NgModule({

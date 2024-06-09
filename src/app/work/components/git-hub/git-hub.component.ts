@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ServiceBodyService} from "../../service/serviceBody.service";
+import {SettingsService} from "../../../core/utils/settings.service";
 
 @Component({
   selector: 'app-git-hub',
@@ -15,7 +16,8 @@ export class GitHubComponent implements OnInit {
   document.getElementById("demo2").innerHTML = "Test 2!";
 }`;
 
-  constructor(private serviceBody: ServiceBodyService) {}
+  constructor(private serviceBody: ServiceBodyService,
+              public settings: SettingsService ) {}
 
   ngOnInit() {
     this.serviceBody.getPerfil().subscribe({
@@ -27,4 +29,7 @@ export class GitHubComponent implements OnInit {
     });
   }
 
+  irRepo(html_url: string) {
+    window.open(html_url, '_blank');
+  }
 }

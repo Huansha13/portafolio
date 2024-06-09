@@ -1,6 +1,6 @@
 .nav-main {
   //border-bottom: 1px solid var(--surface-border);
-  background-color: var(--surface-0);
+  //background-color: var(--surface-0);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   position: fixed;
@@ -9,7 +9,7 @@
   width: calc(100% - var(--scrollbar-width, 0px));
   z-index: 1100;
   transition: background-color .5s, border-color .5s;
-  border-bottom: 1px solid transparent;
+  //border-bottom: 1px solid transparent;
 }
 
 @mixin font-base-items {

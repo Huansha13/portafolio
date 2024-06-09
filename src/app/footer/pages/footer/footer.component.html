@@ -1,45 +1,25 @@
-<div class="background_footer">
-  <footer>
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-        <div class="info_principal">
-          <div class="footer_logo">
-            <img src="./assets/icon-logo-web_dark.svg" alt="logo">
-          </div>
-          <div class="footer_description">
-            <p> Egresado de la carrera de Ingeniería de Sistemas, desarrollador <b>Full-Stack Developers</b></p>
-          </div>
-          <div class="footer-red-social" >
-            <a href="https://www.facebook.com/Dfrontend" target="_blank"><i class="uil uil-facebook"></i></a>
-            <a href="https://github.com/Huansha13" target="_blank"><i class="uil uil-github"></i></a>
-            <a href="https://gitlab.com/Yefer13" target="_blank"><i class="uil uil-gitlab"></i></a>
-            <a href="https://www.linkedin.com/in/yefer-frank-huansha-leyva-5248a91ba/" target="_blank"><i class="uil uil-linkedin"></i></a>
-            <a href="https://www.youtube.com/channel/UCFsfSQ8omAmJHhEZFrgqXaA" target="_blank"><i class="uil uil-youtube"></i></a>
-          </div>
-          <div class="copy">
-            ©{{date | date:'yyyy'}}Frank<b>HL</b>
-          </div>
-        </div>
+<footer class="surface-section py-8 mt-4">
+  <div class="container mx-auto flex flex-column align-items-center justify-content-between gap-4 md:flex-row">
+    <div class="flex flex-column gap-2 md:items-start">
+      <div class="flex gap-2 align-items-center justify-content-center lg:justify-content-start">
+        <!--<svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
+        </svg>-->
+        <img src="assets/icon.svg" alt="logo" class="w-2rem">
+        <span class="text-lg font-semibold">Frank Huansha</span>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-8">
-        <div class="links d-flex">
-          <ul>
-            <li><a routerLink="/resume">Resume</a></li>
-            <li><a routerLink="/contact">Contact</a></li>
-<!--            <li><a href="#">Blog</a></li>-->
-          </ul>
-          <ul>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-          </ul>
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#abilities">My abilities</a></li>
-          </ul>
-        </div>
-      </div>
+      <div class="text-sm text-gray-500 text-balancer">Egresado de la carrera de Ingeniero de Sistemas.</div>
     </div>
-  </footer>
-</div>
+    <nav class="flex flex-wrap justify-content-center gap-4 text-sm">
+      <app-red-social></app-red-social>
+    </nav>
+  </div>
+</footer>

@@ -1,3 +1,22 @@
+<section class="surface-50 p-6">
+  <div class="container">
+    <div class="flex align-items-center">
+      <div class=" text-center lg:text-left">
+        <h2 class="text-3xl font-bold">Ponte en Contacto</h2>
+        <p
+          class="text-gray-500 text-balancer text-normal lg:text-lg w-auto lg:w-11">
+          No dudes en ponerte en contacto conmigo para cualquier pregunta o consulta, o simplemente para saludar.
+        </p>
+        <div class="flex flex-column items-start gap-2 md:flex-row md:align-items-center">
+          <p-button icon="pi pi-envelope" (onClick)="sendEmail()" label="Envíame un Correo" severity="contrast" size="small" styleClass="w-full"></p-button>
+          <p-button icon="pi pi-whatsapp" label="WhatsApp" severity="contrast" size="small" styleClass="w-full"></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
 <div class="container">
   <div class="background-contact">
     <div class="info-contact">
@@ -9,17 +28,17 @@
         <div class="wrap-info-1" *ngFor="let contact of contacts$ | async">
           <div class="phone">
             <span><i class="uil uil-mobile-vibrate"></i> Phone</span>
-            <p>+51 {{contact.phone}}</p>
+            <p>+51 {{ contact.phone }}</p>
           </div>
           <div class="address">
             <span><i class="uil uil-location-point"></i> Address</span>
-            <p>{{contact.address}}</p>
+            <p>{{ contact.address }}</p>
           </div>
         </div>
         <div class="wrap-info-2">
           <div class="Enquiries" *ngFor="let email of home$ | async">
             <span><i class="uil uil-message"></i> Enquiries</span>
-            <p><a href="mailto:yfhl.contact@gmail.com">{{email.correo}}</a></p>
+            <p><a href="mailto:yfhl.contact@gmail.com">{{ email.correo }}</a></p>
           </div>
           <div class="Follow-us">
             <span><i class="uil uil-mouse-alt"></i> Follow us</span>
@@ -36,4 +55,5 @@
       <img src="https://res.cloudinary.com/yfr/image/upload/v1615150745/portafolio/static/contact_jtekri.svg" alt="">
     </div>
   </div>
-</div>
+</div>-->
+<app-footer></app-footer>

@@ -15,6 +15,8 @@ import {SobreMiComponent} from "./components/sobre-mi/sobre-mi.component";
 import {AnimatedBackgroundComponent} from "./components/animated-background/animated-background.component";
 import {PresentacionComponent} from "./components/presentacion/presentacion.component";
 import {HabilidadesComponent} from "./components/habilidades/habilidades.component";
+import {CertificadoComponent} from "./components/certificado/certificado.component";
+import {RedSocialComponent} from "../footer/pages/red-social/red-social.component";
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import {HabilidadesComponent} from "./components/habilidades/habilidades.compone
     SobreMiComponent,
     AnimatedBackgroundComponent,
     PresentacionComponent,
-    HabilidadesComponent
+    HabilidadesComponent,
+    CertificadoComponent
   ],
   exports: [
     BodyComponent,
@@ -36,7 +39,8 @@ import {HabilidadesComponent} from "./components/habilidades/habilidades.compone
     ProyectosComponent,
     SobreMiComponent,
     AnimatedBackgroundComponent,
-    HabilidadesComponent
+    HabilidadesComponent,
+    CertificadoComponent,
   ],
   imports: [
     CommonModule,

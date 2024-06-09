@@ -1,6 +1,6 @@
 @if (settings.isThemeDark && settings.view.lg) {
   <section style="position: relative; overflow: hidden;">
-    <img src="../../../assets/img/bg-fondo.svg" class="bg-img">
+    <img id="mibgFondo" src="../../../assets/img/bg-fondo.svg" class="bg-img">
   </section>
 }
 
@@ -14,31 +14,39 @@
   <app-animated-background></app-animated-background>
 }
 <!--Sobre Mi-->
-<section class="mt-5">
-  <div class="container px-3 lg:px-0 z-5">
+<section class="px-3 lg:px-0 mb-8">
+  <div class="container z-5">
     <app-sobre-mi [data]="data?.about"></app-sobre-mi>
+  </div>
+</section>
+
+<!--Mis habilidades-->
+<section class="px-3 lg:px-0 mt-8 mb-8">
+  <div class="container z-5">
+    <app-habilidades></app-habilidades>
+  </div>
+</section>
+
+<!--
+<p-divider></p-divider>
+-->
+
+<!--Proyectos-->
+<section class="px-3 lg:px-0 pt-8 pb-8 surface-50">
+  <div class="container z-5">
+    <app-proyectos></app-proyectos>
+  </div>
+</section>
+
+<section class="px-3 lg:px-0 mt-8 mb-8">
+  <div class="container z-5">
+    <app-certificado></app-certificado>
   </div>
 </section>
 
 <p-divider></p-divider>
 
-<!--Proyectos-->
-<section>
-  <div class="container px-3 lg:px-0 z-5">
-    <app-proyectos></app-proyectos>
-  </div>
-</section>
-
-<p-divider> </p-divider>
-
-<!--Mis habilidades-->
-<section>
-  <div class="container px-3 lg:px-0 z-5">
-    <app-habilidades></app-habilidades>
-  </div>
-</section>
-
-<p-divider> </p-divider>
+<app-footer></app-footer>
 
 <!--my abilities--><!--
 <div class="wrap-abilities" id="abilities">
