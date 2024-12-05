@@ -28,9 +28,8 @@
       <!-- Botón Descargar  -->
       <button pButton pRipple type="button" icon="pi pi-download"
               [label]="settings.view.sm ? '' : 'Descargar'"
-              title="Descargar PDF" (click)="download().then()"
+              title="Descargar PDF" (click)="download()"
               [outlined]="true"
-              [raised]="true"
               size="small"
               class="p-button-rounded">
       </button>

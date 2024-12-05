@@ -1,5 +1,5 @@
 <div style="position: relative;">
-  <div style="position: fixed; left: 0" class="w-full py-2 px-5">
+  <div style="position: fixed; left: 0" class="w-full py-2 px-4">
     <div class="flex justify-content-between align-items-center">
       <div class="flex flex-column gap-2">
         @if (totalPages > 1) {
@@ -30,7 +30,6 @@
               [label]="settings.view.sm ? '' : 'Descargar'"
               title="Descargar PDF" (click)="download()"
               [outlined]="true"
-              [raised]="true"
               size="small"
               class="p-button-rounded">
       </button>
