@@ -1,54 +1,56 @@
-<div class="container">
-  <div class="grid m-0 p-0">
-    <div class="pl-2 pr-2 sm:w-full lg:w-25rem">
-      <div class="profile-header">
-        <img [src]="perfil?.avatar_url" alt="Avatar" class="w-full border-round-sm">
-        <div class="border-1 border-300 border-round-sm mt-1 p-2 flex align-items-center">
-          <small>🏠 {{ 'gitHub.statusWork' | translate }} - {{ perfil?.location }}</small>
+@if (perfil) {
+  <div class="container">
+    <div class="grid m-0 p-0">
+      <div class="pl-2 pr-2 sm:w-full lg:w-25rem">
+        <div class="profile-header">
+          <img [ngSrc]="perfil?.avatar_url" alt="Avatar" class="border-round-sm" fill="true" style="position:relative" priority="true">
+          <div class="border-1 border-300 border-round-sm mt-1 p-2 flex align-items-center">
+            <small>🏠 {{ 'gitHub.statusWork' | translate }} - {{ perfil?.location }}</small>
+          </div>
+        </div>
+        <div class="mt-3">
+          <p class="font-bold text-2xl text-primary m-0 p-0">{{ perfil?.name }}</p>
+          <div class="mb-3 mt-2">
+            <a href="https://github.com/Huansha13" target="_blank"
+               class="text-xl mt-2 mb-2 etiqueta-a-txt hover:text-blue-500">
+              <i class="uil uil-external-link-alt"></i> {{ perfil?.login }}
+            </a>
+          </div>
+          <small class="text-gray-500">{{ perfil?.bio }}</small>
+        </div>
+        <div class="mt-3">
+          <small class=" mr-3"> <i
+            class="pi pi-book"></i> {{ perfil?.public_repos }} {{ 'gitHub.repository' | translate }}</small>
+          <small class=""> <i class="pi pi-users"></i> {{ perfil?.followers }} {{ 'gitHub.follower' | translate }}
+          </small>
         </div>
       </div>
-      <div class="mt-3">
-        <p class="font-bold text-2xl text-primary m-0 p-0">{{ perfil?.name }}</p>
-        <div class="mb-3 mt-2">
-          <a href="https://github.com/Huansha13" target="_blank"
-             class="text-xl mt-2 mb-2 etiqueta-a-txt hover:text-blue-500">
-            <i class="uil uil-external-link-alt"></i> {{ perfil?.login }}
-          </a>
-        </div>
-        <small class="text-gray-500">{{ perfil?.bio }}</small>
-      </div>
-      <div class="mt-3">
-        <small class=" mr-3"> <i
-          class="pi pi-book"></i> {{ perfil?.public_repos }} {{ 'gitHub.repository' | translate }}</small>
-        <small class=""> <i class="pi pi-users"></i> {{ perfil?.followers }} {{ 'gitHub.follower' | translate }}
-        </small>
-      </div>
-    </div>
-    <div class="col">
-      <div class="flex flex-column">
-        @for (repo of listaRepositorio; track repo) {
-          <div class="p-3 border-bottom-1 border-100 text-balancer">
-            <div class="w-full flex align-items-center justify-content-between">
-              <div class="flex flex-column gap-3">
-                <div class="text-sm flex flex-column gap-1">
-                  <span class="capitalize text-primary font-bold"> {{ repo.name }}</span>
-                  <span> {{ repo.description }}</span>
+      <div class="col">
+        <div class="flex flex-column">
+          @for (repo of listaRepositorio; track repo) {
+            <div class="p-3 border-bottom-1 border-100 text-balancer">
+              <div class="w-full flex align-items-center justify-content-between">
+                <div class="flex flex-column gap-3">
+                  <div class="text-sm flex flex-column gap-1">
+                    <span class="capitalize text-primary font-bold"> {{ repo.name }}</span>
+                    <span> {{ repo.description }}</span>
+                  </div>
+                  <div class="mt-1 text-gray-500 flex align-items-center gap-2">
+                    <i class="pi pi-code"></i>
+                    <small>{{ repo.language }}</small>
+                  </div>
                 </div>
-                <div class="mt-1 text-gray-500 flex align-items-center gap-2">
-                  <i class="pi pi-code"></i>
-                  <small>{{ repo.language }}</small>
-                </div>
-              </div>
 
-              <div>
-                <p-button icon="pi pi-external-link" (onClick)="irRepo(repo.html_url)" [rounded]="true" text="true" styleClass="button-rounded-sm-2"
-                          severity="contrast"></p-button>
+                <div>
+                  <p-button icon="pi pi-external-link" (onClick)="irRepo(repo.html_url)" [rounded]="true" text="true" styleClass="button-rounded-sm-2"
+                            severity="contrast"></p-button>
+                </div>
               </div>
             </div>
-          </div>
-        }
+          }
+        </div>
       </div>
     </div>
   </div>
-</div>
+}
 <app-footer></app-footer>

@@ -1,6 +1,6 @@
 {
   "menu": {
-    "home": "Menu Principal",
+    "home": "Quien.Soy();",
     "about": "Acerca de",
     "projects": "Proyectos",
     "services": "Servicios",

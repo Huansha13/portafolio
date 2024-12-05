@@ -30,4 +30,14 @@ export class SettingsService {
       (Array.isArray(valor) && valor.length === 0)
     );
   }
+
+  /**
+   * Calculate the opacity based on the scroll position.
+   * @returns {number} The opacity value between 0 and 1.
+   */
+  calculateOpacity = (): number => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    return 1 - scrollY / windowHeight;
+  };
 }

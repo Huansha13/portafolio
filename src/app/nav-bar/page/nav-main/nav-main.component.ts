@@ -14,7 +14,6 @@ import {SettingsService} from "../../../core/utils/settings.service";
 export class NavMainComponent implements OnInit {
   version: string = '3.2.1';
   _selectedTheme: Theme = Theme.DARK;
-  active: boolean = true;
   idioma: string = Idioma.ES;
   optIdioma = [
     {name: 'Español', code: Idioma.ES},
@@ -32,7 +31,7 @@ export class NavMainComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     // Calcula la opacidad. Aquí estamos haciendo que la opacidad disminuya a medida que te desplazas hacia abajo.
-    let opacidad = 1 - window.pageYOffset / window.innerHeight;
+    let opacidad = this.settings.calculateOpacity();
 
     // Asegúrate de que la opacidad esté entre 0 y 1.
     opacidad = Math.max(opacidad, 0);
@@ -53,10 +52,6 @@ export class NavMainComponent implements OnInit {
       this.idioma = idioma;
       this.selectIdioma();
     }
-  }
-
-  mostarOcultar() {
-    this.active = !this.active;
   }
 
   selectIdioma() {

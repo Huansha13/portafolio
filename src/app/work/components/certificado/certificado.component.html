@@ -5,13 +5,13 @@
   <ng-template pTemplate="header">
     <tr>
       @if (settings.view.lg) {
-        <th>Certificado</th>
-        <th>Organización</th>
-        <th>Fecha Obtenida</th>
+        <th scope="col">Certificado</th>
+        <th scope="col">Organización</th>
+        <th scope="col">Fecha Obtenida</th>
       } @else {
-        <th>Certificados</th>
+        <th scope="col">Certificados</th>
       }
-      <th></th>
+      <th scope="col"></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-item>

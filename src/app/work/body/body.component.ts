@@ -33,7 +33,10 @@ export class BodyComponent implements OnInit, AfterViewInit {
     opacidad = Math.min(opacidad, 1);
 
     const imagen = this.el.nativeElement.querySelector('#mibgFondo');
-    this.renderer.setStyle(imagen, 'opacity', opacidad);
+    if (imagen) {
+      this.renderer?.setStyle(imagen, 'opacity', opacidad);
+    }
+
   }
 
 

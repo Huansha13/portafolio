@@ -9,7 +9,7 @@
     } @else {
       <div class="flex align-items-center gap-2">
         <ng-container [ngTemplateOutlet]="btnTheme"></ng-container>
-        <p-button (click)="sidebarVisible = true;" [icon]="'pi pi-bars'" [rounded]="true" [text]="true"></p-button>
+        <p-button (onClick)="sidebarVisible = true;" [icon]="'pi pi-bars'" [rounded]="true" [text]="true"></p-button>
       </div>
     }
   </nav>

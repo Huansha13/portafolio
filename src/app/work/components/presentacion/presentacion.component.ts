@@ -1,24 +1,29 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {SettingsService} from "../../../core/utils/settings.service";
-import {Home} from "../../model/home.interface";
+import { Component, Input } from '@angular/core';
+import { SettingsService } from "../../../core/utils/settings.service";
+import { Home } from "../../model/home.interface";
+import { DialogService } from 'primeng/dynamicdialog';
+import { FormContactameComponent } from 'src/app/contact/modal/form-contactame/form-contactame.component';
 
 @Component({
   selector: 'app-presentacion',
   templateUrl: './presentacion.component.html',
   styleUrl: './presentacion.component.scss'
 })
-export class PresentacionComponent implements OnInit {
+export class PresentacionComponent {
   @Input() data: Home;
-  constructor(public settings: SettingsService) { }
-
-  ngOnInit() {
-  }
+  constructor(
+    public settings: SettingsService,
+    private readonly dialogService: DialogService
+  ) { }
 
   descargarCv() {
     window.open(this.data.linkCv, '_blank');
   }
 
   contactame() {
-    window.open(`mailto:${this.data.correo}`, '_blank');
+    this.dialogService.open(FormContactameComponent, {
+      header: 'Contáctate conmigo',
+      width: '30%'
+    });
   }
 }

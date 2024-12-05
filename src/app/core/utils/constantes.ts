@@ -47,3 +47,33 @@ export const COLORS_WRITER = {
     cursorColor: 'var(--text-color)'
   }
 };
+
+export const MssSendEmailConst = {
+  ['success_send_email']: {
+    key: 'fh-toast',
+    severity: 'success',
+    summary: '¡Hecho!',
+    detail: 'Su mensaje se ha enviado correctamente, en breve me pondré en contacto con usted.'
+  },
+
+  ['error_connection']: {
+    key: 'fh-toast',
+    severity: 'error',
+    summary: '¡Error!',
+    detail: 'Error de conexion, intente nuevamente.'
+  },
+
+  ['error_send_email']: {
+    key: 'fh-toast',
+    severity: 'warn',
+    summary: '¡Atención!',
+    detail: 'No se pudo enviar el mensaje.'
+  },
+
+  ['campos_obligatorios']: {
+    key: 'fh-toast',
+    severity: 'warn',
+    summary: '¡Atención!',
+    detail: 'Todos los campos son obligatorios.'
+  }
+}
