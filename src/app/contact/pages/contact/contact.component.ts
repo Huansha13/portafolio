@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Home} from "../../../work/model/home.interface";
 import {ServiceBodyService} from "../../../work/service/serviceBody.service";
 
@@ -10,7 +10,7 @@ import {ServiceBodyService} from "../../../work/service/serviceBody.service";
 export class ContactComponent implements OnInit {
   data: Home;
 
-  constructor(private _service: ServiceBodyService) { }
+  constructor(private readonly _service: ServiceBodyService) { }
 
   ngOnInit(): void {
     this._service.getData()

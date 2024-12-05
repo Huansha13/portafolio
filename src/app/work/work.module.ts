@@ -15,6 +15,9 @@ import {AnimatedBackgroundComponent} from "./components/animated-background/anim
 import {PresentacionComponent} from "./components/presentacion/presentacion.component";
 import {HabilidadesComponent} from "./components/habilidades/habilidades.component";
 import {CertificadoComponent} from "./components/certificado/certificado.component";
+import { ViewPdfComponent } from '../core/components/view-pdf/view-pdf.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {CertificadoComponent} from "./components/certificado/certificado.compone
     AnimatedBackgroundComponent,
     PresentacionComponent,
     HabilidadesComponent,
-    CertificadoComponent
+    CertificadoComponent,
+    ViewPdfComponent
   ],
   exports: [
     BodyComponent,
@@ -38,6 +42,7 @@ import {CertificadoComponent} from "./components/certificado/certificado.compone
     AnimatedBackgroundComponent,
     HabilidadesComponent,
     CertificadoComponent,
+    ViewPdfComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +50,9 @@ import {CertificadoComponent} from "./components/certificado/certificado.compone
     FooterModule,
     RouterLink,
     TranslateModule,
-    PrimeNgModule
+    PrimeNgModule,
+    BrowserModule,
+    PdfViewerModule
   ],
 
 

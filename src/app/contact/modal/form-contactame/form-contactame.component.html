@@ -37,9 +37,9 @@
                 <small>{{ formContactame.get('mensaje')?.value.length }} / {{maxlengthMessage}}</small>
             </div>
         </div>
-        <div class="field col-12">
+        <div class="col-12">
             <div class="flex justify-content-end">
-                <button type="submit" pButton label="Enviar" 
+                <button type="submit" pButton pRipple label="Enviar"  size="small"
                     [disabled]="spinnerSendEmail"
                     [icon]="'pi ' + (spinnerSendEmail ? 'pi-spin pi-spinner' : 'pi-send')">
                 </button>

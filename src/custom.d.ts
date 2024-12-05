@@ -1,0 +1,1 @@
+declare type SetIterator<T> = Iterator<T>;

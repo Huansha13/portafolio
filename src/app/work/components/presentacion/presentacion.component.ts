@@ -3,6 +3,7 @@ import { SettingsService } from "../../../core/utils/settings.service";
 import { Home } from "../../model/home.interface";
 import { DialogService } from 'primeng/dynamicdialog';
 import { FormContactameComponent } from 'src/app/contact/modal/form-contactame/form-contactame.component';
+import { ViewPdfComponent } from 'src/app/core/components/view-pdf/view-pdf.component';
 
 @Component({
   selector: 'app-presentacion',
@@ -17,13 +18,21 @@ export class PresentacionComponent {
   ) { }
 
   descargarCv() {
-    window.open(this.data.linkCv, '_blank');
+    this.dialogService.open(ViewPdfComponent, {
+      header: "Mi Currículo Vitae",
+      width: this.settings.view.sm ? '100%' : '55%',
+      height: '100%',
+      contentStyle: {height: '100%'},
+      data: {
+        pdf: this.data.linkCv,
+      }
+    })
   }
 
   contactame() {
     this.dialogService.open(FormContactameComponent, {
       header: 'Contáctate conmigo',
-      width: '30%'
+      width: this.settings.view.sm ? '100%' : '30%'
     });
   }
 }

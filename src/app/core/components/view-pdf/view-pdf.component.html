@@ -1,0 +1,53 @@
+<div style="position: relative;">
+  <div style="position: fixed; left: 0" class="w-full py-2 px-5">
+    <div class="flex justify-content-between align-items-center">
+      <div class="flex flex-column gap-2">
+        @if (totalPages > 1) {
+        <div class="flex justify-content-center align-items-center gap-2">
+          <!-- Botón Anterior -->
+          <button pButton pRipple type="button" [label]="settings.view.sm ? '' : 'Anterior'"
+                  icon="pi pi-chevron-left" (click)="previousPage()" [disabled]="currentPage === 1"
+                  severity="secondary"
+                  size="small"
+                  class="p-button-rounded p-button-text p-button-outlined">
+          </button>
+
+          <small>Página {{ currentPage + ' de ' + totalPages }}</small>
+
+          <!-- Botón Siguiente -->
+          <button pButton pRipple type="button" [label]="settings.view.sm ? '' : 'Siguiente'"
+                  (click)="nextPage()" icon="pi pi-chevron-right" iconPos="right"
+                  [disabled]="currentPage === totalPages"
+                  severity="secondary"
+                  size="small"
+                  class="p-button-rounded p-button-text p-button-outlined"></button>
+        </div>
+        }
+      </div>
+
+      <!-- Botón Descargar  -->
+      <button pButton pRipple type="button" icon="pi pi-download"
+              [label]="settings.view.sm ? '' : 'Descargar'"
+              title="Descargar PDF" (click)="download()"
+              [outlined]="true"
+              [raised]="true"
+              size="small"
+              class="p-button-rounded">
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="pt-7" style="display: flex; height: 100%;">
+  <!-- Visor de PDF -->
+  <pdf-viewer
+    [src]="data.pdf"
+    [render-text]="true"
+    [original-size]="false"
+    [zoom]="1"
+    [page]="currentPage"
+    [show-all]="false"
+    (after-load-complete)="onLoadComplete($event)"
+    style="flex: 1; width: 100%;">
+  </pdf-viewer>
+</div>
