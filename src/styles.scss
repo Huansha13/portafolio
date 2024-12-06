@@ -544,3 +544,20 @@ html, body {
 @media screen and (max-width: 960px) {
 
 }
+
+// Utiliza un prefijo para evitar conflictos con otras clases
+// y un nombre más descriptivo para indicar el propósito de la clase
+.grid-width {
+  &-xs { width: 5%; }
+  &-sm { width: 10%; }
+  &-md { width: 20%; }
+  &-lg { width: 25%; }
+  &-xl { width: 33.33%; }
+  &-xxl { width: 40%; }
+  &-full { width: 100%; }
+  &-half { width: 50%; }
+  &-third { width: 33.33%; }
+  &-two-thirds { width: 66.66%; }
+  &-quarter { width: 25%; }
+  &-three-quarters { width: 75%; }
+}

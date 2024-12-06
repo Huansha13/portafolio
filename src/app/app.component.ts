@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                             <b class="text-primary">yefer<span class="text-900">Frank();</span></b>
                         }`;
 
-  constructor(private translate: TranslateService,
+  constructor(private readonly translate: TranslateService,
               public settings: SettingsService) {
     this.onResize();
   }

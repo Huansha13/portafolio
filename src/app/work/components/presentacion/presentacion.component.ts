@@ -4,6 +4,7 @@ import { Home } from "../../model/home.interface";
 import { DialogService } from 'primeng/dynamicdialog';
 import { FormContactameComponent } from 'src/app/contact/modal/form-contactame/form-contactame.component';
 import { ViewPdfComponent } from 'src/app/core/components/view-pdf/view-pdf.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-presentacion',
@@ -24,7 +25,7 @@ export class PresentacionComponent {
       height: '100%',
       contentStyle: {height: '100%'},
       data: {
-        pdf: this.data.linkCv,
+        pdf: `${environment.base_url_assets}/${this.data.linkCv}`,
       }
     })
   }

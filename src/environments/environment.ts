@@ -1,25 +1,14 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
   production: false,
+  base_url_assets: import.meta.env.NG_APP_URL_ASSETS,
+  data_cv: import.meta.env.NG_APP_URL_DATA_EXCEL,
   firebase: {
-    apiKey: "AIzaSyDxIhY6tCq3Rq3M_N2bT4dB5GGFzZE3Wm8",
-    authDomain: "portafolio-ca0f8.firebaseapp.com",
-    projectId: "portafolio-ca0f8",
-    storageBucket: "portafolio-ca0f8.appspot.com",
-    messagingSenderId: "493230247268",
-    appId: "1:493230247268:web:2811b3b0d7c3bb7487be71",
-    measurementId: "G-HCXWBY28C1"
+    apiKey: import.meta.env.NG_APP_FIREBASE_API_KEY,
+    authDomain: import.meta.env.NG_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.NG_APP_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.NG_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.NG_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.NG_APP_FIREBASE_APP_ID,
+    measurementId: import.meta.env.NG_APP_FIREBASE_MEASUREMENT_ID
   }
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
