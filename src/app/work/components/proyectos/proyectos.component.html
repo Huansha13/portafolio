@@ -9,25 +9,30 @@
     <ul class="galeria-proyectos">
       @for (i of proyectos; track i) {
         <li class="relative sub-item-galeria">
-          <button class="p-0 m-0 border-none bg-transparent cursor-pointer btn-imagen"
-                  (click)="verFotos(i.relatedItems)">
-            <p-image
-              [src]="url_asset + '/' + i.url_portada"
-              [alt]="i.nombre"/>
-          </button>
+          <p-image
+            [src]="i.url_portada"
+            [previewImageSrc]="i.url_pw"
+            [alt]="i.nombre"
+            [preview]="true"/>
 
           <div class="flex flex-column absolute bottom-0 bg-blur p-3 w-full border-round-2xl border-noround-top	gap-2">
-            <div class="flex justify-content-between text-white ">
+            <div class="flex justify-content-between align-items-center gap-2">
+              <p-badge [value]="i.version" severity="success" />
+              <span class="text-xs text-400">{{ i.fecha_creacion }}</span>
+            </div>
+            <div class="flex justify-content-between align-items-center text-white gap-2">
               <div class="flex flex-1 flex-column gap-1">
                 <span class="font-semibold text-sm">{{ i.nombre }}</span>
-                <span class="text-xs text-400">{{ i.version }} / {{ i.fecha_creacion }}</span>
               </div>
-              <div class="flex justify-content-center align-items-center">
+              <div class="flex justify-content-center align-items-center gap-2">
                 @if (i.link_demo) {
                   <p-button (onClick)="openLink(i.link_demo)"
-                            icon="pi pi-play"
+                            size="small"
+                            icon="pi pi-play-circle"
+                            label="Demo"
                             [rounded]="true"
                             [text]="true"
+                            [outlined]="true"
                             severity="contrast"
                             styleClass="text-white">
                   </p-button>
@@ -35,11 +40,11 @@
 
                 @if (i.link_github) {
                   <p-button (onClick)="openLink(i.link_github)"
+                            size="small"
+                            label="Code"
                             icon="pi pi-github"
                             [rounded]="true"
-                            [text]="true"
-                            severity="contrast"
-                            styleClass="text-white">
+                            severity="contrast">
                   </p-button>
                 }
               </div>
@@ -62,11 +67,10 @@
     [circular]="true"
     [fullScreen]="true"
     [showItemNavigators]="true"
-    [showThumbnails]="false"
-    (close)="fotos = []">
+    [showThumbnails]="false">
     <ng-template pTemplate="item" let-item>
       <img
-        [src]="url_asset + '/' + item.url_foto"
+        [src]="item.url_foto"
         [alt]="item.url_foto"
         class="p-galleria-image"/>
     </ng-template>

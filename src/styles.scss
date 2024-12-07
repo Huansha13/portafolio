@@ -544,7 +544,7 @@ html, body {
       display: block;
     }
 
-    transform: translateY(-5px);
+    //transform: translateY(-5px);
     border-radius: 1rem;
   }
 }
@@ -581,6 +581,9 @@ html, body {
 .p-galleria-image {
   width: 100%;
   display: block;
-  height: 95vh;
   object-fit: contain;
 }
+
+ .p-image-preview-indicator {
+   border-radius: 1rem;
+ }

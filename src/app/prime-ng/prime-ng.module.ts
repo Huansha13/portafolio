@@ -24,7 +24,7 @@ import { ToastModule } from 'primeng/toast';
 import { RippleModule } from 'primeng/ripple';
 import { ImageModule } from 'primeng/image';
 import { GalleriaModule } from 'primeng/galleria';
-
+import { BadgeModule } from 'primeng/badge';
 
 const myModulo = [
   DropdownModule,
@@ -51,7 +51,8 @@ const myModulo = [
   ToastModule,
   RippleModule,
   ImageModule,
-  GalleriaModule
+  GalleriaModule,
+  BadgeModule
 ];
 
 @NgModule({

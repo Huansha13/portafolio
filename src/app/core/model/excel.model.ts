@@ -23,6 +23,7 @@ export interface HeaderProyectos {
   link_demo: string;
   version: string;
   url_portada: string;
+  url_pw: string;
   relatedItems: ProyectosFoto[];
 }
 
