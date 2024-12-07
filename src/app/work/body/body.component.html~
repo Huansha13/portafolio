@@ -28,7 +28,7 @@
     <div class="col-12">
       <div class="d-flex justify-content-center">
         <div class="btn-portafolio animate__animated animate__jackInTheBox" *ngFor="let home of homes$ | async">
-          <a href="{{url_base_cv + home.linkCv}}" target="_blank" class="border-1 border-white-alpha-10 bg-btn-descargar">
+          <a href="{{home.linkCv}}" target="_blank" class="border-1 border-white-alpha-10 bg-btn-descargar">
             <span> DESCARGAR C.V &nbsp; <i class="uil uil-cloud-download"></i></span>
           </a>
         </div>
