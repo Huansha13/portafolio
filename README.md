@@ -1,27 +1,34 @@
-# Portfolio
+# 🎉 Primera versión de mi portafolio 🚀
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+## 📖 Descripción
+Lanzamiento inicial de mi portafolio personal, desarrollado con **Angular 11** e integrado con **Firebase** para backend y hosting. Diseñado para presentar mis proyectos, habilidades y experiencia profesional de manera moderna y eficiente.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## ✨ Características principales
+- 🖼️ **Diseño responsive**: Adaptado para móviles, tabletas y escritorios.
+- 📊 **Gestión dinámica de contenido**: Permite actualizaciones sin necesidad de modificar el código.
+- 🔗 **Enlaces directos**: A redes sociales y repositorios.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📋 Cambios y mejoras futuros
+- 🎨 Implementar mejoras visuales con **Angular Material**.
+- 🌟 Añadir animaciones y transiciones interactivas.
+- 🛠️ Soporte para **múltiples idiomas**.
+- 📧 Integrar un **formulario de contacto funcional**.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## 🛠️ Cómo visualizar el portafolio
+### 1. **Visitarlo online**
+![Captura de pantalla 2024-12-07 103845](https://github.com/user-attachments/assets/aefe7939-4169-4258-a3cf-9588226d8a53)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. **Clonar y ejecutar localmente**
+```bash
+git clone -b releases/portafolio-v1.0.0 https://github.com/Huansha13/portafolio.git
+cd portafolio
+npm install
+ng serve
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
