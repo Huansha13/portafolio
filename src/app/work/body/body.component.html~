@@ -55,7 +55,7 @@
       </div>
       <div class="items">
         <ul>
-          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{2024 - 1996}}</li>
+          <li><i class="uil uil-check-circle"></i> &nbsp; <b>Edad Actual: </b> &nbsp; {{ab.edad}}</li>
           <li *ngFor="let ubi of locations$ | async">
             <i class="uil uil-check-circle"></i> &nbsp; <b>Ubicación: </b> &nbsp;
             <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z" target="_blank">{{ubi.address}}</a>

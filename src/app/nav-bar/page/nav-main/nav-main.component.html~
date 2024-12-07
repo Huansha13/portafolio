@@ -24,9 +24,7 @@
         <a href="#services" routerLinkActive="activo">Services</a>
         <a routerLink="/resume" routerLinkActive="activo">Resume</a>
         <a routerLink="/contact" routerLinkActive="activo">Contact</a>
-        <a href="https://github.com/Huansha13/Portfolio-web" target="_blank" style="color: #1EA1F3">
-          <i class="uil uil-code-branch"></i> V.1.0.1
-        </a>
+        <a style="color: #1EA1F3"> <i class="uil uil-code-branch"></i> V.1.0.1</a>
         <!--      <a routerLink="/blog" routerLinkActive="activo">Blog</a>-->
       </div>
     </div>

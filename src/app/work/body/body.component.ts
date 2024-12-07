@@ -13,7 +13,7 @@ import {ContactService} from '../../contact/service/contact.service';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent implements OnInit, AfterViewInit{
-
+  url_base_cv = 'https://raw.githubusercontent.com/Huansha13/portafolio-assets/';
   homes$ = this._service.homes;
   abouts$ = this._service.about;
   abilities$ = this._service.abilities;
