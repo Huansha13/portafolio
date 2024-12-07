@@ -5,6 +5,7 @@ import {Idioma, keysStorage, Theme} from "../../../core/utils/enum";
 import {PrimeIcons} from 'primeng/api';
 import {SelectButtonOptionClickEvent} from "primeng/selectbutton";
 import {SettingsService} from "../../../core/utils/settings.service";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-nav-main',
@@ -12,7 +13,7 @@ import {SettingsService} from "../../../core/utils/settings.service";
   styleUrls: ['./nav-main.component.scss']
 })
 export class NavMainComponent implements OnInit {
-  version: string = '3.2.1';
+  version: string = environment.appVersion;
   _selectedTheme: Theme = Theme.DARK;
   idioma: string = Idioma.ES;
   optIdioma = [
