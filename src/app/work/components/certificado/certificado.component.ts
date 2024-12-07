@@ -23,6 +23,7 @@ export class CertificadoComponent implements OnInit {
 
   ngOnInit(): void {
     this.excelService.obtenerCertificados().then(certificados => {
+      console.log("=>(certificado.component.ts:26) certificados", certificados);
       this.certificados = certificados;
     });
   }

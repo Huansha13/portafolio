@@ -1,31 +1,75 @@
-<!--<h2 class="text-center font-bold m-0 text-5xl md:text-6xl">Mi Portafolio</h2>-->
-<!--<p class="text-center">Trabajos y proyectos</p>-->
-
 <p class="m-0 p-0">Mis Trabajos</p>
 <h2 class="font-bold pt-0 mt-0 text-5xl md:text-6xl">Y Proyectos</h2>
-
 <div>
-  <ul class="galeria-proyectos">
-    @for(i of proyectos; track i) {
-      <li class="relative sub-item-galeria">
-        <img [src]="i" alt="Imagen 1">
-        <div class="flex flex-column absolute bottom-0 bg-blur p-3 w-full border-round-2xl border-noround-top	gap-2">
-         <div class="flex justify-content-between text-white ">
-           <div class="flex flex-1 flex-column gap-1">
-             <span class="font-semibold text-sm">Prototipo App, covit - 19</span>
-             <span class="text-xs">Domingo, 21 de febrero 2021</span>
-           </div>
-           <div class="flex justify-content-center align-items-center">
-             <p-button  icon="pi pi-palette" [rounded]="true" [text]="true" severity="contrast" styleClass="text-white"></p-button>
-             <p-button  icon="pi pi-github" [rounded]="true" [text]="true" severity="contrast" styleClass="text-white"></p-button>
-           </div>
-         </div>
-        </div>
-        <div class="absolute p-2 top-0 right-0 content-btn-demo">
-          <p-button  icon="pi pi-play-circle" label="Ver Demo" size="small"  severity="contrast" [rounded]="true"></p-button>
-        </div>
-      </li>
-    }
-  </ul>
+  @if (spinnerProyectos) {
+    <div class="flex align-items-center gap-2">
+      <i class="pi pi-spin pi-spinner-dotted"></i> Cargando proyectos
+    </div>
+  } @else {
+    <ul class="galeria-proyectos">
+      @for (i of proyectos; track i) {
+        <li class="relative sub-item-galeria">
+          <button class="p-0 m-0 border-none bg-transparent cursor-pointer btn-imagen"
+                  (click)="verFotos(i.relatedItems)">
+            <p-image
+              [src]="url_asset + '/' + i.url_portada"
+              [alt]="i.nombre"/>
+          </button>
+
+          <div class="flex flex-column absolute bottom-0 bg-blur p-3 w-full border-round-2xl border-noround-top	gap-2">
+            <div class="flex justify-content-between text-white ">
+              <div class="flex flex-1 flex-column gap-1">
+                <span class="font-semibold text-sm">{{ i.nombre }}</span>
+                <span class="text-xs text-400">{{ i.version }} / {{ i.fecha_creacion }}</span>
+              </div>
+              <div class="flex justify-content-center align-items-center">
+                @if (i.link_demo) {
+                  <p-button (onClick)="openLink(i.link_demo)"
+                            icon="pi pi-play"
+                            [rounded]="true"
+                            [text]="true"
+                            severity="contrast"
+                            styleClass="text-white">
+                  </p-button>
+                }
+
+                @if (i.link_github) {
+                  <p-button (onClick)="openLink(i.link_github)"
+                            icon="pi pi-github"
+                            [rounded]="true"
+                            [text]="true"
+                            severity="contrast"
+                            styleClass="text-white">
+                  </p-button>
+                }
+              </div>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  }
+</div>
+
+<div class="card flex justify-content-center">
+  <p-galleria
+    [value]="fotos"
+    [(visible)]="displayBasic"
+    [changeItemOnIndicatorHover]="true"
+    [responsiveOptions]="responsiveOptions"
+    [containerStyle]="{ 'max-width': '850px' }"
+    [numVisible]="7"
+    [circular]="true"
+    [fullScreen]="true"
+    [showItemNavigators]="true"
+    [showThumbnails]="false"
+    (close)="fotos = []">
+    <ng-template pTemplate="item" let-item>
+      <img
+        [src]="url_asset + '/' + item.url_foto"
+        [alt]="item.url_foto"
+        class="p-galleria-image"/>
+    </ng-template>
+  </p-galleria>
 </div>
 

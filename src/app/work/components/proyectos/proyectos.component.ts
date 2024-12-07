@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuItem, PrimeIcons} from "primeng/api";
+import {ExcelService} from "../../../core/utils/excel.service";
+import {HeaderProyectos, ProyectosFoto} from "../../../core/model/excel.model";
+import {SettingsService} from "../../../core/utils/settings.service";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-proyectos',
@@ -7,6 +10,8 @@ import {MenuItem, PrimeIcons} from "primeng/api";
   styleUrl: './proyectos.component.scss'
 })
 export class ProyectosComponent implements OnInit {
+  spinnerProyectos = false
+  url_asset = import.meta.env.NG_APP_URL_ASSETS; // Recommended
   project = [
     {
       portada: 'https://res.cloudinary.com/yfr/image/upload/v1616689668/portafolio/proyectos/File_Cover_-_1_q6fuwj.jpg',
@@ -83,41 +88,62 @@ export class ProyectosComponent implements OnInit {
       ]
     }
   ];
-  proyectos: String[] = [];
-  itemsOptions: MenuItem[]  = [
+  displayBasic: boolean;
+  proyectos: HeaderProyectos[] = [];
+  responsiveOptions: any[] = [
     {
-      label: 'Figma - UI Kit',
-      url: '',
-      icon: PrimeIcons.PALETTE
+      breakpoint: '1500px',
+      numVisible: 5
     },
     {
-      label: 'Repositorio',
-      icon: PrimeIcons.GITHUB
+      breakpoint: '1024px',
+      numVisible: 3
     },
     {
-      label: 'Demo App',
-      icon: PrimeIcons.PLAY
+      breakpoint: '768px',
+      numVisible: 2
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
     }
   ];
+  fotos: ProyectosFoto[];
 
-  ngOnInit() {
-    this.proyectos = [
-      'https://cdn.pixabay.com/photo/2024/02/01/22/25/dahlia-8546849_1280.jpg',
-      'https://cdn.pixabay.com/photo/2024/01/12/17/01/leaves-8504392_1280.jpg',
-      'https://cdn.pixabay.com/photo/2023/07/30/09/12/red-hair-girl-8158373_1280.jpg',
-      'https://cdn.pixabay.com/photo/2017/08/21/14/49/raspberries-2665618_1280.jpg',
-      'https://cdn.pixabay.com/photo/2023/11/12/18/29/red-berries-8383886_1280.jpg',
-      'https://cdn.pixabay.com/photo/2013/07/24/14/29/sunset-166637_1280.jpg',
-      'https://cdn.pixabay.com/photo/2023/09/20/15/47/fish-8265114_1280.jpg',
-      'https://cdn.pixabay.com/photo/2023/03/01/03/21/racial-7822176_1280.jpg',
-      'https://cdn.pixabay.com/photo/2023/08/17/17/03/dahlia-8197027_1280.jpg',
-      'https://cdn.pixabay.com/photo/2016/08/13/03/17/sunrise-1590214_1280.jpg'
-    ]
+  constructor(private readonly excelService: ExcelService,
+              private readonly settings: SettingsService,
+              private readonly mensajeService: MessageService) {
   }
 
-  /*severityAleatorio(i: any) {
-    const miLista = ["secondary", "secondary", "success", "info", "warning", "help", "danger"];
-    const indiceAleatorio = Math.floor(Math.random() * miLista.length);
-    i = miLista[indiceAleatorio];
-  }*/
+  ngOnInit() {
+    Promise.resolve().then(() => {
+      this.spinnerProyectos = true;
+      this.excelService.obtenerMisProyectos().then(proyectos => {
+        this.spinnerProyectos = false;
+        this.proyectos = proyectos;
+        this.proyectos.sort(
+          (current, next) =>
+            next.id_proyecto - current.id_proyecto
+        );
+      });
+    })
+  }
+
+  verFotos(relatedItems: ProyectosFoto[]) {
+    if (this.settings.isEmpty(relatedItems)) {
+      this.mensajeService.add({
+        key: 'fh-toast',
+        severity: 'info', summary: '!Información!',
+        detail: 'No hay fotos disponibles'
+      });
+      return;
+    }
+
+    this.displayBasic = true;
+    this.fotos = relatedItems
+  }
+
+  openLink(link: string) {
+    window.open(link, "_blank");
+  }
 }

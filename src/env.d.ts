@@ -1,8 +1,7 @@
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+declare interface Env {
+  readonly NODE_ENV: string;
+  [key: string]: any;
 
-interface ImportMetaEnv {
   readonly NG_APP_URL_ASSETS: string
   readonly NG_APP_URL_DATA_EXCEL: string
   readonly NG_APP_FIREBASE_API_KEY: string
@@ -14,3 +13,6 @@ interface ImportMetaEnv {
   readonly NG_APP_FIREBASE_MEASUREMENT_ID: string
 }
 
+declare interface ImportMeta {
+  readonly env: Env;
+}

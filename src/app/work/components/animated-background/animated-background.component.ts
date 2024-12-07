@@ -11,15 +11,12 @@ export class AnimatedBackgroundComponent {
   @HostListener('document:visibilitychange', ['$event'])
   handleVisibilityChange() {
     this.isPaused = document.hidden;
-    const circles = document.querySelectorAll('.circles li');
-    circles.forEach(circle => {
+    const elementsToAnimate = document.querySelectorAll('.circles li, .imagen-flotante');
+
+    elementsToAnimate.forEach(circle => {
       const circleElement = circle as HTMLElement;
       if (this.isPaused) {
-        circleElement.style.animationPlayState = 'paused';
-      } else {
-       setTimeout(() => {
         circleElement.style.animationPlayState = 'running';
-       }, 2000);
       }
     });
   }

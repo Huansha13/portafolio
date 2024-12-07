@@ -1,69 +1,79 @@
-<p class="m-0 p-0 text-center">Listado de mis</p>
-<h2 class="font-bold pt-0 mt-0 text-5xl md:text-6xl text-center">Certificados </h2>
-
 <p-table [value]="certificados"
          [paginator]="true"
          [rows]="5"
          dataKey="correlativo_id"
-         styleClass="p-datatable-sm p-datatable-gridlines">
+         styleClass="p-datatable-sm p-datatable-gridlines p-datatable-striped">
   <ng-template pTemplate="header">
     <tr>
-      @if (settings.view.lg) {
+      <th scope="col" colspan="5">
+        <p class="m-0 p-0 text-center font-normal">Listado de mis</p>
+        <h2 class="font-bold m-0 p-0 text-5xl md:text-6xl text-center">Certificados </h2>
+      </th>
+    </tr>
+    @if (false) {
+      <tr>
         <th scope="col" class="grid-width-xs text-center">Id</th>
         <th scope="col">Tema</th>
         <th scope="col" class="grid-width-lg text-center">Organización</th>
         <th scope="col" class="grid-width-md text-center">Fecha Obtenida</th>
         <th scope="col" class="grid-width-xs"></th>
-      } @else {
-        <th scope="col">Certificados</th>
-      }
-    </tr>
+      </tr>
+    }
   </ng-template>
   <ng-template pTemplate="body" let-item let-expanded="expanded">
     <tr>
       <td colspan="5">
-        <button
-          type="button"
-          pButton
-          pRipple
-          [pRowToggler]="item"
-          class="p-button-text p-button-rounded p-button-plain mr-2"
-          [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
-        </button>
-        <p-avatar
-          icon="pi pi-book"
-          styleClass="mr-2"
-          shape="circle" />
-        <span class="ml-2">{{item.titulo}}</span>
+        <div class="flex align-items-center gap-1">
+          <button
+            type="button"
+            pButton
+            pRipple
+            [pRowToggler]="item"
+            class="p-button-text p-button-rounded p-button-plain mr-2"
+            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+          </button>
+          <span>{{ item.titulo }}</span>
+        </div>
       </td>
     </tr>
   </ng-template>
 
   <ng-template pTemplate="rowexpansion" let-list>
-    @for (item of list.verCertificados; track item.correlativo) {
+    @for (item of list.relatedItems; track item.correlativo) {
       <tr>
-         <td class="text-center">{{item.correlativo}}</td>
-         <td>
-           <span class="ml-1 vertical-align-middle">{{item.nameTec}}</span>
-         </td>
-         <td>{{item.organizacionEmisora}}</td>
-         <td class="text-center">
-           {{item.fechaFinCertificado ?? 'En proceso'}}
-         </td>
-         <td>
-           @if (item.rutaArchivo) {
-             <div class="flex justify-content-center">
-               <button pButton icon="pi pi-window-maximize"
-                       severity="contrast"
-                       size="small"
-                       [text]="true"
-                       (click)="verCertificado(item.rutaArchivo, list.titulo + ': ' + item.nameTec)"
-                       class="p-button-rounded button-rounded-sm-2">
+        @if (settings.view.lg) {
+          <td class="text-center">{{ item.correlativo }}</td>
+          <td>
+            <span class="ml-1">{{ item.nameTec }}</span>
+          </td>
+        }
+        <td>
+          @if (!settings.view.lg) {
+            <p class="m-0 p-0 mb-2 text-sm text-400">
+              {{ item.nameTec }} ({{ item.fechaFinCertificado ?? 'En proceso' }})
+            </p>
+          }
+          {{ item.organizacionEmisora }}
+        </td>
+        @if (settings.view.lg) {
+          <td class="text-center">
+            {{ item.fechaFinCertificado ?? 'En proceso' }}
+          </td>
+        }
+        <td>
+          @if (item.rutaArchivo) {
+            <div class="flex justify-content-center">
+              <button pButton icon="pi pi-window-maximize"
+                      severity="contrast"
+                      size="small"
+                      [text]="true"
+                      (click)="verCertificado(item.rutaArchivo, list.titulo + ': ' + item.nameTec)"
+                      class="p-button-rounded button-rounded-sm-2">
 
-               </button>
-             </div>
-           }
-         </td>
+              </button>
+            </div>
+          }
+        </td>
       </tr>
     }
   </ng-template>

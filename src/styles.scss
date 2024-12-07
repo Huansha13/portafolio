@@ -491,9 +491,14 @@ html, body {
 
   img {
     max-width: 100%;
-    margin-bottom: 0.5em;
     display: block;
     border-radius: 1rem !important;
+  }
+
+  .btn-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -513,22 +518,34 @@ html, body {
 }
 
 .sub-item-galeria {
+  margin-bottom: 0.5em !important;
+
   .content-btn-demo {
     display: none;
   }
 
+  .bg-blur {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  border-radius: 1rem !important;
+  border: 1px solid rgba(0, 0, 0, .09) !important;
+  transition: transform 0.5s ease;
   &:hover {
     /*img {
       outline: 2px solid white;
       outline-offset: -10px;
     }*/
     .bg-blur {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.3);
     }
 
     .content-btn-demo {
       display: block;
     }
+
+    transform: translateY(-5px);
+    border-radius: 1rem;
   }
 }
 
@@ -545,8 +562,7 @@ html, body {
 
 }
 
-// Utiliza un prefijo para evitar conflictos con otras clases
-// y un nombre más descriptivo para indicar el propósito de la clase
+
 .grid-width {
   &-xs { width: 5%; }
   &-sm { width: 10%; }
@@ -560,4 +576,11 @@ html, body {
   &-two-thirds { width: 66.66%; }
   &-quarter { width: 25%; }
   &-three-quarters { width: 75%; }
+}
+
+.p-galleria-image {
+  width: 100%;
+  display: block;
+  height: 95vh;
+  object-fit: contain;
 }

@@ -97,20 +97,26 @@
                   "maximumError": "150kb"
                 }
               ]
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@ngx-env/builder:dev-server",
-          "options": {
-            "browserTarget": "portfolio:build"
-          },
           "configurations": {
             "production": {
-              "browserTarget": "portfolio:build:production"
+              "buildTarget": "portfolio:build:production"
+            },
+            "development": {
+              "buildTarget": "portfolio:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@ngx-env/builder:extract-i18n",
