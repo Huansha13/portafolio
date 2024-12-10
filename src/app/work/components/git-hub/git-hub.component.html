@@ -3,7 +3,7 @@
   <div class="container">
     <div class="grid" [class.grid]="settings.view.lg">
       <!-- Profile Section -->
-      <div class="col-12 lg:col-4">
+      <div [ngClass]="{'col-12 lg:col-4': settings.view.lg}">
         <p-card>
           <ng-template pTemplate="header">
             <img alt="Card" class="w-full border-round-sm" [src]="perfil?.avatar_url" />
@@ -32,7 +32,7 @@
         </p-card>
       </div>
       <!-- Repository List Section -->
-      <div class="col-12 lg:col-8">
+      <div [ngClass]="{'col-12 lg:col-8': settings.view.lg, 'mt-3': settings.view.sm}">
         <p-card>
           <ng-template pTemplate="header">
             <div class="px-4 pt-3">
@@ -45,7 +45,7 @@
 
           <p-table [value]="listaRepositorio$ | async"
                    [pageLinks]="settings.view.lg ? 3 : 1"
-                   styleClass="p-datatable-gridlines"
+                   styleClass="p-datatable-gridlines p-datatable-striped"
                    [rows]="5"
                    [showCurrentPageReport]="!settings.view.sm"
                    [paginator]="!settings.view.sm"
@@ -62,21 +62,21 @@
               <tr>
                 <td>
                   <div class="flex flex-column gap-2">
-                    <div class="flex justify-content-between align-items-start gap-3">
-                      <div>
-                        <span class="capitalize text-primary font-bold text-lg">{{ repo.name }}</span>
-                        <span class="text-sm text-secondary block mt-1">{{ repo.description }}</span>
+                    <div>
+                      <span class="capitalize text-primary font-bold text-lg">{{ repo.name }}</span>
+                      <span class="text-sm text-secondary block mt-1">{{ repo.description }}</span>
+                    </div>
+                    <div class="flex justify-content-between gap-2">
+                      <div class="mt-1 text-secondary flex align-items-center gap-2">
+                        <i class="pi pi-code"></i>
+                        <small>{{ repo.language }}</small>
                       </div>
                       <p-button icon="pi pi-github" (onClick)="irRepo(repo.html_url)"
-                        [rounded]="true"
-                        [size]="'small'"
-                        label="Code"
-                        severity="contrast"
-                        text="true" styleClass="p-button-outlined"></p-button>
-                    </div>
-                    <div class="mt-1 text-secondary flex align-items-center gap-2">
-                      <i class="pi pi-code"></i>
-                      <small>{{ repo.language }}</small>
+                                [rounded]="true"
+                                [size]="'small'"
+                                label="Code"
+                                severity="contrast"
+                                text="true" styleClass="p-button-outlined"></p-button>
                     </div>
                   </div>
                 </td>
