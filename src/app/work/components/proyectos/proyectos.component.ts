@@ -44,11 +44,9 @@ export class ProyectosComponent implements OnInit {
       this.spinnerProyectos = true;
       this.excelService.obtenerMisProyectos().then(proyectos => {
         this.spinnerProyectos = false;
-        this.proyectos = proyectos;
+        this.proyectos = proyectos.filter(proy => proy.status == 1);
 
-        this.proyectos
-        .filter(proy => proy.status == 1)
-        .forEach(header => {
+        this.proyectos.forEach(header => {
           header.url_portada = `${this.url_asset}/${header.url_portada}`;
           header.url_pw = `${this.url_asset}/${header.url_pw}`;
         });
