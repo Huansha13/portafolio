@@ -24,6 +24,7 @@ export interface HeaderProyectos {
   version: string;
   url_portada: string;
   url_pw: string;
+  status: number;
   relatedItems: ProyectosFoto[];
 }
 
