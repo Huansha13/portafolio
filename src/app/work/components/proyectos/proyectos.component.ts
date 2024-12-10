@@ -46,13 +46,11 @@ export class ProyectosComponent implements OnInit {
         this.spinnerProyectos = false;
         this.proyectos = proyectos;
 
-        this.proyectos.forEach(header => {
+        this.proyectos
+        .filter(proy => proy.status == 1)
+        .forEach(header => {
           header.url_portada = `${this.url_asset}/${header.url_portada}`;
           header.url_pw = `${this.url_asset}/${header.url_pw}`;
-
-          header.relatedItems.forEach(fot => {
-            fot.url_foto = `${this.url_asset}/${fot.url_foto}`;
-          })
         });
 
         this.proyectos.sort(
