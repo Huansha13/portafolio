@@ -18,6 +18,7 @@ import {CertificadoComponent} from "./components/certificado/certificado.compone
 import { ViewPdfComponent } from '../core/components/view-pdf/view-pdf.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BrowserModule } from '@angular/platform-browser';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { BrowserModule } from '@angular/platform-browser';
     TranslateModule,
     PrimeNgModule,
     BrowserModule,
-    PdfViewerModule
+    PdfViewerModule,
+    FormsModule
   ],
 
 

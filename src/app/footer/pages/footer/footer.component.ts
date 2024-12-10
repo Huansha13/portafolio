@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from 'src/app/core/utils/settings.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
   date = new Date();
 
-  constructor() { }
+  constructor(public settings: SettingsService) { }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ServiceBodyService} from "../../service/serviceBody.service";
 import {SettingsService} from "../../../core/utils/settings.service";
+import {Observable, of} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-git-hub',
@@ -8,28 +10,42 @@ import {SettingsService} from "../../../core/utils/settings.service";
   styleUrls: ['./git-hub.component.scss']
 })
 export class GitHubComponent implements OnInit {
-  listaRepositorio: any[] = [];
+  busqueda: string = '';
+  listaRepositorio$: Observable<any[]> = of([]);
   perfil: any;
 
-  code = `function myFunction() {
-  document.getElementById("demo1").innerHTML = "Test 1!";
-  document.getElementById("demo2").innerHTML = "Test 2!";
-}`;
-
-  constructor(private serviceBody: ServiceBodyService,
-              public settings: SettingsService ) {}
+  constructor(private readonly serviceBody: ServiceBodyService,
+              public settings: SettingsService) {
+  }
 
   ngOnInit() {
+    this.buscar();
     this.serviceBody.getPerfil().subscribe({
-      next: value => this.perfil = value
-    })
-
-    this.serviceBody.getRepos().subscribe({
-      next: value => this.listaRepositorio = value
+      next: value => {
+        this.perfil = value;
+      }
     });
   }
 
   irRepo(html_url: string) {
     window.open(html_url, '_blank');
+  }
+
+  buscar() {
+    if (this.settings.isEmpty(this.busqueda)) {
+      this.listaRepositorio$ = this.serviceBody.getRepos().pipe(
+        map((repos: any[]) => repos)
+      );
+    } else {
+      this.listaRepositorio$ = this.serviceBody.getRepos().pipe(
+        map((repos: any[]) => repos
+          .filter(
+            repo => repo.name
+              .toLowerCase()
+              .includes(this.busqueda.toLowerCase())
+          )
+        )
+      );
+    }
   }
 }

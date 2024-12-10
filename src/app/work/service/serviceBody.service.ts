@@ -69,9 +69,14 @@ export class ServiceBodyService {
     return this.http.get(this.apiGitHub);
   }
 
-  getRepos(): Observable<any> {
-    const url = `${this.apiGitHubUrl}/users/${this.username}/repos`;
-    return this.http.get(url);
+  getRepos() {
+    const url = `https://api.github.com/users/${this.username}/repos`;
+    const params = {
+      type: 'all',
+      sort: 'updated',
+      direction: 'desc'
+    };
+    return this.http.get(url, { params });
   }
 
   ///home/EA6uhRDihhah3p8UDpwJ

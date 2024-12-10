@@ -25,6 +25,8 @@ import { RippleModule } from 'primeng/ripple';
 import { ImageModule } from 'primeng/image';
 import { GalleriaModule } from 'primeng/galleria';
 import { BadgeModule } from 'primeng/badge';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 const myModulo = [
   DropdownModule,
@@ -52,7 +54,9 @@ const myModulo = [
   RippleModule,
   ImageModule,
   GalleriaModule,
-  BadgeModule
+  BadgeModule,
+  InputGroupModule,
+  InputGroupAddonModule
 ];
 
 @NgModule({
