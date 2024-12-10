@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  appVersion: '3.2.1',
+  appVersion: '3.3.2',
   base_url_assets: import.meta.env.NG_APP_URL_ASSETS,
   data_cv: import.meta.env.NG_APP_URL_DATA_EXCEL,
   firebase: {
