@@ -35,6 +35,12 @@ export const COLORS_WRITER = {
     cursorColor: 'var(--text-color)'
   },
 
+  red400: {
+    typeSpeed: 60,
+    typeColor: 'var(--red-400)',
+    cursorColor: 'var(--text-color)'
+  },
+
   text: {
     typeSpeed: 60,
     typeColor: 'var(--text-color)',

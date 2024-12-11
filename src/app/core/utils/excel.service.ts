@@ -2,7 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {environment} from 'src/environments/environment';
 import * as XLSX from 'xlsx';
-import {HeaderCertificados, HeaderProyectos} from '../model/excel.model';
+import {HeaderCertificados, HeaderProyectos, WsCodeExcel} from '../model/excel.model';
 import {lastValueFrom} from "rxjs";
 
 @Injectable({
@@ -59,10 +59,10 @@ export class ExcelService {
 
     return parentData.map((parentItem) => ({
       ...parentItem,
-      relatedItems: childData.filter(
+      relatedItems: childData ? childData.filter(
         (childItem) =>
           childItem[keyMapping[childKey]] === parentItem[keyMapping[parentKey]]
-      ),
+      ) : [],
     }));
   }
 
@@ -77,6 +77,13 @@ export class ExcelService {
     return this.fetchExcelData<HeaderProyectos>(
       ['proyectos_header', 'proyecto_foto'],
       {proyectos_header: 'id_proyecto', proyecto_foto: 'id_proyecto'}
+    );
+  }
+
+  obtenerMssWsCode(): Promise<WsCodeExcel[]> {
+    return this.fetchExcelData<WsCodeExcel>(
+      ['code_ws'],
+      {code_ws: 'id'}
     );
   }
 }

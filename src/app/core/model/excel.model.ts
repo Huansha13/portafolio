@@ -33,3 +33,9 @@ export interface ProyectosFoto {
   correlativo: number;
   url_foto: string;
 }
+
+
+export interface WsCodeExcel {
+  mss: string;
+  id: number;
+}

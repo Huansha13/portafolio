@@ -1,79 +1,83 @@
 <p class="m-0 p-0">Mis Trabajos</p>
 <h2 class="font-bold pt-0 mt-0 text-5xl md:text-6xl">Y Proyectos</h2>
-<div>
-  @if (spinnerProyectos) {
-    <div class="flex align-items-center gap-2">
-      <i class="pi pi-spin pi-spinner-dotted"></i> Cargando proyectos
-    </div>
-  } @else {
-    <ul class="galeria-proyectos">
-      @for (i of proyectos; track i) {
-        <li class="relative sub-item-galeria">
-          <p-image
-            [src]="i.url_portada"
-            [previewImageSrc]="i.url_pw"
-            [alt]="i.nombre"
-            [preview]="true"/>
 
-          <div class="flex flex-column absolute bottom-0 bg-blur p-3 w-full border-round-2xl border-noround-top	gap-2">
-            <div class="flex justify-content-between align-items-center gap-2">
-              <p-badge [value]="i.version" severity="success" />
-              <span class="text-xs text-400">{{ i.fecha_creacion }}</span>
-            </div>
-            <div class="flex justify-content-between align-items-center text-white gap-2">
-              <div class="flex flex-1 flex-column gap-1">
-                <span class="font-semibold text-sm">{{ i.nombre }}</span>
-              </div>
-              <div class="flex justify-content-center align-items-center gap-2">
-                @if (i.link_demo) {
-                  <p-button (onClick)="openLink(i.link_demo)"
-                            size="small"
-                            icon="pi pi-play-circle"
-                            label="Demo"
-                            [rounded]="true"
-                            [text]="true"
-                            [outlined]="true"
-                            severity="contrast"
-                            styleClass="text-white">
-                  </p-button>
-                }
-
-                @if (i.link_github) {
-                  <p-button (onClick)="openLink(i.link_github)"
-                            size="small"
-                            label="Code"
-                            icon="pi pi-github"
-                            [rounded]="true"
-                            severity="contrast">
-                  </p-button>
-                }
-              </div>
-            </div>
-          </div>
-        </li>
-      }
-    </ul>
-  }
-</div>
-
-<div class="card flex justify-content-center">
-  <p-galleria
-    [value]="fotos"
-    [(visible)]="displayBasic"
-    [changeItemOnIndicatorHover]="true"
-    [responsiveOptions]="responsiveOptions"
-    [containerStyle]="{ 'max-width': '850px' }"
-    [numVisible]="7"
-    [circular]="true"
-    [fullScreen]="true"
-    [showItemNavigators]="true"
-    [showThumbnails]="false">
-    <ng-template pTemplate="item" let-item>
-      <img
-        [src]="item.url_foto"
-        [alt]="item.url_foto"
-        class="p-galleria-image"/>
+<p-tabView>
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center gap-2">
+        <i class="pi pi-table"></i>
+        <span class="font-normal">Tabla</span>
+      </div>
     </ng-template>
-  </p-galleria>
-</div>
 
+    <ng-container *ngTemplateOutlet="MisProyectos"></ng-container>
+  </p-tabPanel>
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center gap-2">
+        <i class="pi pi-github"></i>
+        <span class="font-normal">GitHub</span>
+      </div>
+    </ng-template>
+    <app-git-hub [isVistaBody]="true"></app-git-hub>
+  </p-tabPanel>
+</p-tabView>
+
+
+<ng-template #MisProyectos>
+  <div>
+    @if (spinnerProyectos) {
+      <div class="flex align-items-center gap-2">
+        <i class="pi pi-spin pi-spinner-dotted"></i> Cargando proyectos
+      </div>
+    } @else {
+      <ul class="galeria-proyectos">
+        @for (i of proyectos; track i) {
+          <li class="relative sub-item-galeria">
+            <p-image
+              [src]="i.url_portada"
+              [previewImageSrc]="i.url_pw"
+              [alt]="i.nombre"
+              [preview]="true"/>
+
+            <div class="flex flex-column absolute bottom-0 bg-blur p-3 w-full border-round-2xl border-noround-top	gap-2">
+              <div class="flex justify-content-between align-items-center gap-2">
+                <p-badge [value]="i.version" severity="success" />
+                <span class="text-xs text-400">{{ i.fecha_creacion }}</span>
+              </div>
+              <div class="flex justify-content-between align-items-center text-white gap-2">
+                <div class="flex flex-1 flex-column gap-1">
+                  <span class="font-semibold text-sm">{{ i.nombre }}</span>
+                </div>
+                <div class="flex justify-content-center align-items-center gap-2">
+                  @if (i.link_demo) {
+                    <p-button (onClick)="openLink(i.link_demo)"
+                              size="small"
+                              icon="pi pi-play-circle"
+                              label="Demo"
+                              [rounded]="true"
+                              [text]="true"
+                              [outlined]="true"
+                              severity="contrast"
+                              styleClass="text-white">
+                    </p-button>
+                  }
+
+                  @if (i.link_github) {
+                    <p-button (onClick)="openLink(i.link_github)"
+                              size="small"
+                              label="Code"
+                              icon="pi pi-github"
+                              [rounded]="true"
+                              severity="contrast">
+                    </p-button>
+                  }
+                </div>
+              </div>
+            </div>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</ng-template>

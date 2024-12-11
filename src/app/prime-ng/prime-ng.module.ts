@@ -27,6 +27,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { BadgeModule } from 'primeng/badge';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { TabViewModule } from 'primeng/tabview';
 
 const myModulo = [
   DropdownModule,
@@ -56,7 +57,8 @@ const myModulo = [
   GalleriaModule,
   BadgeModule,
   InputGroupModule,
-  InputGroupAddonModule
+  InputGroupAddonModule,
+  TabViewModule
 ];
 
 @NgModule({

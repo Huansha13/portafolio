@@ -12,7 +12,7 @@
         }
       </div>
     </div>
-    <div>{{editor.titleEsp}}</div>
+    <div>{{ editor.titleEsp }}</div>
     <div class="flex align-items-center gap-3">
       @for (item of editor.heder.options; track item) {
         <i class="{{item}} text-xxs"></i>
@@ -38,7 +38,7 @@
     @if (!settings.view.sm) {
       <div class="w-12rem p-2 flex flex-column border-right-1">
         <div class="flex align-items-center justify-content-between">
-          <span class="font-semibold text-xs">{{editor.titleEsp}}</span>
+          <span class="font-semibold text-xs">{{ editor.titleEsp }}</span>
           <i class="pi pi-ellipsis-h text-xxs"></i>
         </div>
         <div class="flex flex-column gap-2 mt-3 text-sm font-light">
@@ -59,45 +59,29 @@
         <div class="mb-2">
           <p-chip label="HolaMundo.java" [removable]="true" disabled="true" styleClass="text-xs"/>
         </div>
-        <!--<div class="flex gap-3 text-sm font-source-code-pro" >
-          <div *ngIf="!settings.view.sm">
-            <ul class="list-none p-0 m-0 line-height-3 pl-2">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-            </ul>
-          </div>
-          <div class="line-height-3 text-sm lg:text-base">
-            <div class="tw-saludo1"></div>
-            <div class="border-left-1 border-green-400">
-              <div class="ml-4 tw-saludo2"></div>
-              <div class="ml-4 border-left-1 border-blue-400">
-                <div class="ml-5 tw-saludo3"></div>
-              </div>
-              <div class="ml-4 tw-saludo4"></div>
-            </div>
-            <div class="tw-saludo5"></div>
-          </div>
-        </div>-->
         <div class="p-1 text-sm font-source-code-pro flex flex-column gap-2">
           <span class="text-blue-400 mb-2 flex-1"><span class="text-primary-400">package</span> holamundo;</span>
-          <span class="text-400">// {{'@author YeferFrank'}}</span>
-          <span class="text-primary-400">{{'public class '}} <span class="text-yellow-400">HolaMundo</span> <span class="text-color">{{' {'}}</span></span>
+          <span class="text-400">// {{ '@author YeferFrank' }}</span>
+          <span class="text-primary-400">{{ 'public class ' }} <span class="text-yellow-400">HolaMundo</span> <span
+            class="text-color">{{ ' {' }}</span></span>
           <span class="ml-3 flex flex-column gap-2">
             <div class="d-flex">
               <span class="text-primary">{{ 'public static' }}</span>
               <span>{{ ' void ' }}</span>
-              <span class="text-blue-400">main(<span class="text-color">String[]</span> args) <span class="text-color">{{ '{' }}</span></span>
+              <span class="text-blue-400">main(<span class="text-color">String[]</span> args) <span
+                class="text-color">{{ '{' }}</span></span>
             </div>
-            <div class="ml-3 flex flex-column">
+            <div class="ml-3 flex flex-column gap-2">
+              @if (spinnerLoading) {
+                <i class="pi pi-spin pi-spinner"></i>
+              }
               <span class="text-300 comentario-code"></span>
-              <span class="metodo-code"></span>
+              <span class="text-300 comentario-code-2"></span>
+              <span class="text-300 comentario-code-3"></span>
             </div>
-            <span>{{'}'}}</span>
+            <span>{{ '}' }}</span>
           </span>
-          <span>{{'}'}}</span>
+          <span>{{ '}' }}</span>
         </div>
       </div>
       <!-- Terminal -->
@@ -111,36 +95,15 @@
         </div>
         <div class="terminal-body-content">
           <p class="flex align-items-center gap-2 font-source-code-pro text-sm">
-            <span class="text-green-400">{{'yefer@terminal'}}</span>
+            <span class="text-green-400">{{ 'yefer@terminal' }}</span>
             <span class="text-gray-400">~</span>
             <span class="text-blue-400">$</span>
-            <!--<span class="text-gray-400">run start</span>-->
           </p>
 
-          @if (ejecutandoMetodo) {
-            <span class="flex flex-column gap-1 py-3">
-              <!--<i class="pi pi-spin pi-spinner text-xs"></i> Ejecutando-->
-              <p-skeleton width="10rem"/>
-              <p-skeleton/>
-            </span>
-          }
-
-          @if (settings.isTeminalRunning) {
-            <div class="flex flex-column font-normal text-sm text-color-secondary line-height-2 font-monospace text-balancer">
-              <span class="fade-in">Soy, Yefer Frank Huansha.</span>
-              <span class="fade-in">
-                Con tres años de experiencia en TI 🚀, me especializo como Full Stack Developer.
-                <!--<br>
-                Destaco en Back-End con <span class="text-blue-400 font-bold font-fira-code">Java</span> y en Front-End con
-                <span class="text-red-400 font-bold font-fira-code">Angular</span>,
-                creando interfaces atractivas y personalizadas.
-                Además, tengo experiencia en desarrollo móvil con <span class="text-green-400 font-bold font-fira-code">Android Studio</span>
-                y <span class="text-yellow-400 font-bold font-fira-code">Capacitor</span>,
-                así como en la integración de <span class="text-purple-400 font-bold font-fira-code">Redis</span> para
-                mejorar el rendimiento en bases de datos. 🚀-->
-              </span>
-            </div>
-          }
+          <div
+            class="flex flex-column font-normal text-sm text-color-secondary line-height-2 font-monospace text-balancer">
+            <span class="fade-in">{{ this.dataWriters[3]?.mss }}</span>
+          </div>
         </div>
       </div>
     </div>

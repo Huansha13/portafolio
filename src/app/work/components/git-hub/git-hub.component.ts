@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ServiceBodyService} from "../../service/serviceBody.service";
 import {SettingsService} from "../../../core/utils/settings.service";
 import {Observable, of} from "rxjs";
@@ -10,6 +10,7 @@ import {map} from "rxjs/operators";
   styleUrls: ['./git-hub.component.scss']
 })
 export class GitHubComponent implements OnInit {
+  @Input('isVistaBody') isVistaBody: boolean = false;
   busqueda: string = '';
   listaRepositorio$: Observable<any[]> = of([]);
   perfil: any;
