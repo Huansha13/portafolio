@@ -71,10 +71,14 @@
               <span class="text-blue-400">main(<span class="text-color">String[]</span> args) <span
                 class="text-color">{{ '{' }}</span></span>
             </div>
-            <div class="ml-3 flex flex-column gap-2">
-              @if (spinnerLoading) {
-                <i class="pi pi-spin pi-spinner"></i>
-              }
+            @if (spinnerLoading) {
+              <div class="ml-3">
+                <p-skeleton styleClass="mb-1" borderRadius="16px" />
+                <p-skeleton width="10rem" styleClass="mb-1" borderRadius="16px" />
+                <p-skeleton width="5rem" borderRadius="16px" />
+              </div>
+            }
+            <div class="ml-3 flex flex-column gap-2" [hidden]="spinnerLoading">
               <span class="text-300 comentario-code"></span>
               <span class="text-300 comentario-code-2"></span>
               <span class="text-300 comentario-code-3"></span>
@@ -99,11 +103,14 @@
             <span class="text-gray-400">~</span>
             <span class="text-blue-400">$</span>
           </p>
-
-          <div
-            class="flex flex-column font-normal text-sm text-color-secondary line-height-2 font-monospace text-balancer">
-            <span class="fade-in">{{ this.dataWriters[3]?.mss }}</span>
-          </div>
+          @if (spinnerLoading) {
+            <p-skeleton styleClass="mb-2" borderRadius="16px" />
+          } @else {
+            <div
+              class="flex flex-column font-normal text-sm text-color-secondary line-height-2 font-monospace text-balancer">
+              <span class="fade-in text-blue-400">{{ this.dataWriters[3]?.mss }}</span>
+            </div>
+          }
         </div>
       </div>
     </div>
