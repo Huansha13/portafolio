@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ExcelService} from "../../../core/utils/excel.service";
 import {HeaderProyectos} from "../../../core/model/excel.model";
 import {SettingsService} from "../../../core/utils/settings.service";
-import {MessageService} from "primeng/api";
+import {MenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-proyectos',
@@ -10,16 +10,23 @@ import {MessageService} from "primeng/api";
   styleUrl: './proyectos.component.scss'
 })
 export class ProyectosComponent implements OnInit {
+  items: MenuItem[] | undefined;
+  activeItem: MenuItem;
   spinnerProyectos = false
   url_asset = import.meta.env.NG_APP_URL_ASSETS;
   proyectos: HeaderProyectos[] = [];
 
-  constructor(private readonly excelService: ExcelService,
-              private readonly settings: SettingsService,
-              private readonly mensajeService: MessageService) {
+  constructor(public readonly settings: SettingsService,
+              private readonly excelService: ExcelService) {
   }
 
   ngOnInit() {
+    this.items = [
+      { label: 'Tabla', icon: 'pi pi-table', id: '1' },
+      { label: 'GitHub', icon: 'pi pi-github', id: '2' },
+    ];
+    this.activeItem = this.items[0];
+
     Promise.resolve().then(() => {
       this.spinnerProyectos = true;
       this.excelService.obtenerMisProyectos().then(proyectos => {
@@ -41,5 +48,9 @@ export class ProyectosComponent implements OnInit {
 
   openLink(link: string) {
     window.open(link, "_blank");
+  }
+
+  onTabChange(event: MenuItem) {
+    this.activeItem = event;
   }
 }

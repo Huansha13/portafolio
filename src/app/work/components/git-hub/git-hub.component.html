@@ -41,7 +41,9 @@
   </div>
   <app-footer></app-footer>
 } @else {
-  <ng-container *ngTemplateOutlet="sectionFilter"></ng-container>
+  <div class="mb-3">
+    <ng-container *ngTemplateOutlet="sectionFilter"></ng-container>
+  </div>
   <ng-container *ngTemplateOutlet="tblListaRepositorio"></ng-container>
 }
 
@@ -76,11 +78,9 @@
            [rowsPerPageOptions]="[5, 10, 20]"
            scrollHeight="600px">
     <ng-template pTemplate="header">
-      @if (!isVistaBody) {
-        <tr>
-          <th scope="col" class="text-center font-normal">Mis Repositorios Publicos</th>
-        </tr>
-      }
+      <tr>
+        <th scope="col" class="text-center font-normal">Mis Repositorios Públicos</th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-repo>
       <tr>
@@ -95,12 +95,17 @@
                 <i class="pi pi-code"></i>
                 <small>{{ repo.language }}</small>
               </div>
-              <p-button icon="pi pi-github" (onClick)="irRepo(repo.html_url)"
+
+              <p-button (onClick)="irRepo(repo.html_url)"
+                        size="small"
+                        [label]="settings.view.sm ? '' : 'Code'"
+                        icon="pi pi-github"
                         [rounded]="true"
-                        [size]="'small'"
-                        label="Code"
                         severity="contrast"
-                        text="true" styleClass="p-button-outlined"></p-button>
+                        text="true"
+                        [styleClass]="'p-button-outlined ' + (settings.view.sm ? 'h-2rem w-2rem' : '')"
+              >
+              </p-button>
             </div>
           </div>
         </td>
