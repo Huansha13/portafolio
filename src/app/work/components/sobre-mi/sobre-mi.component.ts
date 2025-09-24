@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {About} from "../../model/about.interface";
 import {Experiencia} from "../../model/home.interface";
 import {PrimeIcons} from "primeng/api";
+import {SettingsService} from "../../../core/utils/settings.service";
 
 @Component({
   selector: 'app-sobre-mi',
@@ -12,6 +13,10 @@ export class SobreMiComponent implements OnInit {
   @Input() data: About;
   dataHabilidadesResumen: Experiencia[] = [];
 
+  constructor(
+    public settings: SettingsService,
+  ) {
+  }
 
   ngOnInit() {
     this.dataHabilidadesResumen = [
