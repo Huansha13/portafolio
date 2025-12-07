@@ -1,0 +1,30 @@
+{
+  "badge": "LISTO PARA DESPLEGAR",
+  "title": "Full Stack",
+  "titleGradient": "Developer",
+  "buildingLabel": "Building",
+  "roles": {
+    "frontend": "Frontend UX",
+    "backend": "Lógica Backend",
+    "cloud": "Arquitectura Cloud",
+    "database": "Opera. de Base de Datos"
+  },
+  "description": "Transformo requerimientos complejos en aplicaciones web escalables. Domino el ciclo completo: desde el píxel perfecto en el cliente hasta la optimización en base de datos.",
+  "btnPortfolio": "Ver Portafolio",
+  "btnGithub": "GitHub",
+  "btncv": "Ver CV",
+  "btnLinkedin": "LinkedIn",
+  "coreStack": "TECNOLOGÍAS PRINCIPALES",
+  "codeWindow": {
+    "fileName": "developer.config.ts",
+    "name": "Frank Huansha",
+    "skills": ["Angular", "Spring Boot", "PostgreSQL"],
+    "hardWorker": true,
+    "problemSolver": true,
+    "comment": "// Listo para colaborar"
+  },
+  "statusCard": {
+    "title": "Estado del Sistema",
+    "value": "Todo en Orden"
+  }
+}

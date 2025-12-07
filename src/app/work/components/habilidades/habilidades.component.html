@@ -1,15 +1,48 @@
-<p class="m-0 p-0 text-center">Mis Habilidades</p>
-<h2 class="font-bold pt-0 mt-0 text-5xl md:text-6xl text-center">Tecnológicas</h2>
+<div class="skills-container">
+  <div class="skills-header">
+    <span class="section-label">{{ 'skills.badge' | translate }}</span>
+    <h1 class="skills-title font-display">{{ 'skills.title' | translate }}<br>{{ 'skills.titleBreak' | translate }}</h1>
+    <p class="skills-subtitle">
+      {{ 'skills.subtitle' | translate }}
+    </p>
+  </div>
 
-<div class="sec-columns">
-  @for (item of dataHabilidades; track item) {
-    <div class="item-column shadow-1 flex flex-column border-1 border-50 p-3 h-full w-full border-round-2xl">
-      <h4 class="m-0 p-0">{{ item.nombre }} </h4>
-      <div class="flex flex-wrap gap-2 mt-2">
-        @for (tecnologia of item.tecnologia; track tecnologia) {
-          <p-chip [icon]="tecnologia.icon" [label]="tecnologia.label" [alt]="tecnologia.label" styleClass="text-sm"/>
-        }
+  <div class="skills-grid">
+    @for (category of skillCategories; track category.title) {
+      <div class="skill-card">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <i [class]="category.icon"></i>
+          </div>
+          <div class="card-title-section">
+            <h3 class="card-title">{{ category.title }}</h3>
+            <p class="card-subtitle">{{ category.subtitle }}</p>
+          </div>
+        </div>
+        <div class="tech-tags">
+          @for (tech of category.technologies; track tech) {
+            <span class="tech-tag">
+              <i [class]="tech.icon"></i>
+              {{ tech.name }}
+            </span>
+          }
+        </div>
       </div>
+    }
+  </div>
+
+  <div class="skills-footer">
+    <div class="footer-item">
+      <i class="pi pi-circle-fill"></i>
+      <span>{{ 'skills.footer.atomicDesign' | translate }}</span>
     </div>
-  }
+    <div class="footer-item">
+      <i class="pi pi-circle-fill"></i>
+      <span>{{ 'skills.footer.cleanCode' | translate }}</span>
+    </div>
+    <div class="footer-item">
+      <i class="pi pi-circle-fill"></i>
+      <span>{{ 'skills.footer.seoOptimized' | translate }}</span>
+    </div>
+  </div>
 </div>

@@ -1,58 +1,76 @@
-<div class="wrapper">
-  <div class="grid">
-    <div class="col-12 md:col-6 lg:col-5">
-      <div class="h-full flex flex-column justify-content-center">
-        <div>
-          <h2 class="font-bold m-0  text-5xl md:text-6xl">Un poco</h2>
-          <h2 class="flex flex-1 align-items-center font-bold m-0 text-7xl lg:text-8xl">Sobre Mi</h2>
-        </div>
-        <p class="m-0 p-0 text-nomal text-gray-500 line-height-3">{{ data?.descripcion }}</p>
+<div class="mt-3">
+  <div class="about-content">
+    <div class="about-left">
+      <span class="about-badge">{{ 'about.badge' | translate }}</span>
+      <h1 class="about-title font-display">
+        {{ 'about.title' | translate }}<br>
+        <span class="about-subtitle">{{ 'about.subtitle' | translate }}</span>
+      </h1>
+      
+      <div class="about-description">
+        <p>{{ data?.descripcion || ('about.description' | translate) }}</p>
+      </div>
+      
+      <div class="about-actions">
+        <button class="btn-primary">
+          {{ 'about.btnContact' | translate }} <i class="pi pi-arrow-up-right"></i>
+        </button>
+        <button class="btn-secondary">{{ 'about.btnCV' | translate }}</button>
       </div>
     </div>
-    <div class="col-12 md:col-12 lg:col-3">
-      <div class="flex flex-column gap-2">
-        @for (item of dataHabilidadesResumen; track item) {
-          <div class="shadow-1 flex flex-column justify-content-between border-1 border-50 p-3 h-full w-full border-round-2xl">
-            <div class="flex flex-column text-balancer gap-3">
-              <i class="{{item.icon}} text-4xl text-gray-300"></i>
-              <div class="flex flex-column gap-1">
-                <h3 class="font-medium m-0 p-0 text-lg">{{ item.label }}</h3>
-                <p class="text-sm text-gray-500 p-0 m-0">{{ item.description }}</p>
-              </div>
+
+    <div class="about-right">
+      <div class="profile-wrapper">
+        <div class="profile-container">
+          <div class="profile-glow"></div>
+          <img alt="mi-foto" src="https://lwzlwomlavfrnrtxartw.supabase.co/storage/v1/object/public/mi-portafolio/foto-casual-negro.png" class="profile-image"/>
+          
+          <div class="floating-stat stat-exp font-display">
+            <div class="stat-icon-wrapper ml-1">
+              <i class="pi pi-box"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number">{{ 'about.stats.experience.number' | translate }}</div>
+              <div class="stat-label">{{ 'about.stats.experience.label' | translate }}</div>
             </div>
           </div>
-        }
-      </div>
-    </div>
-    <div class="col-12 md:col-6 lg:col-4">
-      <div class="flex flex-column h-full relative">
-        <img alt="mi-foto" src="../../../assets/img/mi-foto.webp" class="w-full img-mi-foto border-round-2xl"/>
-        <article class="absolute p-3 bottom-0 w-full  border-round-2xl border-noround-top info-text-img text-white">
-          <div class="items-about-me mt-2">
-            <ul>
-              <li class="text-sm flex align-items-center gap-2">
-                <i class="uil uil-check-circle"></i> <b>Edad Actual: </b> {{ 2024 - 1996 }}
-              </li>
-              <li class="text-sm flex align-items-center gap-2">
-                <i class="uil uil-check-circle"></i> <b>Ubicación: </b>
-                <a style="color: #fff" href="https://www.google.com/maps/@-11.0685039,-77.5955422,19z"
-                   target="_blank">{{ data?.ubicacion }}</a>
-              </li>
-              <li class="text-sm flex align-items-center gap-2">
-                <i class="uil uil-check-circle"></i> <b>Stack Preferido: </b> {{ data?.stack }}
-              </li>
-              <li class="text-sm flex align-items-center gap-2">
-                <i class="uil uil-check-circle"></i> <b>Intereses: </b> {{ data?.interes }}
-              </li>
-            </ul>
+          
+          <div class="floating-stat stat-projects font-display">
+            <div class="stat-icon-wrapper">
+              <i class="pi pi-code"></i>
+            </div>
+            <div class="stat-content mr-1">
+              <div class="stat-number">{{ 'about.stats.projects.number' | translate }}</div>
+              <div class="stat-label">{{ 'about.stats.projects.label' | translate }}</div>
+            </div>
           </div>
-        </article>
+        </div>
+        <div class="profile-shadow"></div>
       </div>
     </div>
+  </div>
 
-    @if (!settings.view.lg) {
-      <app-presentacion></app-presentacion>
-    }
+  <div class="about-footer">
+    <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.age.label' | translate }}</span>
+      <span class="footer-value">{{ 2024 - 1996 }} {{ 'about.footer.age.value' | translate }}</span>
+    </div>
+    <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.location.label' | translate }}</span>
+      <a target="_blank" class="footer-value footer-link">{{ data?.ubicacion || ('about.footer.location.value' | translate) }}</a>
+    </div>
+    <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.stack.label' | translate }}</span>
+      <span class="footer-value">{{ data?.stack || ('about.footer.stack.value' | translate) }}</span>
+    </div>
+    <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.availability.label' | translate }}</span>
+      <span class="footer-value">{{ 'about.footer.availability.value' | translate }}</span>
+    </div>
 
+     <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.languages.label' | translate }}</span>
+      <span class="footer-value">{{ 'about.footer.languages.value' | translate }}</span>
+    </div>
   </div>
 </div>

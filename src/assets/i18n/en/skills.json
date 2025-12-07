@@ -1,0 +1,37 @@
+{
+  "badge": "TECHNICAL EXPERTISE",
+  "title": "Skills &",
+  "titleBreak": "Technologies",
+  "subtitle": "Building the digital future with a solid technology stack, prioritizing clean architecture and performance.",
+  "categories": {
+    "frontend": {
+      "title": "Frontend Engineering",
+      "subtitle": "Immersive interfaces & UX"
+    },
+    "backend": {
+      "title": "Backend Architecture",
+      "subtitle": "Scalable systems & APIs"
+    },
+    "mobile": {
+      "title": "Mobile & Native",
+      "subtitle": "Cross-platform solutions"
+    },
+    "database": {
+      "title": "Databases",
+      "subtitle": "SQL & NoSQL"
+    },
+    "devops": {
+      "title": "Cloud & DevOps",
+      "subtitle": "Infrastructure & CI/CD"
+    },
+    "tools": {
+      "title": "UI/UX & Tools",
+      "subtitle": "Design & Collaboration"
+    }
+  },
+  "footer": {
+    "atomicDesign": "Atomic Design",
+    "cleanCode": "Clean Code",
+    "seoOptimized": "SEO Optimized"
+  }
+}

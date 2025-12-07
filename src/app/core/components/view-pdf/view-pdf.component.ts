@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../../utils/settings.service';
-import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-view-pdf',
@@ -14,6 +14,7 @@ export class ViewPdfComponent implements OnInit {
   totalPages: number = 0;
 
   constructor(public settings: SettingsService,
+    private readonly ref: DynamicDialogRef,
     private readonly config: DynamicDialogConfig) { }
 
   ngOnInit(): void {
@@ -50,5 +51,9 @@ export class ViewPdfComponent implements OnInit {
     } catch (error) {
       console.error("Error:", error);
     }
+  }
+
+  closeDialog(): void {
+    this.ref.close();
   }
 }

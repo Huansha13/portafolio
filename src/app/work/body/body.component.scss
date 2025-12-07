@@ -1,5 +1,32 @@
 $color-bt-1: #2DA9DD;
 
+.hero-background {
+  position: relative;
+  min-height: 100vh;
+  background: var(--surface-ground);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, var(--surface-border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--surface-border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, var(--surface-ground));
+    pointer-events: none;
+  }
+}
+
 $color-tx-1: var(--text-color);
 $color-tx-2: #fff;
 $color-tx-3: #cecece;

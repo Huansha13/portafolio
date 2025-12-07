@@ -1,3 +1,235 @@
-.etiqueta-a-txt {
-  text-decoration: none; color: inherit;
+.github-repos-container {
+  margin-top: 2rem;
+}
+
+.repos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.repos-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  border: 1px solid var(--surface-border);
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+
+  &:hover {
+    background: var(--surface-100);
+  }
+
+  &.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+}
+
+.repos-search {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 50px;
+  background: var(--surface-card);
+  min-width: 300px;
+
+  i {
+    color: var(--text-color-secondary);
+  }
+
+  input {
+    border: none;
+    background: transparent;
+    outline: none;
+    color: var(--text-color);
+    flex: 1;
+    font-size: 0.875rem;
+
+    &::placeholder {
+      color: var(--text-color-secondary);
+    }
+  }
+}
+
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.repo-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.repo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  i {
+    font-size: 1.25rem;
+    color: var(--text-color-secondary);
+  }
+
+  h3 {
+    flex: 1;
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+}
+
+.repo-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--surface-border);
+  font-size: 0.75rem;
+  color: var(--text-color-secondary);
+}
+
+.repo-description {
+  color: var(--text-color-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 40px;
+}
+
+.repo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.repo-stats {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.repo-language {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+}
+
+.language-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.repo-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+
+  i {
+    font-size: 0.875rem;
+  }
+}
+
+.btn-code {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+  background: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background: var(--surface-100);
+    border-color: var(--primary-color);
+  }
+}
+
+.repos-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.btn-page {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    background: var(--surface-100);
+  }
+
+  &.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 768px) {
+  .repos-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .repos-search {
+    min-width: auto;
+  }
+
+  .repos-grid {
+    grid-template-columns: 1fr;
+  }
 }

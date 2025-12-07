@@ -1,0 +1,11 @@
+{
+  "label": "Portfolio",
+  "title": "Proyectos",
+  "tabs": {
+    "projects": "Proyectos",
+    "github": "GitHub"
+  },
+  "loading": "Cargando proyectos",
+  "noProjects": "No hay proyectos disponibles",
+  "defaultDescription": "Proyecto desarrollado con las últimas tecnologías"
+}

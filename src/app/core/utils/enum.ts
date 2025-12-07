@@ -1,6 +1,7 @@
 export enum Theme {
   LIGHT = 'light',
-  DARK = 'dark'
+  DARK = 'dark',
+  SYSTEM = 'system'
 }
 
 export enum keysStorage {

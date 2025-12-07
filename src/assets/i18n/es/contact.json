@@ -1,0 +1,14 @@
+{
+  "title": "Contacto",
+  "subtitle": "¿Tienes un proyecto en mente?",
+  "description": "Estoy disponible para nuevos proyectos y oportunidades.",
+  "form": {
+    "name": "Nombre",
+    "email": "Email",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "success": "Mensaje enviado correctamente",
+    "error": "Error al enviar el mensaje"
+  }
+}

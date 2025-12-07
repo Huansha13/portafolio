@@ -20,7 +20,7 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpClient, provideHttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { RemoteTranslationLoaderFactory } from './core/utils/remote-translation-loader';
 
 // Para @angular/localize
 import { registerLocaleData } from '@angular/common';
@@ -66,7 +66,7 @@ registerLocaleData(localeEs);
 export class AppModule {
 }
 
-// Para ngx-translate/core
+// Para ngx-translate/core con traducciones remotas
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return RemoteTranslationLoaderFactory(http);
 }

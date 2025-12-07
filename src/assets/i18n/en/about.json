@@ -1,0 +1,40 @@
+{
+  "badge": "WHO I AM",
+  "title": "Systems Engineer",
+  "subtitle": "with product vision.",
+  "description": "Full Stack Developer with experience creating scalable and efficient solutions. Specialized in modern technologies and robust architectures.",
+  "btnContact": "Contact Me",
+  "btnCV": "Download CV",
+  "stats": {
+    "experience": {
+      "number": "+4",
+      "label": "Years Exp."
+    },
+    "projects": {
+      "number": "10+",
+      "label": "Projects"
+    }
+  },
+  "footer": {
+    "age": {
+      "label": "AGE",
+      "value": "years"
+    },
+    "location": {
+      "label": "LOCATION",
+      "value": "Lima, Peru"
+    },
+    "stack": {
+      "label": "STACK",
+      "value": "Spring Boot, Angular"
+    },
+    "availability": {
+      "label": "AVAILABILITY",
+      "value": "Open to Work"
+    },
+    "languages": {
+      "label": "LANGUAGES",
+      "value": "Spanish/English"
+    }
+  }
+}

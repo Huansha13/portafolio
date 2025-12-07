@@ -26,13 +26,22 @@
       </div>
 
       <!-- Botón Descargar  -->
-      <button pButton pRipple type="button" icon="pi pi-download"
-              [label]="settings.view.sm ? '' : 'Descargar'"
+      <div class="flex gap-2">
+        <button pButton pRipple type="button" icon="pi pi-download"
               title="Descargar PDF" (click)="download()"
-              [outlined]="true"
+              [text]="true"
               size="small"
               class="p-button-rounded">
       </button>
+
+      <button pButton pRipple type="button" icon="pi pi-times"
+              (click)="closeDialog()"
+              size="small"
+              [text]="true"
+              severity="secondary"
+              class="p-button-rounded">
+      </button>
+      </div>
     </div>
   </div>
 </div>

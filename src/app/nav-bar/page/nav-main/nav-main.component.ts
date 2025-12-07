@@ -53,6 +53,12 @@ export class NavMainComponent implements OnInit {
       this.idioma = idioma;
       this.selectIdioma();
     }
+
+    const savedTheme = localStorage.getItem(keysStorage.THEME) as Theme;
+    if (savedTheme) {
+      this._selectedTheme = savedTheme;
+      this.stateOptionsTheme = this.getStateOptionsTheme();
+    }
   }
 
   selectIdioma() {
@@ -71,10 +77,36 @@ export class NavMainComponent implements OnInit {
     this.selectedTheme = event.option.value as Theme;
   }
 
+  cycleTheme(): void {
+    const themes = [Theme.LIGHT, Theme.DARK, Theme.SYSTEM];
+    const currentIndex = themes.indexOf(this._selectedTheme);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    this.selectedTheme = themes[nextIndex];
+  }
+
+  getCurrentThemeIcon(): string {
+    switch (this._selectedTheme) {
+      case Theme.LIGHT: return PrimeIcons.SUN;
+      case Theme.DARK: return PrimeIcons.MOON;
+      case Theme.SYSTEM: return PrimeIcons.DESKTOP;
+      default: return PrimeIcons.MOON;
+    }
+  }
+
+  getCurrentThemeLabel(): string {
+    switch (this._selectedTheme) {
+      case Theme.LIGHT: return 'Modo Claro';
+      case Theme.DARK: return 'Modo Oscuro';
+      case Theme.SYSTEM: return 'Modo Sistema';
+      default: return 'Tema';
+    }
+  }
+
   private getStateOptionsTheme() {
     return [
       {value: Theme.LIGHT, icon: PrimeIcons.SUN, constant: this._selectedTheme == Theme.LIGHT},
-      {value: Theme.DARK, icon: PrimeIcons.MOON, constant: this._selectedTheme == Theme.DARK}
+      {value: Theme.DARK, icon: PrimeIcons.MOON, constant: this._selectedTheme == Theme.DARK},
+      {value: Theme.SYSTEM, icon: PrimeIcons.DESKTOP, constant: this._selectedTheme == Theme.SYSTEM}
     ];
   }
 }

@@ -61,13 +61,11 @@
 </ng-template>
 
 <ng-template #btnTheme>
-  <p-selectButton [options]="stateOptionsTheme" (onOptionClick)="onThemeChange($event)"
-                  optionDisabled="constant"
-                  styleClass="select-button-icon select-button-sm"
-                  [(ngModel)]="_selectedTheme" optionValue="value">
-    <ng-template let-option pTemplate="item">
-      <i [class]="option.icon"></i>
-    </ng-template>
-  </p-selectButton>
-
+  <p-button [icon]="getCurrentThemeIcon()" 
+            (onClick)="cycleTheme()" 
+            [rounded]="true"
+            [outlined]="true"
+            [pTooltip]="getCurrentThemeLabel()"
+            tooltipPosition="bottom">
+  </p-button>
 </ng-template>

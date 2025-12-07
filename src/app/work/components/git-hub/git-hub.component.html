@@ -41,10 +41,67 @@
   </div>
   <app-footer></app-footer>
 } @else {
-  <div class="mb-3">
-    <ng-container *ngTemplateOutlet="sectionFilter"></ng-container>
+  <div class="github-repos-container">
+    <div class="repos-header">
+      <div class="repos-filters">
+        <button class="filter-btn" [class.active]="filtroActivo === 'Todos'" (click)="filtrarPorLenguaje('Todos')">Todos</button>
+        <button class="filter-btn" [class.active]="filtroActivo === 'Html'" (click)="filtrarPorLenguaje('Html')">Html</button>
+        <button class="filter-btn" [class.active]="filtroActivo === 'Java'" (click)="filtrarPorLenguaje('Java')">Java</button>
+        <button class="filter-btn" [class.active]="filtroActivo === 'TypeScript'" (click)="filtrarPorLenguaje('TypeScript')">TypeScript</button>
+        <button class="filter-btn" [class.active]="filtroActivo === 'Python'" (click)="filtrarPorLenguaje('Python')">Python</button>
+      </div>
+      <div class="repos-search">
+        <i class="pi pi-search"></i>
+        <input type="text" [(ngModel)]="busqueda" (keyup)="buscar()" placeholder="Buscar repositorios..." />
+      </div>
+    </div>
+    <div class="repos-grid">
+      @for (repo of reposPaginados; track repo.id) {
+        <div class="repo-card">
+          <div class="repo-header">
+            <i class="pi pi-github"></i>
+            <h3>{{ repo.name }}</h3>
+            <span class="repo-badge">Public</span>
+          </div>
+          <p class="repo-description">{{ repo.description || 'Sin descripción' }}</p>
+          <div class="repo-footer">
+            <div class="repo-stats">
+              @if (repo.language) {
+                <span class="repo-language">
+                  <span class="language-dot" [style.background]="getLanguageColor(repo.language)"></span>
+                  {{ repo.language }}
+                </span>
+              }
+              <span class="repo-stat">
+                <i class="pi pi-star"></i> {{ repo.stargazers_count }}
+              </span>
+              <span class="repo-stat">
+                <i class="pi pi-code-branch"></i> {{ repo.forks_count }}
+              </span>
+            </div>
+            <button (click)="irRepo(repo.html_url)" class="btn-code">
+              Code <i class="pi pi-external-link"></i>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+    @if (totalRepos > reposPorPagina) {
+      <div class="repos-pagination">
+        <button class="btn-page" [disabled]="paginaActual === 1" (click)="paginaAnterior()">
+          <i class="pi pi-chevron-left"></i>
+        </button>
+        @for (num of getPaginas(); track num) {
+          <button class="btn-page" [class.active]="paginaActual === num" (click)="irAPagina(num)">
+            {{ num }}
+          </button>
+        }
+        <button class="btn-page" [disabled]="paginaActual === totalPaginas" (click)="paginaSiguiente()">
+          <i class="pi pi-chevron-right"></i>
+        </button>
+      </div>
+    }
   </div>
-  <ng-container *ngTemplateOutlet="tblListaRepositorio"></ng-container>
 }
 
 <ng-template #listaRepositorio>
@@ -59,57 +116,4 @@
   </p-card>
 </ng-template>
 
-<ng-template #sectionFilter>
-  <p-inputGroup>
-    <input type="text" pInputText [(ngModel)]="busqueda" (keyup.enter)="buscar()"/>
-    <button type="button" pButton label="Buscar" (click)="buscar()"></button>
-  </p-inputGroup>
-</ng-template>
 
-<ng-template #tblListaRepositorio>
-  <p-table [value]="listaRepositorio$ | async"
-           [pageLinks]="settings.view.lg ? 3 : 1"
-           styleClass="p-datatable-gridlines p-datatable-striped"
-           [rows]="5"
-           [showCurrentPageReport]="!settings.view.sm"
-           [paginator]="!settings.view.sm"
-           [scrollable]="!settings.view.sm"
-           currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords}"
-           [rowsPerPageOptions]="[5, 10, 20]"
-           scrollHeight="600px">
-    <ng-template pTemplate="header">
-      <tr>
-        <th scope="col" class="text-center font-normal">Mis Repositorios Públicos</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-repo>
-      <tr>
-        <td>
-          <div class="flex flex-column gap-2">
-            <div>
-              <span class="capitalize text-primary font-bold text-lg">{{ repo.name }}</span>
-              <span class="text-sm text-secondary block mt-1">{{ repo.description }}</span>
-            </div>
-            <div class="flex justify-content-between gap-2">
-              <div class="mt-1 text-secondary flex align-items-center gap-2">
-                <i class="pi pi-code"></i>
-                <small>{{ repo.language }}</small>
-              </div>
-
-              <p-button (onClick)="irRepo(repo.html_url)"
-                        size="small"
-                        [label]="settings.view.sm ? '' : 'Code'"
-                        icon="pi pi-github"
-                        [rounded]="true"
-                        severity="contrast"
-                        text="true"
-                        [styleClass]="'p-button-outlined ' + (settings.view.sm ? 'h-2rem w-2rem' : '')"
-              >
-              </p-button>
-            </div>
-          </div>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</ng-template>

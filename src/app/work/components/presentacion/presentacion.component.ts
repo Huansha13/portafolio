@@ -5,6 +5,7 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { FormContactameComponent } from 'src/app/contact/modal/form-contactame/form-contactame.component';
 import { ViewPdfComponent } from 'src/app/core/components/view-pdf/view-pdf.component';
 import { environment } from 'src/environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-presentacion',
@@ -18,8 +19,13 @@ export class PresentacionComponent implements OnInit {
 
   constructor(
     public settings: SettingsService,
-    private readonly dialogService: DialogService
+    private readonly dialogService: DialogService,
+    private translate: TranslateService
   ) { }
+
+  rolesKeys = ['frontend', 'backend', 'cloud', 'database'];
+  currentRoleIndex = 0;
+  codeSkills: string[] = [];
 
   ngOnInit(): void {
     const fechaInicio = new Date(2021, 0, 13);
@@ -36,52 +42,29 @@ export class PresentacionComponent implements OnInit {
 
     this.aniosExperiencia = anios;
 
-    // load tech icons
-    const baseIcons = [
-      { icon: 'ip-angular17', label: 'Angular 17' },
-      { icon: 'ip-code-catalyst', label: 'Code Catalyst' },
-      { icon: 'ip-docker', label: 'Docker' },
-      { icon: 'ip-figma', label: 'Figma' },
-      { icon: 'ip-git', label: 'Git' },
-      { icon: 'ip-postgresql', label: 'PostgreSQL' },
-      { icon: 'ip-spring', label: 'Spring' }
-    ];
+    this.loadCodeSkills();
+    this.translate.onLangChange.subscribe(() => {
+      this.loadCodeSkills();
+    });
 
-    // 🎨 Paleta de colores (1 por cada ícono)
-    const gradients = [
-      'linear-gradient(135deg, rgba(79,172,254,0.2), rgba(79,172,254,0.1))',   // Angular
-      'linear-gradient(135deg, rgba(255,193,7,0.2), rgba(255,193,7,0.1))',     // Code Catalyst
-      'linear-gradient(135deg, rgba(0,123,255,0.2), rgba(0,123,255,0.1))',     // Docker
-      'linear-gradient(135deg, rgba(244,114,182,0.2), rgba(244,114,182,0.1))', // Figma
-      'linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.1))',   // Git
-      'linear-gradient(135deg, rgba(52,152,219,0.2), rgba(52,152,219,0.1))',   // PostgreSQL
-      'linear-gradient(135deg, rgba(240,147,251,0.2), rgba(240,147,251,0.1))'  // Spring
-    ];
+    setInterval(() => {
+      this.currentRoleIndex = (this.currentRoleIndex + 1) % this.rolesKeys.length;
+    }, 2500);
+  }
 
-    const radius = 50; // distancia de los íconos respecto al centro
-    const centerX = 45;
-    const centerY = 45;
-
-    this.techIcons = baseIcons.map((item, index) => {
-      const angle = (index / baseIcons.length) * 2 * Math.PI;
-      return {
-        ...item,
-        position: {
-          top: `${centerY + radius * Math.sin(angle)}%`,
-          left: `${centerX + radius * Math.cos(angle)}%`
-        },
-        delay: `${index * 1.5}s`,
-        background: gradients[index % gradients.length] // asignar color según el índice
-      };
+  loadCodeSkills() {
+    this.translate.get('home.codeWindow.skills').subscribe((skills: string[]) => {
+      this.codeSkills = skills;
     });
   }
 
   descargarCv() {
     this.dialogService.open(ViewPdfComponent, {
+      showHeader: false,
       header: "Mi Currículo Vitae",
       width: this.settings.view.sm ? '100%' : '55%',
       height: '100%',
-      contentStyle: {height: '100%'},
+      contentStyle: {height: '100%', borderRadius: '10px'},
       data: {
         pdf: `${environment.base_url_assets}/${this.data.linkCv}`,
       }
