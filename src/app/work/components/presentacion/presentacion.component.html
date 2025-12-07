@@ -13,33 +13,27 @@
         </span>
         <span class="badge-text">{{ 'home.badge' | translate }}</span>
       </div>
-      
+
       <h1 class="hero-title font-display">
-        {{ 'home.title' | translate }}<br/>
+        {{ 'home.title' | translate }}<br />
         <span class="hero-title-gradient">{{ 'home.titleGradient' | translate }}</span>
       </h1>
-      
+
       <div class="hero-subtitle font-display">
         <span>{{ 'home.buildingLabel' | translate }}</span>
         <span class="rotating-text">{{ ('home.roles.' + rolesKeys[currentRoleIndex]) | translate }}</span>
       </div>
-      
+
       <p class="hero-description">
         {{ 'home.description' | translate }}
       </p>
-      
-      <div class="hero-actions">
-         <button pButton pRipple (click)="descargarCv()"
-          class="btn-primary"
-          iconPos="right"
-          icon="pi pi-arrow-right"
-          [label]="'home.btncv' | translate">
+
+      <div class="flex gap-3">
+        <button pButton pRipple class="active-animation" (click)="descargarCv()" iconPos="right"
+          icon="pi pi-arrow-right" [label]="'home.btncv' | translate">
         </button>
 
-        <button pButton pRipple 
-          icon="pi pi-linkedin"
-          [outlined]="true"
-          [label]="'home.btnLinkedin' | translate">
+        <button pButton pRipple icon="pi pi-linkedin" [outlined]="true" [label]="'home.btnLinkedin' | translate">
         </button>
       </div>
 
@@ -53,7 +47,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="hero-visual">
       <div class="code-card-glow"></div>
       <div class="code-card">
@@ -66,26 +60,36 @@
           <span class="file-name">{{ 'home.codeWindow.fileName' | translate }}</span>
         </div>
         <div class="code-content">
-          <div class="code-line"><span class="line-number">1</span><span class="keyword">interface</span> <span class="type">FullStackDev</span> <span class="bracket">&#123;</span></div>
-          <div class="code-line"><span class="line-number">2</span>&nbsp;&nbsp;<span class="property">name:</span> <span class="string">'{{ 'home.codeWindow.name' | translate }}'</span><span class="punctuation">,</span></div>
-          <div class="code-line"><span class="line-number">3</span>&nbsp;&nbsp;<span class="property">skills:</span> <span class="bracket">&#91;</span></div>
-          <div class="code-line"><span class="line-number">4</span>&nbsp;&nbsp;&nbsp;&nbsp;@for (skill of codeSkills; track skill; let isLast = $last) { <span class="string">'{{ skill }}'</span>@if (!isLast) {<span class="punctuation">,</span> } }</div>
+          <div class="code-line"><span class="line-number">1</span><span class="keyword">interface</span> <span
+              class="type">FullStackDev</span> <span class="bracket">&#123;</span></div>
+          <div class="code-line"><span class="line-number">2</span>&nbsp;&nbsp;<span class="property">name:</span> <span
+              class="string">'{{ 'home.codeWindow.name' | translate }}'</span><span class="punctuation">,</span></div>
+          <div class="code-line"><span class="line-number">3</span>&nbsp;&nbsp;<span class="property">skills:</span>
+            <span class="bracket">&#91;</span></div>
+          <div class="code-line"><span class="line-number">4</span>&nbsp;&nbsp;&nbsp;&nbsp;@for (skill of codeSkills;
+            track skill; let isLast = $last) { <span class="string">'{{ skill }}'</span>@if (!isLast) {<span
+              class="punctuation">,</span> } }</div>
           <div class="code-line"><span class="line-number">5</span>&nbsp;&nbsp;<span class="bracket">&#93;,</span></div>
-          <div class="code-line"><span class="line-number">6</span>&nbsp;&nbsp;<span class="property">hardWorker:</span> <span class="boolean">true</span><span class="punctuation">,</span></div>
-          <div class="code-line"><span class="line-number">7</span>&nbsp;&nbsp;<span class="property">problemSolver:</span> <span class="boolean">true</span></div>
+          <div class="code-line"><span class="line-number">6</span>&nbsp;&nbsp;<span class="property">hardWorker:</span>
+            <span class="boolean">true</span><span class="punctuation">,</span></div>
+          <div class="code-line"><span class="line-number">7</span>&nbsp;&nbsp;<span
+              class="property">problemSolver:</span> <span class="boolean">true</span></div>
           <div class="code-line"><span class="line-number">8</span><span class="bracket">&#125;</span></div>
           <div class="code-line code-line-empty"></div>
-          <div class="code-line"><span class="line-number">9</span><span class="keyword">const</span> <span class="function">buildFuture</span> <span class="punctuation">=</span> <span class="bracket">()</span> <span class="keyword">=&gt;</span> <span class="bracket">&#123;</span></div>
-          <div class="code-line"><span class="line-number">10</span>  <span class="comment">{{ 'home.codeWindow.comment' | translate }}</span></div>
-          <div class="code-line"><span class="line-number">11</span>  <span class="cursor"></span></div>
+          <div class="code-line"><span class="line-number">9</span><span class="keyword">const</span> <span
+              class="function">buildFuture</span> <span class="punctuation">=</span> <span class="bracket">()</span>
+            <span class="keyword">=&gt;</span> <span class="bracket">&#123;</span></div>
+          <div class="code-line"><span class="line-number">10</span> <span class="comment">{{ 'home.codeWindow.comment'
+              | translate }}</span></div>
+          <div class="code-line"><span class="line-number">11</span> <span class="cursor"></span></div>
         </div>
       </div>
 
       <div class="status-card">
-       <button class="btn-secondary">
-          <i class="pi pi-github"></i>
-          {{ 'home.btnGithub' | translate }}
-        </button>
+        <p-button [label]="'home.btnGithub' | translate" 
+        [rounded]="true" 
+        icon="pi pi-github" 
+        severity="secondary" />
       </div>
     </div>
   </div>
