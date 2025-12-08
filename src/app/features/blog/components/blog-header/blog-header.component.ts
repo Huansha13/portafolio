@@ -14,17 +14,23 @@ export class BlogHeaderComponent implements OnInit {
     { name: 'ES', code: Idioma.ES },
     { name: 'EN', code: Idioma.EN }
   ];
+  showAllPostsButton = true;
 
   constructor(
     private router: Router,
     private translate: TranslateService
-  ) {}
+  ) {
+    this.router.events.subscribe(() => {
+      this.showAllPostsButton = !this.router.url.includes('/blog') || this.router.url.split('/').length > 2;
+    });
+  }
 
   ngOnInit(): void {
     const idioma = localStorage.getItem(keysStorage.IDIOMA);
     if (idioma) {
       this.idioma = idioma;
     }
+    this.showAllPostsButton = !this.router.url.includes('/blog') || this.router.url.split('/').length > 2;
   }
 
   changeLanguage(lang: string) {

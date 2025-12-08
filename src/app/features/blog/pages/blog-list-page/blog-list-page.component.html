@@ -8,6 +8,27 @@
       <p class="page-subtitle">{{ 'blog.list.subtitle' | translate }}</p>
     </div>
 
+    @if (!loading && allTags.length > 0) {
+      <div class="filters">
+        <p-button 
+          [label]="'Todos'"
+          [text]="selectedTag === ''"
+          [outlined]="selectedTag !== ''"
+          size="small"
+          (onClick)="filterByTag('')">
+        </p-button>
+        @for (tag of allTags; track tag) {
+          <p-button 
+            [label]="tag"
+            [text]="selectedTag !== tag"
+            [outlined]="selectedTag === tag"
+            size="small"
+            (onClick)="filterByTag(tag)">
+          </p-button>
+        }
+      </div>
+    }
+
     @if (loading) {
       <div class="posts-grid">
         @for (item of [1, 2, 3, 4, 5, 6]; track item) {
@@ -22,9 +43,9 @@
       </div>
     }
 
-    @if (!loading && posts.length > 0) {
+    @if (!loading && filteredPosts.length > 0) {
       <div class="posts-grid">
-        @for (post of posts; track post.id) {
+        @for (post of filteredPosts; track post.id) {
           <article class="post-card" (click)="openPost(post.slug)">
             <div class="post-tags">
               @for (tag of post.tags.slice(0, 3); track tag) {

@@ -44,16 +44,7 @@
   gap: 1.5rem;
 }
 
-.nav-link {
-  color: var(--text-color-secondary);
-  font-size: 0.9375rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
 
-  &:hover {
-    color: var(--text-color);
-  }
-}
 
 .lang-switcher {
   display: flex;

@@ -12,6 +12,9 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class BlogListPageComponent implements OnInit, OnDestroy {
   posts: BlogPost[] = [];
+  filteredPosts: BlogPost[] = [];
+  allTags: string[] = [];
+  selectedTag: string = '';
   loading = true;
   private destroy$ = new Subject<void>();
 
@@ -39,12 +42,31 @@ export class BlogListPageComponent implements OnInit, OnDestroy {
     this.blogService.getPosts().subscribe({
       next: (posts) => {
         this.posts = posts;
+        this.filteredPosts = posts;
+        this.extractTags();
         this.loading = false;
       },
       error: () => {
         this.loading = false;
       }
     });
+  }
+
+  private extractTags() {
+    const tagsSet = new Set<string>();
+    this.posts.forEach(post => {
+      post.tags.forEach(tag => tagsSet.add(tag));
+    });
+    this.allTags = Array.from(tagsSet).sort();
+  }
+
+  filterByTag(tag: string) {
+    this.selectedTag = tag;
+    if (tag === '') {
+      this.filteredPosts = this.posts;
+    } else {
+      this.filteredPosts = this.posts.filter(post => post.tags.includes(tag));
+    }
   }
 
   openPost(slug: string) {

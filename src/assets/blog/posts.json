@@ -1,26 +1,27 @@
 {
   "posts": [
     {
-      "id": "fundamentos-python",
-      "slug": "fundamentos-python-2026",
+      "id": "docker-kubernetes",
+      "slug": "docker-kubernetes-2026",
       "author": "Frank Huansha",
-      "date": "2026-01-15",
-      "coverImage": "/assets/blog/images/python-2026.jpg",
+      "date": "2026-01-25",
+      "coverImage": "/assets/blog/images/docker-k8s.jpg",
       "published": true,
+      "active": true,
       "translations": {
         "es": {
-          "title": "Fundamentos de Programación con Python",
-          "excerpt": "Aprende los conceptos básicos de programación con Python desde cero. Una guía completa para principiantes que cubre variables, estructuras de control, funciones y más.",
-          "readTime": "15 min",
-          "tags": ["Python", "Programación", "Tutorial", "Principiantes"],
-          "category": "Tutorial"
+          "title": "Guía Completa de Docker y Kubernetes",
+          "excerpt": "Aprende a dominar Docker y Kubernetes para crear infraestructuras escalables. Desde contenedores básicos hasta orquestación avanzada en producción.",
+          "readTime": "18 min",
+          "tags": ["Docker", "Kubernetes", "DevOps", "Contenedores"],
+          "category": "DevOps"
         },
         "en": {
-          "title": "Python Programming Fundamentals",
-          "excerpt": "Learn the basics of programming with Python from scratch. A complete guide for beginners covering variables, control structures, functions and more.",
-          "readTime": "15 min",
-          "tags": ["Python", "Programming", "Tutorial", "Beginners"],
-          "category": "Tutorial"
+          "title": "Complete Guide to Docker and Kubernetes",
+          "excerpt": "Learn to master Docker and Kubernetes to create scalable infrastructures. From basic containers to advanced production orchestration.",
+          "readTime": "18 min",
+          "tags": ["Docker", "Kubernetes", "DevOps", "Containers"],
+          "category": "DevOps"
         }
       }
     },
@@ -31,6 +32,7 @@
       "date": "2026-01-20",
       "coverImage": "/assets/blog/images/angular-2026.jpg",
       "published": true,
+      "active": true,
       "translations": {
         "es": {
           "title": "Mejores Prácticas en Angular 16+",
@@ -45,6 +47,31 @@
           "readTime": "12 min",
           "tags": ["Angular", "TypeScript", "Best Practices", "Web Development"],
           "category": "Development"
+        }
+      }
+    },
+    {
+      "id": "fundamentos-python",
+      "slug": "fundamentos-python-2026",
+      "author": "Frank Huansha",
+      "date": "2026-01-15",
+      "coverImage": "/assets/blog/images/python-2026.jpg",
+      "published": true,
+      "active": true,
+      "translations": {
+        "es": {
+          "title": "Fundamentos de Programación con Python",
+          "excerpt": "Aprende los conceptos básicos de programación con Python desde cero. Una guía completa para principiantes que cubre variables, estructuras de control, funciones y más.",
+          "readTime": "15 min",
+          "tags": ["Python", "Programación", "Tutorial", "Principiantes"],
+          "category": "Tutorial"
+        },
+        "en": {
+          "title": "Python Programming Fundamentals",
+          "excerpt": "Learn the basics of programming with Python from scratch. A complete guide for beginners covering variables, control structures, functions and more.",
+          "readTime": "15 min",
+          "tags": ["Python", "Programming", "Tutorial", "Beginners"],
+          "category": "Tutorial"
         }
       }
     }

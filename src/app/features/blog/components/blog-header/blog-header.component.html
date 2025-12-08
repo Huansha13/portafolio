@@ -6,11 +6,19 @@
         <span>{{ 'blog.header.backToPortfolio' | translate }}</span>
       </div>
       <nav class="nav-links">
-        <a (click)="goToBlog()" class="nav-link">{{ 'blog.header.allPosts' | translate }}</a>
+        @if (showAllPostsButton) {
+          <p-button
+            (onClick)="goToBlog()"
+            [label]="'blog.header.allPosts' | translate"
+            icon="pi pi-book"
+            [text]="true"
+            size="small">
+          </p-button>
+        }
         <div class="lang-switcher">
-          <button 
-            *ngFor="let lang of optIdioma" 
-            class="lang-btn" 
+          <button
+            *ngFor="let lang of optIdioma"
+            class="lang-btn"
             [class.active]="idioma === lang.code"
             (click)="changeLanguage(lang.code)">
             {{ lang.code.toUpperCase() }}

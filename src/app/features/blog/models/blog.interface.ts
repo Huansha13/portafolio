@@ -13,6 +13,7 @@ export interface BlogPostRaw {
   date: string;
   coverImage: string;
   published: boolean;
+  active: boolean;
   translations: {
     [lang: string]: BlogPostTranslation;
   };
@@ -25,6 +26,7 @@ export interface BlogPost {
   date: string;
   coverImage: string;
   published: boolean;
+  active: boolean;
   title: string;
   excerpt: string;
   readTime: string;

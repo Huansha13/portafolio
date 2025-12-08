@@ -4,13 +4,17 @@
     <!-- Section Header -->
     <div class="blog-header">
       <div>
-        <span class="section-label">Blog & Artículos</span>
-        <h2 class="blog-title font-display">Últimas Publicaciones</h2>
+        <span class="section-label">{{ 'blog.section.label' | translate }}</span>
+        <h2 class="blog-title font-display">{{ 'blog.section.title' | translate }}</h2>
       </div>
-      <a (click)="viewAllPosts()" class="view-all-link">
-        Ver todos los artículos
-        <i class="pi pi-arrow-right"></i>
-      </a>
+      <p-button
+        (onClick)="viewAllPosts()"
+        [label]="'blog.section.viewAll' | translate"
+        icon="pi pi-arrow-right"
+        iconPos="right"
+        [text]="true"
+        severity="secondary">
+      </p-button>
     </div>
 
     <!-- Loading State -->
@@ -81,7 +85,7 @@
     @if (!loading && blogPosts.length === 0) {
       <div class="empty-state">
         <i class="pi pi-book"></i>
-        <p>No hay publicaciones disponibles</p>
+        <p>{{ 'blog.section.empty' | translate }}</p>
       </div>
     }
 

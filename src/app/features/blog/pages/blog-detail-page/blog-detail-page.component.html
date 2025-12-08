@@ -9,25 +9,45 @@
   }
 
   @if (!loading && post) {
-    <article class="detail-container">
-      <header class="post-header">
-        <div class="post-tags">
-          @for (tag of post.tags; track tag) {
-            <span class="tag">{{ tag }}</span>
+    <div class="detail-wrapper">
+      <article class="detail-container">
+        <header class="post-header">
+          <div class="post-tags font-fira-code">
+            @for (tag of post.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+          <h1 class="post-title font-display">{{ post.title }}</h1>
+          <div class="post-meta text-sm">
+            <span><i class="pi pi-user"></i> {{ post.author }}</span>
+            <span><i class="pi pi-calendar"></i> {{ post.date }}</span>
+            <span><i class="pi pi-clock"></i> {{ post.readTime }}</span>
+          </div>
+        </header>
+
+        <div class="post-content" #postContent>
+          <markdown [data]="markdownContent"></markdown>
+        </div>
+      </article>
+
+      <aside class="table-of-contents">
+        <div class="toc-sticky">
+          @if (headings.length > 0) {
+            <nav class="toc-nav">
+              @for (heading of headings; track heading.id) {
+                <a
+                  [href]="'#' + heading.id"
+                  [class]="'toc-link toc-level-' + heading.level"
+                  [class.active]="activeHeadingId === heading.id"
+                  (click)="scrollToHeading($event, heading.id)">
+                  {{ heading.text }}
+                </a>
+              }
+            </nav>
           }
         </div>
-        <h1 class="post-title">{{ post.title }}</h1>
-        <div class="post-meta">
-          <span><i class="pi pi-user"></i> {{ post.author }}</span>
-          <span><i class="pi pi-calendar"></i> {{ post.date }}</span>
-          <span><i class="pi pi-clock"></i> {{ post.readTime }}</span>
-        </div>
-      </header>
-
-      <div class="post-content">
-        <markdown [data]="markdownContent"></markdown>
-      </div>
-    </article>
+      </aside>
+    </div>
   }
 
   @if (!loading && !post) {

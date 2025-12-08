@@ -15,6 +15,8 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
   post: BlogPost | null = null;
   markdownContent = '';
   loading = true;
+  headings: { id: string; text: string; level: number }[] = [];
+  activeHeadingId = '';
   private destroy$ = new Subject<void>();
   private currentSlug = '';
 
@@ -68,6 +70,7 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
         next: (content) => {
           this.markdownContent = content;
           this.loading = false;
+          setTimeout(() => this.extractHeadings(), 100);
         },
         error: () => {
           this.http.get(`/assets/blog/posts/${slug}.md`, { responseType: 'text' })
@@ -75,6 +78,7 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
               next: (content) => {
                 this.markdownContent = content;
                 this.loading = false;
+                setTimeout(() => this.extractHeadings(), 100);
               },
               error: () => {
                 this.loading = false;
@@ -82,5 +86,51 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
             });
         }
       });
+  }
+
+  private extractHeadings() {
+    const content = document.querySelector('.post-content');
+    if (!content) return;
+
+    const headingElements = content.querySelectorAll('h2, h3');
+    this.headings = Array.from(headingElements).map((el, index) => {
+      const id = `heading-${index}`;
+      el.id = id;
+      return {
+        id,
+        text: el.textContent || '',
+        level: parseInt(el.tagName.substring(1))
+      };
+    });
+
+    this.setupScrollSpy();
+  }
+
+  private setupScrollSpy() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.activeHeadingId = entry.target.id;
+          }
+        });
+      },
+      { rootMargin: '-100px 0px -80% 0px' }
+    );
+
+    this.headings.forEach(heading => {
+      const element = document.getElementById(heading.id);
+      if (element) observer.observe(element);
+    });
+  }
+
+  scrollToHeading(event: Event, id: string) {
+    event.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -100;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   }
 }

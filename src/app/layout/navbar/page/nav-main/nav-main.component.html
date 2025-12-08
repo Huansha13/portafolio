@@ -1,7 +1,7 @@
 <div id="miNavBar" class="nav-main shadow-3 md:px-4">
   <nav class="container flex align-items-center px-3 lg:px-0">
-    <img *ngIf="currentTheme?.logoIcon" [src]="currentTheme.logoIcon" class="seasonal-icon" width="26" height="26" alt="icon">
-    <b routerLink="" class="font-fira-code cursor-pointer ml-2" [ngClass]="getLogoColorClass()">yefer<span class="text-900">Frank();</span></b>
+    <img *ngIf="currentTheme?.logoIcon" [src]="currentTheme.logoIcon" class="seasonal-icon mr-2" width="26" height="26" alt="icon">
+    <b routerLink="" class="font-fira-code cursor-pointer" [ngClass]="getLogoColorClass()">yefer<span class="text-900">Frank();</span></b>
     <div class="space"></div>
     @if (settings.view.lg) {
       <div class="section-2">
@@ -62,8 +62,8 @@
 </ng-template>
 
 <ng-template #btnTheme>
-  <p-button [icon]="getCurrentThemeIcon()" 
-            (onClick)="cycleTheme()" 
+  <p-button [icon]="getCurrentThemeIcon()"
+            (onClick)="cycleTheme()"
             [rounded]="true"
             [outlined]="true"
             [pTooltip]="getCurrentThemeLabel()"

@@ -21,8 +21,9 @@ export class BlogService {
     
     return this.http.get<{ posts: BlogPostRaw[] }>(this.postsUrl).pipe(
       map(response => response.posts
-        .filter(post => post.published && post.translations[currentLang])
+        .filter(post => post.published && post.active && post.translations[currentLang])
         .map(post => this.mapToLocalizedPost(post, currentLang))
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       )
     );
   }
@@ -42,6 +43,7 @@ export class BlogService {
       date: post.date,
       coverImage: post.coverImage,
       published: post.published,
+      active: post.active,
       title: translation.title,
       excerpt: translation.excerpt,
       readTime: translation.readTime,

@@ -25,7 +25,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })
   ],
   exports: [
     RouterModule
