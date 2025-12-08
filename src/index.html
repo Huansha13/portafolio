@@ -6,10 +6,28 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link id="app-icon" rel="icon" type="image/x-icon" href="assets/icon.svg">
-  <link id="app-theme" rel="stylesheet" href="dark.css">
+  <script>
+    // Detectar tema del sistema o localStorage antes de cargar Angular
+    const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme === 'dark' || 
+                   (savedTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) ||
+                   (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    
+    // Por defecto usar blue (dark o light)
+    let themeFile = isDark ? 'dark.css' : 'light.css';
+    
+    // El tema estacional se aplicará después cuando Angular cargue
+    document.write('<link id="app-theme" rel="stylesheet" href="' + themeFile + '">');
+  </script>
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
   <link rel="preconnect" href="https://avatars.githubusercontent.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    html, body, app-root {
+      margin: 0;
+      min-height: 100vh;
+    }
+  </style>
 </head>
 <body>
   <app-root></app-root>

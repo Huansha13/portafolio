@@ -60,6 +60,36 @@
                 "input": "node_modules/primeng/resources/themes/aura-light-blue/theme.css",
                 "bundleName": "light",
                 "inject": false
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/aura-dark-green/theme.css",
+                "bundleName": "aura-dark-green",
+                "inject": false
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/aura-light-green/theme.css",
+                "bundleName": "aura-light-green",
+                "inject": false
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/aura-dark-amber/theme.css",
+                "bundleName": "aura-dark-amber",
+                "inject": false
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/aura-light-amber/theme.css",
+                "bundleName": "aura-light-amber",
+                "inject": false
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/aura-dark-pink/theme.css",
+                "bundleName": "aura-dark-pink",
+                "inject": false
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/aura-light-pink/theme.css",
+                "bundleName": "aura-light-pink",
+                "inject": false
               }
             ],
             "scripts": [],

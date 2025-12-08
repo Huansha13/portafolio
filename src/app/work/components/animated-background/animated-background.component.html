@@ -1,8 +1,9 @@
-<div class="background-animation" aria-hidden="true">
+<div class="background-animation" [attr.data-theme]="currentTheme" aria-hidden="true">
   <div
     class="particle"
     *ngFor="let p of particles; trackBy: trackByIndex"
     [style.--left]="p.left + '%'"
+    [style.--top]="p.top + '%'"
     [style.--delay]="p.delay"
     [style.--duration]="p.duration"
     [style.--size]="p.size"

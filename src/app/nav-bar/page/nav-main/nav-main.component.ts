@@ -6,6 +6,7 @@ import {PrimeIcons} from 'primeng/api';
 import {SelectButtonOptionClickEvent} from "primeng/selectbutton";
 import {SettingsService} from "../../../core/utils/settings.service";
 import {environment} from "../../../../environments/environment";
+import {SeasonalThemeService, SeasonalTheme} from "../../../core/utils/seasonal-theme.service";
 
 @Component({
   selector: 'app-nav-main',
@@ -16,6 +17,7 @@ export class NavMainComponent implements OnInit {
   version: string = environment.appVersion;
   _selectedTheme: Theme = Theme.DARK;
   idioma: string = Idioma.ES;
+  currentTheme: SeasonalTheme | null = null;
   optIdioma = [
     {name: 'Español', code: Idioma.ES},
     {name: 'English', code: Idioma.EN}
@@ -26,7 +28,8 @@ export class NavMainComponent implements OnInit {
               public settings: SettingsService,
               private translate: TranslateService,
               private renderer: Renderer2,
-              private el: ElementRef) {
+              private el: ElementRef,
+              private seasonalTheme: SeasonalThemeService) {
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -59,6 +62,14 @@ export class NavMainComponent implements OnInit {
       this._selectedTheme = savedTheme;
       this.stateOptionsTheme = this.getStateOptionsTheme();
     }
+
+    this.seasonalTheme.currentTheme$.subscribe(theme => {
+      this.currentTheme = theme;
+    });
+  }
+
+  getLogoColorClass(): string {
+    return this.currentTheme ? this.currentTheme.logoColor : 'text-primary';
   }
 
   selectIdioma() {

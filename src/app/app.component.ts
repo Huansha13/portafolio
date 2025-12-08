@@ -2,6 +2,7 @@ import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {Idioma, Tamanos} from "./core/utils/enum";
 import {SettingsService} from "./core/utils/settings.service";
+import {SeasonalThemeService} from "./core/utils/seasonal-theme.service";
 import Typewriter from 't-writer.js';
 import {Responsive} from "./core/model/resoponsive";
 
@@ -15,9 +16,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   textLoader: string = `while(true) {
                             <b class="text-primary">yefer<span class="text-900">Frank();</span></b>
                         }`;
+  currentTheme$ = this.seasonalTheme.currentTheme$;
+  fadeOut = false;
+  private writerInitialized = false;
 
   constructor(private readonly translate: TranslateService,
-              public settings: SettingsService) {
+              public settings: SettingsService,
+              public seasonalTheme: SeasonalThemeService) {
     this.onResize();
   }
 
@@ -27,10 +32,13 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     // Carga las traducciones
     this.translate.use(Idioma.ES);
+
+    // Ocultar loader inmediatamente
+    this.settings.isLoading = false;
   }
 
   ngAfterViewInit() {
-    this.writerLoader();
+    // El writerLoader ahora se llama desde el subscribe del tema
   }
 
   cambiarIdioma(idioma: string) {
@@ -39,10 +47,21 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   writerLoader(): void {
     const target2 = document.querySelector('.text-loader2');
+    
+    // Obtener el color del tema estacional
+    const theme = this.seasonalTheme.getCurrentTheme();
+    // Convertir la clase de PrimeFlex a color hex
+    const colorMap: any = {
+      'text-orange-500': '#ff8c00',
+      'text-green-600': '#16a34a',
+      'text-yellow-500': '#eab308',
+      'text-red-600': '#dc2626'
+    };
+    const themeColor = theme ? colorMap[theme.logoColor] || '#3b82f6' : '#3b82f6';
 
     const writer1 = new Typewriter(target2, {
       typeSpeed: 60,
-      typeColor: 'var(--primary-color)',
+      typeColor: themeColor,
       cursorColor: 'var(--text-color)'
     });
 

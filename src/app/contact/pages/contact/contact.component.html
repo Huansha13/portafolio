@@ -1,17 +1,68 @@
-<div class="flex flex-column h-full">
-  <section class="flex-1 surface-50 p-6">
-    <div class="container">
-      <div class=" text-center lg:text-left">
-        <h2 class="text-3xl font-bold">Ponte en Contacto</h2>
-        <p class="text-gray-500 text-balancer text-normal lg:text-lg w-auto lg:w-6">
-          No dudes en ponerte en contacto conmigo para cualquier pregunta o consulta, o simplemente para saludar.
+<div class="contact-section section-alt-bg">
+
+  <div class="contact-container">
+    <div class="contact-grid">
+      
+      <!-- Left Info -->
+      <div class="contact-info">
+        <span class="contact-badge">Contacto</span>
+        <h2 class="contact-title">Trabajemos Juntos</h2>
+        <p class="contact-description">
+          ¿Tienes una idea innovadora o un desafío técnico complejo? 
+          Estoy listo para aportar mi experiencia en arquitectura de software 
+          para llevar tu proyecto al siguiente nivel.
         </p>
-        <br>
-        <p-card>
-          <app-form-contactame></app-form-contactame>
-        </p-card>
+
+        <div class="contact-methods">
+          <div class="contact-method" (click)="sendEmail()">
+            <div class="method-icon email-icon">
+              <i class="pi pi-envelope"></i>
+            </div>
+            <div>
+              <h3 class="method-title">Email Directo</h3>
+              <p class="method-value">{{ data?.correo || 'contacto@ejemplo.com' }}</p>
+            </div>
+          </div>
+          
+          <div class="contact-method" (click)="openLinkedIn()">
+            <div class="method-icon linkedin-icon">
+              <i class="pi pi-linkedin"></i>
+            </div>
+            <div>
+              <h3 class="method-title">LinkedIn</h3>
+              <p class="method-value">{{ data?.linkedin || '/in/perfil' }}</p>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="method-icon location-icon">
+              <i class="pi pi-map-marker"></i>
+            </div>
+            <div>
+              <h3 class="method-title">Ubicación</h3>
+              <p class="method-value">Disponible Remoto (Worldwide)</p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Right Form -->
+      <div class="contact-form-wrapper">
+        <div class="form-glow"></div>
+        <div class="contact-form-card">
+          <div class="form-header">
+            <div class="form-dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <span class="form-title">sendMessage.tsx</span>
+          </div>
+
+          <app-form-contactame></app-form-contactame>
+        </div>
+      </div>
+
     </div>
-  </section>
-  <app-footer></app-footer>
+  </div>
 </div>
+<app-footer></app-footer>

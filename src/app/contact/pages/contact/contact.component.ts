@@ -20,6 +20,14 @@ export class ContactComponent implements OnInit {
   }
 
   sendEmail() {
-    window.open(`mailto:${this.data.correo}`, '_blank');
+    if (this.data?.correo) {
+      window.open(`mailto:${this.data.correo}`, '_blank');
+    }
+  }
+
+  openLinkedIn() {
+    if (this.data?.linkedin) {
+      window.open(this.data.linkedin, '_blank');
+    }
   }
 }

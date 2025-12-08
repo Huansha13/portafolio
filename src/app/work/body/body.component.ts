@@ -22,7 +22,6 @@ export class BodyComponent implements OnInit, AfterViewInit {
               public settings: SettingsService,
               private renderer: Renderer2,
               private el: ElementRef) {
-    this.settings.isLoading = true;
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -46,7 +45,6 @@ export class BodyComponent implements OnInit, AfterViewInit {
         .subscribe(data => {
           this.data = data;
           this.settings.dataPortafolio = data;
-          this.settings.isLoading = false;
           this.loadItemsOption();
 
           if (!this.prompt_terminal) {

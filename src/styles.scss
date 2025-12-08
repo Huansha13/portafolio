@@ -27,11 +27,11 @@
 }
 
 body.my-bd-dark-theme {
-  background-color: var(--bg-dark);
+  background-color: var(--surface-ground);
 }
 
 body.my-bd-light-theme {
-  background-color: var(--bg-light);
+  background-color: var(--surface-ground);
 }
 
 
@@ -165,6 +165,24 @@ html, body {
   margin: 0;
   line-height: 0.9;
   letter-spacing: -0.02em;
+}
+
+// Secciones con fondos alternados
+.section-alt-bg {
+  background: var(--surface-section);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, var(--surface-border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--surface-border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    opacity: 0.15;
+  }
 }
 
 @media (max-width: 768px) {

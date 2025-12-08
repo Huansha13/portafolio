@@ -1,15 +1,19 @@
 <p-toast key="fh-toast" autoZIndex="true" position="bottom-center" />
 
 <!-- Loader -->
-<div [hidden]="!settings.isLoading">
-  <div class="container-loader">
-    <div class="text-loader2 ml-3 font-bold"></div>
-    <i class="pi pi-spin pi-spinner-dotted text-300" style="font-size: 1rem;"></i>
-  </div>
+<div *ngIf="settings.isLoading || fadeOut" class="container-loader" [class.fade-out]="fadeOut">
+  <img *ngIf="(currentTheme$ | async)?.logoIcon" 
+       [src]="(currentTheme$ | async)?.logoIcon" 
+       class="loader-icon" 
+       width="80" 
+       height="80" 
+       alt="loading">
+  <div class="text-loader2 ml-3 font-bold"></div>
+  <i class="pi pi-spin pi-spinner-dotted text-300" style="font-size: 1rem;"></i>
 </div>
 
 <!-- Main -->
-<div class="flex h-full lg:h-screen">
+<div *ngIf="!settings.isLoading" class="flex h-full lg:h-screen main-content">
   <app-nav-main></app-nav-main>
   <div class="mt-7 flex-1">
     <router-outlet></router-outlet>

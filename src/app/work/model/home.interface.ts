@@ -3,6 +3,7 @@ export interface Home {
   correo: string;
   descripcion: string;
   linkCv: string;
+  linkedin?: string;
 }
 
 export interface Experiencia {

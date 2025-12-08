@@ -34,6 +34,54 @@ nav {
   align-items: center;
   margin: auto;
 
+  .logo-text {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  ::ng-deep .seasonal-icon {
+    animation: swing 1.5s ease-in-out infinite !important;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+    display: block;
+  }
+
+  .logo-text:hover ::ng-deep .seasonal-icon {
+    animation: swing-fast 1s ease-in-out infinite !important;
+  }
+
+  .logo-text[data-theme="fiestas-patrias"] ::ng-deep .seasonal-icon {
+    animation: wave 2s ease-in-out infinite !important;
+  }
+
+  .logo-text[data-theme="fiestas-patrias"]:hover ::ng-deep .seasonal-icon {
+    animation: wave-fast 0.8s ease-in-out infinite !important;
+  }
+
+  @keyframes swing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+
+  @keyframes swing-fast {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: rotate(-5deg) scale(1); }
+    25% { transform: rotate(5deg) scale(1.05); }
+    50% { transform: rotate(-5deg) scale(1); }
+    75% { transform: rotate(5deg) scale(1.05); }
+  }
+
+  @keyframes wave-fast {
+    0%, 100% { transform: rotate(-10deg) scale(1.1); }
+    50% { transform: rotate(10deg) scale(1.1); }
+  }
+
   .space {
     flex: 1;
   }

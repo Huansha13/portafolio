@@ -4,7 +4,6 @@ Este proyecto, desarrollado con [Angular CLI](https://github.com/angular/angular
 
 ## Librerías Instaladas
 
-- **Firebase** (`^9.23.0`): Integración de Firebase para potenciar funcionalidades en la nube.
 - **PrimeFlex** (`^3.3.1`): Utilización de PrimeFlex para un diseño flexible y receptivo.
 - **RxJS** (`~7.8.0`): Gestión reactiva de eventos y datos.
 - **t-writer.js** (`^1.0.4`): Añade efectos de escritura para mejorar la presentación.

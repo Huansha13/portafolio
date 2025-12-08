@@ -1,0 +1,62 @@
+{
+  "enableSeasonalThemes": false,
+  "forceTheme": null,
+  "themes": [
+    {
+      "id": "halloween",
+      "name": "Halloween",
+      "enabled": true,
+      "startMonth": 10,
+      "startDay": 25,
+      "endMonth": 10,
+      "endDay": 31,
+      "primeThemeDark": "aura-dark-amber",
+      "primeThemeLight": "aura-light-amber",
+      "logoColor": "text-orange-500",
+      "favicon": "assets/halloween-icon.svg",
+      "logoIcon": "assets/halloween-icon.svg"
+    },
+    {
+      "id": "christmas",
+      "name": "Navidad",
+      "enabled": true,
+      "startMonth": 12,
+      "startDay": 1,
+      "endMonth": 12,
+      "endDay": 25,
+      "primeThemeDark": "aura-dark-green",
+      "primeThemeLight": "aura-light-green",
+      "logoColor": "text-green-600",
+      "favicon": "assets/christmas-icon.svg",
+      "logoIcon": "assets/christmas-icon.svg"
+    },
+    {
+      "id": "newyear",
+      "name": "Año Nuevo",
+      "enabled": true,
+      "startMonth": 12,
+      "startDay": 26,
+      "endMonth": 1,
+      "endDay": 7,
+      "primeThemeDark": "aura-dark-amber",
+      "primeThemeLight": "aura-light-amber",
+      "logoColor": "text-yellow-500",
+      "favicon": "assets/newyear-icon.svg",
+      "logoIcon": "assets/newyear-icon.svg"
+    },
+    {
+      "id": "fiestas-patrias",
+      "name": "Fiestas Patrias",
+      "enabled": true,
+      "startMonth": 7,
+      "startDay": 23,
+      "endMonth": 7,
+      "endDay": 31,
+      "primeThemeDark": "aura-dark-pink",
+      "primeThemeLight": "aura-light-pink",
+      "logoColor": "text-red-600",
+      "favicon": "assets/peru-icon.svg",
+      "logoIcon": "assets/peru-icon.svg"
+    }
+  ]
+}

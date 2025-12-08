@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -15,9 +15,7 @@ import { FooterModule } from './footer/footer.module';
 
 //model external
 
-import { environment } from '../environments/environment';
-import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { RemoteTranslationLoaderFactory } from './core/utils/remote-translation-loader';
@@ -28,8 +26,13 @@ import localeEs from '@angular/common/locales/es';
 import { PrimeNgModule } from "./prime-ng/prime-ng.module";
 import { DialogService } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
+import { SeasonalThemeService } from './core/utils/seasonal-theme.service';
 
 registerLocaleData(localeEs);
+
+export function initializeApp(seasonalTheme: SeasonalThemeService) {
+  return () => seasonalTheme;
+}
 
 @NgModule({
   declarations: [
@@ -45,8 +48,7 @@ registerLocaleData(localeEs);
     PagesModule,
     FooterModule,
     NavBarModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -59,6 +61,12 @@ registerLocaleData(localeEs);
     DialogService,
     MessageService,
     provideHttpClient(),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [SeasonalThemeService],
+      multi: true
+    }
   ],
   exports: [],
   bootstrap: [AppComponent]

@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResumeService {
 
-  constructor( private firestore:AngularFirestore) { }
+  constructor() { }
 
   getEducacion():Observable<any> {
-    return this.firestore.collection('educacion').snapshotChanges();
+    // TODO: Implementar fuente de datos alternativa
+    return of([]);
   }
   getPp():Observable<any> {
-    return this.firestore.collection('pp').snapshotChanges();
+    // TODO: Implementar fuente de datos alternativa
+    return of([]);
   }
   getExperciencia():Observable<any> {
-    return this.firestore.collection('experiencia').snapshotChanges();
+    // TODO: Implementar fuente de datos alternativa
+    return of([]);
   }
 }

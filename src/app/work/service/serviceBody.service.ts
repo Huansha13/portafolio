@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
-import {combineLatest, Observable} from 'rxjs';
+import {combineLatest, Observable, of} from 'rxjs';
 import {map} from "rxjs/operators";
 
 import {Home} from '../model/home.interface';
 import {About} from '../model/about.interface';
 import {Abilities} from '../model/habilities.interface';
 import {Certificate} from '../model/certificates.interface';
-import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -23,17 +22,7 @@ export class ServiceBodyService {
   abilities: Observable<Abilities[]>;
   certificate: Observable<Certificate[]>;
 
-  private homeCollection: AngularFirestoreCollection<Home>;
-  private aboutCollection: AngularFirestoreCollection<About>;
-  private abilitiesCollection: AngularFirestoreCollection<Abilities>;
-  private certificateCollection: AngularFirestoreCollection<Certificate>;
-
-  constructor(private readonly asf: AngularFirestore,
-              private http: HttpClient) {
-    this.homeCollection = asf.collection<Home>('home');
-    this.aboutCollection = asf.collection<About>('about');
-    this.abilitiesCollection = asf.collection<Abilities>('abilities');
-    this.certificateCollection = asf.collection<Certificate>('cerficiado')
+  constructor(private http: HttpClient) {
     this.getHomes();
     this.getAbout();
     this.getAbilities();
@@ -41,27 +30,23 @@ export class ServiceBodyService {
   }
 
   private getHomes(): void {
-    this.homes = this.homeCollection.snapshotChanges().pipe(
-      map((actions) => actions.map(a => a.payload.doc.data()))
-    );
+    // TODO: Implementar fuente de datos alternativa
+    this.homes = of([]);
   }
 
   private getAbout(): void {
-    this.about = this.aboutCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data()))
-    );
+    // TODO: Implementar fuente de datos alternativa
+    this.about = of([]);
   }
 
   private getAbilities(): void {
-    this.abilities = this.abilitiesCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data()))
-    );
+    // TODO: Implementar fuente de datos alternativa
+    this.abilities = of([]);
   }
 
   private getCertificate(): void {
-    this.certificate = this.certificateCollection.snapshotChanges().pipe(
-      map(ac => ac.map(a => a.payload.doc.data()))
-    );
+    // TODO: Implementar fuente de datos alternativa
+    this.certificate = of([]);
   }
 
 
@@ -79,31 +64,17 @@ export class ServiceBodyService {
     return this.http.get(url, { params });
   }
 
-  ///home/EA6uhRDihhah3p8UDpwJ
   getData(): Observable<{
     home: Home,
     about: About,
     abilities: Abilities[],
     certificates: Certificate[]
   }> {
-
-    const homes$ = this.homeCollection.doc('EA6uhRDihhah3p8UDpwJ').snapshotChanges().pipe(
-      map(actions => actions.payload.data())
-    );
-
-    /**
-     * /about/MJcFpB9Oowl99EHaLirX
-     */
-    const about$ = this.aboutCollection.doc('MJcFpB9Oowl99EHaLirX').snapshotChanges().pipe(
-      map(actions => actions.payload.data())
-    );
-
-    const abilities$ = this.abilitiesCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data()))
-    );
-    const certificates$ = this.certificateCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data()))
-    );
+    // TODO: Implementar fuente de datos alternativa
+    const homes$ = of({} as Home);
+    const about$ = of({} as About);
+    const abilities$ = of([] as Abilities[]);
+    const certificates$ = of([] as Certificate[]);
 
     return combineLatest([homes$, about$, abilities$, certificates$]).pipe(
       map(([home, about, abilities, certificates]) => ({

@@ -6,6 +6,7 @@ import { FormContactameComponent } from 'src/app/contact/modal/form-contactame/f
 import { ViewPdfComponent } from 'src/app/core/components/view-pdf/view-pdf.component';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
+import { SeasonalThemeService } from 'src/app/core/utils/seasonal-theme.service';
 
 @Component({
   selector: 'app-presentacion',
@@ -20,12 +21,14 @@ export class PresentacionComponent implements OnInit {
   constructor(
     public settings: SettingsService,
     private readonly dialogService: DialogService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private seasonalTheme: SeasonalThemeService
   ) { }
 
   rolesKeys = ['frontend', 'backend', 'cloud', 'database'];
   currentRoleIndex = 0;
   codeSkills: string[] = [];
+  currentTheme: string = 'default';
 
   ngOnInit(): void {
     const fechaInicio = new Date(2021, 0, 13);
@@ -50,6 +53,13 @@ export class PresentacionComponent implements OnInit {
     setInterval(() => {
       this.currentRoleIndex = (this.currentRoleIndex + 1) % this.rolesKeys.length;
     }, 2500);
+
+    this.currentTheme = this.getCurrentSeasonTheme();
+  }
+
+  getCurrentSeasonTheme(): string {
+    const theme = this.seasonalTheme.getCurrentTheme();
+    return theme ? theme.id : 'default';
   }
 
   loadCodeSkills() {

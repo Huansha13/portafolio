@@ -584,7 +584,7 @@ $colo-blaco-bajo: #B8B8B8;
 
 //section services
 .section__background {
-  background: rgba(251, 251, 251, 0.03);
+  background: var(--surface-50);
   margin-top: 60px;
   padding-top: 60px;
 }

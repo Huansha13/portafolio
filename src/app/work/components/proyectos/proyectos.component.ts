@@ -15,6 +15,8 @@ export class ProyectosComponent implements OnInit {
   spinnerProyectos = false
   url_asset = import.meta.env.NG_APP_URL_ASSETS;
   proyectos: HeaderProyectos[] = [];
+  proyectosDestacados: HeaderProyectos[] = [];
+  mostrarTodos = false;
 
   constructor(public readonly settings: SettingsService,
               private readonly excelService: ExcelService) {
@@ -42,8 +44,16 @@ export class ProyectosComponent implements OnInit {
           (current, next) =>
             next.id_proyecto - current.id_proyecto
         );
+        
+        // Mostrar solo los primeros 3 proyectos
+        this.proyectosDestacados = this.proyectos.slice(0, 3);
       });
     })
+  }
+
+  verTodosProyectos() {
+    this.mostrarTodos = true;
+    this.proyectosDestacados = this.proyectos;
   }
 
   openLink(link: string) {

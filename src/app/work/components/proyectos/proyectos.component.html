@@ -1,3 +1,4 @@
+<div class="proyectos-container">
 <div class="proyectos-header">
   <div class="section-title">
     <span class="section-label">Portfolio</span>
@@ -36,15 +37,20 @@
       </div>
     } @else {
       <div class="proyectos-bento">
-        @for (i of proyectos; track i) {
-          <div class="proyecto-bento-card">
+        @for (i of proyectosDestacados; track i; let idx = $index) {
+          <div class="proyecto-bento-card" [class.reverse]="idx % 2 === 1">
             <div class="proyecto-preview">
-              <span class="proyecto-category">{{ i.version }}</span>
               <img [src]="i.url_portada" [alt]="i.nombre" />
             </div>
             <div class="proyecto-content">
+              <p class="proyecto-label">{{ i.version }}</p>
               <h3 class="proyecto-name">{{ i.nombre }}</h3>
               <p class="proyecto-description">{{ i.descripcion || 'Proyecto desarrollado con las últimas tecnologías' }}</p>
+              <div class="proyecto-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">OpenAI API</span>
+                <span class="tech-tag">Tailwind</span>
+              </div>
               <div class="proyecto-links">
                 @if (i.link_github) {
                   <button (click)="openLink(i.link_github)" class="btn-icon">
@@ -61,6 +67,15 @@
           </div>
         }
       </div>
+      
+      @if (proyectos.length > 3 && !mostrarTodos) {
+        <div class="text-center mt-8">
+          <button class="btn-ver-todos" (click)="verTodosProyectos()">
+            Ver todos los proyectos <i class="pi pi-arrow-right ml-2"></i>
+          </button>
+        </div>
+      }
     }
   </div>
 </ng-template>
+</div>
