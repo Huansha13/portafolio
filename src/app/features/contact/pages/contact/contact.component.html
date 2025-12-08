@@ -1,0 +1,56 @@
+<div class="contact-section section-alt-bg">
+
+  <div class="contact-container">
+    <div class="contact-grid">
+
+      <!-- Left Info -->
+      <div class="contact-info">
+        <span class="contact-badge">{{ 'contact.title' | translate }}</span>
+        <h2 class="contact-title">{{ 'contact.subtitle' | translate }}</h2>
+        <p class="contact-description">
+          {{ 'contact.description' | translate }}
+        </p>
+
+        <div class="contact-methods">
+          <div class="contact-method" (click)="sendEmail()">
+            <div class="method-icon email-icon">
+              <i class="pi pi-envelope"></i>
+            </div>
+            <div>
+              <h3 class="method-title">{{ 'contact.methods.email.title' | translate }}</h3>
+              <p class="method-value">{{ data?.correo || ('contact.methods.email.value' | translate) }}</p>
+            </div>
+          </div>
+
+          <div class="contact-method" (click)="openLinkedIn()">
+            <div class="method-icon linkedin-icon">
+              <i class="pi pi-linkedin"></i>
+            </div>
+            <div>
+              <h3 class="method-title">{{ 'contact.methods.linkedin.title' | translate }}</h3>
+              <p class="method-value">{{ data?.linkedin || ('contact.methods.linkedin.value' | translate) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Form -->
+      <div class="contact-form-wrapper">
+        <div class="form-glow"></div>
+        <div class="contact-form-card">
+          <div class="form-header">
+            <div class="form-dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <span class="form-title">{{ 'contact.formFile' | translate }}</span>
+          </div>
+
+          <app-form-contactame></app-form-contactame>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

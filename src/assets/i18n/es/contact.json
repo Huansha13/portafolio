@@ -1,14 +1,29 @@
 {
   "title": "Contacto",
-  "subtitle": "¿Tienes un proyecto en mente?",
-  "description": "Estoy disponible para nuevos proyectos y oportunidades.",
+  "subtitle": "Trabajemos Juntos",
+  "description": "¿Tienes una idea innovadora o un desafío técnico complejo? Estoy listo para aportar mi experiencia en arquitectura de software para llevar tu proyecto al siguiente nivel.",
+  "methods": {
+    "email": {
+      "title": "Email Directo",
+      "value": "ing.yfhl13@outlook.com"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "value": "https://www.linkedin.com/in/huansha/?locale=es-ES"
+    },
+    "location": {
+      "title": "Ubicación",
+      "value": "Disponible Remoto (Worldwide)"
+    }
+  },
   "form": {
     "name": "Nombre",
     "email": "Email",
     "message": "Mensaje",
-    "send": "Enviar",
+    "send": "Enviar Mensaje",
     "sending": "Enviando...",
     "success": "Mensaje enviado correctamente",
-    "error": "Error al enviar el mensaje"
-  }
+    "error": "El correo no es válido."
+  },
+  "formFile": "sendMessage.tsx"
 }

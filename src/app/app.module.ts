@@ -5,13 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { WorkModule } from './work/work.module';
+import { WorkModule } from './features/home/work/work.module';
 
 // External
-import { NavBarModule } from './nav-bar/nav-bar.module';
-import { ContactModule } from './contact/contact.module';
-import { PagesModule } from './resume/pages.module';
-import { FooterModule } from './footer/footer.module';
+import { NavBarModule } from './layout/navbar/nav-bar.module';
+import { ContactModule } from './features/contact/contact.module';
+import { PagesModule } from './features/resume/pages.module';
+import { FooterModule } from './layout/footer/footer.module';
 
 //model external
 

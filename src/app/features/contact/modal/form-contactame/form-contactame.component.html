@@ -1,0 +1,66 @@
+<form [formGroup]="formContactame" (ngSubmit)="enviar()" class="modern-form">
+  <div class="form-field">
+    <label for="nombre" class="form-label">
+      <i class="pi pi-user"></i>
+      {{ 'contact.form.name' | translate }}
+    </label>
+    <input 
+      type="text" 
+      pInputText 
+      id="nombre" 
+      formControlName="nombre" 
+      [placeholder]="'contact.form.name' | translate"
+      class="form-input" 
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="correo" class="form-label">
+      <i class="pi pi-envelope"></i>
+      {{ 'contact.form.email' | translate }}
+    </label>
+    <input 
+      type="email" 
+      pInputText 
+      id="correo" 
+      formControlName="correo" 
+      [placeholder]="'contact.form.email' | translate"
+      class="form-input" 
+    />
+    @if (
+      formContactame.get('correo')?.invalid && 
+      (formContactame.get('correo')?.touched || formContactame.get('correo')?.dirty) &&
+      formContactame.get('correo')?.errors?.invalidEmail
+    ) {
+      <small class="form-error">{{ 'contact.form.error' | translate }}</small>
+    }
+  </div>
+
+  <div class="form-field">
+    <label for="mensaje" class="form-label">
+      <i class="pi pi-comment"></i>
+      {{ 'contact.form.message' | translate }}
+    </label>
+    <textarea 
+      id="mensaje" 
+      rows="4" 
+      formControlName="mensaje" 
+      pInputTextarea 
+      [placeholder]="'contact.form.message' | translate"
+      class="form-input form-textarea"
+      [maxlength]="maxlengthMessage"
+    ></textarea>
+    <div class="char-count">
+      <small>{{ formContactame.get('mensaje')?.value.length }} / {{maxlengthMessage}}</small>
+    </div>
+  </div>
+
+  <button 
+    type="submit" 
+    class="form-submit"
+    [disabled]="spinnerSendEmail"
+  >
+    {{ 'contact.form.send' | translate }}
+    <i [class]="spinnerSendEmail ? 'pi pi-spin pi-spinner' : 'pi pi-send'"></i>
+  </button>
+</form>
