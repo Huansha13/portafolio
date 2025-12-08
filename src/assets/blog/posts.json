@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": "fundamentos-python",
+      "slug": "fundamentos-python-2026",
+      "author": "Frank Huansha",
+      "date": "2026-01-15",
+      "coverImage": "/assets/blog/images/python-2026.jpg",
+      "published": true,
+      "translations": {
+        "es": {
+          "title": "Fundamentos de Programación con Python",
+          "excerpt": "Aprende los conceptos básicos de programación con Python desde cero. Una guía completa para principiantes que cubre variables, estructuras de control, funciones y más.",
+          "readTime": "15 min",
+          "tags": ["Python", "Programación", "Tutorial", "Principiantes"],
+          "category": "Tutorial"
+        },
+        "en": {
+          "title": "Python Programming Fundamentals",
+          "excerpt": "Learn the basics of programming with Python from scratch. A complete guide for beginners covering variables, control structures, functions and more.",
+          "readTime": "15 min",
+          "tags": ["Python", "Programming", "Tutorial", "Beginners"],
+          "category": "Tutorial"
+        }
+      }
+    },
+    {
+      "id": "angular-best-practices",
+      "slug": "angular-best-practices-2026",
+      "author": "Frank Huansha",
+      "date": "2026-01-20",
+      "coverImage": "/assets/blog/images/angular-2026.jpg",
+      "published": true,
+      "translations": {
+        "es": {
+          "title": "Mejores Prácticas en Angular 16+",
+          "excerpt": "Descubre las mejores prácticas y patrones de diseño para desarrollar aplicaciones Angular modernas, escalables y mantenibles.",
+          "readTime": "12 min",
+          "tags": ["Angular", "TypeScript", "Buenas Prácticas", "Desarrollo Web"],
+          "category": "Desarrollo"
+        },
+        "en": {
+          "title": "Best Practices in Angular 16+",
+          "excerpt": "Discover the best practices and design patterns for developing modern, scalable and maintainable Angular applications.",
+          "readTime": "12 min",
+          "tags": ["Angular", "TypeScript", "Best Practices", "Web Development"],
+          "category": "Development"
+        }
+      }
+    }
+  ]
+}

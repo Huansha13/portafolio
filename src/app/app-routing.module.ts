@@ -4,7 +4,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {ResumeComponent} from './features/resume/pages/resume/resume.component';
 import {BodyComponent} from './features/home/work/body/body.component';
 import {ContactComponent} from './features/contact/pages/contact/contact.component';
-import {BlogComponent} from './features/blog/pages/blog/blog.component';
 import {GitHubComponent} from "./features/home/work/components/git-hub/git-hub.component";
 
 const routes: Routes = [
@@ -13,7 +12,10 @@ const routes: Routes = [
   },
   {path: 'resume', component: ResumeComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'blog', component: BlogComponent},
+  {
+    path: 'blog',
+    loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule)
+  },
   {path: 'git-hub', component: GitHubComponent},
 ];
 

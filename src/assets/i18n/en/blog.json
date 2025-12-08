@@ -1,0 +1,10 @@
+{
+  "header": {
+    "backToPortfolio": "Back to Portfolio",
+    "allPosts": "All Posts"
+  },
+  "list": {
+    "title": "Blog",
+    "subtitle": "Articles about programming, development and technology"
+  }
+}

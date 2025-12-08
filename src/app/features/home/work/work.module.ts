@@ -19,6 +19,7 @@ import { ViewPdfComponent } from 'src/app/core/components/view-pdf/view-pdf.comp
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from "@angular/forms";
+import { BlogModule } from '../../blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {FormsModule} from "@angular/forms";
     PrimeNgModule,
     BrowserModule,
     PdfViewerModule,
-    FormsModule
+    FormsModule,
+    BlogModule
   ],
 
 

@@ -14,8 +14,8 @@
 
 <!-- Main -->
 <div *ngIf="!settings.isLoading" class="flex h-full lg:h-screen main-content">
-  <app-nav-main></app-nav-main>
-  <div class="mt-7 flex-1">
+  <app-nav-main *ngIf="!isBlogRoute"></app-nav-main>
+  <div [class.mt-7]="!isBlogRoute" class="flex-1">
     <router-outlet></router-outlet>
   </div>
 </div>

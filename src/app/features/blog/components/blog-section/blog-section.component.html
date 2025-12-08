@@ -1,0 +1,89 @@
+<section class="blog-section">
+  <div class="blog-container">
+
+    <!-- Section Header -->
+    <div class="blog-header">
+      <div>
+        <span class="section-label">Blog & Artículos</span>
+        <h2 class="blog-title font-display">Últimas Publicaciones</h2>
+      </div>
+      <a (click)="viewAllPosts()" class="view-all-link">
+        Ver todos los artículos
+        <i class="pi pi-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Loading State -->
+    @if (loading) {
+      <div class="blog-grid">
+        @for (item of [1, 2, 3]; track item) {
+          <div class="blog-card">
+            <div class="card-content">
+              <div class="tags-skeleton">
+                <p-skeleton width="60px" height="24px" borderRadius="12px"></p-skeleton>
+                <p-skeleton width="80px" height="24px" borderRadius="12px"></p-skeleton>
+              </div>
+              <p-skeleton width="100%" height="28px" styleClass="mb-3"></p-skeleton>
+              <p-skeleton width="100%" height="16px" styleClass="mb-2"></p-skeleton>
+              <p-skeleton width="80%" height="16px" styleClass="mb-4"></p-skeleton>
+              <div class="meta-skeleton">
+                <p-skeleton width="80px" height="14px"></p-skeleton>
+                <p-skeleton width="60px" height="14px"></p-skeleton>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Blog Grid -->
+    @if (!loading && blogPosts.length > 0) {
+      <div class="blog-grid">
+        @for (post of blogPosts; track post.id) {
+          <article class="blog-card" (click)="navigateToPost(post.slug)">
+            <div class="card-gradient"></div>
+
+            <div class="card-content">
+              <!-- Tags -->
+              <div class="tags">
+                @for (tag of post.tags; track tag) {
+                  <span class="tag">{{ tag }}</span>
+                }
+              </div>
+
+              <!-- Title -->
+              <h3 class="card-title">{{ post.title }}</h3>
+
+              <!-- Excerpt -->
+              <p class="card-excerpt">{{ post.excerpt }}</p>
+
+              <!-- Meta Footer -->
+              <div class="card-meta">
+                <div class="meta-info">
+                  <span class="meta-item">
+                    <i class="pi pi-calendar"></i>
+                    {{ post.date }}
+                  </span>
+                  <span class="meta-item">
+                    <i class="pi pi-clock"></i>
+                    {{ post.readTime }}
+                  </span>
+                </div>
+                <i class="pi pi-arrow-up-right arrow-icon"></i>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    }
+
+    <!-- Empty State -->
+    @if (!loading && blogPosts.length === 0) {
+      <div class="empty-state">
+        <i class="pi pi-book"></i>
+        <p>No hay publicaciones disponibles</p>
+      </div>
+    }
+
+  </div>
+</section>

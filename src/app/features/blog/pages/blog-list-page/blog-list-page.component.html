@@ -1,0 +1,46 @@
+<app-blog-header></app-blog-header>
+
+<div class="blog-list-page">
+  <div class="page-container">
+    
+    <div class="page-header">
+      <h1 class="page-title">{{ 'blog.list.title' | translate }}</h1>
+      <p class="page-subtitle">{{ 'blog.list.subtitle' | translate }}</p>
+    </div>
+
+    @if (loading) {
+      <div class="posts-grid">
+        @for (item of [1, 2, 3, 4, 5, 6]; track item) {
+          <div class="post-card">
+            <p-skeleton width="100%" height="200px" borderRadius="12px" styleClass="mb-3"></p-skeleton>
+            <p-skeleton width="60%" height="20px" styleClass="mb-2"></p-skeleton>
+            <p-skeleton width="100%" height="24px" styleClass="mb-3"></p-skeleton>
+            <p-skeleton width="100%" height="16px" styleClass="mb-2"></p-skeleton>
+            <p-skeleton width="80%" height="16px"></p-skeleton>
+          </div>
+        }
+      </div>
+    }
+
+    @if (!loading && posts.length > 0) {
+      <div class="posts-grid">
+        @for (post of posts; track post.id) {
+          <article class="post-card" (click)="openPost(post.slug)">
+            <div class="post-tags">
+              @for (tag of post.tags.slice(0, 3); track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+            <h2 class="post-title">{{ post.title }}</h2>
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+            <div class="post-meta">
+              <span><i class="pi pi-calendar"></i> {{ post.date }}</span>
+              <span><i class="pi pi-clock"></i> {{ post.readTime }}</span>
+            </div>
+          </article>
+        }
+      </div>
+    }
+
+  </div>
+</div>

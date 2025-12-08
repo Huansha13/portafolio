@@ -19,6 +19,7 @@ import { FooterModule } from './layout/footer/footer.module';
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { RemoteTranslationLoaderFactory } from './core/utils/remote-translation-loader';
+import { MarkdownModule } from 'ngx-markdown';
 
 // Para @angular/localize
 import { registerLocaleData } from '@angular/common';
@@ -56,6 +57,7 @@ export function initializeApp(seasonalTheme: SeasonalThemeService) {
         deps: [HttpClient],
       },
     }),
+    MarkdownModule.forRoot(),
   ],
   providers: [
     DialogService,

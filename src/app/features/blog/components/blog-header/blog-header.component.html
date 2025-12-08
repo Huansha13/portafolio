@@ -1,0 +1,22 @@
+<header class="blog-header">
+  <div class="header-container">
+    <div class="header-content">
+      <div class="logo" (click)="goHome()">
+        <i class="pi pi-arrow-left"></i>
+        <span>{{ 'blog.header.backToPortfolio' | translate }}</span>
+      </div>
+      <nav class="nav-links">
+        <a (click)="goToBlog()" class="nav-link">{{ 'blog.header.allPosts' | translate }}</a>
+        <div class="lang-switcher">
+          <button 
+            *ngFor="let lang of optIdioma" 
+            class="lang-btn" 
+            [class.active]="idioma === lang.code"
+            (click)="changeLanguage(lang.code)">
+            {{ lang.code.toUpperCase() }}
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
