@@ -1,65 +1,112 @@
 <app-blog-header></app-blog-header>
 
-<div class="blog-list-page">
-  <div class="page-container">
-    
-    <div class="page-header">
-      <h1 class="page-title">{{ 'blog.list.title' | translate }}</h1>
-      <p class="page-subtitle">{{ 'blog.list.subtitle' | translate }}</p>
-    </div>
+<div class="blog-list-page section-alt-bg">
+  @if (!loading) {
+    <div class="surface-card p-3 mb-4">
+      <div class="page-container px-3 lg:px-0 py-5">
+        <div class="page-header text-center">
+          <h1 class="page-title m-0 mb-2 font-display">{{ 'blog.list.title' | translate }}</h1>
+          <p class="page-subtitle text-color-secondary m-0">{{ 'blog.list.subtitle' | translate }}</p>
+        </div>
 
-    @if (!loading && allTags.length > 0) {
-      <div class="filters">
-        <p-button 
-          [label]="'Todos'"
-          [text]="selectedTag === ''"
-          [outlined]="selectedTag !== ''"
-          size="small"
-          (onClick)="filterByTag('')">
-        </p-button>
-        @for (tag of allTags; track tag) {
-          <p-button 
-            [label]="tag"
-            [text]="selectedTag !== tag"
-            [outlined]="selectedTag === tag"
-            size="small"
-            (onClick)="filterByTag(tag)">
-          </p-button>
-        }
       </div>
-    }
+      <div class="page-container">
+        <div class="flex align-items-start lg:align-items-center flex-column sm:flex-row justify-content-between mt-3 gap-3">
+          <p-iconField iconPosition="left" class="w-full">
+            <p-inputIcon styleClass="pi pi-search" />
+            <input
+              type="text"
+              pInputText
+              [placeholder]="'blog.list.search' | translate"
+              [(ngModel)]="searchQuery"
+              (input)="onSearch($event)"
+              class="w-full" />
+          </p-iconField>
 
+          <div class="flex align-items-center justify-content-between lg:justify-content-start gap-3 w-full lg:w-auto">
+            <p-multiSelect
+              class="flex-1 lg:flex-none"
+              [options]="tagOptions"
+              [(ngModel)]="selectedTags"
+              (onChange)="filterByTags()"
+              optionLabel="label"
+              optionValue="value"
+              [placeholder]="'blog.list.selectTag' | translate"
+              [maxSelectedLabels]="2"
+              selectedItemsLabel="{records} {{ 'blog.list.selectedTags' | translate }}"
+              styleClass="w-full lg:w-15rem">
+            </p-multiSelect>
+
+            <p-button
+              [title]="'blog.list.clearFilters' | translate"
+              icon="pi pi-filter-slash"
+              severity="secondary"
+              [rounded]="true"
+              [disabled]="!(searchQuery || selectedTags.length > 0 || selectedCategory)"
+              (onClick)="searchQuery = ''; selectedTags = []; selectedCategory = ''; applyFilters()">
+            </p-button>
+          </div>
+        </div>
+
+        <div class="flex align-items-center gap-2 text-color-secondary mt-3">
+          <i class="pi pi-bookmark"></i>
+          <span class="text-xs">{{ filteredPosts.length }}</span>
+          <span class="text-xs">{{ 'blog.list.results' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  }
+
+  <div class="page-container px-3 lg:px-0">
     @if (loading) {
-      <div class="posts-grid">
+      <div class="blog-grid">
         @for (item of [1, 2, 3, 4, 5, 6]; track item) {
-          <div class="post-card">
-            <p-skeleton width="100%" height="200px" borderRadius="12px" styleClass="mb-3"></p-skeleton>
-            <p-skeleton width="60%" height="20px" styleClass="mb-2"></p-skeleton>
-            <p-skeleton width="100%" height="24px" styleClass="mb-3"></p-skeleton>
-            <p-skeleton width="100%" height="16px" styleClass="mb-2"></p-skeleton>
-            <p-skeleton width="80%" height="16px"></p-skeleton>
+          <div class="blog-card">
+            <div class="card-content">
+              <div class="tags-skeleton">
+                <p-skeleton width="60px" height="24px" borderRadius="12px"></p-skeleton>
+                <p-skeleton width="80px" height="24px" borderRadius="12px"></p-skeleton>
+              </div>
+              <p-skeleton width="100%" height="28px" styleClass="mb-3"></p-skeleton>
+              <p-skeleton width="100%" height="16px" styleClass="mb-2"></p-skeleton>
+              <p-skeleton width="80%" height="16px" styleClass="mb-4"></p-skeleton>
+              <div class="meta-skeleton">
+                <p-skeleton width="80px" height="14px"></p-skeleton>
+                <p-skeleton width="60px" height="14px"></p-skeleton>
+              </div>
+            </div>
           </div>
         }
       </div>
     }
 
     @if (!loading && filteredPosts.length > 0) {
-      <div class="posts-grid">
+      <div class="blog-grid">
         @for (post of filteredPosts; track post.id) {
-          <article class="post-card" (click)="openPost(post.slug)">
-            <div class="post-tags">
-              @for (tag of post.tags.slice(0, 3); track tag) {
-                <span class="tag">{{ tag }}</span>
-              }
-            </div>
-            <h2 class="post-title">{{ post.title }}</h2>
-            <p class="post-excerpt">{{ post.excerpt }}</p>
-            <div class="post-meta">
-              <span><i class="pi pi-calendar"></i> {{ post.date }}</span>
-              <span><i class="pi pi-clock"></i> {{ post.readTime }}</span>
-            </div>
-          </article>
+          <app-blog-card [post]="post" (cardClick)="openPost($event)"></app-blog-card>
         }
+      </div>
+    }
+
+    @if (!loading && filteredPosts.length === 0) {
+      <div class="surface-card border-round-xl p-6 text-center">
+        <div class="flex flex-column align-items-center gap-4">
+          <div class="bg-primary-50 border-circle p-4">
+            <i class="pi pi-inbox text-5xl text-primary"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-color m-0 mb-2">{{ 'blog.list.noResults' | translate }}</h3>
+            <p class="text-color-secondary m-0">{{ 'blog.list.tryDifferent' | translate }}</p>
+          </div>
+          @if (searchQuery || selectedTags.length > 0 || selectedCategory) {
+            <p-button
+              [label]="'blog.list.clearFilters' | translate"
+              icon="pi pi-refresh"
+              [outlined]="true"
+              (onClick)="searchQuery = ''; selectedTags = []; selectedCategory = ''; applyFilters()">
+            </p-button>
+          }
+        </div>
       </div>
     }
 

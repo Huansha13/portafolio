@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { MenuItem } from 'primeng/api';
 import { Idioma, keysStorage } from '../../../../core/utils/enum';
 
 @Component({
@@ -10,10 +11,7 @@ import { Idioma, keysStorage } from '../../../../core/utils/enum';
 })
 export class BlogHeaderComponent implements OnInit {
   idioma: string = Idioma.ES;
-  optIdioma = [
-    { name: 'ES', code: Idioma.ES },
-    { name: 'EN', code: Idioma.EN }
-  ];
+  items: MenuItem[] = [];
   showAllPostsButton = true;
 
   constructor(
@@ -31,12 +29,29 @@ export class BlogHeaderComponent implements OnInit {
       this.idioma = idioma;
     }
     this.showAllPostsButton = !this.router.url.includes('/blog') || this.router.url.split('/').length > 2;
+    this.buildMenuItems();
+  }
+
+  buildMenuItems() {
+    this.items = [
+      {
+        label: 'Español',
+        styleClass: this.idioma === Idioma.ES ? 'active-lang' : '',
+        command: () => this.changeLanguage(Idioma.ES)
+      },
+      {
+        label: 'English',
+        styleClass: this.idioma === Idioma.EN ? 'active-lang' : '',
+        command: () => this.changeLanguage(Idioma.EN)
+      }
+    ];
   }
 
   changeLanguage(lang: string) {
     this.idioma = lang;
     this.translate.use(lang);
     localStorage.setItem(keysStorage.IDIOMA, lang);
+    this.buildMenuItems();
   }
 
   goHome() {

@@ -171,6 +171,7 @@ html, body {
 .section-alt-bg {
   background: var(--surface-section);
   position: relative;
+  z-index: 1;
 
   &::before {
     content: '';
@@ -182,6 +183,7 @@ html, body {
     background-size: 24px 24px;
     pointer-events: none;
     opacity: 0.15;
+    z-index: -1;
   }
 }
 

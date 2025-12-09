@@ -29,6 +29,9 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { TabViewModule } from 'primeng/tabview';
 import { TabMenuModule } from 'primeng/tabmenu';
+import {IconFieldModule} from "primeng/iconfield";
+import {InputIconModule} from "primeng/inputicon";
+import {MultiSelectModule} from "primeng/multiselect";
 
 const myModulo = [
   DropdownModule,
@@ -60,7 +63,10 @@ const myModulo = [
   InputGroupModule,
   InputGroupAddonModule,
   TabViewModule,
-  TabMenuModule
+  TabMenuModule,
+  IconFieldModule,
+  InputIconModule,
+  MultiSelectModule
 ];
 
 @NgModule({

@@ -14,9 +14,25 @@ export class BlogListPageComponent implements OnInit, OnDestroy {
   posts: BlogPost[] = [];
   filteredPosts: BlogPost[] = [];
   allTags: string[] = [];
+  allCategories: string[] = [];
   selectedTag: string = '';
+  selectedTags: string[] = [];
+  selectedCategory: string = '';
+  searchQuery: string = '';
   loading = true;
   private destroy$ = new Subject<void>();
+
+  get categoryOptions() {
+    const allLabel = this.translate.instant('blog.list.allCategories');
+    return [
+      { label: allLabel, value: '' },
+      ...this.allCategories.map(cat => ({ label: cat, value: cat }))
+    ];
+  }
+
+  get tagOptions() {
+    return this.allTags.map(tag => ({ label: tag, value: tag }));
+  }
 
   constructor(
     private blogService: BlogService,
@@ -26,10 +42,15 @@ export class BlogListPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadPosts();
-    
+
     this.translate.onLangChange
       .pipe(takeUntil(this.destroy$))
-      .subscribe(() => this.loadPosts());
+      .subscribe(() => {
+        this.selectedTags = [];
+        this.selectedCategory = '';
+        this.searchQuery = '';
+        this.loadPosts();
+      });
   }
 
   ngOnDestroy() {
@@ -54,20 +75,64 @@ export class BlogListPageComponent implements OnInit, OnDestroy {
 
   private extractTags() {
     const tagsSet = new Set<string>();
+    const categoriesSet = new Set<string>();
     this.posts.forEach(post => {
       post.tags.forEach(tag => tagsSet.add(tag));
+      if (post.category) categoriesSet.add(post.category);
     });
     this.allTags = Array.from(tagsSet).sort();
+    this.allCategories = Array.from(categoriesSet).sort();
   }
 
   filterByTag(tag: string) {
     this.selectedTag = tag;
-    if (tag === '') {
-      this.filteredPosts = this.posts;
-    } else {
-      this.filteredPosts = this.posts.filter(post => post.tags.includes(tag));
-    }
+    this.applyFilters();
   }
+
+  filterByTags() {
+    this.applyFilters();
+  }
+
+  filterByCategory(category: string) {
+    this.selectedCategory = category;
+    this.applyFilters();
+  }
+
+  onSearch(event: any) {
+    this.searchQuery = event.target.value.toLowerCase();
+    this.applyFilters();
+  }
+
+  clearSearch() {
+    this.searchQuery = '';
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    let filtered = this.posts;
+
+    if (this.selectedCategory) {
+      filtered = filtered.filter(post => post.category === this.selectedCategory);
+    }
+
+    if (this.selectedTags.length > 0) {
+      filtered = filtered.filter(post => 
+        this.selectedTags.some(tag => post.tags.includes(tag))
+      );
+    }
+
+    if (this.searchQuery) {
+      filtered = filtered.filter(post =>
+        post.title.toLowerCase().includes(this.searchQuery) ||
+        post.excerpt.toLowerCase().includes(this.searchQuery) ||
+        post.tags.some(tag => tag.toLowerCase().includes(this.searchQuery))
+      );
+    }
+
+    this.filteredPosts = filtered;
+  }
+
+
 
   openPost(slug: string) {
     this.router.navigate(['/blog', slug]);

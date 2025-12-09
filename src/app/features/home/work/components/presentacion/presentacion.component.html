@@ -86,10 +86,13 @@
       </div>
 
       <div class="status-card">
-        <p-button [label]="'home.btnGithub' | translate" 
-        [rounded]="true" 
-        icon="pi pi-github" 
-        severity="secondary" />
+        <a pButton pRipple
+           [label]="'home.btnGithub' | translate"
+           [rounded]="true"
+           href="https://github.com/Huansha13/portafolio.git" target="_blank"
+           icon="pi pi-github"
+           severity="secondary"
+           class="no-underline"></a>
       </div>
     </div>
   </div>

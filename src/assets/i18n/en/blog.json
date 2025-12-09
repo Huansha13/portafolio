@@ -5,7 +5,16 @@
   },
   "list": {
     "title": "Blog",
-    "subtitle": "Articles about programming, development and technology"
+    "subtitle": "Articles about programming, development and technology",
+    "search": "Search articles...",
+    "allCategories": "All categories",
+    "allTags": "All tags",
+    "results": "articles found",
+    "noResults": "No articles found",
+    "tryDifferent": "Try different search terms or filters",
+    "clearFilters": "Clear filters",
+    "selectTag": "All tags",
+    "selectedTags": "Tags"
   },
   "section": {
     "label": "Blog & Articles",

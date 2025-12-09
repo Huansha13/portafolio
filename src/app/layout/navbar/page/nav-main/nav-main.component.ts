@@ -2,7 +2,7 @@ import {Component, ElementRef, HostListener, OnInit, Renderer2} from '@angular/c
 import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "../../../../core/utils/theme.service";
 import {Idioma, keysStorage, Theme} from "../../../../core/utils/enum";
-import {PrimeIcons} from 'primeng/api';
+import {MenuItem, PrimeIcons} from 'primeng/api';
 import {SelectButtonOptionClickEvent} from "primeng/selectbutton";
 import {SettingsService} from "../../../../core/utils/settings.service";
 import {environment} from "../../../../../environments/environment";
@@ -23,6 +23,7 @@ export class NavMainComponent implements OnInit {
     {name: 'English', code: Idioma.EN}
   ]
   stateOptionsTheme = this.getStateOptionsTheme();
+  themeOptions: any[] = [];
   sidebarVisible: boolean = false;
   constructor(public themeService: ThemeService,
               public settings: SettingsService,
@@ -54,7 +55,6 @@ export class NavMainComponent implements OnInit {
     const idioma = localStorage.getItem(keysStorage.IDIOMA);
     if (idioma) {
       this.idioma = idioma;
-      this.selectIdioma();
     }
 
     const savedTheme = localStorage.getItem(keysStorage.THEME) as Theme;
@@ -66,6 +66,12 @@ export class NavMainComponent implements OnInit {
     this.seasonalTheme.currentTheme$.subscribe(theme => {
       this.currentTheme = theme;
     });
+
+    this.translate.onLangChange.subscribe(() => {
+      this.buildThemeOptions();
+    });
+
+    this.buildThemeOptions();
   }
 
   getLogoColorClass(): string {
@@ -82,6 +88,30 @@ export class NavMainComponent implements OnInit {
     this._selectedTheme = theme;
     this.themeService.setTheme(theme);
     this.stateOptionsTheme = this.getStateOptionsTheme();
+  }
+
+  buildThemeOptions() {
+    this.themeOptions = [
+      {
+        label: this.translate.instant('menu.theme.light'),
+        value: Theme.LIGHT,
+        icon: PrimeIcons.SUN
+      },
+      {
+        label: this.translate.instant('menu.theme.dark'),
+        value: Theme.DARK,
+        icon: PrimeIcons.MOON
+      },
+      {
+        label: this.translate.instant('menu.theme.system'),
+        value: Theme.SYSTEM,
+        icon: PrimeIcons.DESKTOP
+      }
+    ];
+  }
+
+  onThemeDropdownChange() {
+    this.selectedTheme = this._selectedTheme;
   }
 
   onThemeChange(event: SelectButtonOptionClickEvent): void {

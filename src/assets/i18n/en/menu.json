@@ -2,5 +2,11 @@
   "home": "Home",
   "contact": "Contact",
   "repository": "Repository",
-  "downloadCode": "Download Code"
+  "downloadCode": "Download Code",
+  "blog": "Blog",
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
 }

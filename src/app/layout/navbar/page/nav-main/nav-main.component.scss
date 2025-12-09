@@ -1,6 +1,4 @@
 .nav-main {
-  //border-bottom: 1px solid var(--surface-border);
-  //background-color: var(--surface-0);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   position: fixed;
@@ -9,24 +7,9 @@
   width: calc(100% - var(--scrollbar-width, 0px));
   z-index: 1100;
   transition: background-color .5s, border-color .5s;
-  //border-bottom: 1px solid transparent;
 }
 
-@mixin font-base-items {
-  a {
-    margin: 5px 10px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    cursor: pointer;
-    color: var(--text-color);
 
-    &:hover {
-      color: var(--primary-color);
-      font-weight: 400;
-    }
-  }
-}
 
 nav {
   width: 100%;
@@ -88,7 +71,6 @@ nav {
 
   .menu {
     font-size: 18px;
-    //color: $color-tx-1;
     display: none;
     background: transparent;
     padding: 5px;
@@ -111,30 +93,173 @@ nav {
     display: flex;
     float: right;
     align-items: center;
+
     .items {
       display: flex;
       align-items: center;
+      gap: 0.25rem;
 
-      .activo {
-        color: var(--primary-color);
+      .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: var(--text-color);
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        font-size: 0.9375rem;
+
+        i {
+          font-size: 1rem;
+        }
+
+        &:hover {
+          background: var(--surface-hover);
+          color: var(--primary-color);
+        }
+
+        &.activo {
+          color: var(--primary-color);
+          background: var(--primary-50);
+        }
       }
 
-      @include font-base-items;
+      .version-link {
+        color: var(--text-color-secondary);
+        font-size: 0.875rem;
+      }
     }
   }
 
+
+
+
+
 }
 
+// Estilos para MÓVIL (sidebar)
 .items-menu-sidebar {
   .items {
     display: flex;
     flex-direction: column;
+    gap: 0.25rem;
   }
 
   a {
     text-decoration: none;
     color: var(--text-color);
-    padding: 15px 0;
-    border-bottom: 1px solid var(--highlight-bg);
+    padding: 0.875rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.9375rem;
+
+    &:hover {
+      background: var(--surface-50);
+    }
+
+    &.activo {
+      background: var(--surface-50);
+      color: var(--primary-color);
+    }
+  }
+}
+
+// Estilos para WEB (navbar horizontal)
+.section-2 {
+  .items {
+    gap: 0.25rem;
+
+    a {
+      margin: 0;
+      padding: 0.375rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      color: var(--text-color-secondary);
+
+      &:hover {
+        color: var(--text-color);
+      }
+
+      &.activo {
+        background: var(--surface-50);
+        color: var(--primary-color);
+      }
+    }
+  }
+}
+
+::ng-deep .theme-dropdown {
+  .p-dropdown-trigger {
+    display: none;
+  }
+
+  &.p-dropdown {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .p-dropdown-label {
+    padding: 0.5rem !important;
+  }
+}
+
+.mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--surface-border);
+  background: var(--surface-card);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-color);
+
+  &:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  i {
+    font-size: 1.25rem;
+  }
+}
+
+::ng-deep .lang-dropdown {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  flex: 1;
+
+  .p-dropdown-label {
+    padding: 0 !important;
+  }
+}
+
+::ng-deep .sidebar-dropdown {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  flex: 1;
+
+  .p-dropdown-label {
+    padding: 0 !important;
+    font-weight: 500;
   }
 }

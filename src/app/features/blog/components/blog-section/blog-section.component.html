@@ -12,7 +12,7 @@
         [label]="'blog.section.viewAll' | translate"
         icon="pi pi-arrow-right"
         iconPos="right"
-        [text]="true"
+        [outlined]="true"
         severity="secondary">
       </p-button>
     </div>
@@ -44,39 +44,7 @@
     @if (!loading && blogPosts.length > 0) {
       <div class="blog-grid">
         @for (post of blogPosts; track post.id) {
-          <article class="blog-card" (click)="navigateToPost(post.slug)">
-            <div class="card-gradient"></div>
-
-            <div class="card-content">
-              <!-- Tags -->
-              <div class="tags">
-                @for (tag of post.tags; track tag) {
-                  <span class="tag">{{ tag }}</span>
-                }
-              </div>
-
-              <!-- Title -->
-              <h3 class="card-title">{{ post.title }}</h3>
-
-              <!-- Excerpt -->
-              <p class="card-excerpt">{{ post.excerpt }}</p>
-
-              <!-- Meta Footer -->
-              <div class="card-meta">
-                <div class="meta-info">
-                  <span class="meta-item">
-                    <i class="pi pi-calendar"></i>
-                    {{ post.date }}
-                  </span>
-                  <span class="meta-item">
-                    <i class="pi pi-clock"></i>
-                    {{ post.readTime }}
-                  </span>
-                </div>
-                <i class="pi pi-arrow-up-right arrow-icon"></i>
-              </div>
-            </div>
-          </article>
+          <app-blog-card [post]="post" (cardClick)="navigateToPost($event)"></app-blog-card>
         }
       </div>
     }

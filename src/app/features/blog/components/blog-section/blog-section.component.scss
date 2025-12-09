@@ -24,22 +24,6 @@
   }
 }
 
-.blog-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--primary-color);
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-
-  i {
-    font-size: 1rem;
-  }
-}
-
 .blog-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
@@ -77,122 +61,7 @@
   gap: 2rem;
 }
 
-.blog-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
 
-  &:hover {
-    border-color: var(--primary-color);
-    background: var(--surface-hover);
-    transform: translateY(-4px);
-
-    .card-gradient {
-      opacity: 1;
-    }
-
-    .card-title {
-      color: var(--primary-color);
-    }
-
-    .arrow-icon {
-      color: var(--text-color);
-    }
-  }
-}
-
-.card-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, var(--primary-color), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card-content {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.tag {
-  padding: 0.375rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border-radius: 12px;
-  background: var(--surface-100);
-  color: var(--text-color);
-  border: 1px solid var(--surface-border);
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0 0 0.75rem 0;
-  line-height: 1.4;
-  transition: color 0.3s ease;
-}
-
-.card-excerpt {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-  line-height: 1.6;
-  margin: 0 0 1.5rem 0;
-  flex-grow: 1;
-}
-
-.card-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--surface-border);
-  margin-top: auto;
-}
-
-.meta-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: 0.75rem;
-  color: var(--text-color-secondary);
-  font-family: 'Courier New', monospace;
-
-  i {
-    font-size: 0.75rem;
-  }
-}
-
-.arrow-icon {
-  font-size: 1rem;
-  color: var(--text-color-secondary);
-  transition: color 0.3s ease;
-}
 
 .empty-state {
   text-align: center;

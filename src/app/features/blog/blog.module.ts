@@ -9,6 +9,7 @@ import { BlogSectionComponent } from './components/blog-section/blog-section.com
 import { BlogHeaderComponent } from './components/blog-header/blog-header.component';
 import { BlogListPageComponent } from './pages/blog-list-page/blog-list-page.component';
 import { BlogDetailPageComponent } from './pages/blog-detail-page/blog-detail-page.component';
+import { BlogCardComponent } from './components/blog-card/blog-card.component';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
     BlogSectionComponent,
     BlogHeaderComponent,
     BlogListPageComponent,
-    BlogDetailPageComponent
+    BlogDetailPageComponent,
+    BlogCardComponent
   ],
   imports: [
     CommonModule,

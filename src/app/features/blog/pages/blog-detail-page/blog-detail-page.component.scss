@@ -1,19 +1,30 @@
 .blog-detail-page {
   min-height: 100vh;
   background: var(--surface-ground);
-  padding: 4rem 1.5rem;
+  padding: 2rem 0 4rem;
+
+  @media (max-width: 1199px) {
+    overflow-x: hidden;
+  }
 }
 
 .detail-wrapper {
   max-width: 1179px;
   margin: 0 auto;
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1fr;
   gap: 3rem;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 280px;
+  }
 }
 
 .detail-container {
   max-width: 800px;
+  width: 100%;
+  min-width: 0;
 }
 
 .post-header {
@@ -66,7 +77,15 @@
   background: var(--surface-card);
   border: 1px solid var(--surface-border);
   border-radius: 16px;
-  padding: 3rem;
+  padding: 1.5rem;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    padding: 3rem;
+  }
 
   ::ng-deep {
     h1, h2, h3, h4, h5, h6 {
@@ -98,13 +117,22 @@
       background: var(--surface-100);
       border: 1px solid var(--surface-border);
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1rem;
       overflow-x: auto;
       margin: 1.5rem 0;
+      max-width: 100%;
+      width: 100%;
+
+      @media (max-width: 768px) {
+        padding: 0.75rem;
+        font-size: 0.75rem;
+      }
 
       code {
         background: none;
         padding: 0;
+        white-space: pre;
+        word-break: normal;
       }
     }
 
@@ -158,12 +186,17 @@
 
 .table-of-contents {
   display: none;
+
+  @media (min-width: 1200px) {
+    display: block;
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+  }
 }
 
 .toc-sticky {
-  position: sticky;
-  top: 90px;
-  max-height: calc(100vh - 250px);
+  max-height: calc(100vh - 120px);
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -221,11 +254,7 @@
   font-size: 0.75rem;
 }
 
-@media (min-width: 1200px) {
-  .table-of-contents {
-    display: block;
-  }
-}
+
 
 @media (max-width: 1199px) {
   .detail-wrapper {
