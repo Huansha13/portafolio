@@ -7,7 +7,7 @@ import { SettingsService } from 'src/app/core/utils/settings.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  date = new Date();
+  currentYear = new Date().getFullYear();
 
   constructor(public settings: SettingsService) { }
 

@@ -87,4 +87,8 @@ export class PresentacionComponent implements OnInit {
       width: this.settings.view.sm ? '100%' : '30%'
     });
   }
+
+  protected openLinkedIn(): void {
+    window.open(this.translate.instant('contact.methods.linkedin.value'), '_blank');
+  }
 }

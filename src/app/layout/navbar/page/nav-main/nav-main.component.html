@@ -48,11 +48,6 @@
       {{ 'menu.contact' | translate }}
     </a>
 
-    <a (click)="sidebarVisible = false" class="no-underline" routerLink="/git-hub" routerLinkActive="activo"
-       [routerLinkActiveOptions]="{exact: true}">
-      {{ 'menu.repository' | translate }}
-    </a>
-
     <a (click)="sidebarVisible = false" class="no-underline" routerLink="/blog" routerLinkActive="activo"
        [routerLinkActiveOptions]="{exact: true}">
       {{ 'menu.blog' | translate }}
@@ -68,9 +63,7 @@
       </p-dropdown>
     </a>
     @if (settings.view.lg) {
-      <a class="no-underline">
-        <ng-container *ngTemplateOutlet="btnTheme"></ng-container>
-      </a>
+      <ng-container *ngTemplateOutlet="btnTheme"></ng-container>
     }
   </div>
 </ng-template>

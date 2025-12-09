@@ -17,6 +17,7 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
   loading = true;
   headings: { id: string; text: string; level: number }[] = [];
   activeHeadingId = '';
+  sidebarVisible = false;
   private destroy$ = new Subject<void>();
   private currentSlug = '';
 
@@ -124,12 +125,20 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  onHeadingClick(event: Event, id: string) {
+    this.sidebarVisible = false;
+    const element = document.getElementById(id);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+
   scrollToHeading(event: Event, id: string) {
     event.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -100;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const y = element.getBoundingClientRect().top + window.scrollY - 120;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   }

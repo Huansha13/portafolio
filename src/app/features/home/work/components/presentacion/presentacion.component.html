@@ -33,7 +33,9 @@
           icon="pi pi-arrow-right" [label]="'home.btncv' | translate">
         </button>
 
-        <button pButton pRipple icon="pi pi-linkedin" [outlined]="true" [label]="'home.btnLinkedin' | translate">
+        <button pButton pRipple icon="pi pi-linkedin"
+                (click)="openLinkedIn()"
+                [outlined]="true" [label]="'home.btnLinkedin' | translate">
         </button>
       </div>
 

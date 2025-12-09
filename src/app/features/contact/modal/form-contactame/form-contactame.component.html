@@ -4,13 +4,13 @@
       <i class="pi pi-user"></i>
       {{ 'contact.form.name' | translate }}
     </label>
-    <input 
-      type="text" 
-      pInputText 
-      id="nombre" 
-      formControlName="nombre" 
+    <input
+      type="text"
+      pInputText
+      id="nombre"
+      formControlName="nombre"
       [placeholder]="'contact.form.name' | translate"
-      class="form-input" 
+      class="form-input"
     />
   </div>
 
@@ -19,19 +19,17 @@
       <i class="pi pi-envelope"></i>
       {{ 'contact.form.email' | translate }}
     </label>
-    <input 
-      type="email" 
-      pInputText 
-      id="correo" 
-      formControlName="correo" 
+    <input
+      type="email"
+      pInputText
+      id="correo"
+      formControlName="correo"
       [placeholder]="'contact.form.email' | translate"
-      class="form-input" 
+      class="form-input"
     />
-    @if (
-      formContactame.get('correo')?.invalid && 
-      (formContactame.get('correo')?.touched || formContactame.get('correo')?.dirty) &&
-      formContactame.get('correo')?.errors?.invalidEmail
-    ) {
+    @if (formContactame.get('correo')?.invalid &&
+    (formContactame.get('correo')?.touched || formContactame.get('correo')?.dirty) &&
+    formContactame.get('correo')?.errors?.invalidEmail) {
       <small class="form-error">{{ 'contact.form.error' | translate }}</small>
     }
   </div>
@@ -41,26 +39,25 @@
       <i class="pi pi-comment"></i>
       {{ 'contact.form.message' | translate }}
     </label>
-    <textarea 
-      id="mensaje" 
-      rows="4" 
-      formControlName="mensaje" 
-      pInputTextarea 
+    <textarea
+      id="mensaje"
+      rows="4"
+      formControlName="mensaje"
+      pInputTextarea
       [placeholder]="'contact.form.message' | translate"
       class="form-input form-textarea"
       [maxlength]="maxlengthMessage"
     ></textarea>
     <div class="char-count">
-      <small>{{ formContactame.get('mensaje')?.value.length }} / {{maxlengthMessage}}</small>
+      <small>{{ formContactame.get('mensaje')?.value.length }} / {{ maxlengthMessage }}</small>
     </div>
   </div>
 
-  <button 
-    type="submit" 
-    class="form-submit"
-    [disabled]="spinnerSendEmail"
-  >
-    {{ 'contact.form.send' | translate }}
-    <i [class]="spinnerSendEmail ? 'pi pi-spin pi-spinner' : 'pi pi-send'"></i>
-  </button>
+  <p-button [loading]="spinnerSendEmail"
+            type="submit"
+            label="{{ 'contact.form.send' | translate }}"
+            severity="contrast"
+            icon="pi pi pi-send"
+            styleClass="w-full">
+  </p-button>
 </form>

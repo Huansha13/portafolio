@@ -1,14 +1,24 @@
-<footer class="py-8 mt-4 md:px-4">
-  <div class="container mx-auto flex flex-column align-items-center justify-content-between gap-4 md:flex-row">
-    <div class="flex flex-column gap-2 md:items-start">
-      <div class="flex gap-2 align-items-center justify-content-center lg:justify-content-start">
-        <img src="assets/icon.svg" alt="logo" class="w-2rem">
-        <span class="text-lg font-semibold">Frank Huansha</span>
+<footer class="footer-container">
+  <div class="footer-content">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <img src="assets/icon.svg" alt="logo" class="logo-img">
+          <span class="brand-name font-display">Frank Huansha</span>
+        </div>
+        <p class="brand-description">Ingeniero de Sistemas | Full Stack Developer</p>
+        <div class="tech-stack">
+          <span class="tech-badge">Angular</span>
+          <span class="tech-badge">Spring Boot</span>
+          <span class="tech-badge">Java</span>
+          <span class="tech-badge">Azure DevOps</span>
+        </div>
       </div>
-      <div class="text-sm text-gray-500 text-balancer">Egresado de la carrera de Ingeniero de Sistemas.</div>
     </div>
-    <nav class="flex flex-wrap justify-content-center gap-4 text-sm">
+
+    <div class="footer-bottom">
       <app-red-social></app-red-social>
-    </nav>
+      <p class="text-sm text-300">{{'contact.methods.email.value' | translate}}</p>
+    </div>
   </div>
 </footer>

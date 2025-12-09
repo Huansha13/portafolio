@@ -47,6 +47,12 @@
           }
         </div>
       </aside>
+
+      @if (headings.length > 0) {
+        <button class="toc-mobile-btn" (click)="sidebarVisible = true">
+          <i class="pi pi-list"></i>
+        </button>
+      }
     </div>
   }
 
@@ -59,4 +65,28 @@
       </div>
     </div>
   }
+</div>
+
+<div class="custom-sidebar" [class.visible]="sidebarVisible">
+  <div class="sidebar-overlay" (click)="sidebarVisible = false"></div>
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <span class="toc-sidebar-title">Contenido</span>
+      <button class="close-btn" (click)="sidebarVisible = false">
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+    @if (headings.length > 0) {
+      <nav class="toc-nav">
+        @for (heading of headings; track heading.id) {
+          <div
+            [class]="'toc-link toc-level-' + heading.level"
+            [class.active]="activeHeadingId === heading.id"
+            (click)="onHeadingClick($event, heading.id)">
+            {{ heading.text }}
+          </div>
+        }
+      </nav>
+    }
+  </div>
 </div>

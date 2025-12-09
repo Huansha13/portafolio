@@ -1,0 +1,146 @@
+.footer-container {
+  background: var(--surface-ground);
+  border-top: 1px solid var(--surface-border);
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+.footer-content {
+  max-width: 1179px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.footer-brand {
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+
+    .logo-img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+  }
+
+  .brand-description {
+    color: var(--text-color-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .tech-badge {
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      color: var(--text-color);
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: var(--primary-color);
+        color: #fff;
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.footer-links, .footer-social {
+  .footer-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .footer-link {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: fit-content;
+
+    &:hover {
+      color: var(--primary-color);
+      transform: translateX(5px);
+    }
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+
+  .copyright, .made-with {
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .heart {
+    color: #ff6b6b;
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-brand .brand-logo {
+    justify-content: center;
+  }
+
+  .footer-links, .footer-social {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-links .footer-link {
+    margin: 0 auto;
+  }
+}

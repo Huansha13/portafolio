@@ -5,15 +5,15 @@
     <h2 class="section-heading font-display">Proyectos</h2>
   </div>
   <div class="tabs-custom">
-    <button 
-      class="tab-btn" 
+    <button
+      class="tab-btn"
       [class.active]="activeItem.id === '1'"
       (click)="onTabChange(items[0])">
       <i class="pi pi-table"></i>
       <span>Proyectos</span>
     </button>
-    <button 
-      class="tab-btn" 
+    <button
+      class="tab-btn"
       [class.active]="activeItem.id === '2'"
       (click)="onTabChange(items[1])">
       <i class="pi pi-github"></i>
@@ -88,12 +88,18 @@
           </div>
         }
       </div>
-      
+
       @if (proyectos.length > 3 && !mostrarTodos) {
         <div class="text-center mt-8">
-          <button class="btn-ver-todos" (click)="verTodosProyectos()">
-            Ver todos los proyectos <i class="pi pi-arrow-right ml-2"></i>
-          </button>
+          <p-button
+            (onClick)="verTodosProyectos()"
+            label="Ver todos los proyectos"
+            icon="pi pi-arrow-right"
+            iconPos="right"
+            [outlined]="true"
+            severity="secondary"
+            styleClass="w-full md:w-auto">
+          </p-button>
         </div>
       }
     }
