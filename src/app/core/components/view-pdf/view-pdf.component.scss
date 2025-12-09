@@ -1,0 +1,161 @@
+.pdf-viewer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--surface-ground);
+}
+
+.pdf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--surface-border);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  .pdf-title {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+  
+  .page-info {
+    font-size: 0.875rem;
+    color: var(--text-color-secondary);
+    background: var(--surface-100);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-family: 'Courier New', monospace;
+  }
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-controls,
+.zoom-controls,
+.main-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zoom-controls {
+  .zoom-level {
+    font-size: 0.875rem;
+    color: var(--text-color-secondary);
+    min-width: 45px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+  }
+}
+
+.pdf-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-50);
+}
+
+.loading-state,
+.error-state {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-color-secondary);
+}
+
+.error-state {
+  i {
+    font-size: 3rem;
+    color: var(--red-500);
+    margin-bottom: 0.5rem;
+  }
+  
+  h4 {
+    margin: 0;
+    color: var(--text-color);
+  }
+  
+  p {
+    margin: 0;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .pdf-header {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .header-left {
+    justify-content: center;
+    text-align: center;
+    
+    .pdf-title {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+  
+  .header-controls {
+    justify-content: center;
+    gap: 1rem;
+    
+    .zoom-controls {
+      order: 1;
+    }
+    
+    .main-actions {
+      order: 2;
+    }
+  }
+  
+  .zoom-controls .zoom-level {
+    min-width: 40px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-controls {
+    .main-actions p-button[label] {
+      ::ng-deep .p-button-label {
+        display: none;
+      }
+    }
+  }
+}

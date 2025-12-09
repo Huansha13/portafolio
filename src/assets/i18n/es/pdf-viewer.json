@@ -1,0 +1,17 @@
+{
+  "title": "Mi Currículo Vitae",
+  "pages": "páginas",
+  "loading": "Cargando documento...",
+  "error": {
+    "title": "Error al cargar el documento",
+    "message": "No se pudo cargar el archivo PDF. Intenta descargarlo directamente.",
+    "download": "Descargar PDF"
+  },
+  "tooltips": {
+    "zoomOut": "Reducir zoom",
+    "zoomIn": "Aumentar zoom",
+    "resetZoom": "Restablecer zoom",
+    "download": "Descargar PDF",
+    "close": "Cerrar"
+  }
+}

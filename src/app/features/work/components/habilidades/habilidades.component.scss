@@ -4,17 +4,13 @@
 }
 
 .skills-header {
-  max-width: 1179px;
+  max-width: var(--max-width-container);
   margin: 0 auto 4rem auto;
   text-align: center;
 }
 
 .skills-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--text-color-secondary);
+  // Usar .badge-custom del styles.scss global
   margin-bottom: 1rem;
 }
 
@@ -35,7 +31,7 @@
 }
 
 .skills-grid {
-  max-width: 1179px;
+  max-width: var(--max-width-container);
   margin: 0 auto 3rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -43,15 +39,12 @@
 }
 
 .skill-card {
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
+  // Usar .card-base del styles.scss global
   border-radius: 20px;
   padding: 2rem;
-  transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: var(--card-shadow);
   }
 }
 
@@ -63,21 +56,7 @@
   position: relative;
 }
 
-.icon-wrapper {
-  width: 48px;
-  height: 48px;
-  background: var(--surface-100);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-
-  i {
-    font-size: 1.5rem;
-    color: var(--text-color-secondary);
-  }
-}
+// Usar .icon-wrapper del styles.scss global
 
 .card-title-section {
   flex: 1;
@@ -112,17 +91,7 @@
 }
 
 .tech-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--surface-100);
-  border: 1px solid var(--surface-border);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  color: var(--text-color);
-  transition: all 0.2s ease;
-
+  // Usar .tech-tag del styles.scss global
   i {
     font-size: 1rem;
     color: var(--text-color-secondary);
@@ -130,7 +99,7 @@
 }
 
 .skills-footer {
-  max-width: 1179px;
+  max-width: var(--max-width-container);
   margin: 0 auto;
   padding-top: 2rem;
   display: flex;

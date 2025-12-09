@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { WorkModule } from './features/home/work/work.module';
+import { WorkModule } from './features/work/work.module';
 
 // External
 import { NavBarModule } from './layout/navbar/nav-bar.module';

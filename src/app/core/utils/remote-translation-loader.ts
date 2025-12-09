@@ -11,7 +11,7 @@ export class RemoteTranslationLoader implements TranslateLoader {
   ) {}
 
   getTranslation(lang: string): Observable<any> {
-    const sections = ['menu', 'home', 'about', 'projects', 'contact', 'skills', 'blog'];
+    const sections = ['menu', 'home', 'about', 'projects', 'contact', 'skills', 'blog', 'pdf-viewer'];
     
     const requests = sections.map(section =>
       this.http.get(`${this.baseUrl}/${lang}/${section}.json`).pipe(

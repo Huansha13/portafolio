@@ -22,7 +22,7 @@
 }
 
 .hero-container {
-  max-width: 1179px;
+  max-width: var(--max-width-container);
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -80,12 +80,7 @@
   background: var(--green-400);
 }
 
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
+
 
 .badge-text {
   font-weight: 500;
@@ -146,22 +141,8 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  border-radius: 0.5rem;
-  font-weight: 700;
   font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-.btn-primary {
-  background: var(--primary-color);
-  color: var(--primary-color-text);
-
-  &:hover {
-    background: var(--primary-600);
-  }
+  font-weight: 700;
 
   i {
     transition: transform 0.3s ease;
@@ -169,16 +150,6 @@
 
   &:hover i {
     transform: translateX(4px);
-  }
-}
-
-.btn-secondary {
-  background: var(--surface-100);
-  border: 1px solid var(--surface-border);
-  color: var(--text-color);
-
-  &:hover {
-    background: var(--surface-200);
   }
 }
 

@@ -36,7 +36,7 @@
 
 .contact-method {
   border-color: var(--surface-border);
-  transition: all 0.3s ease;
+  transition: var(--transition-base);
 
   &:hover {
     border-color: var(--primary-color);
@@ -45,14 +45,9 @@
 }
 
 .method-icon {
-  width: 48px;
-  height: 48px;
+  // Usar .icon-wrapper del styles.scss global
   border-color: var(--surface-border);
   background: var(--surface-ground);
-
-  i {
-    font-size: 1.5rem;
-  }
 }
 
 .email-icon i {
@@ -90,9 +85,8 @@
 }
 
 .contact-form-card {
+  // Usar .card-base del styles.scss global
   position: relative;
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);

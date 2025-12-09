@@ -38,11 +38,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    // Obtener idioma guardado o usar español por defecto
+    const savedLang = localStorage.getItem('selectedLanguage') || Idioma.ES;
+    
     // Configura el idioma inicial
-    this.translate.setDefaultLang(Idioma.ES);
-
-    // Carga las traducciones
-    this.translate.use(Idioma.ES);
+    this.translate.setDefaultLang(savedLang);
+    this.translate.use(savedLang);
 
     // Ocultar loader inmediatamente
     this.settings.isLoading = false;
@@ -54,6 +55,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   cambiarIdioma(idioma: string) {
     this.translate.use(idioma);
+    localStorage.setItem('selectedLanguage', idioma);
   }
 
   writerLoader(): void {

@@ -1,11 +1,11 @@
 {
-  "enableSeasonalThemes": false,
+  "enableSeasonalThemes": true,
   "forceTheme": null,
   "themes": [
     {
       "id": "halloween",
       "name": "Halloween",
-      "enabled": true,
+      "enabled": false,
       "startMonth": 10,
       "startDay": 25,
       "endMonth": 10,
@@ -22,8 +22,8 @@
       "enabled": true,
       "startMonth": 12,
       "startDay": 1,
-      "endMonth": 12,
-      "endDay": 25,
+      "endMonth": 1,
+      "endDay": 1,
       "primeThemeDark": "aura-dark-green",
       "primeThemeLight": "aura-light-green",
       "logoColor": "text-green-600",
@@ -33,7 +33,7 @@
     {
       "id": "newyear",
       "name": "Año Nuevo",
-      "enabled": true,
+      "enabled": false,
       "startMonth": 12,
       "startDay": 26,
       "endMonth": 1,
@@ -47,7 +47,7 @@
     {
       "id": "fiestas-patrias",
       "name": "Fiestas Patrias",
-      "enabled": true,
+      "enabled": false,
       "startMonth": 7,
       "startDay": 23,
       "endMonth": 7,

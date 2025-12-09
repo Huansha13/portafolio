@@ -4,7 +4,7 @@ import { MessageService } from 'primeng/api';
 import { finalize } from 'rxjs';
 import { MssSendEmailConst } from 'src/app/core/utils/constantes';
 import { SettingsService } from 'src/app/core/utils/settings.service';
-import { ContactateConmigoService } from 'src/app/features/home/work/service/contactate-conmigo.service';
+import { ContactateConmigoService } from 'src/app/features/work/service/contactate-conmigo.service';
 
 @Component({
   selector: 'app-form-contactame',

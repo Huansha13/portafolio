@@ -5,7 +5,7 @@
 }
 
 .footer-content {
-  max-width: 1179px;
+  max-width: var(--max-width-container);
   margin: 0 auto;
 }
 
@@ -47,23 +47,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-
-    .tech-badge {
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      color: var(--text-color);
-      padding: 0.35rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: var(--primary-color);
-        color: #fff;
-        border-color: var(--primary-color);
-        transform: translateY(-2px);
-      }
-    }
   }
 }
 
@@ -84,7 +67,7 @@
   .footer-link {
     color: var(--text-color-secondary);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
     width: fit-content;
 
     &:hover {
@@ -107,11 +90,6 @@
     color: #ff6b6b;
     animation: heartbeat 1.5s ease-in-out infinite;
   }
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  25% { transform: scale(1.2); }
 }
 
 @media (min-width: 768px) {

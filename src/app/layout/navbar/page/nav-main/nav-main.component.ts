@@ -35,24 +35,22 @@ export class NavMainComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    // Calcula la opacidad. Aquí estamos haciendo que la opacidad disminuya a medida que te desplazas hacia abajo.
     let opacidad = this.settings.calculateOpacity();
-
-    // Asegúrate de que la opacidad esté entre 0 y 1.
     opacidad = Math.max(opacidad, 0);
     opacidad = Math.min(opacidad, 1);
 
-    // Finalmente, establece la opacidad de la barra de navegación.
     const navBar = this.el.nativeElement.querySelector('#miNavBar');
-    if (opacidad < 1) {
-      this.renderer.setStyle(navBar, 'background-color', 'var(--surface-0)');
-    } else {
-      this.renderer.setStyle(navBar, 'background-color', 'transparent');
+    if (navBar) {
+      if (opacidad < 1) {
+        this.renderer.setStyle(navBar, 'background-color', 'var(--surface-0)');
+      } else {
+        this.renderer.setStyle(navBar, 'background-color', 'transparent');
+      }
     }
   }
 
   ngOnInit(): void {
-    const idioma = localStorage.getItem(keysStorage.IDIOMA);
+    const idioma = localStorage.getItem(keysStorage.IDIOMA) || localStorage.getItem('selectedLanguage');
     if (idioma) {
       this.idioma = idioma;
     }
@@ -81,6 +79,7 @@ export class NavMainComponent implements OnInit {
   selectIdioma() {
     this.translate.use(this.idioma);
     localStorage.setItem(keysStorage.IDIOMA, this.idioma);
+    localStorage.setItem('selectedLanguage', this.idioma);
     this.sidebarVisible = false;
   }
 

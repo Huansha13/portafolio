@@ -32,6 +32,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import {IconFieldModule} from "primeng/iconfield";
 import {InputIconModule} from "primeng/inputicon";
 import {MultiSelectModule} from "primeng/multiselect";
+import {ProgressSpinnerModule} from "primeng/progressspinner";
 
 const myModulo = [
   DropdownModule,
@@ -66,7 +67,8 @@ const myModulo = [
   TabMenuModule,
   IconFieldModule,
   InputIconModule,
-  MultiSelectModule
+  MultiSelectModule,
+  ProgressSpinnerModule
 ];
 
 @NgModule({

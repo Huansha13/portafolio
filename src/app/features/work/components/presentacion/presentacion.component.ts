@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { SettingsService } from "../../../../../core/utils/settings.service";
+import { SettingsService } from "../../../../core/utils/settings.service";
 import { Home } from "../../model/home.interface";
 import { DialogService } from 'primeng/dynamicdialog';
 import { FormContactameComponent } from 'src/app/features/contact/modal/form-contactame/form-contactame.component';
@@ -71,14 +71,18 @@ export class PresentacionComponent implements OnInit {
   descargarCv() {
     this.dialogService.open(ViewPdfComponent, {
       showHeader: false,
-      header: "Mi Currículo Vitae",
-      width: this.settings.view.sm ? '100%' : '55%',
-      height: '100%',
-      contentStyle: {height: '100%', borderRadius: '10px'},
+      width: this.settings.view.sm ? '100vw' : '70vw',
+      height: this.settings.view.sm ? '100vh' : '90vh',
+      contentStyle: {
+        padding: '0',
+        overflow: 'hidden',
+        borderRadius: this.settings.view.sm ? '0' : '12px'
+      },
+      styleClass: 'pdf-dialog',
       data: {
-        pdf: `${environment.base_url_assets}/${this.data.linkCv}`,
+        pdf: this.translate.instant('home.urlCV')
       }
-    })
+    });
   }
 
   contactame() {
@@ -89,6 +93,8 @@ export class PresentacionComponent implements OnInit {
   }
 
   protected openLinkedIn(): void {
-    window.open(this.translate.instant('contact.methods.linkedin.value'), '_blank');
+    const url = this.translate.instant('contact.methods.linkedin.value');
+    console.log(url)
+    window.open(url, '_blank');
   }
 }

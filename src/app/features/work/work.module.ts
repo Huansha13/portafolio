@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BodyComponent} from './body/body.component';
-import {NavBarModule} from '../../../layout/navbar/nav-bar.module';
-import {FooterModule} from '../../../layout/footer/footer.module';
+import {NavBarModule} from '../../layout/navbar/nav-bar.module';
+import {FooterModule} from '../../layout/footer/footer.module';
 import {GitHubComponent} from './components/git-hub/git-hub.component';
 import {RouterLink} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
-import {PrimeNgModule} from "../../../prime-ng/prime-ng.module";
+import {PrimeNgModule} from "../../prime-ng/prime-ng.module";
 import {TerminalComponent} from 'src/app/core/components/terminal/terminal.component';
 import {WsCodeComponent} from 'src/app/core/components/ws-code/ws-code.component';
 import {ProyectosComponent} from "./components/proyectos/proyectos.component";
@@ -19,7 +19,7 @@ import { ViewPdfComponent } from 'src/app/core/components/view-pdf/view-pdf.comp
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from "@angular/forms";
-import { BlogModule } from '../../blog/blog.module';
+import { BlogModule } from '../blog/blog.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({

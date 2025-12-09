@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {ResumeComponent} from './features/resume/pages/resume/resume.component';
-import {BodyComponent} from './features/home/work/body/body.component';
+import {BodyComponent} from './features/work/body/body.component';
 import {ContactComponent} from './features/contact/pages/contact/contact.component';
-import {GitHubComponent} from "./features/home/work/components/git-hub/git-hub.component";
+import {GitHubComponent} from "./features/work/components/git-hub/git-hub.component";
 
 const routes: Routes = [
   {

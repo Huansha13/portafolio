@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Home} from 'src/app/features/home/work/model/home.interface';
-import {ServiceBodyService} from 'src/app/features/home/work/service/serviceBody.service';
+import {Home} from 'src/app/features/work/model/home.interface';
+import {ServiceBodyService} from 'src/app/features/work/service/serviceBody.service';
 
 @Component({
   selector: 'app-contact',

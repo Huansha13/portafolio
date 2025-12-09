@@ -14,7 +14,7 @@
 
         <div class="flex flex-column gap-3">
           <div class="contact-method flex align-items-start gap-3 p-3 border-1 border-round-2xl cursor-pointer" (click)="sendEmail()">
-            <div class="method-icon email-icon flex align-items-center justify-content-center border-1 border-round-xl flex-shrink-0">
+            <div class="icon-wrapper method-icon email-icon">
               <i class="pi pi-envelope"></i>
             </div>
             <div>
@@ -24,7 +24,7 @@
           </div>
 
           <div class="contact-method flex align-items-start gap-3 p-3 border-1 border-round-2xl cursor-pointer" (click)="openLinkedIn()">
-            <div class="method-icon linkedin-icon flex align-items-center justify-content-center border-1 border-round-xl flex-shrink-0">
+            <div class="icon-wrapper method-icon linkedin-icon">
               <i class="pi pi-linkedin"></i>
             </div>
             <div>
@@ -38,7 +38,7 @@
       <!-- Right Form -->
       <div class="col-12 lg:col-6 contact-form-wrapper">
         <div class="form-glow"></div>
-        <div class="contact-form-card">
+        <div class="card-base contact-form-card">
           <div class="form-header flex align-items-center gap-3 pb-3 mb-3 border-bottom-1">
             <div class="form-dots flex gap-2 mr-auto">
               <div class="dot"></div>
