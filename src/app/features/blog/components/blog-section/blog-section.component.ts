@@ -4,6 +4,7 @@ import { BlogService } from '../../services/blog.service';
 import { BlogPost } from '../../models/blog.interface';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil } from 'rxjs';
+import {SettingsService} from "../../../../core/utils/settings.service";
 
 @Component({
   selector: 'app-blog-section',
@@ -16,6 +17,7 @@ export class BlogSectionComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(
+    public settings: SettingsService,
     private blogService: BlogService,
     private router: Router,
     private translate: TranslateService
@@ -23,7 +25,7 @@ export class BlogSectionComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadPosts();
-    
+
     this.translate.onLangChange
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => this.loadPosts());

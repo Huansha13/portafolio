@@ -10,7 +10,7 @@
   --bg-light: #ffffff;
 }
 
-@layer utilities {    
+@layer utilities {
     .font-display {
         font-family: 'Space Grotesk', sans-serif;
     }
@@ -177,7 +177,7 @@ html, body {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: 
+    background-image:
       linear-gradient(to right, var(--surface-border) 1px, transparent 1px),
       linear-gradient(to bottom, var(--surface-border) 1px, transparent 1px);
     background-size: 24px 24px;
@@ -200,7 +200,7 @@ html, body {
 .sec-columns {
   columns: 4 285px;
   column-gap: 0.5rem;
-  
+
   .item-column {
     margin-bottom: 0.5em;
     display: block;
@@ -226,7 +226,7 @@ html, body {
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    
+
     .content-btn-demo {
       display: block;
     }
@@ -254,4 +254,9 @@ html, body {
 
 .p-image-preview-indicator {
   border-radius: 1rem;
+}
+
+.max-w-portafolio {
+  max-width: 1179px;
+  margin: auto;
 }

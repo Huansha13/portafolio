@@ -73,12 +73,7 @@
                   {{ repo.language }}
                 </span>
               }
-              <span class="repo-stat">
-                <i class="pi pi-star"></i> {{ repo.stargazers_count }}
-              </span>
-              <span class="repo-stat">
-                <i class="pi pi-code-branch"></i> {{ repo.forks_count }}
-              </span>
+
             </div>
             <button (click)="irRepo(repo.html_url)" class="btn-code">
               Code <i class="pi pi-external-link"></i>

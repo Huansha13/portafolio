@@ -1,5 +1,4 @@
 .github-container {
-  padding: 6rem 2rem;
   color: var(--text-color);
   position: relative;
 }
@@ -230,10 +229,6 @@
 }
 
 @media (max-width: 768px) {
-  .github-container {
-    padding: 3rem 1.5rem;
-  }
-
   .repos-header {
     flex-direction: column;
     align-items: stretch;

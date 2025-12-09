@@ -7,16 +7,10 @@
         <span class="section-label">{{ 'blog.section.label' | translate }}</span>
         <h2 class="blog-title font-display">{{ 'blog.section.title' | translate }}</h2>
       </div>
-      <p-button
-        (onClick)="viewAllPosts()"
-        [label]="'blog.section.viewAll' | translate"
-        icon="pi pi-arrow-right"
-        iconPos="right"
-        [outlined]="true"
-        severity="secondary"
-        class="w-full md:w-auto"
-        styleClass="w-full md:w-auto">
-      </p-button>
+
+      <ng-container *ngIf="settings.view.lg">
+        <ng-container *ngTemplateOutlet="ngtBtnViewAll"></ng-container>
+      </ng-container>
     </div>
 
     <!-- Loading State -->
@@ -58,6 +52,24 @@
         <p>{{ 'blog.section.empty' | translate }}</p>
       </div>
     }
-
   </div>
+
+  <ng-container *ngIf="!settings.view.lg">
+    <div class="mt-4">
+      <ng-container *ngTemplateOutlet="ngtBtnViewAll"></ng-container>
+    </div>
+  </ng-container>
 </section>
+
+<ng-template #ngtBtnViewAll>
+  <p-button
+    (onClick)="viewAllPosts()"
+    [label]="'blog.section.viewAll' | translate"
+    icon="pi pi-arrow-right"
+    iconPos="right"
+    [outlined]="true"
+    severity="secondary"
+    class="w-full md:w-auto"
+    styleClass="w-full md:w-auto">
+  </p-button>
+</ng-template>
