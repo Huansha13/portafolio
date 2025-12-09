@@ -11,6 +11,7 @@ import { BlogListPageComponent } from './pages/blog-list-page/blog-list-page.com
 import { BlogDetailPageComponent } from './pages/blog-detail-page/blog-detail-page.component';
 import { BlogCardComponent } from './components/blog-card/blog-card.component';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: BlogListPageComponent },
@@ -32,7 +33,8 @@ const routes: Routes = [
     PrimeNgModule,
     TranslateModule,
     MarkdownModule.forChild(),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   exports: [
     BlogSectionComponent

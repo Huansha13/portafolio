@@ -1,4 +1,4 @@
-<div class="skills-header">
+<div class="skills-header" appScrollAnimate>
     <span class="section-label">{{ 'skills.badge' | translate }}</span>
     <h1 class="skills-title font-display">{{ 'skills.title' | translate }}<br>{{ 'skills.titleBreak' | translate }}</h1>
     <p class="skills-subtitle">
@@ -8,7 +8,7 @@
 
   <div class="skills-grid">
     @for (category of skillCategories; track category.title) {
-      <div class="skill-card">
+      <div class="skill-card" appScrollAnimate>
         <div class="card-header">
           <div class="icon-wrapper">
             <i [class]="category.icon"></i>
@@ -30,7 +30,7 @@
     }
   </div>
 
-  <div class="skills-footer">
+  <div class="skills-footer" appScrollAnimate>
     <div class="footer-item">
       <i class="pi pi-circle-fill"></i>
       <span>{{ 'skills.footer.atomicDesign' | translate }}</span>

@@ -83,7 +83,9 @@
     @if (!loading && filteredPosts.length > 0) {
       <div class="blog-grid">
         @for (post of filteredPosts; track post.id) {
-          <app-blog-card [post]="post" (cardClick)="openPost($event)"></app-blog-card>
+          <div appScrollAnimate>
+            <app-blog-card [post]="post" (cardClick)="openPost($event)"></app-blog-card>
+          </div>
         }
       </div>
     }

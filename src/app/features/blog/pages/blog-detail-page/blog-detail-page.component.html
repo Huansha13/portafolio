@@ -11,7 +11,7 @@
   @if (!loading && post) {
     <div class="detail-wrapper px-3 lg:px-0">
       <article class="detail-container">
-        <header class="post-header">
+        <header class="post-header" appScrollAnimate>
           <div class="post-tags font-fira-code">
             @for (tag of post.tags; track tag) {
               <span class="tag">{{ tag }}</span>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimateDirective } from './directives/scroll-animate.directive';
 
 /**
  * SharedModule
@@ -12,15 +13,14 @@ import { CommonModule } from '@angular/common';
  */
 @NgModule({
   declarations: [
-    // Aquí irán los componentes compartidos
-    // Ejemplo: ButtonComponent, CardComponent, etc.
+    ScrollAnimateDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
     CommonModule,
-    // Exportar componentes compartidos aquí
+    ScrollAnimateDirective
   ]
 })
 export class SharedModule { }

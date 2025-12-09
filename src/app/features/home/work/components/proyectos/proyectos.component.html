@@ -1,5 +1,5 @@
 <div class="proyectos-container">
-<div class="proyectos-header">
+<div class="proyectos-header" appScrollAnimate>
   <div class="section-title">
     <span class="section-label">Portfolio</span>
     <h2 class="section-heading font-display">Proyectos</h2>
@@ -59,7 +59,7 @@
     } @else {
       <div class="proyectos-bento">
         @for (i of proyectosDestacados; track i; let idx = $index) {
-          <div class="proyecto-bento-card" [class.reverse]="idx % 2 === 1">
+          <div class="proyecto-bento-card" [class.reverse]="idx % 2 === 1" appScrollAnimate>
             <div class="proyecto-preview">
               <img [src]="i.url_portada" [alt]="i.nombre" />
             </div>

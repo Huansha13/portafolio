@@ -2,7 +2,7 @@
   <div class="blog-container">
 
     <!-- Section Header -->
-    <div class="blog-header ">
+    <div class="blog-header" appScrollAnimate>
       <div>
         <span class="section-label">{{ 'blog.section.label' | translate }}</span>
         <h2 class="blog-title font-display">{{ 'blog.section.title' | translate }}</h2>
@@ -40,7 +40,9 @@
     @if (!loading && blogPosts.length > 0) {
       <div class="blog-grid">
         @for (post of blogPosts; track post.id) {
-          <app-blog-card [post]="post" (cardClick)="navigateToPost($event)"></app-blog-card>
+          <div appScrollAnimate>
+            <app-blog-card [post]="post" (cardClick)="navigateToPost($event)"></app-blog-card>
+          </div>
         }
       </div>
     }

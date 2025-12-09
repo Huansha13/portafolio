@@ -20,6 +20,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from "@angular/forms";
 import { BlogModule } from '../../blog/blog.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { BlogModule } from '../../blog/blog.module';
     BrowserModule,
     PdfViewerModule,
     FormsModule,
-    BlogModule
+    BlogModule,
+    SharedModule
   ],
 
 

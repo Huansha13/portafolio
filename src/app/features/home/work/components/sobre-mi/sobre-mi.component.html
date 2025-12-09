@@ -1,5 +1,5 @@
 <div class="about-content">
-    <div class="about-left">
+    <div class="about-left" appScrollAnimate>
       <span class="about-badge">{{ 'about.badge' | translate }}</span>
       <h1 class="about-title font-display">
         {{ 'about.title' | translate }}<br>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="about-right">
+    <div class="about-right" appScrollAnimate animationClass="fade-in-right">
       <div class="profile-wrapper">
         <div class="profile-container">
           <div class="profile-glow"></div>
@@ -53,7 +53,7 @@
     </div>
   </div>
 
-  <div class="about-footer">
+  <div class="about-footer" appScrollAnimate>
     <div class="footer-info">
       <span class="footer-label">{{ 'about.footer.age.label' | translate }}</span>
       <span class="footer-value">{{ 2024 - 1996 }} {{ 'about.footer.age.value' | translate }}</span>
