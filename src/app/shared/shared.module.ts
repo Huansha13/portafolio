@@ -10,6 +10,7 @@ import { ScrollAnimateDirective } from './directives/scroll-animate.directive';
  * 
  * Importar este módulo en cualquier feature que necesite acceso
  * a componentes compartidos.
+ * 
  */
 @NgModule({
   declarations: [
