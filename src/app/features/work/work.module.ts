@@ -16,6 +16,7 @@ import {PresentacionComponent} from "./components/presentacion/presentacion.comp
 import {HabilidadesComponent} from "./components/habilidades/habilidades.component";
 import {CertificadoComponent} from "./components/certificado/certificado.component";
 import { ViewPdfComponent } from 'src/app/core/components/view-pdf/view-pdf.component';
+import {ExperienciaComponent} from "./components/experiencia/experiencia.component";
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from "@angular/forms";
@@ -34,7 +35,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     PresentacionComponent,
     HabilidadesComponent,
     CertificadoComponent,
-    ViewPdfComponent
+    ViewPdfComponent,
+    ExperienciaComponent
   ],
   exports: [
     BodyComponent,
@@ -45,7 +47,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AnimatedBackgroundComponent,
     HabilidadesComponent,
     CertificadoComponent,
-    ViewPdfComponent
+    ViewPdfComponent,
+    ExperienciaComponent
   ],
   imports: [
     CommonModule,

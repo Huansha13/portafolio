@@ -1,0 +1,96 @@
+{
+  "label": "Journey",
+  "title": "Experience & Education",
+  "workTitle": "Work Experience",
+  "educationTitle": "Education",
+  "viewMore": "View more experiences",
+  "companies": [
+    {
+      "empresa": "RAYOMI ENTERPRISE GROUP E.I.R.L.",
+      "positions": [
+        {
+          "id": 1,
+          "titulo": "Full Stack Engineer",
+          "fecha": "Mar 2024 - Present",
+          "descripcion": "REST API development with Spring Boot, SAP JCo and SOAP/WSDL integrations, optimization with MyBatis and Redis. Frontend with Angular 17 and PrimeNG, mobile apps with Apache Cordova."
+        },
+        {
+          "id": 2,
+          "titulo": "Full Stack Developer",
+          "fecha": "Jan 2021 - Mar 2024",
+          "descripcion": "Enterprise systems development with Spring Boot, Angular 14, MyBatis + Oracle, and hybrid app generation with Apache Cordova."
+        }
+      ]
+    },
+    {
+      "empresa": "DELIVERY PE",
+      "positions": [
+        {
+          "id": 3,
+          "titulo": "Full Stack Developer",
+          "fecha": "2020 - 2021",
+          "descripcion": "Backend with Spring Boot, JPA and Lombok. Microservices for orders, inventory and logistics. Firebase integration for real-time notifications."
+        }
+      ]
+    },
+    {
+      "empresa": "CONSTRUCTORA SUIZA PERÚ S.A.C.",
+      "positions": [
+        {
+          "id": 4,
+          "titulo": "Full Stack Developer",
+          "fecha": "2019 - 2020",
+          "descripcion": "Inventory and construction management system. Backend and frontend development with Angular 11, MariaDB and SQL Server databases."
+        }
+      ]
+    },
+    {
+      "empresa": "RADIO LA LUZ RADIANTE",
+      "positions": [
+        {
+          "id": 5,
+          "titulo": "Web Developer",
+          "fecha": "Aug 2019 - Dec 2019",
+          "descripcion": "Web platform development with HTML5, CSS and JavaScript. Online radio streaming implementation."
+        }
+      ]
+    },
+    {
+      "empresa": "Universidad Nacional José Faustino Sánchez Carrión",
+      "positions": [
+        {
+          "id": 6,
+          "titulo": "Internship",
+          "fecha": "Feb 2019 - Jul 2019",
+          "descripcion": "Support in systems tasks, documentation and basic analysis. IT support and digital administrative processes."
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "titulo": "Systems Engineer",
+      "institucion": "Universidad Nacional José Faustino Sánchez Carrión",
+      "fecha": "2025"
+    },
+    {
+      "id": 2,
+      "titulo": "Bachelor in Systems Engineering",
+      "institucion": "Universidad Nacional José Faustino Sánchez Carrión",
+      "fecha": "2021"
+    },
+    {
+      "id": 3,
+      "titulo": "English Language",
+      "institucion": "Instituto de Idiomas",
+      "fecha": "2020"
+    },
+    {
+      "id": 4,
+      "titulo": "Systems Engineering Graduate",
+      "institucion": "Universidad Nacional José Faustino Sánchez Carrión",
+      "fecha": "2015 - 2020"
+    }
+  ]
+}

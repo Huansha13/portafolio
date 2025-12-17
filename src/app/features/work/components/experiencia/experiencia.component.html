@@ -1,0 +1,94 @@
+<div class="experience-section">
+  <div class="experience-container">
+    
+    <!-- Header -->
+    <div class="experience-header" appScrollAnimate>
+      <div class="header-content">
+        <span class="section-label">{{ 'experience.label' | translate }}</span>
+        <h2 class="section-heading font-display">{{ 'experience.title' | translate }}</h2>
+      </div>
+      
+      <div class="tabs-custom">
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'experience'"
+          (click)="setActiveTab('experience')">
+          <i class="pi pi-briefcase"></i>
+          <span>{{ 'experience.workTitle' | translate }}</span>
+        </button>
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'education'"
+          (click)="setActiveTab('education')">
+          <i class="pi pi-graduation-cap"></i>
+          <span>{{ 'experience.educationTitle' | translate }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Experiencia -->
+    <div class="section-wrapper" appScrollAnimate *ngIf="activeTab === 'experience'">
+
+      <div class="experience-list">
+        @for (company of experienciasVisible; track company.empresa) {
+          <div class="company-block">
+            <div class="company-sidebar">
+              <div class="company-logo-wrapper">
+                <div class="company-logo">
+                  <i class="pi pi-building"></i>
+                </div>
+              </div>
+              <div class="company-name">{{ company.empresa }}</div>
+              <div class="company-total">{{ getTotalDuration(company.positions) }}</div>
+            </div>
+            
+            <div class="positions-wrapper">
+              @for (position of company.positions; track position.id) {
+                <div class="position-card">
+                  <div class="position-header">
+                    <h4 class="position-title">{{ position.titulo }}</h4>
+                    <span class="position-badge">{{ position.fecha }}</span>
+                  </div>
+                  <p class="position-desc">{{ position.descripcion }}</p>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (!mostrarTodas && experiencias.length > 2) {
+        <div class="text-center mt-4">
+          <p-button
+            (onClick)="verMas()"
+            label="{{ 'experience.viewMore' | translate }}"
+            icon="pi pi-chevron-down"
+            iconPos="right"
+            [outlined]="true"
+            severity="secondary">
+          </p-button>
+        </div>
+      }
+    </div>
+
+    <!-- Educación -->
+    <div class="section-wrapper" appScrollAnimate *ngIf="activeTab === 'education'">
+
+      <div class="education-grid">
+        @for (edu of educacion; track edu.id) {
+          <div class="edu-card">
+            <div class="edu-icon">
+              <i class="pi pi-book"></i>
+            </div>
+            <div class="edu-content">
+              <h4 class="edu-title">{{ edu.titulo }}</h4>
+              <div class="edu-institution">{{ edu.institucion }}</div>
+              <div class="edu-date">{{ edu.fecha }}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>
