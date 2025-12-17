@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ExcelService} from 'src/app/core/utils/excel.service';
-import {HeaderProyectos} from 'src/app/core/model/excel.model';
 import {SettingsService} from 'src/app/core/utils/settings.service';
 import {MenuItem} from "primeng/api";
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-proyectos',
@@ -14,13 +13,14 @@ export class ProyectosComponent implements OnInit {
   activeItem: MenuItem;
   spinnerProyectos = false
   url_asset = import.meta.env.NG_APP_URL_ASSETS;
-  proyectos: HeaderProyectos[] = [];
-  proyectosDestacados: HeaderProyectos[] = [];
+  proyectos: any[] = [];
+  proyectosDestacados: any[] = [];
   mostrarTodos = false;
 
-  constructor(public readonly settings: SettingsService,
-              private readonly excelService: ExcelService) {
-  }
+  constructor(
+    public readonly settings: SettingsService,
+    private readonly translate: TranslateService
+  ) {}
 
   ngOnInit() {
     this.items = [
@@ -28,27 +28,18 @@ export class ProyectosComponent implements OnInit {
       { label: 'GitHub', icon: 'pi pi-github', id: '2' },
     ];
     this.activeItem = this.items[0];
+    this.loadProjects();
+    this.translate.onLangChange.subscribe(() => this.loadProjects());
+  }
 
-    Promise.resolve().then(() => {
-      this.spinnerProyectos = true;
-      this.excelService.obtenerMisProyectos().then(proyectos => {
-        this.spinnerProyectos = false;
-        this.proyectos = proyectos.filter(proy => proy.status == 1);
-
-        this.proyectos.forEach(header => {
-          header.url_portada = `${this.url_asset}/${header.url_portada}`;
-          header.url_pw = `${this.url_asset}/${header.url_pw}`;
-        });
-
-        this.proyectos.sort(
-          (current, next) =>
-            next.id_proyecto - current.id_proyecto
-        );
-        
-        // Mostrar solo los primeros 3 proyectos
-        this.proyectosDestacados = this.proyectos.slice(0, 3);
-      });
-    })
+  loadProjects() {
+    this.spinnerProyectos = true;
+    this.translate.get('projects.data').subscribe((data: any[]) => {
+      this.proyectos = data.filter(p => p.status === 1);
+      this.proyectos.sort((a, b) => b.id - a.id);
+      this.proyectosDestacados = this.proyectos.slice(0, 3);
+      this.spinnerProyectos = false;
+    });
   }
 
   verTodosProyectos() {

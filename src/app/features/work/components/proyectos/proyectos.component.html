@@ -1,8 +1,8 @@
 <div class="proyectos-container">
 <div class="proyectos-header" appScrollAnimate>
   <div class="section-title">
-    <span class="section-label">Portfolio</span>
-    <h2 class="section-heading font-display">Proyectos</h2>
+    <span class="section-label">{{ 'projects.label' | translate }}</span>
+    <h2 class="section-heading font-display">{{ 'projects.title' | translate }}</h2>
   </div>
   <div class="tabs-custom">
     <button
@@ -10,14 +10,14 @@
       [class.active]="activeItem.id === '1'"
       (click)="onTabChange(items[0])">
       <i class="pi pi-table"></i>
-      <span>Proyectos</span>
+      <span>{{ 'projects.tabs.projects' | translate }}</span>
     </button>
     <button
       class="tab-btn"
       [class.active]="activeItem.id === '2'"
       (click)="onTabChange(items[1])">
       <i class="pi pi-github"></i>
-      <span>GitHub</span>
+      <span>{{ 'projects.tabs.github' | translate }}</span>
     </button>
   </div>
 </div>
@@ -61,16 +61,16 @@
         @for (i of proyectosDestacados; track i; let idx = $index) {
           <div class="proyecto-bento-card" [class.reverse]="idx % 2 === 1" appScrollAnimate>
             <div class="proyecto-preview">
-              <img [src]="i.url_portada" [alt]="i.nombre" />
+              <img [src]="i.url_portada" [alt]="i.nombre" (error)="$event.target.src='https://via.placeholder.com/800x400?text=Project+Image'" />
             </div>
             <div class="proyecto-content">
               <p class="proyecto-label">{{ i.version }}</p>
               <h3 class="proyecto-name">{{ i.nombre }}</h3>
-              <p class="proyecto-description">{{ i.descripcion || 'Proyecto desarrollado con las últimas tecnologías' }}</p>
+              <p class="proyecto-description">{{ i.descripcion || ('projects.defaultDescription' | translate) }}</p>
               <div class="proyecto-tech">
-                <span class="tech-tag">Angular</span>
-                <span class="tech-tag">OpenAI API</span>
-                <span class="tech-tag">Tailwind</span>
+                @for (tech of i.tecnologias; track tech) {
+                  <span class="tech-tag">{{ tech }}</span>
+                }
               </div>
               <div class="proyecto-links">
                 @if (i.link_github) {
@@ -93,7 +93,7 @@
         <div class="text-center mt-8">
           <p-button
             (onClick)="verTodosProyectos()"
-            label="Ver todos los proyectos"
+            [label]="'projects.viewAll' | translate"
             icon="pi pi-arrow-right"
             iconPos="right"
             [outlined]="true"

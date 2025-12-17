@@ -14,7 +14,7 @@ export class SobreMiComponent implements OnInit {
   dataHabilidadesResumen: Experiencia[] = [];
 
   constructor(
-    public settings: SettingsService,
+    public settings: SettingsService
   ) {
   }
 
@@ -36,5 +36,9 @@ export class SobreMiComponent implements OnInit {
         description: 'Experiencia en el desarrollo de aplicaciones móviles para Android e iOS.'
       },
     ]
+  }
+
+  openContactDialog() {
+    window.location.href = '/contact';
   }
 }

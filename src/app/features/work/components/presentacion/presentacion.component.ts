@@ -87,8 +87,9 @@ export class PresentacionComponent implements OnInit {
 
   contactame() {
     this.dialogService.open(FormContactameComponent, {
-      header: 'Contáctate conmigo',
-      width: this.settings.view.sm ? '100%' : '30%'
+      header: this.translate.instant('contact.subtitle'),
+      width: this.settings.view.sm ? '100%' : '40%',
+      styleClass: 'contact-dialog'
     });
   }
 

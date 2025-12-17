@@ -3,6 +3,10 @@
   "subtitle": "Let's Work Together",
   "description": "Do you have an innovative idea or a complex technical challenge? I'm ready to contribute my software architecture experience to take your project to the next level.",
   "methods": {
+    "form": {
+      "title": "Contact Form",
+      "value": "Send me a direct message"
+    },
     "email": {
       "title": "Direct Email",
       "value": "ing.yfhl13@outlook.com"
