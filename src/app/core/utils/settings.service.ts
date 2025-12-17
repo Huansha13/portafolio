@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Home} from "../../work/model/home.interface";
-import {About} from "../../work/model/about.interface";
-import {Abilities} from "../../work/model/habilities.interface";
-import {Certificate} from "../../work/model/certificates.interface";
+import {Home} from 'src/app/features/work/model/home.interface';
+import {About} from 'src/app/features/work/model/about.interface';
+import {Abilities} from 'src/app/features/work/model/habilities.interface';
+import {Certificate} from 'src/app/features/work/model/certificates.interface';
 import {Responsive} from "../model/resoponsive";
 
 @Injectable({

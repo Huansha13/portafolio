@@ -1,0 +1,31 @@
+{
+  "badge": "READY TO DEPLOY",
+  "title": "Full Stack",
+  "titleGradient": "Developer",
+  "buildingLabel": "Building",
+  "roles": {
+    "frontend": "Frontend UX",
+    "backend": "Backend Logic",
+    "cloud": "Cloud Arch",
+    "database": "Database Ops"
+  },
+  "description": "I transform complex requirements into scalable web applications. I master the full cycle: from the perfect pixel on the client to database optimization.",
+  "btnPortfolio": "View Portfolio",
+  "btnGithub": "GitHub",
+  "btncv": "View CV",
+  "urlCV": "https://lwzlwomlavfrnrtxartw.supabase.co/storage/v1/object/public/mi-portafolio/yeferFrankHuansha-cv-doc-en-2025-fullstack.pdf",
+  "btnLinkedin": "LinkedIn",
+  "coreStack": "CORE STACK",
+  "codeWindow": {
+    "fileName": "developer.config.ts",
+    "name": "Frank Huansha",
+    "skills": ["Angular", "Spring Boot", "PostgreSQL"],
+    "hardWorker": true,
+    "problemSolver": true,
+    "comment": "// Ready to collaborate"
+  },
+  "statusCard": {
+    "title": "System Status",
+    "value": "All Systems Go"
+  }
+}

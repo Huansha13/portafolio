@@ -1,0 +1,116 @@
+@if (perfil && !isVistaBody) {
+  <div class="surface-50 p-2 md:p-4">
+    <div class="container">
+      <div class="grid" [class.grid]="settings.view.lg">
+        <!-- Profile Section -->
+        <div [ngClass]="{'col-12 lg:col-4': settings.view.lg}">
+          <p-card>
+            <ng-template pTemplate="header">
+              <img alt="Card" class="w-full border-round-sm" [src]="perfil?.avatar_url"/>
+            </ng-template>
+            <ng-template pTemplate="title">
+              <div class="flex flex-column">
+                <small>
+                  <a class="font-normal text-sm" href="https://github.com/{{ perfil?.login }}" target="_blank">
+                    <i class="uil uil-external-link-alt"></i> {{ perfil?.login }}
+                  </a>
+                </small>
+                {{ perfil?.name }}
+              </div>
+            </ng-template>
+            <p class="m-0">{{ perfil?.bio }}</p>
+            <ng-template pTemplate="footer">
+              <div class="flex justify-content-between text-secondary border-top-1 surface-border py-3">
+                <small> <i class="pi pi-book"></i> {{ perfil?.public_repos }} {{
+                    'gitHub.repository' | translate
+                  }}</small>
+                <small> <i class="pi pi-users"></i> {{ perfil?.followers }} {{ 'gitHub.follower' | translate }}</small>
+              </div>
+              <div class="border-top-1 surface-border py-3">
+                <small class="font-medium">🏠 {{ 'gitHub.statusWork' | translate }} - {{ perfil?.location }}</small>
+              </div>
+            </ng-template>
+          </p-card>
+        </div>
+        <!-- Repository List Section -->
+        <div [ngClass]="{'col-12 lg:col-8': settings.view.lg, 'mt-3': settings.view.sm}">
+          <ng-container *ngTemplateOutlet="listaRepositorio"></ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+} @else {
+  <div class="github-container">
+  <div class="github-repos-container">
+    <div class="repos-header">
+      <div class="repos-filters">
+        <button class="filter-btn" [class.active]="filtroActivo === 'Todos'" (click)="filtrarPorLenguaje('Todos')">Todos</button>
+        <button class="filter-btn" [class.active]="filtroActivo === 'Html'" (click)="filtrarPorLenguaje('Html')">Html</button>
+        <button class="filter-btn" [class.active]="filtroActivo === 'Java'" (click)="filtrarPorLenguaje('Java')">Java</button>
+        <button class="filter-btn" [class.active]="filtroActivo === 'TypeScript'" (click)="filtrarPorLenguaje('TypeScript')">TypeScript</button>
+        <button class="filter-btn" [class.active]="filtroActivo === 'Python'" (click)="filtrarPorLenguaje('Python')">Python</button>
+      </div>
+      <div class="repos-search">
+        <i class="pi pi-search"></i>
+        <input type="text" [(ngModel)]="busqueda" (keyup)="buscar()" placeholder="Buscar repositorios..." />
+      </div>
+    </div>
+    <div class="repos-grid">
+      @for (repo of reposPaginados; track repo.id) {
+        <div class="repo-card">
+          <div class="repo-header">
+            <i class="pi pi-github"></i>
+            <h3>{{ repo.name }}</h3>
+            <span class="repo-badge">Public</span>
+          </div>
+          <p class="repo-description">{{ repo.description || 'Sin descripción' }}</p>
+          <div class="repo-footer">
+            <div class="repo-stats">
+              @if (repo.language) {
+                <span class="repo-language">
+                  <span class="language-dot" [style.background]="getLanguageColor(repo.language)"></span>
+                  {{ repo.language }}
+                </span>
+              }
+
+            </div>
+            <button (click)="irRepo(repo.html_url)" class="btn-code">
+              Code <i class="pi pi-external-link"></i>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+    @if (totalRepos > reposPorPagina) {
+      <div class="repos-pagination">
+        <button class="btn-page" [disabled]="paginaActual === 1" (click)="paginaAnterior()">
+          <i class="pi pi-chevron-left"></i>
+        </button>
+        @for (num of getPaginas(); track num) {
+          <button class="btn-page" [class.active]="paginaActual === num" (click)="irAPagina(num)">
+            {{ num }}
+          </button>
+        }
+        <button class="btn-page" [disabled]="paginaActual === totalPaginas" (click)="paginaSiguiente()">
+          <i class="pi pi-chevron-right"></i>
+        </button>
+      </div>
+    }
+  </div>
+  </div>
+}
+
+<ng-template #listaRepositorio>
+  <p-card>
+    <ng-template pTemplate="header">
+      <div class="px-4 pt-3">
+        <ng-container *ngTemplateOutlet="sectionFilter"></ng-container>
+      </div>
+    </ng-template>
+
+    <ng-container *ngTemplateOutlet="tblListaRepositorio"></ng-container>
+  </p-card>
+</ng-template>
+
+

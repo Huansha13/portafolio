@@ -1,0 +1,99 @@
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+.particle {
+  position: absolute;
+  width: var(--size, 6px);
+  height: var(--size, 6px);
+  left: var(--left, 50%);
+  top: var(--top, 0%);
+  opacity: var(--opacity, 0.3);
+  border-radius: 50%;
+  will-change: transform, opacity;
+  filter: blur(1px);
+}
+
+// Primavera - Puntos suaves
+[data-theme="spring"] .particle {
+  background: radial-gradient(circle, var(--primary-300), transparent);
+  animation: gentle-float var(--duration, 25s) var(--delay, 0s) infinite ease-in-out;
+}
+
+// Verano - Puntos cálidos
+[data-theme="summer"] .particle {
+  background: radial-gradient(circle, var(--yellow-300), transparent);
+  animation: gentle-float var(--duration, 25s) var(--delay, 0s) infinite ease-in-out;
+}
+
+// Otoño - Puntos tierra
+[data-theme="autumn"] .particle {
+  background: radial-gradient(circle, var(--orange-300), transparent);
+  animation: gentle-float var(--duration, 25s) var(--delay, 0s) infinite ease-in-out;
+}
+
+// Invierno - Puntos fríos
+[data-theme="winter"] .particle {
+  background: radial-gradient(circle, var(--cyan-200), transparent);
+  animation: gentle-float var(--duration, 25s) var(--delay, 0s) infinite ease-in-out;
+}
+
+// Halloween - Puntos naranjas
+[data-theme="halloween"] .particle {
+  background: radial-gradient(circle, var(--orange-400), transparent);
+  animation: gentle-float var(--duration, 25s) var(--delay, 0s) infinite ease-in-out;
+}
+
+// Navidad - Puntos rojos y verdes
+[data-theme="christmas"] .particle {
+  background: radial-gradient(circle, var(--red-400), transparent);
+  animation: gentle-float var(--duration, 25s) var(--delay, 0s) infinite ease-in-out;
+}
+
+// Año Nuevo - Puntos dorados
+[data-theme="newyear"] .particle {
+  background: radial-gradient(circle, var(--yellow-400), transparent);
+  animation: gentle-float var(--duration, 25s) var(--delay, 0s) infinite ease-in-out;
+}
+
+// Fiestas Patrias - Puntos rojos
+[data-theme="fiestas-patrias"] .particle {
+  background: radial-gradient(circle, var(--red-400), transparent);
+  animation: gentle-float var(--duration, 25s) var(--delay, 0s) infinite ease-in-out;
+}
+
+@keyframes gentle-float {
+  0% { 
+    transform: translate(0, -20px); 
+    opacity: 0; 
+  }
+  10% { 
+    opacity: var(--opacity); 
+  }
+  90% { 
+    opacity: var(--opacity); 
+  }
+  100% { 
+    transform: translate(0, 100vh); 
+    opacity: 0; 
+  }
+}
+
+:host.is-paused .particle {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+    opacity: 0.1;
+  }
+}

@@ -1,0 +1,101 @@
+<section class="hero-section">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-spotlight hero-spotlight-1"></div>
+  <div class="hero-spotlight hero-spotlight-2"></div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="status-pulse">
+          <span class="pulse-ring"></span>
+          <span class="pulse-dot"></span>
+        </span>
+        <span class="badge-text">{{ 'home.badge' | translate }}</span>
+      </div>
+
+      <h1 class="hero-title font-display">
+        {{ 'home.title' | translate }}<br />
+        <span class="hero-title-gradient">{{ 'home.titleGradient' | translate }}</span>
+      </h1>
+
+      <div class="hero-subtitle font-display">
+        <span>{{ 'home.buildingLabel' | translate }}</span>
+        <span class="rotating-text">{{ ('home.roles.' + rolesKeys[currentRoleIndex]) | translate }}</span>
+      </div>
+
+      <p class="hero-description">
+        {{ 'home.description' | translate }}
+      </p>
+
+      <div class="flex gap-3">
+        <button pButton pRipple class="active-animation" (click)="descargarCv()" iconPos="right"
+          icon="pi pi-arrow-right" [label]="'home.btncv' | translate">
+        </button>
+
+        <button pButton pRipple icon="pi pi-linkedin"
+                (click)="openLinkedIn()"
+                [outlined]="true" [label]="'home.btnLinkedin' | translate">
+        </button>
+      </div>
+
+      <div class="tech-stack-bar">
+        <span class="tech-label">{{ 'home.coreStack' | translate }}</span>
+        <div class="tech-icons">
+          <i class="pi pi-code"></i>
+          <i class="pi pi-desktop"></i>
+          <i class="pi pi-server"></i>
+          <i class="pi pi-database"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="code-card-glow"></div>
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <span class="control-dot control-red"></span>
+            <span class="control-dot control-yellow"></span>
+            <span class="control-dot control-green"></span>
+          </div>
+          <span class="file-name">{{ 'home.codeWindow.fileName' | translate }}</span>
+        </div>
+        <div class="code-content">
+          <div class="code-line"><span class="line-number">1</span><span class="keyword">interface</span> <span
+              class="type">FullStackDev</span> <span class="bracket">&#123;</span></div>
+          <div class="code-line"><span class="line-number">2</span>&nbsp;&nbsp;<span class="property">name:</span> <span
+              class="string">'{{ 'home.codeWindow.name' | translate }}'</span><span class="punctuation">,</span></div>
+          <div class="code-line"><span class="line-number">3</span>&nbsp;&nbsp;<span class="property">skills:</span>
+            <span class="bracket">&#91;</span></div>
+          <div class="code-line"><span class="line-number">4</span>&nbsp;&nbsp;&nbsp;&nbsp;@for (skill of codeSkills;
+            track skill; let isLast = $last) { <span class="string">'{{ skill }}'</span>@if (!isLast) {<span
+              class="punctuation">,</span> } }</div>
+          <div class="code-line"><span class="line-number">5</span>&nbsp;&nbsp;<span class="bracket">&#93;,</span></div>
+          <div class="code-line"><span class="line-number">6</span>&nbsp;&nbsp;<span class="property">hardWorker:</span>
+            <span class="boolean">true</span><span class="punctuation">,</span></div>
+          <div class="code-line"><span class="line-number">7</span>&nbsp;&nbsp;<span
+              class="property">problemSolver:</span> <span class="boolean">true</span></div>
+          <div class="code-line"><span class="line-number">8</span><span class="bracket">&#125;</span></div>
+          <div class="code-line code-line-empty"></div>
+          <div class="code-line"><span class="line-number">9</span><span class="keyword">const</span> <span
+              class="function">buildFuture</span> <span class="punctuation">=</span> <span class="bracket">()</span>
+            <span class="keyword">=&gt;</span> <span class="bracket">&#123;</span></div>
+          <div class="code-line"><span class="line-number">10</span> <span class="comment">{{ 'home.codeWindow.comment'
+              | translate }}</span></div>
+          <div class="code-line"><span class="line-number">11</span> <span class="cursor"></span></div>
+        </div>
+      </div>
+
+      <div class="status-card">
+        <a pButton pRipple
+           [label]="'home.btnGithub' | translate"
+           [rounded]="true"
+           href="https://github.com/Huansha13/portafolio.git" target="_blank"
+           icon="pi pi-github"
+           severity="secondary"
+           class="no-underline"></a>
+      </div>
+    </div>
+  </div>
+</section>

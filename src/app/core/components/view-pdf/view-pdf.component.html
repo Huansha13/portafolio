@@ -1,52 +1,117 @@
-<div style="position: relative;">
-  <div style="position: fixed; left: 0" class="w-full py-2 px-4">
-    <div class="flex justify-content-between align-items-center">
-      <div class="flex flex-column gap-2">
-        @if (totalPages > 1) {
-        <div class="flex justify-content-center align-items-center gap-2">
-          <!-- Botón Anterior -->
-          <button pButton pRipple type="button" [label]="settings.view.sm ? '' : 'Anterior'"
-                  icon="pi pi-chevron-left" (click)="previousPage()" [disabled]="currentPage === 1"
-                  severity="secondary"
-                  size="small"
-                  class="p-button-rounded p-button-text p-button-outlined">
-          </button>
+<div class="pdf-viewer-container">
+  <!-- Header con controles -->
+  <div class="pdf-header">
+    <div class="header-left">
+      <h3 class="pdf-title">{{ 'pdf-viewer.title' | translate }}</h3>
+      @if (totalPages > 0) {
+        <span class="page-info">{{ totalPages }} {{ 'pdf-viewer.pages' | translate }}</span>
+      }
+    </div>
 
-          <small>Página {{ currentPage + ' de ' + totalPages }}</small>
+    <div class="header-controls">
 
-          <!-- Botón Siguiente -->
-          <button pButton pRipple type="button" [label]="settings.view.sm ? '' : 'Siguiente'"
-                  (click)="nextPage()" icon="pi pi-chevron-right" iconPos="right"
-                  [disabled]="currentPage === totalPages"
-                  severity="secondary"
-                  size="small"
-                  class="p-button-rounded p-button-text p-button-outlined"></button>
-        </div>
-        }
+
+      <!-- Controles de zoom -->
+      <div class="zoom-controls">
+        <p-button
+          icon="pi pi-minus"
+          (onClick)="zoomOut()"
+          [disabled]="zoom <= 0.5"
+          [text]="true"
+          severity="secondary"
+          size="small"
+          [pTooltip]="'pdf-viewer.tooltips.zoomOut' | translate">
+        </p-button>
+
+        <span class="zoom-level">{{ (zoom * 100) | number:'1.0-0' }}%</span>
+
+        <p-button
+          icon="pi pi-plus"
+          (onClick)="zoomIn()"
+          [disabled]="zoom >= 3"
+          [text]="true"
+          severity="secondary"
+          size="small"
+          [pTooltip]="'pdf-viewer.tooltips.zoomIn' | translate">
+        </p-button>
+
+        <p-button
+          icon="pi pi-refresh"
+          (onClick)="resetZoom()"
+          [text]="true"
+          severity="secondary"
+          size="small"
+          [pTooltip]="'pdf-viewer.tooltips.resetZoom' | translate">
+        </p-button>
       </div>
 
-      <!-- Botón Descargar  -->
-      <button pButton pRipple type="button" icon="pi pi-download"
-              [label]="settings.view.sm ? '' : 'Descargar'"
-              title="Descargar PDF" (click)="download()"
-              [outlined]="true"
-              size="small"
-              class="p-button-rounded">
-      </button>
+      <!-- Acciones principales -->
+      <div class="main-actions">
+        <p-button
+          icon="pi pi-download"
+          (onClick)="download()"
+          [text]="true"
+          severity="secondary"
+          [pTooltip]="'pdf-viewer.tooltips.download' | translate"
+          size="small">
+        </p-button>
+
+        <p-button
+          icon="pi pi-times"
+          (onClick)="close()"
+          [text]="true"
+          severity="secondary"
+          size="small"
+          [pTooltip]="'pdf-viewer.tooltips.close' | translate">
+        </p-button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="pt-7" style="display: flex; height: 100%;">
-  <!-- Visor de PDF -->
-  <pdf-viewer
-    [src]="data.pdf"
-    [render-text]="true"
-    [original-size]="false"
-    [zoom]="1"
-    [page]="currentPage"
-    [show-all]="false"
-    (after-load-complete)="onLoadComplete($event)"
-    style="flex: 1; width: 100%;">
-  </pdf-viewer>
+  <!-- Contenido del PDF -->
+  <div class="pdf-content">
+    @if (isLoading) {
+      <div class="loading-state">
+        <p-progressSpinner
+          styleClass="w-4rem h-4rem"
+          strokeWidth="2"
+          fill="transparent"
+          animationDuration=".8s">
+        </p-progressSpinner>
+        <p>{{ 'pdf-viewer.loading' | translate }}</p>
+      </div>
+    }
+
+    @if (error) {
+      <div class="error-state">
+        <i class="pi pi-exclamation-triangle"></i>
+        <h4>{{ 'pdf-viewer.error.title' | translate }}</h4>
+        <p>{{ 'pdf-viewer.error.message' | translate }}</p>
+        <p-button
+          [label]="'pdf-viewer.error.download' | translate"
+          icon="pi pi-download"
+          (onClick)="download()"
+          severity="help">
+        </p-button>
+      </div>
+    }
+
+    @if (!error) {
+      <pdf-viewer
+        [src]="data.pdf"
+        [render-text]="true"
+        [original-size]="false"
+        [zoom]="zoom"
+        [show-all]="true"
+        [stick-to-page]="false"
+        [external-link-target]="'blank'"
+        (after-load-complete)="onLoadComplete($event)"
+        (error)="onError($event)"
+        (progress)="onProgress($event)"
+
+        style="width: 100%; height: 100%; display: block;"
+        class="pdf-viewer">
+      </pdf-viewer>
+    }
+  </div>
 </div>

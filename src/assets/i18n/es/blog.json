@@ -1,0 +1,28 @@
+{
+  "header": {
+    "backToPortfolio": "Volver al Portafolio",
+    "allPosts": "Todos"
+  },
+  "list": {
+    "title": "Blog",
+    "subtitle": "Artículos sobre programación, desarrollo y tecnología",
+    "search": "Buscar artículos...",
+    "allCategories": "Todas las categorías",
+    "allTags": "Todas las etiquetas",
+    "results": "artículos encontrados",
+    "noResults": "No se encontraron artículos",
+    "tryDifferent": "Intenta con otros términos de búsqueda o filtros",
+    "clearFilters": "Limpiar filtros",
+    "selectTag": "Todas las etiquetas",
+    "selectedTags": "Etiquetas"
+  },
+  "section": {
+    "label": "Blog & Artículos",
+    "title": "Últimas Publicaciones",
+    "viewAll": "Ver todos los artículos",
+    "empty": "No hay publicaciones disponibles"
+  },
+  "toc": {
+    "title": "Índice de Contenidos"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "title": "My Resume",
+  "pages": "pages",
+  "loading": "Loading document...",
+  "error": {
+    "title": "Error loading document",
+    "message": "Could not load the PDF file. Try downloading it directly.",
+    "download": "Download PDF"
+  },
+  "tooltips": {
+    "zoomOut": "Zoom out",
+    "zoomIn": "Zoom in",
+    "resetZoom": "Reset zoom",
+    "download": "Download PDF",
+    "close": "Close"
+  }
+}

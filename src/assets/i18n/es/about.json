@@ -1,0 +1,40 @@
+{
+  "badge": "QUIÉN SOY",
+  "title": "Ingeniero de Sistemas",
+  "subtitle": "con visión de producto.",
+  "description": "Desarrollador Full Stack con experiencia en crear soluciones escalables y eficientes. Especializado en tecnologías modernas y arquitecturas robustas.",
+  "btnContact": "Contáctame",
+  "btnCV": "Descargar CV",
+  "stats": {
+    "experience": {
+      "number": "+4",
+      "label": "Años Exp."
+    },
+    "projects": {
+      "number": "10+",
+      "label": "Proyectos"
+    }
+  },
+  "footer": {
+    "age": {
+      "label": "EDAD",
+      "value": "años"
+    },
+    "location": {
+      "label": "UBICACIÓN",
+      "value": "Lima, Peru"
+    },
+    "stack": {
+      "label": "STACK",
+      "value": "Spring Boot, Angular"
+    },
+    "availability": {
+      "label": "DISPONIBILIDAD",
+      "value": "Open to Work"
+    },
+    "languages": {
+      "label": "IDIOMAS",
+      "value": "Español/Inglés"
+    }
+  }
+}

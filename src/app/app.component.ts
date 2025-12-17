@@ -1,9 +1,12 @@
 import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
 import {TranslateService} from "@ngx-translate/core";
 import {Idioma, Tamanos} from "./core/utils/enum";
 import {SettingsService} from "./core/utils/settings.service";
+import {SeasonalThemeService} from "./core/utils/seasonal-theme.service";
 import Typewriter from 't-writer.js';
 import {Responsive} from "./core/model/resoponsive";
+import {filter} from 'rxjs/operators';
 
 
 @Component({
@@ -15,34 +18,63 @@ export class AppComponent implements OnInit, AfterViewInit {
   textLoader: string = `while(true) {
                             <b class="text-primary">yefer<span class="text-900">Frank();</span></b>
                         }`;
+  currentTheme$ = this.seasonalTheme.currentTheme$;
+  fadeOut = false;
+  private writerInitialized = false;
+  isBlogRoute = false;
 
   constructor(private readonly translate: TranslateService,
-              public settings: SettingsService) {
+              public settings: SettingsService,
+              public seasonalTheme: SeasonalThemeService,
+              private router: Router) {
     this.onResize();
+    
+    // Detectar cambios de ruta
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      this.isBlogRoute = event.url.startsWith('/blog');
+    });
   }
 
   ngOnInit(): void {
+    // Obtener idioma guardado o usar español por defecto
+    const savedLang = localStorage.getItem('selectedLanguage') || Idioma.ES;
+    
     // Configura el idioma inicial
-    this.translate.setDefaultLang(Idioma.ES);
+    this.translate.setDefaultLang(savedLang);
+    this.translate.use(savedLang);
 
-    // Carga las traducciones
-    this.translate.use(Idioma.ES);
+    // Ocultar loader inmediatamente
+    this.settings.isLoading = false;
   }
 
   ngAfterViewInit() {
-    this.writerLoader();
+    // El writerLoader ahora se llama desde el subscribe del tema
   }
 
   cambiarIdioma(idioma: string) {
     this.translate.use(idioma);
+    localStorage.setItem('selectedLanguage', idioma);
   }
 
   writerLoader(): void {
     const target2 = document.querySelector('.text-loader2');
+    
+    // Obtener el color del tema estacional
+    const theme = this.seasonalTheme.getCurrentTheme();
+    // Convertir la clase de PrimeFlex a color hex
+    const colorMap: any = {
+      'text-orange-500': '#ff8c00',
+      'text-green-600': '#16a34a',
+      'text-yellow-500': '#eab308',
+      'text-red-600': '#dc2626'
+    };
+    const themeColor = theme ? colorMap[theme.logoColor] || '#3b82f6' : '#3b82f6';
 
     const writer1 = new Typewriter(target2, {
       typeSpeed: 60,
-      typeColor: 'var(--primary-color)',
+      typeColor: themeColor,
       cursorColor: 'var(--text-color)'
     });
 

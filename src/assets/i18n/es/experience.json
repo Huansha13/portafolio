@@ -1,0 +1,96 @@
+{
+  "label": "Trayectoria",
+  "title": "Experiencia & Educación",
+  "workTitle": "Experiencia Laboral",
+  "educationTitle": "Educación",
+  "viewMore": "Ver más experiencias",
+  "companies": [
+    {
+      "empresa": "RAYOMI ENTERPRISE GROUP E.I.R.L.",
+      "positions": [
+        {
+          "id": 1,
+          "titulo": "Full Stack Engineer",
+          "fecha": "Mar 2024 - Presente",
+          "descripcion": "Desarrollo de APIs REST con Spring Boot, integraciones SAP JCo y SOAP/WSDL, optimización con MyBatis y Redis. Frontend con Angular 17 y PrimeNG, apps móviles con Apache Cordova."
+        },
+        {
+          "id": 2,
+          "titulo": "Full Stack Developer",
+          "fecha": "Ene 2021 - Mar 2024",
+          "descripcion": "Desarrollo de sistemas empresariales con Spring Boot, Angular 14, MyBatis + Oracle, y generación de apps híbridas con Apache Cordova."
+        }
+      ]
+    },
+    {
+      "empresa": "DELIVERY PE",
+      "positions": [
+        {
+          "id": 3,
+          "titulo": "Full Stack Developer",
+          "fecha": "2020 - 2021",
+          "descripcion": "Backend con Spring Boot, JPA y Lombok. Microservicios para pedidos, inventario y logística. Integración con Firebase para notificaciones en tiempo real."
+        }
+      ]
+    },
+    {
+      "empresa": "CONSTRUCTORA SUIZA PERÚ S.A.C.",
+      "positions": [
+        {
+          "id": 4,
+          "titulo": "Full Stack Developer",
+          "fecha": "2019 - 2020",
+          "descripcion": "Sistema de inventario y control de obras. Desarrollo backend y frontend con Angular 11, bases de datos MariaDB y SQL Server."
+        }
+      ]
+    },
+    {
+      "empresa": "RADIO LA LUZ RADIANTE",
+      "positions": [
+        {
+          "id": 5,
+          "titulo": "Web Developer",
+          "fecha": "Ago 2019 - Dic 2019",
+          "descripcion": "Desarrollo de plataforma web con HTML5, CSS y JavaScript. Implementación de streaming de radio en línea."
+        }
+      ]
+    },
+    {
+      "empresa": "Universidad Nacional José Faustino Sánchez Carrión",
+      "positions": [
+        {
+          "id": 6,
+          "titulo": "Prácticas pre profesionales",
+          "fecha": "Feb 2019 - Jul 2019",
+          "descripcion": "Apoyo en tareas de sistemas, documentación y análisis básico. Soporte informático y procesos administrativos digitales."
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "titulo": "Ingeniero de Sistemas",
+      "institucion": "Universidad Nacional José Faustino Sánchez Carrión",
+      "fecha": "2025"
+    },
+    {
+      "id": 2,
+      "titulo": "Bachiller en Ingeniería de Sistemas",
+      "institucion": "Universidad Nacional José Faustino Sánchez Carrión",
+      "fecha": "2021"
+    },
+    {
+      "id": 3,
+      "titulo": "Idioma Inglés",
+      "institucion": "Instituto de Idiomas",
+      "fecha": "2020"
+    },
+    {
+      "id": 4,
+      "titulo": "Egresado de Ingeniería de Sistemas",
+      "institucion": "Universidad Nacional José Faustino Sánchez Carrión",
+      "fecha": "2015 - 2020"
+    }
+  ]
+}

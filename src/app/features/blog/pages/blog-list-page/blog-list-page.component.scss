@@ -1,0 +1,23 @@
+.blog-list-page {
+  background: var(--surface-ground);
+  overflow-x: hidden;
+}
+
+.page-container {
+  max-width: 1179px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+::ng-deep {
+  .p-inputtext {
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 2rem;
+}

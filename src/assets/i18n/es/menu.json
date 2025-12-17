@@ -1,0 +1,12 @@
+{
+  "home": "Inicio",
+  "contact": "Contacto",
+  "repository": "Repositorio",
+  "downloadCode": "Descargar Código",
+  "blog": "Blog",
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  }
+}

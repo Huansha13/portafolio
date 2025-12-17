@@ -1,0 +1,109 @@
+.blog-card {
+  // Usar .card-base del styles.scss global
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+
+    .card-gradient {
+      opacity: 1;
+    }
+
+    .card-title {
+      color: var(--primary-color);
+    }
+
+    .arrow-icon {
+      color: var(--text-color);
+    }
+  }
+}
+
+.card-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  opacity: 0;
+  transition: var(--transition-base);
+}
+
+.card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  // Usar .tech-tag del styles.scss global
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 12px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.4;
+  transition: var(--transition-base);
+}
+
+.card-excerpt {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--surface-border);
+  margin-top: auto;
+}
+
+.meta-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--text-color-secondary);
+  font-family: 'Courier New', monospace;
+
+  i {
+    font-size: 0.75rem;
+  }
+}
+
+.arrow-icon {
+  font-size: 1rem;
+  color: var(--text-color-secondary);
+  transition: var(--transition-base);
+}

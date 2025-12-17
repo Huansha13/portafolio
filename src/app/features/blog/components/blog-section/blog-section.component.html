@@ -1,0 +1,77 @@
+<section class="blog-section">
+  <div class="blog-container">
+
+    <!-- Section Header -->
+    <div class="blog-header" appScrollAnimate>
+      <div>
+        <span class="section-label">{{ 'blog.section.label' | translate }}</span>
+        <h2 class="blog-title font-display">{{ 'blog.section.title' | translate }}</h2>
+      </div>
+
+      <ng-container *ngIf="settings.view.lg">
+        <ng-container *ngTemplateOutlet="ngtBtnViewAll"></ng-container>
+      </ng-container>
+    </div>
+
+    <!-- Loading State -->
+    @if (loading) {
+      <div class="blog-grid">
+        @for (item of [1, 2, 3]; track item) {
+          <div class="blog-card">
+            <div class="card-content">
+              <div class="tags-skeleton">
+                <p-skeleton width="60px" height="24px" borderRadius="12px"></p-skeleton>
+                <p-skeleton width="80px" height="24px" borderRadius="12px"></p-skeleton>
+              </div>
+              <p-skeleton width="100%" height="28px" styleClass="mb-3"></p-skeleton>
+              <p-skeleton width="100%" height="16px" styleClass="mb-2"></p-skeleton>
+              <p-skeleton width="80%" height="16px" styleClass="mb-4"></p-skeleton>
+              <div class="meta-skeleton">
+                <p-skeleton width="80px" height="14px"></p-skeleton>
+                <p-skeleton width="60px" height="14px"></p-skeleton>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Blog Grid -->
+    @if (!loading && blogPosts.length > 0) {
+      <div class="blog-grid">
+        @for (post of blogPosts; track post.id) {
+          <div appScrollAnimate>
+            <app-blog-card [post]="post" (cardClick)="navigateToPost($event)"></app-blog-card>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Empty State -->
+    @if (!loading && blogPosts.length === 0) {
+      <div class="empty-state">
+        <i class="pi pi-book"></i>
+        <p>{{ 'blog.section.empty' | translate }}</p>
+      </div>
+    }
+  </div>
+
+  <ng-container *ngIf="!settings.view.lg">
+    <div class="mt-4">
+      <ng-container *ngTemplateOutlet="ngtBtnViewAll"></ng-container>
+    </div>
+  </ng-container>
+</section>
+
+<ng-template #ngtBtnViewAll>
+  <p-button
+    (onClick)="viewAllPosts()"
+    [label]="'blog.section.viewAll' | translate"
+    icon="pi pi-arrow-right"
+    iconPos="right"
+    [outlined]="true"
+    severity="secondary"
+    class="w-full md:w-auto"
+    styleClass="w-full md:w-auto">
+  </p-button>
+</ng-template>

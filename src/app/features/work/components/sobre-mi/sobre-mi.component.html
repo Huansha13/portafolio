@@ -1,0 +1,81 @@
+<div class="about-content">
+    <div class="about-left" appScrollAnimate>
+      <div>
+        <span class="badge-custom about-badge">{{ 'about.badge' | translate }}</span>
+      </div>
+      <h1 class="about-title font-display">
+        {{ 'about.title' | translate }}<br>
+        <span class="about-subtitle">{{ 'about.subtitle' | translate }}</span>
+      </h1>
+
+      <div class="about-description">
+        <p>{{ data?.descripcion || ('about.description' | translate) }}</p>
+      </div>
+
+      <div class="about-actions">
+        <p-button pRipple
+                  (click)="openContactDialog()"
+                  label="{{ 'about.btnContact' | translate }}"
+                  icon="pi pi-arrow-up-right"
+                  [outlined]="true"
+                  severity="contrast"
+                  iconPos="right"
+                  styleClass="w-full md:w-auto">
+        </p-button>
+      </div>
+    </div>
+
+    <div class="about-right" appScrollAnimate animationClass="fade-in-right">
+      <div class="profile-wrapper">
+        <div class="profile-container">
+          <div class="profile-glow"></div>
+          <img alt="mi-foto" src="https://lwzlwomlavfrnrtxartw.supabase.co/storage/v1/object/public/mi-portafolio/foto-casual-negro.png" class="profile-image"/>
+
+          <div class="floating-stat stat-exp font-display">
+            <div class="stat-icon-wrapper ml-1">
+              <i class="pi pi-box"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number">{{ 'about.stats.experience.number' | translate }}</div>
+              <div class="stat-label">{{ 'about.stats.experience.label' | translate }}</div>
+            </div>
+          </div>
+
+          <div class="floating-stat stat-projects font-display">
+            <div class="stat-icon-wrapper">
+              <i class="pi pi-code"></i>
+            </div>
+            <div class="stat-content mr-1">
+              <div class="stat-number">{{ 'about.stats.projects.number' | translate }}</div>
+              <div class="stat-label">{{ 'about.stats.projects.label' | translate }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-shadow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-footer" appScrollAnimate>
+    <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.age.label' | translate }}</span>
+      <span class="footer-value">{{ 2024 - 1996 }} {{ 'about.footer.age.value' | translate }}</span>
+    </div>
+    <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.location.label' | translate }}</span>
+      <a target="_blank" class="footer-value footer-link">{{ data?.ubicacion || ('about.footer.location.value' | translate) }}</a>
+    </div>
+    <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.stack.label' | translate }}</span>
+      <span class="footer-value">{{ data?.stack || ('about.footer.stack.value' | translate) }}</span>
+    </div>
+    <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.availability.label' | translate }}</span>
+      <span class="footer-value">{{ 'about.footer.availability.value' | translate }}</span>
+    </div>
+
+     <div class="footer-info">
+      <span class="footer-label">{{ 'about.footer.languages.label' | translate }}</span>
+      <span class="footer-value">{{ 'about.footer.languages.value' | translate }}</span>
+    </div>
+</div>

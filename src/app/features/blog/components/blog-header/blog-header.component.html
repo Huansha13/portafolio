@@ -1,0 +1,29 @@
+<header class="blog-header">
+  <div class="header-container">
+    <div class="header-content mx-3 lg:mx-0">
+      <div class="logo" (click)="goHome()">
+        <i class="pi pi-arrow-left"></i>
+        <span>{{ 'blog.header.backToPortfolio' | translate }}</span>
+      </div>
+
+      <nav class="nav-links gap-2">
+        @if (showAllPostsButton) {
+          <p-button
+            (onClick)="goToBlog()"
+            [label]="'blog.header.allPosts' | translate"
+            icon="pi pi-bookmark"
+            [outlined]="true"
+            size="small">
+          </p-button>
+        }
+        <p-button (onClick)="menu.toggle($event)"
+                  icon="pi pi-globe"
+                  [outlined]="true"
+                  severity="secondary"
+                  size="small"/>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<p-menu #menu [model]="items" [popup]="true"/>

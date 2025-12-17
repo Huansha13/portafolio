@@ -1,0 +1,37 @@
+{
+  "badge": "EXPERTISE TÉCNICA",
+  "title": "Habilidades &",
+  "titleBreak": "Tecnologías",
+  "subtitle": "Construyendo el futuro digital con un stack tecnológico sólido, priorizando la arquitectura limpia y el rendimiento.",
+  "categories": {
+    "frontend": {
+      "title": "Frontend Engineering",
+      "subtitle": "Interfaces inmersivas & UX"
+    },
+    "backend": {
+      "title": "Backend Architecture",
+      "subtitle": "Sistemas escalables & APIs"
+    },
+    "mobile": {
+      "title": "Mobile & Native",
+      "subtitle": "Cross-platform solutions"
+    },
+    "database": {
+      "title": "Bases de Datos",
+      "subtitle": "SQL & NoSQL"
+    },
+    "devops": {
+      "title": "Cloud & DevOps",
+      "subtitle": "Infraestructura & CI/CD"
+    },
+    "tools": {
+      "title": "UI/UX & Tools",
+      "subtitle": "Diseño & Colaboración"
+    }
+  },
+  "footer": {
+    "atomicDesign": "Atomic Design",
+    "cleanCode": "Clean Code",
+    "seoOptimized": "SEO Optimized"
+  }
+}

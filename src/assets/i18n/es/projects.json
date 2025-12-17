@@ -1,0 +1,134 @@
+{
+  "label": "Portfolio",
+  "title": "Proyectos",
+  "tabs": {
+    "projects": "Proyectos",
+    "github": "GitHub"
+  },
+  "loading": "Cargando proyectos",
+  "noProjects": "No hay proyectos disponibles",
+  "defaultDescription": "Proyecto desarrollado con las últimas tecnologías",
+  "viewAll": "Ver todos los proyectos",
+  "data": [
+    {
+      "id": 1,
+      "nombre": "Prototipo App Covid - 19",
+      "descripcion": "Aplicación prototipo para el seguimiento y control de casos de COVID-19",
+      "fecha": "21 de febrero 2021",
+      "link_github": "",
+      "link_demo": "",
+      "version": "V.1.0.0",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/207da975cb5179dfa603579e069ce76229f0b4ec/proyecto/covid/portada.svg",
+      "tecnologias": ["Prototipo", "UI/UX"],
+      "status": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Sistema web, control de inventario",
+      "descripcion": "Sistema de gestión y control de inventario para heladería",
+      "fecha": "15 de Marzo 2021",
+      "link_github": "",
+      "link_demo": "",
+      "version": "V.1.0.0",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/helado-app-inventario/portada.webp",
+      "tecnologias": ["Angular", "Spring Boot", "PostgreSQL"],
+      "status": 1
+    },
+    {
+      "id": 3,
+      "nombre": "Página web, RADIO 101.3 FM",
+      "descripcion": "Sitio web para emisora de radio con streaming en vivo",
+      "fecha": "25 de Abril 2021",
+      "link_github": "https://gitlab.com/Yefer13/radio",
+      "link_demo": "https://comforting-paprenjak-9251b2.netlify.app/",
+      "version": "V.2.1.0",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/radio/portada.webp",
+      "tecnologias": ["Angular", "Firebase"],
+      "status": 1
+    },
+    {
+      "id": 4,
+      "nombre": "Prototipo, Web Book",
+      "descripcion": "Prototipo de plataforma de lectura digital de libros",
+      "fecha": "19 de Junio 2021",
+      "link_github": "",
+      "link_demo": "",
+      "version": "V.1.0.0",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/web-book/portada_.webp",
+      "tecnologias": ["Prototipo", "UI/UX"],
+      "status": 1
+    },
+    {
+      "id": 5,
+      "nombre": "Reto - Fox Music",
+      "descripcion": "Aplicación de música con reproductor y gestión de playlists",
+      "fecha": "14 de Abril 2021",
+      "link_github": "https://github.com/Huansha13/FoxbelMusic",
+      "link_demo": "https://foxbel-musics.netlify.app/",
+      "version": "V.1.0.2",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/music/portada_.webp",
+      "tecnologias": ["Angular", "API REST"],
+      "status": 1
+    },
+    {
+      "id": 6,
+      "nombre": "Mi Portafolio 2021",
+      "descripcion": "Primera versión de mi portafolio personal",
+      "fecha": "20 de Julio 2021",
+      "link_github": "https://github.com/Huansha13/portafolio/tree/releases/portafolio-v1.0.0",
+      "link_demo": "https://hf-portafolio-v1.netlify.app/",
+      "version": "V.1.0.1",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/portafolio/v1/portada.webp",
+      "tecnologias": ["Angular", "Bootstrap"],
+      "status": 1
+    },
+    {
+      "id": 7,
+      "nombre": "Delivery Q' Pido",
+      "descripcion": "Plataforma de delivery de comida con gestión de pedidos",
+      "fecha": "25 de Abril 2021",
+      "link_github": "",
+      "link_demo": "https://q-pido.netlify.app/",
+      "version": "V.2.5.0",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/qpido/portada_.webp",
+      "tecnologias": ["Angular", "Firebase", "Material"],
+      "status": 1
+    },
+    {
+      "id": 8,
+      "nombre": "Mi Portafolio 2023",
+      "descripcion": "Segunda versión de mi portafolio con diseño mejorado",
+      "fecha": "20 de Julio 2023",
+      "link_github": "https://github.com/Huansha13/portafolio/tree/releases/portafolio-v2.0.0",
+      "link_demo": "https://hf-portafolio-v2.netlify.app/",
+      "version": "V.2.0.1",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/portafolio/v2/portada.webp",
+      "tecnologias": ["Angular", "PrimeNG", "SCSS"],
+      "status": 1
+    },
+    {
+      "id": 9,
+      "nombre": "Mi Portafolio 2024",
+      "descripcion": "Versión actual de mi portafolio con diseño moderno y animaciones",
+      "fecha": "03 de Diciembre 2024",
+      "link_github": "https://github.com/Huansha13/portafolio/tree/releases/portafolio-v3.0.0",
+      "link_demo": "https://mi-protafolio-v3.netlify.app/",
+      "version": "V.3.3.3",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/portafolio/v3/portada.webp",
+      "tecnologias": ["Angular", "PrimeNG", "Tailwind"],
+      "status": 1
+    },
+    {
+      "id": 10,
+      "nombre": "ChatGPT (Clone)",
+      "descripcion": "Clon de ChatGPT con integración de OpenAI API",
+      "fecha": "10 de Diciembre 2024",
+      "link_github": "https://github.com/Huansha13/chatgpt-clone",
+      "link_demo": "https://y13chatgpt.vercel.app/",
+      "version": "V.1.0.0",
+      "url_portada": "https://raw.githubusercontent.com/Huansha13/portafolio-assets/refs/heads/main/proyecto/chat/portada.webp",
+      "tecnologias": ["Angular", "OpenAI API", "Tailwind"],
+      "status": 1
+    }
+  ]
+}

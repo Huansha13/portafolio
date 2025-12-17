@@ -1,0 +1,92 @@
+<app-blog-header></app-blog-header>
+
+<div class="blog-detail-page section-alt-bg">
+  @if (loading) {
+    <div class="detail-container px-3 lg:px-0">
+      <p-skeleton width="60%" height="40px" styleClass="mb-4"></p-skeleton>
+      <p-skeleton width="100%" height="400px"></p-skeleton>
+    </div>
+  }
+
+  @if (!loading && post) {
+    <div class="detail-wrapper px-3 lg:px-0">
+      <article class="detail-container">
+        <header class="post-header" appScrollAnimate>
+          <div class="post-tags font-fira-code">
+            @for (tag of post.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+          <h1 class="post-title font-display">{{ post.title }}</h1>
+          <div class="post-meta text-sm">
+            <span><i class="pi pi-user"></i> {{ post.author }}</span>
+            <span><i class="pi pi-calendar"></i> {{ post.date }}</span>
+            <span><i class="pi pi-clock"></i> {{ post.readTime }}</span>
+          </div>
+        </header>
+
+        <div class="post-content" #postContent>
+          <markdown [data]="markdownContent"></markdown>
+        </div>
+      </article>
+
+      <aside class="table-of-contents">
+        <div class="toc-sticky">
+          @if (headings.length > 0) {
+            <nav class="toc-nav">
+              @for (heading of headings; track heading.id) {
+                <a
+                  [href]="'#' + heading.id"
+                  [class]="'toc-link toc-level-' + heading.level"
+                  [class.active]="activeHeadingId === heading.id"
+                  (click)="scrollToHeading($event, heading.id)">
+                  {{ heading.text }}
+                </a>
+              }
+            </nav>
+          }
+        </div>
+      </aside>
+
+      @if (headings.length > 0) {
+        <button class="toc-mobile-btn" (click)="sidebarVisible = true">
+          <i class="pi pi-list"></i>
+        </button>
+      }
+    </div>
+  }
+
+  @if (!loading && !post) {
+    <div class="detail-container px-3 lg:px-0">
+      <div class="not-found">
+        <i class="pi pi-exclamation-circle"></i>
+        <h2>Post no encontrado</h2>
+        <p>El artículo que buscas no existe o ha sido eliminado.</p>
+      </div>
+    </div>
+  }
+</div>
+
+<div class="custom-sidebar" [class.visible]="sidebarVisible">
+  <div class="sidebar-overlay" (click)="sidebarVisible = false"></div>
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <span class="toc-sidebar-title">Contenido</span>
+      <button class="close-btn" (click)="sidebarVisible = false">
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+    @if (headings.length > 0) {
+      <nav class="toc-nav">
+        @for (heading of headings; track heading.id) {
+          <div
+            [class]="'toc-link toc-level-' + heading.level"
+            [class.active]="activeHeadingId === heading.id"
+            (click)="onHeadingClick($event, heading.id)">
+            {{ heading.text }}
+          </div>
+        }
+      </nav>
+    }
+  </div>
+</div>
